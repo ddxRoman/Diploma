@@ -1,0 +1,339 @@
+:root{
+    --bgColor:#ffffffcc;
+}
+
+.all {
+    display: grid;
+    margin-left: 5%;
+    margin-right: 5%;
+    grid-template-rows: 13% 4% 3% 67% 1% 35%; /* Хедер, мис панелька, сама полоска hr, боди, нижний hr, футер*/
+}
+
+div { /* Границы всех Дивов что только есть*/
+    border: 1px solid rgba(255, 0, 0, 0);
+}
+
+.footer-hr{
+    width: 113%;
+    margin-left: -7%;
+    display: grid;
+    margin-top: 1%;
+
+}
+
+.helperSearch input{
+width: 32%;
+}  
+
+.return{
+    width: 33px;
+}
+
+.misPanel-hr {
+    display: grid;
+    /* height: 15px; */
+    margin: 3px 5px;
+    width: 85%;
+    background-image: radial-gradient(farthest-side at 50% -50%, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+    position: relative;
+    border: none;
+    
+}
+
+.header_no_rules {
+    display: grid;
+    grid-template-columns: 100%;
+    margin-bottom: 10px;
+    padding-top: 2%;
+    background-color: rgba(220, 220, 235, 0.603);
+    position: relative;
+    width: 100%;
+}
+
+.relogin{
+    display: grid;
+    justify-items: end;
+}
+
+.no_rules_choice{
+    display: grid;
+    grid-template-columns: 40% 10% 10% 40%;
+    height: 5%;
+    justify-content: start;
+}
+
+.header {
+    height: 100px;
+    display: grid;
+    background-color: rgba(220, 220, 235, 0.247);
+    grid-template-columns: 23% 50% 27%;
+}
+
+body {
+    display: grid;
+     /* background-color: rgba(188, 188, 204, 0.596); */
+     /* background-color: var(--bgColor); */
+}
+
+.iframe-body{
+    background-color: rgba(255, 255, 255, 0);
+ } 
+
+.Right_head {
+    justify-content: end;
+    display: grid;
+    height: 80%;
+    
+}
+
+.knowledge {
+    justify-content: center;
+    align-content: center;
+    display: grid;
+    height: 100%;
+    width: auto;
+}
+
+.MisPanel {
+    width: 100%;
+    /* height: 32px; */
+    justify-content: center;
+    padding-top: 0.3%;
+}
+
+.MD {/*шрифт в кнопке медклауд*/
+    width: 100px;
+    height: 60px;
+    font-weight: 700;
+    color: #385e52;
+}
+
+.CSD {
+    display: grid;
+    padding: 2%;
+    height: 100%;
+
+}
+
+.CSD input {
+    width: 60%;
+    height: 75%;
+}
+
+.body {
+    display: grid;
+    grid-template-columns: 13% 57% 30%;
+    height: 100%;
+}
+
+.lmenu {
+    /* background-color: rgb(230, 230, 230); */
+    padding: 15px;
+    display: grid;
+}
+
+.rmenu {
+    border: 3px solid rgba(0, 255, 221, 0.356);
+    display: grid;
+    height: 100%;
+    /* background-color: rgba(230, 230, 230); */
+}
+
+.container {
+    display: grid;
+}
+
+.no_rules_pictures{
+    display: grid;
+    justify-content: center;
+}
+
+.no_rules_pictures img{
+    width: 100%;
+    height: 100%;
+}
+
+.folders{
+    height: 300px;
+}
+
+iframe {
+    width: 98%;
+    height: 95%;
+    margin: 1%;
+    border: 0px;
+}
+
+/*****************************************/
+
+.docs {
+    height: 300px;
+    width: 100%;
+    margin: 3px;
+}
+
+.allAutorize {
+    display: grid;
+    justify-content: center;
+    margin-top: 5%;
+    grid-template-rows: 40% 50% 10%;
+    height: 100%;
+}
+
+.autorize {
+    display: grid;
+    border: 1px solid rgba(0, 225, 255, 0.062);
+    justify-content: center;
+    margin-top: 50%;
+}
+
+.autorize input {
+    margin-left: 2%;
+    border: 1px solid #f19426;
+    background: linear-gradient(90deg, rgb(0, 238, 255), rgb(0, 179, 185));
+    
+}
+
+.allAutorize img {
+    display: grid;
+    width: 180px;
+    height: 156px;    
+    padding-top: -20px;
+}
+
+.autorize form{
+    margin-top: 20px;
+}
+.autorize a{
+    height: 156px;
+}
+ 
+
+.footer {
+    display: grid;
+    align-content: center;
+    position: absolute;
+    bottom: 10;
+    height: 45px;
+    width: 90%;
+    grid-template-rows: 1fr;
+    grid-template-columns: 40% 20% 40%;
+    /* background-color: rgb(230, 230, 230); */
+}
+
+.clock {
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-size: 35px;
+    font-size: calc(24px+16*(100vw));
+    padding-right: 10px;
+    color: #5a5a5a;
+}
+
+.refresh{
+    justify-self: center;
+}
+
+.refresh img{
+    width: 60px;
+    height: 60px;
+}
+
+textarea[name="body"] {
+    border: 1px solid rgb(0, 255, 221);
+    background-color: #eaf5e5;
+    height: 180px;
+    width: 90%;
+}
+
+label {
+    font-size: 12px;
+    color: rgb(37, 37, 37);
+}
+
+.taskadd {
+    margin: 1% 0% 0% 1%;
+}
+
+.taskheader {
+    /* display: grid; */
+    justify-content: center;
+}
+
+.sms {
+    color: rgb(212, 22, 22);
+    font-size: 18px;
+    font-weight: 900;
+    text-align: center;
+}
+
+.message {
+    border: #ff0000;
+    font-weight: 800;
+}
+
+a{
+    text-decoration: none;
+}
+
+.No_rules_plz_autorization{
+    color: #f12626;
+    font-size: large;
+    text-align: center;
+}
+.ink{
+   text-align: center;
+   color: #818181;
+}
+.ink img{
+    width: 24px;
+    height: 24px;
+}
+.LogoAutorization{
+    padding-bottom: 10px;
+}
+
+form .settings{
+margin-top: 1px;
+}
+
+
+/*  Изменение цвета текста в плейс холдере для разных браузеров.
+
+Современные браузеры 
+   ----------------------------  */
+input::placeholder {
+    color: #444444b6;
+}
+
+/* WebKit, Edge
+      ----------------------------  */
+input::-webkit-input-placeholder {
+    color: #444444b6;
+}
+
+/* Edge
+      ----------------------------  */
+input::-ms-input-placeholder {
+    color: #444444b6;
+}
+
+/* Firefox 4-18
+      ----------------------------  */
+input:-moz-placeholder {
+    color: #444444b6;
+}
+
+/* Firefox 19+
+      ----------------------------  */
+input::-moz-placeholder {
+    color: #444444b6;
+}
+
+/* IE 10-11
+      ----------------------------  */
+input:-ms-input-placeholder {
+    color: #444444b6;
+}
