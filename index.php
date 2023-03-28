@@ -63,13 +63,14 @@ $textColor=$_POST['txtColor'];
         </div> <!-- Конец хедера-->
         <div class="MisPanel">
             <!-- Тут начинает МИС панель.-->
-            <a href="https://docs.google.com/spreadsheets/d/1f6g5RMrzm2Gn0KAlKBroDGILou2tWEqRqbYQOBQaDqA/edit#gid=38707061" target="_blank"><button>Внедрение</button></a>
-            <a href="https://mail.google.com" target="_blank"><button>Почта</button></a>
-            <a href="https://docs.google.com/spreadsheets/d/1UFitKlsbTb7Iu5thfGb4YPRPj27RckkjRg_g_kg6Cas/edit" target="_blank"><button>ЧекЛист</button></a>
-            <a href="https://docs.google.com/spreadsheets/d/1ECgekNqSGOP5MNWge4o1wIHdl8Ep_wAW/edit#gid=1203791252" target="_blank"><button>Трекинг Хелси</button></a>
-            <a href="https://docs.google.com/spreadsheets/d/19YQTTlq0D1Cr2q7G54SXC0jGG9MrvUurH6YdhfSX8Wc/edit#gid=0" target="_blank"><button>Трекинг Общий</button></a>
-            <a href="https://docs.google.com/spreadsheets/d/1831n04opuq0QCen2fzRKy6H8lgLxIxD5sODwKxvh6s4/edit#gid=479952363" target="_blank"><button>Шорт Аналики</button></a>
-        </div><!-- Тут заканчивается МИС панель-->
+            
+            <a href="Test.php" target="_blank"><button>Test</button></a>
+            <button class="info__add">Добавить кнопку</button>
+
+
+
+
+           </div><!-- Тут заканчивается МИС панель-->
         <hr class="misPanel-hr" width="85%"><!-- ХРка полоска -->
        <div class="body">   <!-- Начало Тела сайта -->
             <div class="lmenu"> 
@@ -106,7 +107,7 @@ $textColor=$_POST['txtColor'];
                     <iframe name="task" src="Taskmanager/Task.php">
                     </iframe>
                 </div>
-            <?  } else {
+            <?  } else { 
             ?><div class="not-visible-rmenu"><iframe name="" src=""></iframe></div>
             <?
             }
@@ -131,3 +132,12 @@ $textColor=$_POST['txtColor'];
 </body>
 
 </html>
+<script>
+       
+       $('.info__add').click(function () {
+           name= prompt('Введите название кнопки: ', ['Новая кнопка']);
+         $(this).parent().append($('<a>', {
+           'text': name, 'href': 'folders/docs.php', 'target': '1'
+         }));
+       });
+     </script>
