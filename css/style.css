@@ -108,14 +108,14 @@ body {
     color: #385e52;
 }
 
-.CSD {
+.quick_transition {
     display: grid;
     padding: 2%;
     height: 100%;
 
 }
 
-.CSD input {
+.quick_transition input {
     width: 60%;
     height: 75%;
 }

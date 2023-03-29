@@ -24,11 +24,12 @@ body{
 </style>
     <div class="profile">
     <div class="full_profile_page">
-    <div class="Ava_profile_page"><img src="<?=$avatar?>">
-<input type="file">
+    <div class="Ava_profile_page"><img class="" src="<?=$avatar?>">
+<a href="settings.php"><button class="GoWork"><img class="logo_settings" src="../file/icons/settings.png"></button></a>
     <div class="date_profile_page">  <?=$NickName;?><br>
     <font color="AAFF6B"><b><?=$mail;?></b></font>  <br><br></div>  
-    <div><a href="../index.php"><button class="GoWork">За работу</button></a></div>
+    <div><a href="../index.php"><button class="GoWork">За работу</button></a>
+    </div>
     </div>
     </div>
     </div>

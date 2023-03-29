@@ -33,16 +33,6 @@ font-size: 12px;
     border-radius: 4px;
 }
 
-.full button:hover{
-    background-color: #ff2424;
-    color: rgb(255, 255, 255);
-    border-radius: 12px;
-}
-
-.edit_profile{
-    display: grid;
-    justify-content: end;
-}
 
    A {
     color: rgb(255, 0, 0); /* Цвет ссылок */
@@ -57,44 +47,3 @@ font-size: 12px;
    A:active {
     color: #ff0000; /* Цвет активных ссылок */
    }
-
-   .full_profile_page{
-    display: grid;
-justify-content: center;
-grid-template-columns: 38%;
-   height:10%;
-   }
-   .Ava_profile_page{
-   width: 100%;
-   display: grid;
-   justify-content: center;
-   height: auto;
-}
-
-    .Ava_profile_page img{
-   width: 100%;
-   display: grid;
-   justify-content: center;
-   height: auto;
-}
-
-.img{
-    width: 252px;
-
-}
-.edit_profile{
-    display: grid;
-    margin-right: 5px;
-    margin-top: -45px;
-}
-/* .edit_profile img{
-    display: grid;
-    margin-right: 5px;
-    margin-top: -45px;
-} */
-.date_profile_page{
-    font-size: 22px;
-    font-weight: 900;
-    color: rgb(255, 32, 32);
-    font-family: Georgia, 'Times New Roman', Times, serif;
-}

@@ -1,14 +1,12 @@
 <?
-
 require_once "function/checkaut.php";
 require_once "function/checkrole.php";
 require_once "action/connect.php";
-if ($_SESSION['user']['status'] == 9) {
-    header('Location: index_admin.php');
-    }
 $bgColor=$_POST['bg'];
 $textColor=$_POST['txtColor'];
-
+if ($_SESSION['user']['status'] != 9) {
+    header('Location: index.php');
+    }
 ?>
 
 
@@ -23,24 +21,10 @@ $textColor=$_POST['txtColor'];
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/button.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ORS</title>
+    <title>ORS-Admin</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 </head>
 
-<style>
-    body{
-        background-color: var(--bgColor);
-        background-color: <?= $bgColor?>;
-        color:<?=$textColor?>;
-    }
-    button{
-        color:<?=$textColor?>;
-    }
-    .One{
-        width: 40px;
-        height: 40px;
-    }
-</style>
 
 <body>
     <div class="all">
@@ -56,7 +40,7 @@ $textColor=$_POST['txtColor'];
                 <!--  Просто кнопка на Хелпер -->
                 <a href="https://medcloud.csd.com.ua/" target="_blank">
                     <!--  Просто кнопка на Хелпер -->
-                    <button class="MD">CSD</button>
+                    <button class="MD">Админка</button>
                 </a><!--  Просто кнопка на Хелпер -->
             </div><!--  Просто кнопка на Хелпер -->
             <div class="Right_head">
@@ -81,23 +65,7 @@ $textColor=$_POST['txtColor'];
                 <div class="links">
 
                 
-                <?php if ($_SESSION['user']['status'] == 9) {?>
-                <form action="#" name="bg" method="post">
-                <table>
-<tr>
-    <th>Select your backgroundcolor: </th>
-    <th><input name="bg" type="color" value="<?=$bgColor?>"><br></th>
-</tr>
-<tr>
-    <th>Select text color:</th>
-    <th><input name="txtColor" type="Color" value="<?=$textColor?>"><br></th>
-</tr></table>
-    <button>Применить</button>
-    </form>
-    <form action="#" name="bg" method="post">
-    <button>Clear</button>
-    </form>
-                <?} ?>
+
                 </div>
              </div>
             <div class="container">
