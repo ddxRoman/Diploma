@@ -54,18 +54,11 @@ if ($_SESSION['user']['status'] != 9) {
             
             <a href="Test.php" target="_blank"><button>Test</button></a>
             <button class="info__add">Добавить кнопку</button>
-
-
-
-
            </div><!-- Тут заканчивается МИС панель-->
         <hr class="misPanel-hr" width="85%"><!-- ХРка полоска -->
        <div class="body">   <!-- Начало Тела сайта -->
             <div class="lmenu"> 
                 <div class="links">
-
-                
-
                 </div>
              </div>
             <div class="container">

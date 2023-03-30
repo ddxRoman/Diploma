@@ -1,3 +1,4 @@
+<link rel="stylesheet" type="text/css" href="../css/button.css">
 <?php //session_start();
         require_once 'connect.php'; // Проверка подключения к БД
         $id = $_GET['id']; // получаем айди из ссылки
