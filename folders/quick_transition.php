@@ -8,14 +8,14 @@
     <title>Быстрый переход</title>
 </head>
 <body>
-<form target="_blank" action="../action/header.php" method="post">
-<input type="number" name="sup" placeholder="Helsi">
+<form target="_blank" action="../action/header.php" method="post" >
+<input type="number" name="sup" placeholder="Helsi" min="0">
 <a href="header.php" > 
     <button type="submit">GO</button>
 </a>
 </form>
 <form target="_blank" action="../action/header.php" method="post">
-<input type="number" name="rwk" placeholder="Client">
+<input type="number" name="rwk" placeholder="Client" min="0">
 <a href="header.php" > 
     <button type="submit">GO</button>
 </a>
