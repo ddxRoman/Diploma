@@ -2,18 +2,14 @@
     border-radius: 12px;
     height: 22px;
       width: 22px;
-      /* background-color: #16b6ae; */
       border-color: rgba(120, 137, 175, 0.767);
     }
     .addtask:hover{
       border-radius: 12px;
       height: 22px;
         width: 22px;
-        /* background-color: #19ccc3; */
         border-color: rgba(214, 219, 230, 0.767);
       }
-
-
 
 button{
   background-color: #20a3d657;
@@ -26,13 +22,11 @@ button{
 
 .helper button {
   color: #000000;
-  /* background-color: rgb(143, 150, 147); */
 }
 
 .folders button {
   border-color: rgb(255, 255, 255);
   border-radius: 7px;
-  /* background-color: rgb(134, 185, 129); */
   height: 15%;
   width: 25%;
   color: #000000;
@@ -51,8 +45,6 @@ button{
 .lmenu button {
   border-color: rgb(230, 153, 123);
   border-radius: 4px;
-  /* background-color: rgb(63, 194, 194); */
-  /* height: 7%; */
   min-width: 80%;
   margin: 1px;
   padding: 3px;
@@ -61,8 +53,6 @@ button{
 .lmenu button:hover {
   border-color: rgb(204, 130, 101);
   border-radius: 4px;
-  /* background-color: rgb(40, 211, 211); */
-  /* height: 7%; */
   min-width: 80%;
   margin: 1px;
   padding: 3px;
@@ -73,7 +63,6 @@ button{
     text-align: center;
     border-color: rgb(230, 153, 123);
     min-width: 6.5%;
-    /* background-color: rgba(38, 192, 231, 0.178); */
     padding: 2px;
 }
 
@@ -81,7 +70,6 @@ button{
     text-align: center;
     border-color:rgb(214, 118, 81);
     min-width: 6.5%;
-    /* background-color: rgba(38, 192, 231, 0.288); */
     padding: 2px;
 }
 
@@ -92,13 +80,11 @@ button{
 button {
   border-color: rgb(187, 167, 159);
   border-radius: 15px;
-  /* background-color: rgb(160, 233, 233); */
 }
 
 button:hover {
   border-color: rgb(153, 140, 135);
   border-radius: 15px;
-  /* background-color: rgb(79, 233, 233); */
 }
 
 .autorize button {
@@ -120,5 +106,3 @@ button:hover {
   border-radius: 11px;
   width: 150px;
 }
-
-/* end .slideThree */

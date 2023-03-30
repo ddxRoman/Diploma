@@ -54,7 +54,7 @@ $textColor=$_POST['txtColor'];
             </div>
             <div class="knowledge">
                 <!--  Просто кнопка на Хелпер -->
-                <a href="https://medcloud.csd.com.ua/" target="_blank">
+                <a href="folders/knowledge.php" target="_blank">
                     <!--  Просто кнопка на Хелпер -->
                     <button class="MD">CSD</button>
                 </a><!--  Просто кнопка на Хелпер -->

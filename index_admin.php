@@ -38,7 +38,7 @@ if ($_SESSION['user']['status'] != 9) {
             </div>
             <div class="knowledge">
                 <!--  Просто кнопка на Хелпер -->
-                <a href="https://medcloud.csd.com.ua/" target="_blank">
+                <a href="folders/knowledge.php" target="_blank">
                     <!--  Просто кнопка на Хелпер -->
                     <button class="MD">Админка</button>
                 </a><!--  Просто кнопка на Хелпер -->
@@ -51,7 +51,6 @@ if ($_SESSION['user']['status'] != 9) {
         </div> <!-- Конец хедера-->
         <div class="MisPanel">
             <!-- Тут начинает МИС панель.-->
-            
             <a href="Test.php" target="_blank"><button>Test</button></a>
             <button class="info__add">Добавить кнопку</button>
            </div><!-- Тут заканчивается МИС панель-->
@@ -85,7 +84,7 @@ if ($_SESSION['user']['status'] != 9) {
                 <div></div>
             
             <div class="refresh">
-            <p class="ink"><img src="file\icons\Logo.png" alt="test"><br>
+            <p class="ink"><br><img src="file\icons\Logo.png" alt="test"><br>
                  ORStudio <br> Оксентий Роман Сергеевич Студио <br> Copyright 2022-2023 </p>
             </div>
             <div id="clock" class="clock">         

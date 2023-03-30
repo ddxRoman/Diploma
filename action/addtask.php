@@ -21,7 +21,6 @@ mysqli_query($connect, "INSERT INTO `tasks` (`id`, `name`, `content`, `Status`, 
  VALUES (NULL, '$name', '$body', '0', '$author', '$prioritet','$today','$path')");
   header ('Location: ../Taskmanager/Task.php');
 }
-
 }
 else  echo"False";
 

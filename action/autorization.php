@@ -1,4 +1,5 @@
 <?php
+require_once '../action/connect.php';
 session_start();
 if($_SESSION['user']) header('Location: ../index.php')
 ?>
