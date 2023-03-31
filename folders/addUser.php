@@ -8,21 +8,27 @@ require_once "../function/checkaut.php";
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Добавление пользователя</title>
 </head>
 <body>
+    <h3 align="center">Добавление пользователя</h3>
+    <!--    Надо это все в таблицу сделать --> 
     <Form>
         <input placeholder="Имя">
         <input placeholder="Фамилия">
         <input placeholder="Отчество">
+        <input type="tel" placeholder="Телефон">  <br>
+        <input type="email" placeholder="Почта">
+        <input type="password" placeholder="Пароль"><br>
         <input placeholder="Должность">
-        <input placeholder="Отдел">
-        <input placeholder="Почта">
-        <input placeholder="Пароль">
+        <input placeholder="Отдел"><br>
+        <input type="url" placeholder="Telegram">
+        <input type="url" placeholder="Viber">
+        <input type="url" placeholder="What'sUp"><br>
         <button>Создать</button>
-        <button>Отменить</button>
+        <input type="reset">
     </Form>
-    
+    <button>Отменить</button>
 
 </body>
 </html>
