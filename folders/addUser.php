@@ -14,29 +14,32 @@ require_once "../function/checkaut.php";
 <body>
     <!--    Надо это все в таблицу сделать -->
     <!-- Сделать проверку, какая почта на такую кнопка из МИС и кидает -->
-    <form>
+    <form action="../action/CreateUser.php" method="POST" enctype="multipart/form-data">
     <table>
 
         <caption>Добавление пользователя</caption>
 
     <tr>
-       <td><input placeholder="Имя"></td> 
-      <td><input placeholder="Фамилия"></td>  
-      <td><input placeholder="Отчество"></td>    
+       <td><input required name="name" placeholder="Имя"></td> 
+      <td><input required name="surname" placeholder="Фамилия"></td>  
+      <td><input required name="patronymic" placeholder="Отчество"></td>    
     </tr>
     
     <tr>
-        <td><input type="tel" placeholder="Телефон">  </td>   
-    <td><input type="email" placeholder="Почта"></td>    
-    <td><input type="password" placeholder="Пароль"></td>    
+        <td><input  name="telephone" type="tel" placeholder="Телефон">  </td>   
+    <td><input required name="mail" type="email" placeholder="Почта"></td>    
+    <td><input required name="password" type="password" placeholder="Пароль"></td>    
 </tr>
 <tr></tr>
-    <td> <input placeholder="Должность"></td>  
-    <td> <input placeholder="Отдел"><br></td>   
+    <td> <input  name="post" placeholder="Должность"></td>  
+    <td> <input name="department" placeholder="Отдел"><br></td>   
 </tr>
-<tr><td><input type="url" placeholder="Telegram"></td> 
-    <td><input type="url" placeholder="Viber"></td> 
-<td><input type="url" placeholder="What'sUp"></td> </tr>
+<tr><td><input name="telegram"  placeholder="Telegram"></td> 
+    <td><input  name="viber" placeholder="Viber"></td> 
+<td><input name="whatsapp" placeholder="What'sUp"></td> </tr>
+<tr>
+    <td><label>Фото сотрудника</label><input nmae="photo" type="file"></td>
+</tr>
 <tr><td><button>Создать</button></td> 
 <td><input type="reset"></td> 
 </tr>
