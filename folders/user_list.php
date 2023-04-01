@@ -51,8 +51,6 @@ if ($_SESSION['user']['status'] != 9) {
         </div> <!-- Конец хедера-->
         <div class="MisPanel">
             <!-- Тут начинает МИС панель.-->
-            <a href="Test.php" target="_blank"><button>Test</button></a>
-            <button class="info__add">Добавить кнопку</button>
            </div><!-- Тут заканчивается МИС панель-->
         <hr class="misPanel-hr" width="85%"><!-- ХРка полоска -->
        <div class="body">   <!-- Начало Тела сайта -->
@@ -86,14 +84,4 @@ if ($_SESSION['user']['status'] != 9) {
         </div>
     </div>
 </body>
-
 </html>
-<script>
-       $('.info__add').click(function () {
-           name= prompt('Введите название кнопки: ', ['Новая кнопка']);
-           url= prompt('URL ', ['']);
-         $(this).parent().append($('<a>', {
-           'text': name, 'href': 'http://'+url, 'target': '_blank'
-         }));
-       });
-     </script>
