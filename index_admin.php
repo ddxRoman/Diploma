@@ -18,7 +18,7 @@ if ($_SESSION['user']['status'] != 9) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="icon" type="image" href="file/icons/Logo.png">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/adminStyle.css">   <!-- Надо переработать вот тут, почистить и сделать норм настройки -->
     <link rel="stylesheet" type="text/css" href="css/button.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ORS-Admin</title>
@@ -98,11 +98,11 @@ if ($_SESSION['user']['status'] != 9) {
 
 </html>
 <script>
-       
        $('.info__add').click(function () {
            name= prompt('Введите название кнопки: ', ['Новая кнопка']);
+           url= prompt('URL ', ['']);
          $(this).parent().append($('<a>', {
-           'text': name, 'href': 'folders/docs.php', 'target': '1'
+           'text': name, 'href': 'http://'+url, 'target': '_blank'
          }));
        });
      </script>
