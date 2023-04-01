@@ -58,7 +58,7 @@ if ($_SESSION['user']['status'] != 9) {
        <div class="body">   <!-- Начало Тела сайта -->
             <div class="lmenu"> 
                 <div class="links">
-                    <a href="folders/addUser.php" target="1"><button>Добавить пользователя</button></a>
+                    <a href="folders/user_list.php" target="_blank"><button>Список сотрудников</button></a>
                 </div>
              </div>
             <div class="container">
