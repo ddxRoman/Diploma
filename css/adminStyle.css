@@ -204,6 +204,11 @@ iframe {
  width: 20px;
 }
 
+.user_card_photo{
+    width: 150px;
+    height: 240px;
+}
+
 
 .footer {
     display: grid;

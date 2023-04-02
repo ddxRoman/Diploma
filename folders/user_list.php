@@ -78,7 +78,8 @@ if ($_SESSION['user']['status'] != 9) {
 </thead>
 <?php
         foreach ($personal as $personals) { // Перебор массива $product c его записью в массив $productS
-
+            $personals[10] ='https://teams.microsoft.com/_#/apps/a2da8768-95d5-419e-9441-3b539865b118/search?q='.$personals[10];
+            
             ?>
             
             <tr> 
@@ -90,9 +91,9 @@ if ($_SESSION['user']['status'] != 9) {
                 <td><?=$personals[5]?> </td>
                 <td><?=$personals[8]?> </td>
                 <td><?=$personals[7]?> </td>
-                 <td><a href="<?=$personals[9]?>"><img class="logo_messendger" src="../file/icons/telegram_logo.png" alt="Телеграм"></a> </td> <!-- Тут нужна подменя ссылко, десктоп приложение копирует t.me а веб версия это web.telegram -->
-                 <td><a href="<?=$personals[10]?>"><img class="logo_messendger" src="../file/icons/teams_logo.jpg" alt="Вайбер"></a> </td>
-                 <td><a href="<?=$personals[11]?>"><img class="logo_messendger" src="../file/icons/zoom_logo.png" alt="Zoom"></a> </td>
+                 <td><a href="<?=$personals[9]?>" target="_blank"><img class="logo_messendger"  src="../file/icons/telegram_logo.png" title="Телеграм"></a> </td> <!-- Тут нужна подменя ссылко, десктоп приложение копирует t.me а веб версия это web.telegram -->
+                 <td><a href="<?=$personals[10]?>" target="_blank"><img class="logo_messendger" src="../file/icons/teams_logo.jpg" title="Teams" alt="Teams"></a> </td>
+                 <td><a href="<?=$personals[11]?>" target="_blank"><img class="logo_messendger" src="../file/icons/zoom_logo.png" title="Zoom" alt="Zoom"></a> </td>
             </tr>    
             
 
