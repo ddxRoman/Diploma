@@ -17,8 +17,7 @@ if(mysqli_num_rows($check_admin)>0)
         "id"=>$user['id'],
         "login"=>$user['name'],
         "avatar"=>$user['avatar'],
-        "status"=>$user['status'],
-        "role"=>$user['post']
+        "role"=>$user['role'],
     ];
     header('Location: ../index_admin.php');
 }
@@ -31,13 +30,11 @@ else{     if(mysqli_num_rows($check_user)>0)
         "id"=>$user['id'],
         "name"=>$user['name']
     ];
-    echo "YES";
     header('Location: ../index.php');
 }
 else{
     $_SESSION['sms']='Не верный <br> логин или пароль';
     header('Location: autorization.php');
-    echo "NO";
 }
 }
 ?>

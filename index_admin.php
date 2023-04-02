@@ -4,7 +4,7 @@ require_once "function/checkrole.php";
 require_once "action/connect.php";
 $bgColor=$_POST['bg'];
 $textColor=$_POST['txtColor'];
-if ($_SESSION['user']['status'] != 9) {
+if ($role!= 1) {
     header('Location: index.php');
     }
 ?>
