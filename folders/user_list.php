@@ -11,10 +11,8 @@ if ($_SESSION['user']['status'] != 9) {
     $personal = mysqli_fetch_all($personal); // Выбирает все строки из набора $product и помещает их в массив  $product
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
-
 
 <head>
     <meta charset="UTF-8">
@@ -26,7 +24,6 @@ if ($_SESSION['user']['status'] != 9) {
     <title>ORS-Admin</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 </head>
-
 
 <body>
     <div class="all">
@@ -64,7 +61,6 @@ if ($_SESSION['user']['status'] != 9) {
             
                 <div class="contant">
 
-
 <table>
 <thead>
     <th>Фото</th>
@@ -79,43 +75,29 @@ if ($_SESSION['user']['status'] != 9) {
 <?php
         foreach ($personal as $personals) { // Перебор массива $product c его записью в массив $productS
             $personals[10] ='https://teams.microsoft.com/_#/apps/a2da8768-95d5-419e-9441-3b539865b118/search?q='.$personals[10];
-            
             ?>
-            
             <tr> 
                 <td><img class="personal_face" src="<?=$personals[12]?>"> </td>
-                <td><?=$personals[2]?> </td>
-                <td><?=$personals[1]?> </td>
-                <td><?=$personals[3]?> </td>
+                <td> <a href="user_card.php?mail=<?=$personals[5]?>">       <?=$personals[2]?> </a> </td>
+                <td> <a href="user_card.php?mail=<?=$personals[5]?>">       <?=$personals[1]?> </a> </td>
+                <td> <a href="user_card.php?mail=<?=$personals[5]?>">       <?=$personals[3]?> </a> </td>
                 <td><?=$personals[4]?> </td>
                 <td><?=$personals[5]?> </td>
                 <td><?=$personals[8]?> </td>
                 <td><?=$personals[7]?> </td>
-                 <td><a href="<?=$personals[9]?>" target="_blank"><img class="logo_messendger"  src="../file/icons/telegram_logo.png" title="Телеграм"></a> </td> <!-- Тут нужна подменя ссылко, десктоп приложение копирует t.me а веб версия это web.telegram -->
-                 <td><a href="<?=$personals[10]?>" target="_blank"><img class="logo_messendger" src="../file/icons/teams_logo.jpg" title="Teams" alt="Teams"></a> </td>
-                 <td><a href="<?=$personals[11]?>" target="_blank"><img class="logo_messendger" src="../file/icons/zoom_logo.png" title="Zoom" alt="Zoom"></a> </td>
+                <td><a href="<?=$personals[9]?>" target="_blank"><img class="logo_messendger"  src="../file/icons/telegram_logo.png" title="Телеграм"></a> </td> <!-- Тут нужна подменя ссылко, десктоп приложение копирует t.me а веб версия это web.telegram -->
+                <td><a href="<?=$personals[10]?>" target="_blank"><img class="logo_messendger" src="../file/icons/teams_logo.jpg" title="Teams" alt="Teams"></a> </td>
+                <td><a href="<?=$personals[11]?>" target="_blank"><img class="logo_messendger" src="../file/icons/zoom_logo.png" title="Zoom" alt="Zoom"></a> </td>
             </tr>    
-            
-
-
             <?
         }
       ?>  </table>
-
-
-
-
                 </div>
-           
-        
             <!-- ТАм вообще есть отдельный файл с проверкой, надо с ним поработать -->
-            
         </div>
         <hr class="footer-hr">
         <div class="footer">
-            
                 <div></div>
-            
             <div class="refresh">
             <p class="ink"><br><img src="../file\icons\Logo.png" alt="test"><br>
                  ORStudio <br> Оксентий Роман Сергеевич Студио <br> Copyright 2022-2023 </p>

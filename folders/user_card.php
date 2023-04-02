@@ -11,8 +11,8 @@
     <h3>Карточка сотрудника</h3>
 <?php 
 require_once '../action/connect.php';
-$mail=$_GET['em'];
-$person = mysqli_query($connect, "SELECT * FROM `personal` ORDER BY `id`"); // Подключение к определенной таблице, и получение Статуса записи
+$mail=$_GET['mail'];
+$person = mysqli_query($connect, "SELECT * FROM `personal` ORDER BY `mail`"); // Подключение к определенной таблице, и получение Статуса записи
 $person = mysqli_fetch_all($person); // Выбирает все строки из набора $product и помещает их в массив  $product
     foreach($person as $persons){
         if($persons[5]==$mail){

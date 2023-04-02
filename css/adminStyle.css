@@ -195,26 +195,25 @@ iframe {
 .autorize form{
     margin-top: 20px;
 }
+
 .autorize a{
     height: 156px;
 }
- 
+
 .logo_messendger{
- height: 20px;
- width: 20px;
+height: 20px;
+width: 20px;
 }
 
 .user_card_photo{
-    width: 150px;
-    height: 240px;
+    width: 50%;
+    max-width: 200px;
 }
-
 
 .footer {
     display: grid;
     align-content: start;
     justify-content: end;
-    /* position: absolute; */
     bottom: 10;
     width: 90%;
     grid-template-rows: 1fr;
