@@ -64,6 +64,8 @@ width: 32%;
 
 body {
     display: grid;
+    height: auto;
+
 }
 
 .iframe-body{
@@ -197,12 +199,17 @@ iframe {
     height: 156px;
 }
  
+.logo_messendger{
+ height: 20px;
+ width: 20px;
+}
+
 
 .footer {
     display: grid;
     align-content: start;
     justify-content: end;
-    position: absolute;
+    /* position: absolute; */
     bottom: 10;
     width: 90%;
     grid-template-rows: 1fr;
@@ -296,6 +303,7 @@ table{
     width: 60px;
     height: 90px;
 }
+
 
 caption {
     font-family: annabelle, cursive;

@@ -66,7 +66,16 @@ if ($_SESSION['user']['status'] != 9) {
 
 
 <table>
-<thead>Фото</thead>
+<thead>
+    <th>Фото</th>
+    <th>Фамилия</th>
+    <th>Имя</th>
+    <th>Отчество</th>
+    <th>Номер телефона</th>
+    <th>Почта</th>
+    <th>Отдел</th>
+    <th>Должность</th>
+</thead>
 <?php
         foreach ($personal as $personals) { // Перебор массива $product c его записью в массив $productS
 
@@ -79,6 +88,11 @@ if ($_SESSION['user']['status'] != 9) {
                 <td><?=$personals[3]?> </td>
                 <td><?=$personals[4]?> </td>
                 <td><?=$personals[5]?> </td>
+                <td><?=$personals[8]?> </td>
+                <td><?=$personals[7]?> </td>
+                 <td><a href="<?=$personals[9]?>"><img class="logo_messendger" src="../file/icons/telegram_logo.png" alt="Телеграм"></a> </td> <!-- Тут нужна подменя ссылко, десктоп приложение копирует t.me а веб версия это web.telegram -->
+                 <td><a href="<?=$personals[10]?>"><img class="logo_messendger" src="../file/icons/teams_logo.jpg" alt="Вайбер"></a> </td>
+                 <td><a href="<?=$personals[11]?>"><img class="logo_messendger" src="../file/icons/zoom_logo.png" alt="Zoom"></a> </td>
             </tr>    
             
 

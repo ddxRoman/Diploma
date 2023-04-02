@@ -35,8 +35,8 @@ require_once "../function/checkaut.php";
     <td> <input name="department" placeholder="Отдел"><br></td>   
 </tr>
 <tr><td><input name="telegram"  placeholder="Telegram"></td> 
-    <td><input  name="viber" placeholder="Viber"></td> 
-<td><input name="whatsapp" placeholder="What'sUp"></td> </tr>
+    <td><input  name="zoom" placeholder="Zoom"></td> 
+<td><input name="teams" placeholder="Teams"></td> </tr>
 <tr>
     <td><label>Фото сотрудника</label><input name="photo" type="file"></td>
 </tr>
