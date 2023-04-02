@@ -21,7 +21,6 @@ body{
 }
 </style>
     <div class="allAutorize">
-
     <div class="autorize">
     <a href="https://github.com/ddxRoman"><img src="../file/icons/Logo.png" alt="Logo" title="ORStudio"></a>
     <form action="/action/signin.php" method="post">

@@ -1,11 +1,11 @@
 <?
 
 require_once "function/checkaut.php";
-require_once "function/checkrole.php";
+// require_once "function/checkrole.php";
 require_once "action/connect.php";
-if ($_SESSION['user']['status'] == 9) {
-    header('Location: index_admin.php');
-    }
+// if ($_SESSION['user']['status'] == 9) {
+//     header('Location: index_admin.php');
+//     }
 $bgColor=$_POST['bg'];
 $textColor=$_POST['txtColor'];
 

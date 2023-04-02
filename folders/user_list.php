@@ -78,9 +78,9 @@ if ($_SESSION['user']['status'] != 9) {
             ?>
             <tr> 
                 <td><img class="personal_face" src="<?=$personals[12]?>"> </td>
-                <td> <a href="user_card.php?mail=<?=$personals[5]?>">       <?=$personals[2]?> </a> </td>
-                <td> <a href="user_card.php?mail=<?=$personals[5]?>">       <?=$personals[1]?> </a> </td>
-                <td> <a href="user_card.php?mail=<?=$personals[5]?>">       <?=$personals[3]?> </a> </td>
+                <td> <a href="user_card.php?mail=<?=$personals[5]?>"><?=$personals[2]?> </a> </td>
+                <td> <a href="user_card.php?mail=<?=$personals[5]?>"><?=$personals[1]?> </a> </td>
+                <td> <a href="user_card.php?mail=<?=$personals[5]?>"><?=$personals[3]?> </a> </td>
                 <td><?=$personals[4]?> </td>
                 <td><?=$personals[5]?> </td>
                 <td><?=$personals[8]?> </td>
