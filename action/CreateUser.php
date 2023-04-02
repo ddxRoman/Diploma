@@ -22,7 +22,16 @@ $telegram ='https://web.telegram.org/k/#@'.$telegram;
 $path='../file/personal/'.time().$_FILES['photo']['name'];
 
 
-if(!move_uploaded_file($_FILES['photo']['tmp_name'],$path)){
+
+
+$check_mail = mysqli_query($connect, "SELECT * FROM `personal` WHERE `mail` = '$mail' ");
+
+if(mysqli_num_rows($check_mail)>0){
+$_SESSION['sms']='Пользователь с такой почтой уже существует в системе';
+header ('Location: ../folders/addUser.php');
+} else{
+ header ('Location: ../folders/user_card.php?em='.$mail);
+ if(!move_uploaded_file($_FILES['photo']['tmp_name'],$path)){
     $path='../file/personal/NoFace.png';
 mysqli_query($connect, "INSERT INTO `personal` (`id`, `name`, `surname`, `patronymic`, `telephone`,`mail`,`password`,`post`,`department`,`telegram`,`teams`,`zoom`,`photo`)
 VALUES (NULL, '$name', '$surname', '$patronymic', '$telephone','$mail','$password','$post','$department','$telegram','$teams','$zoom','$path')");
@@ -31,9 +40,5 @@ else{
     mysqli_query($connect, "INSERT INTO `personal` (`id`, `name`, `surname`, `patronymic`, `telephone`,`mail`,`password`,`post`,`department`,`telegram`,`teams`,`zoom`,`photo`)
     VALUES (NULL, '$name', '$surname', '$patronymic', '$telephone','$mail','$password','$post','$department','$telegram','$teams','$zoom','$path')");
 }
-
-
-
- header ('Location: ../folders/user_card.php?em='.$mail);
-
+}
 ?>

@@ -1,6 +1,7 @@
 <?
 require_once '../action/connect.php';
 require_once "../function/checkaut.php";
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,7 +47,12 @@ require_once "../function/checkaut.php";
 
         </table>
     </Form>
-
+    <div class="message">
+<p class="sms"> <?echo $_SESSION['sms']; ?> </p> 
+</div>
+ <?
+unset($_SESSION['sms']);
+?> 
 
 </body>
 </html>
