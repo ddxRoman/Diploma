@@ -292,6 +292,11 @@ table{
     border: 3px solid rgba(109, 109, 109, 0.432);
 } 
 
+.personal_face{
+    width: 60px;
+    height: 90px;
+}
+
 caption {
     font-family: annabelle, cursive;
     font-weight: bold;

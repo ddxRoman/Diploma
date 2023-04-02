@@ -7,6 +7,8 @@ $textColor=$_POST['txtColor'];
 if ($_SESSION['user']['status'] != 9) {
     header('Location: index.php');
     }
+    $personal = mysqli_query($connect, "SELECT * FROM `personal` ORDER BY `id`"); // Подключение к определенной таблице, и получение Статуса записи
+    $personal = mysqli_fetch_all($personal); // Выбирает все строки из набора $product и помещает их в массив  $product
 ?>
 
 
@@ -59,12 +61,38 @@ if ($_SESSION['user']['status'] != 9) {
                 <a href="addUser.php" target="1"><button>Добавить сотрудника</button></a>
                 </div>
              </div>
-            <div class="container">
-                <iframe name="1" src="">
+            
+                <div class="contant">
 
-   </iframe>
+
+<table>
+<thead>Фото</thead>
+<?php
+        foreach ($personal as $personals) { // Перебор массива $product c его записью в массив $productS
+
+            ?>
+            
+            <tr> 
+                <td><img class="personal_face" src="<?=$personals[12]?>"> </td>
+                <td><?=$personals[2]?> </td>
+                <td><?=$personals[1]?> </td>
+                <td><?=$personals[3]?> </td>
+                <td><?=$personals[4]?> </td>
+                <td><?=$personals[5]?> </td>
+            </tr>    
+            
+
+
+            <?
+        }
+      ?>  </table>
+
+
+
+
+                </div>
            
-            </div>
+        
             <!-- ТАм вообще есть отдельный файл с проверкой, надо с ним поработать -->
             
         </div>

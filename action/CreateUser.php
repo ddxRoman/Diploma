@@ -15,13 +15,17 @@ $whatsapp=$_POST['whatsapp'];
 $photo=$_POST['photo'];
 
 
-$path='../file/personal'.time().$_FILES['photo']['name'];
-
+$path='../file/personal/'.time().$_FILES['photo']['name'];
+if(!move_uploaded_file($_FILES['photo']['tmp_name'],$path)){
+    $path='../file/personal/NoFace.png';
 mysqli_query($connect, "INSERT INTO `personal` (`id`, `name`, `surname`, `patronymic`, `telephone`,`mail`,`password`,`post`,`department`,`telegram`,`viber`,`whatsapp`,`photo`)
 VALUES (NULL, '$name', '$surname', '$patronymic', '$telephone','$mail','$password','$post','$department','$telegram','$viber','$whatsapp','$path')");
-
+}
+else{
+    mysqli_query($connect, "INSERT INTO `personal` (`id`, `name`, `surname`, `patronymic`, `telephone`,`mail`,`password`,`post`,`department`,`telegram`,`viber`,`whatsapp`,`photo`)
+    VALUES (NULL, '$name', '$surname', '$patronymic', '$telephone','$mail','$password','$post','$department','$telegram','$viber','$whatsapp','$path')");
+}
 echo $name.'<br>'. $surname.'<br>'. $patronymic.'<br>'. $telephone.'<br>'. $mail.'<br>'. $password.'<br>'. $post.'<br>'. $department.'<br>'. $telegram.'<br>'. $viber.'<br>'. $whatsapp.'<br>';
-
 header ('Location: ../folders/user_card.php');
 
 ?>

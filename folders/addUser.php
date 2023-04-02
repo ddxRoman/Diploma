@@ -22,7 +22,7 @@ require_once "../function/checkaut.php";
     <tr>
        <td><input required name="name" placeholder="Имя"></td> 
       <td><input required name="surname" placeholder="Фамилия"></td>  
-      <td><input required name="patronymic" placeholder="Отчество"></td>    
+      <td><input  name="patronymic" placeholder="Отчество"></td>    
     </tr>
     
     <tr>
@@ -38,7 +38,7 @@ require_once "../function/checkaut.php";
     <td><input  name="viber" placeholder="Viber"></td> 
 <td><input name="whatsapp" placeholder="What'sUp"></td> </tr>
 <tr>
-    <td><label>Фото сотрудника</label><input nmae="photo" type="file"></td>
+    <td><label>Фото сотрудника</label><input name="photo" type="file"></td>
 </tr>
 <tr><td><button>Создать</button></td> 
 <td><input type="reset"></td> 
