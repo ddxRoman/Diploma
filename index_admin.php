@@ -63,8 +63,7 @@ if ($role!= 1) {
              </div>
             <div class="container">
                 <iframe name="1" src="">
-
-   </iframe>
+                </iframe>
            
             </div>
             <!-- ТАм вообще есть отдельный файл с проверкой, надо с ним поработать -->

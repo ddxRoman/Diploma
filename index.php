@@ -8,7 +8,6 @@ require_once "action/connect.php";
 //     }
 $bgColor=$_POST['bg'];
 $textColor=$_POST['txtColor'];
-
 ?>
 
 
@@ -107,6 +106,7 @@ $textColor=$_POST['txtColor'];
                 </div>
              </div>
             <div class="container">
+                
                 <iframe name="1" src="">
 
    </iframe>

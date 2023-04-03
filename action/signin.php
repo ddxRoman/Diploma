@@ -20,23 +20,21 @@ if(mysqli_num_rows($check_admin)>0)
         "role"=>$user['role'],
         "status"=>$user['status']
     ];
-    // header('Location: ../index_admin.php');
-    ?><span><?
-    print_r($_SESSION['user']['status']);
-    echo "<br>Admin";
-    ?></span><?
+   header('Location: ../index_admin.php');
 }
 else{     if(mysqli_num_rows($check_user)>0)
     {
         $user = mysqli_fetch_assoc($check_user);
-    print_r($check_user);
-    $_SESSION['user'] = 
+     $_SESSION['user'] =
     [
         "id"=>$user['id'],
-        "name"=>$user['name']
+        "name"=>$user['name'],
+        "status"=>$user['status']
     ];
-    // header('Location: ../index.php');
-    echo"User";
+
+     header('Location: ../index.php');
+    echo "User";
+    echo ($_SESSION['user']['status']);
 }
 else{
     $_SESSION['sms']='Не верный <br> логин или пароль';
