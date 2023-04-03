@@ -1,7 +1,7 @@
-<?
-
+<?    
+session_start();
 require_once "function/checkaut.php";
-// require_once "function/checkrole.php";
+require_once "function/checkrole.php";
 require_once "action/connect.php";
 // if ($_SESSION['user']['status'] == 9) {
 //     header('Location: index_admin.php');
@@ -54,10 +54,16 @@ $textColor=$_POST['txtColor'];
             </div>
             <div class="knowledge">
                 <!--  Просто кнопка на Хелпер -->
+                <? if($_SESSION['user']['status'] == 9){?>
+                    <a href="index_admin.php" target="_blank">
+                    <!--  Просто кнопка на Админка -->
+                    <button class="MD">Админка</button>
+                </a><!--  Просто кнопка на Админку-->
+                <?} else{?>
                 <a href="folders/knowledge.php" target="_blank">
                     <!--  Просто кнопка на Хелпер -->
                     <button class="MD">CSD</button>
-                </a><!--  Просто кнопка на Хелпер -->
+                </a><!--  Просто кнопка на Хелпер --> <?}?>
             </div><!--  Просто кнопка на Хелпер -->
             <div class="Right_head">
                 <!-- Правый верхний блок с профилем-->
@@ -85,7 +91,7 @@ $textColor=$_POST['txtColor'];
                 <form action="#" name="bg" method="post">
                 <table>
 <tr>
-    <th>Select your backgroundcolor: </th>
+    <th>Select  background: </th>
     <th><input name="bg" type="color" value="<?=$bgColor?>"><br></th>
 </tr>
 <tr>

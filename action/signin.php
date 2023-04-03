@@ -11,15 +11,20 @@ echo "Логин-".$login."<br>"." Пароль-".$password;
 if(mysqli_num_rows($check_admin)>0)
 {
     $user = mysqli_fetch_assoc($check_admin);
-    print_r($check_admin);
+
     $_SESSION['user'] = 
     [
         "id"=>$user['id'],
         "login"=>$user['name'],
         "avatar"=>$user['avatar'],
         "role"=>$user['role'],
+        "status"=>$user['status']
     ];
-    header('Location: ../index_admin.php');
+    // header('Location: ../index_admin.php');
+    ?><span><?
+    print_r($_SESSION['user']['status']);
+    echo "<br>Admin";
+    ?></span><?
 }
 else{     if(mysqli_num_rows($check_user)>0)
     {
@@ -30,7 +35,8 @@ else{     if(mysqli_num_rows($check_user)>0)
         "id"=>$user['id'],
         "name"=>$user['name']
     ];
-    header('Location: ../index.php');
+    // header('Location: ../index.php');
+    echo"User";
 }
 else{
     $_SESSION['sms']='Не верный <br> логин или пароль';
