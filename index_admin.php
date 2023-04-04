@@ -33,12 +33,11 @@ if ($role!= 1) {
             <!-- Общий Блок на шапку-->
             <div class="quick_transition">
                 <!-- Блок С полями в левом верхнем углу-->
-                <? require_once "folders/quick_transition.php"; ?>
                 <!-- Подключение файла в котором поля с нашими заказами-->
             </div>
             <div class="knowledge">
                 <!--  Просто кнопка на Хелпер -->
-                <a href="folders/knowledge.php" target="_blank">
+                <a href="index.php" target="_blank">
                     <!--  Просто кнопка на Хелпер -->
                     <button class="MD">Админка</button>
                 </a><!--  Просто кнопка на Хелпер -->

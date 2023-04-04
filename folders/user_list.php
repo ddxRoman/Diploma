@@ -37,7 +37,7 @@ if ($_SESSION['user']['status'] != 9) {
             </div>
             <div class="knowledge">
                 <!--  Просто кнопка на Хелпер -->
-                <a href="folders/knowledge.php" target="_blank">
+                <a href="../index.php" target="_blank">
                     <!--  Просто кнопка на Хелпер -->
                     <button class="MD">Админка</button>
                 </a><!--  Просто кнопка на Хелпер -->
