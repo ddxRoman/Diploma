@@ -8,7 +8,15 @@
     <title>Document</title>
 </head>
 <body>
-    <h3>Карточка сотрудника</h3>
+
+<style>
+    table{
+        border: 2px solid #000;
+    }
+    th{
+        border: 2px solid #000;
+    }
+</style>
 <?php 
 require_once '../action/connect.php';
 $mail=$_GET['mail'];
@@ -17,7 +25,27 @@ $person = mysqli_fetch_all($person); // Выбирает все строки и�
     foreach($person as $persons){
         if($persons[5]==$mail){
             ?> 
-            <img src="<?=$persons[12]?>" class="user_card_photo">
+            <table>
+                <thead>    <h3>Карточка сотрудника</h3></thead>
+                <tr> <th></th>
+                <th>ФИО:</th>
+                </tr>
+                <tr>
+                <th rowspan="5"><img src="<?=$persons[12]?>" class="user_card_photo"></th>
+                <th><br><?= $persons[2], " ",  $persons[1], " ", $persons[3] ?></th>
+                <th><?= $persons[4]?></th>
+                <th><?= $persons[5]?></th>
+                </tr>
+                <tr>
+                <th><?= $persons[7]?></th>
+                <th><?= $persons[8]?></th>
+            </tr>
+            <tr>
+                    <th><?= $persons[9]?></th>
+            </tr> 
+            </table>
+
+
             <? echo '<br>'."Имя: ", $persons[1], "Фамилия: ". $persons[2]. "Отчество: ". $persons[3]. "Телефон: ". $persons[4]. "Почта: ". 
             $persons[5]."Должность: ". $persons[6]."Отдел: ". $persons[7]. "Telegram: ". $persons[8]."Teams: ". $persons[9]. "Zoom: ".$persons[10]."<br>";
         }
@@ -25,5 +53,7 @@ $person = mysqli_fetch_all($person); // Выбирает все строки и�
 
 
     ?>
+            
+           
 </body>
 </html>
