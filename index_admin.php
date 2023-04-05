@@ -37,7 +37,7 @@ if ($role!= 1) {
             </div>
             <div class="knowledge">
                 <!--  Просто кнопка на Хелпер -->
-                <a href="index.php" target="_blank">
+                <a href="index.php" target="_self">
                     <!--  Просто кнопка на Хелпер -->
                     <button class="MD">Админка</button>
                 </a><!--  Просто кнопка на Хелпер -->
@@ -57,7 +57,7 @@ if ($role!= 1) {
        <div class="body">   <!-- Начало Тела сайта -->
             <div class="lmenu"> 
                 <div class="links">
-                    <a href="folders/user_list.php" target="_blank"><button>Список сотрудников</button></a>
+                    <a href="folders/user_list.php" target="_self"><button>Список сотрудников</button></a>
                 </div>
              </div>
             <div class="container">

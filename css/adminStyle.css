@@ -204,6 +204,10 @@ iframe {
 height: 20px;
 width: 20px;
 }
+.logo_messendger_user_card{
+    width: 35px;
+    height: 35px;
+}
 
 .user_card_photo{
     width: 50%;

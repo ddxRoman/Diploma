@@ -24,6 +24,7 @@ $person = mysqli_query($connect, "SELECT * FROM `personal` ORDER BY `mail`"); //
 $person = mysqli_fetch_all($person); // Выбирает все строки из набора $product и помещает их в массив  $product
     foreach($person as $persons){
         if($persons[5]==$mail){
+            
             ?> 
             <table>
                 <thead>    <h3>Карточка сотрудника</h3></thead>
@@ -41,11 +42,14 @@ $person = mysqli_fetch_all($person); // Выбирает все строки и�
                 <th><?= $persons[8]?></th>
             </tr>
             <tr>
-                    <th><?= $persons[9]?></th>
-            </tr> 
+                <th>
+                    <a href="<?= $persons[9]?>"><img src="../file/icons/telegram_logo.png" class="logo_messendger_user_card"></a>
+                    <a href="<?= $persons[10]?>"><img src="../file/icons/teams_logo.jpg" class="logo_messendger_user_card"></a>
+                    <a href="<?= $persons[11]?>"><img src="../file/icons/zoom_logo.png" class="logo_messendger_user_card"></a>
+
+                </th>
+            </tr>
             </table>
-
-
             <? echo '<br>'."Имя: ", $persons[1], "Фамилия: ". $persons[2]. "Отчество: ". $persons[3]. "Телефон: ". $persons[4]. "Почта: ". 
             $persons[5]."Должность: ". $persons[6]."Отдел: ". $persons[7]. "Telegram: ". $persons[8]."Teams: ". $persons[9]. "Zoom: ".$persons[10]."<br>";
         }

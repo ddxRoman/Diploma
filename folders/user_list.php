@@ -37,7 +37,7 @@ if ($_SESSION['user']['status'] != 9) {
             </div>
             <div class="knowledge">
                 <!--  Просто кнопка на Хелпер -->
-                <a href="../index.php" target="_blank">
+                <a href="../index.php" target="_self">
                     <!--  Просто кнопка на Хелпер -->
                     <button class="MD">Админка</button>
                 </a><!--  Просто кнопка на Хелпер -->
@@ -74,7 +74,6 @@ if ($_SESSION['user']['status'] != 9) {
 </thead>
 <?php
         foreach ($personal as $personals) { // Перебор массива $product c его записью в массив $productS
-            $personals[10] ='https://teams.microsoft.com/_#/apps/a2da8768-95d5-419e-9441-3b539865b118/search?q='.$personals[10];
             ?>
             <tr> 
                 <td><img class="personal_face" src="<?=$personals[12]?>"> </td>

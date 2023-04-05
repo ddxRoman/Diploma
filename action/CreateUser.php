@@ -20,17 +20,16 @@ $zoom=$_POST['zoom'];
 $telegram=str_replace('https://t.me/','',$telegram);
 $telegram ='https://web.telegram.org/k/#@'.$telegram;
 $path='../file/personal/'.time().$_FILES['photo']['name'];
-
-
-
-
 $check_mail = mysqli_query($connect, "SELECT * FROM `personal` WHERE `mail` = '$mail' ");
+
+$teams ='https://teams.microsoft.com/_#/apps/a2da8768-95d5-419e-9441-3b539865b118/search?q='.$teams;
+echo $teams;
 
 if(mysqli_num_rows($check_mail)>0){
 $_SESSION['sms']='Пользователь с такой почтой уже существует в системе';
-header ('Location: ../folders/addUser.php');
+ header ('Location: ../folders/addUser.php');
 } else{
- header ('Location: ../folders/user_card.php?em='.$mail);
+  header ('Location: ../folders/user_card.php?mail='.$mail);
  if(!move_uploaded_file($_FILES['photo']['tmp_name'],$path)){
     $path='../file/personal/NoFace.png';
 mysqli_query($connect, "INSERT INTO `personal` (`id`, `name`, `surname`, `patronymic`, `telephone`,`mail`,`password`,`post`,`department`,`telegram`,`teams`,`zoom`,`photo`)

@@ -51,12 +51,12 @@ $textColor=$_POST['txtColor'];
             <div class="knowledge">
                 <!--  Просто кнопка на Хелпер -->
                 <? if($_SESSION['user']['status'] == 9){?>
-                    <a href="index_admin.php" target="_blank">
+                    <a href="index_admin.php" target="_self">
                     <!--  Просто кнопка на Админка -->
                     <button class="MD">Админка</button>
                 </a><!--  Просто кнопка на Админку-->
                 <?} else{?>
-                <a href="folders/knowledge.php" target="_blank">
+                <a href="folders/knowledge.php" target="_self">
                     <!--  Просто кнопка на Хелпер -->
                     <button class="MD">CSD</button>
                 </a><!--  Просто кнопка на Хелпер --> <?}?>
