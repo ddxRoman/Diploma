@@ -13,10 +13,9 @@
     .user_card_table{
         border: 2px solid #000;
         width: 100%;
-        /* align-items:flex-start; */
     }
     th{
-        /* border: 2px solid #000; */
+        border: 2px solid #000;
     }
     .user_card{
         width: 80%;
@@ -47,16 +46,12 @@ $person = mysqli_fetch_all($person); // Выбирает все строки и�
             </tr>
             <tr>
                 <th>
-                    <? 
-                     if($persons[9]!=Null){
-                                        ?><a href="<?= $persons[9]?>"><img src="../file/icons/telegram_logo.png" class="logo_messendger_user_card"></a><?
-                    } 
-                    if($persons[10]!=Null){
-                    ?>
+                    <?
+                     if($persons[9]!=Null){?>
+                     <a href="<?= $persons[9]?>"><img src="../file/icons/telegram_logo.png" class="logo_messendger_user_card"></a><?
+                    }if($persons[10]!=Null){?>
                     <a href="<?= $persons[10]?>"><img src="../file/icons/teams_logo.jpg" class="logo_messendger_user_card"></a>
-                    <?}
-                    if($persons[11]!=Null){
-                    ?>
+                    <?}if($persons[11]!=Null){?>
                     <a href="<?= $persons[11]?>"><img src="../file/icons/zoom_logo.png" class="logo_messendger_user_card"></a>
                     <?}?>
                 </th>

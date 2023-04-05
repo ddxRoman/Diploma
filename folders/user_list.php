@@ -84,9 +84,15 @@ if ($_SESSION['user']['status'] != 9) {
                 <td><?=$personals[5]?> </td>
                 <td><?=$personals[8]?> </td>
                 <td><?=$personals[7]?> </td>
+                <?if($personals[9]!=Null){?>
                 <td><a href="<?=$personals[9]?>" target="_blank"><img class="logo_messendger"  src="../file/icons/telegram_logo.png" title="Телеграм"></a> </td> <!-- Тут нужна подменя ссылко, десктоп приложение копирует t.me а веб версия это web.telegram -->
+                <?} 
+                if($personals[10]!=Null){?>
                 <td><a href="<?=$personals[10]?>" target="_blank"><img class="logo_messendger" src="../file/icons/teams_logo.jpg" title="Teams" alt="Teams"></a> </td>
+                <?} 
+                if($personals[11]!=Null){?>
                 <td><a href="<?=$personals[11]?>" target="_blank"><img class="logo_messendger" src="../file/icons/zoom_logo.png" title="Zoom" alt="Zoom"></a> </td>
+                <?}?>
             </tr>    
             <?
         }
