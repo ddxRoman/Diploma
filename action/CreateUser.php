@@ -18,12 +18,14 @@ $telegram=$_POST['telegram'];
 $teams=$_POST['teams'];
 $zoom=$_POST['zoom'];
 $telegram=str_replace('https://t.me/','',$telegram);
-$telegram ='https://web.telegram.org/k/#@'.$telegram;
+if($telegram!=''){
+$telegram ='https://web.telegram.org/k/#@'.$telegram;}
+else {$telegram==Null;}
 $path='../file/personal/'.time().$_FILES['photo']['name'];
 $check_mail = mysqli_query($connect, "SELECT * FROM `personal` WHERE `mail` = '$mail' ");
-
-$teams ='https://teams.microsoft.com/_#/apps/a2da8768-95d5-419e-9441-3b539865b118/search?q='.$teams;
-echo $teams;
+if($teams!=''){
+$teams ='https://teams.microsoft.com/_#/apps/a2da8768-95d5-419e-9441-3b539865b118/search?q='.$teams;}
+else{$teams="";}
 
 if(mysqli_num_rows($check_mail)>0){
 $_SESSION['sms']='Пользователь с такой почтой уже существует в системе';

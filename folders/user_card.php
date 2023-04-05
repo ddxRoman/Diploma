@@ -10,11 +10,17 @@
 <body>
 
 <style>
-    table{
+    .user_card_table{
         border: 2px solid #000;
+        width: 100%;
+        /* align-items:flex-start; */
     }
     th{
-        border: 2px solid #000;
+        /* border: 2px solid #000; */
+    }
+    .user_card{
+        width: 80%;
+        justify-self: center;
     }
 </style>
 <?php 
@@ -26,13 +32,11 @@ $person = mysqli_fetch_all($person); // Выбирает все строки и�
         if($persons[5]==$mail){
             
             ?> 
-            <table>
+            <div class="user_card">
+            <table class="user_card_table">
                 <thead>    <h3>Карточка сотрудника</h3></thead>
-                <tr> <th></th>
-                <th>ФИО:</th>
-                </tr>
                 <tr>
-                <th rowspan="5"><img src="<?=$persons[12]?>" class="user_card_photo"></th>
+                <th rowspan="2"><a href="<?= $persons[12]?>"><img src="<?=$persons[12]?>" class="user_card_photo"></a></th>
                 <th><br><?= $persons[2], " ",  $persons[1], " ", $persons[3] ?></th>
                 <th><?= $persons[4]?></th>
                 <th><?= $persons[5]?></th>
@@ -43,21 +47,24 @@ $person = mysqli_fetch_all($person); // Выбирает все строки и�
             </tr>
             <tr>
                 <th>
-                    <a href="<?= $persons[9]?>"><img src="../file/icons/telegram_logo.png" class="logo_messendger_user_card"></a>
+                    <? 
+                     if($persons[9]!=Null){
+                                        ?><a href="<?= $persons[9]?>"><img src="../file/icons/telegram_logo.png" class="logo_messendger_user_card"></a><?
+                    } 
+                    if($persons[10]!=Null){
+                    ?>
                     <a href="<?= $persons[10]?>"><img src="../file/icons/teams_logo.jpg" class="logo_messendger_user_card"></a>
+                    <?}
+                    if($persons[11]!=Null){
+                    ?>
                     <a href="<?= $persons[11]?>"><img src="../file/icons/zoom_logo.png" class="logo_messendger_user_card"></a>
-
+                    <?}?>
                 </th>
             </tr>
             </table>
-            <? echo '<br>'."Имя: ", $persons[1], "Фамилия: ". $persons[2]. "Отчество: ". $persons[3]. "Телефон: ". $persons[4]. "Почта: ". 
-            $persons[5]."Должность: ". $persons[6]."Отдел: ". $persons[7]. "Telegram: ". $persons[8]."Teams: ". $persons[9]. "Zoom: ".$persons[10]."<br>";
-        }
-    }
-
-
-    ?>
-            
+       <?}
+    }?>
+      </div>      
            
 </body>
 </html>
