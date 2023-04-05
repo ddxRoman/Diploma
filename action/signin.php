@@ -16,9 +16,11 @@ if(mysqli_num_rows($check_admin)>0)
     [
         "id"=>$user['id'],
         "login"=>$user['name'],
+        "mail"=>$user['email'],
         "avatar"=>$user['avatar'],
         "role"=>$user['role'],
         "status"=>$user['status']
+        
     ];
    header('Location: ../index_admin.php');
 }
@@ -29,7 +31,8 @@ else{     if(mysqli_num_rows($check_user)>0)
     [
         "id"=>$user['id'],
         "name"=>$user['name'],
-        "status"=>$user['status']
+        "status"=>$user['status'],
+        "mail"=>$user['mail']
     ];
 
      header('Location: ../index.php');

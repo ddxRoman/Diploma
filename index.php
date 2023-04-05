@@ -69,12 +69,11 @@ $textColor=$_POST['txtColor'];
         </div> <!-- Конец хедера-->
         <div class="MisPanel">
             <!-- Тут начинает МИС панель.-->
-            
+            <? $mailLink=$_SESSION['user']['mail'];
+            ?>
+            <a href="https://<?=$mailLink ?>" target="_blank"><button>Почта</button></a>
             <a href="Test.php" target="_blank"><button>Test</button></a>
             <button class="info__add">Добавить кнопку</button>
-
-
-
 
            </div><!-- Тут заканчивается МИС панель-->
         <hr class="misPanel-hr" width="85%"><!-- ХРка полоска -->
@@ -103,11 +102,8 @@ $textColor=$_POST['txtColor'];
                 </div>
              </div>
             <div class="container">
-                
                 <iframe name="1" src="">
-
-   </iframe>
-           
+                </iframe>
             </div>
             <?php if ($_SESSION['user']['status'] == 9) { ?><!-- Берем Роль пользователя и проверяем если она равно 9 (у нас это админ) то показываем Правое меню-->
                 <div class="rmenu">
