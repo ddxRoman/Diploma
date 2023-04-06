@@ -8,20 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-
-<style>
-    .user_card_table{
-        border: 2px solid #000;
-        width: 100%;
-    }
-    th{
-        border: 2px solid #000;
-    }
-    .user_card{
-        width: 80%;
-        justify-self: center;
-    }
-</style>
+<a href="../index_admin.php">Назад</a>
 <?php 
 require_once '../action/connect.php';
 $mail=$_GET['mail'];
@@ -29,7 +16,6 @@ $person = mysqli_query($connect, "SELECT * FROM `personal` ORDER BY `mail`"); //
 $person = mysqli_fetch_all($person); // Выбирает все строки из набора $product и помещает их в массив  $product
     foreach($person as $persons){
         if($persons[5]==$mail){
-            
             ?> 
             <div class="user_card">
             <table class="user_card_table">

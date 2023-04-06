@@ -312,7 +312,6 @@ table{
     height: 90px;
 }
 
-
 caption {
     font-family: annabelle, cursive;
     font-weight: bold;
@@ -321,6 +320,44 @@ caption {
     color: #1b1b1b;
     text-shadow: 1px 1px 0 rgba(0,0,0,.3);
    }
+
+/* -------------------КАРТОЧКА КЛИЕНТА ТАБЛИЦА-------------*/
+
+   .user_card_table{
+    border: 2px solid rgb(150, 150, 150);
+    width: 80%;
+    height: 50%;
+}
+th{
+    border: 0px solid #000;
+}
+.user_card{
+    width: 70%;
+    height: 700px;
+    justify-self: center;
+}
+
+/* -------------------Добавления таблицы-------------*/
+.addUser{
+    width: 80%;
+    justify-self: center;
+}
+table{
+    justify-self: center;
+}
+
+.addUserCard{
+    width: 50%;
+    justify-self: center;
+    margin-top: 5%;
+    margin-left: 22%;
+}
+input{
+    width: 175px;
+}
+select{
+    width: 175px;
+}
 
 /*  Изменение цвета текста в плейс холдере для разных браузеров.
 
