@@ -20,16 +20,11 @@ button{
   width: 100px;
 }
 
-.helper button {
-  color: #000000;
-}
-
 .folders button {
   border-color: rgb(255, 255, 255);
   border-radius: 7px;
   height: 15%;
   width: 25%;
-  color: #000000;
   margin-bottom: 3px;
 }
 

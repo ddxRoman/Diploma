@@ -18,7 +18,7 @@
         </div>
         <?php
         require_once '../action/connect.php'; // Проверка подключения к БД
-        $product = mysqli_query($connect, "SELECT * FROM `tasks` ORDER BY `status` ASC, `date_close` DESC "); // Подключение к определенной таблице, и получение Статуса записи
+        $product = mysqli_query($connect, "SELECT * FROM `tasks` ORDER BY `status` ASC, `date_close` DESC, `id` DESC "); // Подключение к определенной таблице, и получение Статуса записи
         $product = mysqli_fetch_all($product); // Выбирает все строки из набора $product и помещает их в массив  $product
         $comment = mysqli_query($connect, "SELECT * FROM `comments` ORDER BY `id` ASC "); // Подключение к определенной таблице, и получение Статуса записи
         $comment = mysqli_fetch_all($comment); // Выбирает все строки из набора $Comment и помещает их в массив  $Comments
@@ -74,8 +74,12 @@
                                 </form>
                             </form>
                             <div class="accordion__content">
-                                <?= $products[2] ?>
-                                <a href="<?= $products[8]; ?>" target="_blank"><img class="pictures-in-tasks" src="<?= $products[8]; ?>"></a>
+                                <?= $products[2];
+                                if($products[8]!="NULL"){
+                                    ?>
+                                    <a href="<?= $products[8]; ?>" target="_blank"><img class="pictures-in-tasks" src="<?= $products[8]; ?>"></a><?
+                                }
+                                ?>
                             </div>
                             <a title="Профиль автора" href="/action/profile2.php?id=<?=$products[4];?>" target="_blank">
                                 <font class="owner"> <? echo $products[4]; ?> </font>

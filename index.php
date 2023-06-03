@@ -3,12 +3,26 @@ session_start();
 require_once "function/checkaut.php";
 require_once "function/checkrole.php";
 require_once "action/connect.php";
-// if ($_SESSION['user']['status'] == 9) {
-//     header('Location: index_admin.php');
-//     }
-$bgColor=$_POST['bg'];
-$textColor=$_POST['txtColor'];
+
+$id_user= $_SESSION['user']['id'];
+$setting = mysqli_query($connect, "SELECT*FROM `settings_users` WHERE `id_user`='$id_user'"); 
+$setting = mysqli_fetch_assoc($setting);
+$bg_color=$setting['background'];
+$text_color=$setting['text_color'];
+
 ?>
+<style>
+body{
+background-color: <?=$bg_color?>;
+color: <?=$text_color?>;
+}
+button{
+color: <?=$text_color?>;
+}
+</style>
+
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -22,21 +36,6 @@ $textColor=$_POST['txtColor'];
     <title>ORS</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 </head>
-
-<style>
-    body{
-        background-color: var(--bgColor);
-        background-color: <?= $bgColor?>;
-        color:<?=$textColor?>;
-    }
-    button{
-        color:<?=$textColor?>;
-    }
-    .One{
-        width: 40px;
-        height: 40px;
-    }
-</style>
 
 <body>
     <div class="all">
@@ -71,7 +70,8 @@ $textColor=$_POST['txtColor'];
             <!-- Тут начинает МИС панель.-->
             <? $mailLink=$_SESSION['user']['mail'];
             ?>
-            <a href="https://<?=$mailLink ?>" target="_blank"><button>Почта</button></a>
+            <a href="action/users/settings.php"><button>Настройки</button></a>
+            <a href="https://<?=$mailLink?>" target="_blank"><button>Почта</button></a>
             <a href="Test.php" target="_blank"><button>Test</button></a>
             <button class="info__add">Добавить кнопку</button>
 
@@ -79,27 +79,6 @@ $textColor=$_POST['txtColor'];
         <hr class="misPanel-hr" width="85%"><!-- ХРка полоска -->
        <div class="body">   <!-- Начало Тела сайта -->
             <div class="lmenu"> 
-                <div class="links">
-
-                
-                <?php if ($_SESSION['user']['status'] == 9) {?>
-                <form action="#" name="bg" method="post">
-                <table>
-<tr>
-    <th>Select  background: </th>
-    <th><input name="bg" type="color" value="<?=$bgColor?>"><br></th>
-</tr>
-<tr>
-    <th>Select text color:</th>
-    <th><input name="txtColor" type="Color" value="<?=$textColor?>"><br></th>
-</tr></table>
-    <button>Применить</button>
-    </form>
-    <form action="#" name="bg" method="post">
-    <button>Clear</button>
-    </form>
-                <?} ?>
-                </div>
              </div>
             <div class="container">
                 <iframe name="1" src="">
@@ -140,7 +119,7 @@ $textColor=$_POST['txtColor'];
        $('.info__add').click(function () {
            name= prompt('Введите название кнопки: ', ['Новая кнопка']);
          $(this).parent().append($('<a>', {
-           'text': name, 'href': 'folders/docs.php', 'target': '1'
+           'text': name, 'href': 'folders/newTask.php', 'target': '1'
          }));
        });
      </script>
