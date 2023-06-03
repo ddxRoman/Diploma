@@ -219,20 +219,21 @@ width: 20px;
     align-content: start;
     justify-content: end;
     bottom: 10;
-    width: 90%;
+    width: 100%;
     grid-template-rows: 1fr;
     grid-template-columns: 40% 20% 40%;
+    max-height: 110px;
 }
 
 .clock {
+
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    font-size: 42px;
+    font-size: 30px;
     font-size: calc(24px+16*(100vw));
     padding-right: 10px;
-    padding-top: -110px;
-    /* color: #474747; */
+    padding-top: 20px;
 }
 
 .refresh{

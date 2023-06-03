@@ -96,7 +96,7 @@ body {
     width: 100px;
     height: 60px;
     font-weight: 700;
-    color: #385e52;
+
 }
 
 .quick_transition {
@@ -218,7 +218,6 @@ iframe {
     font-size: calc(24px+16*(100vw));
     padding-right: 10px;
     padding-top: 20px;
-    color: #5a5a5a;
 }
 
 .refresh{
