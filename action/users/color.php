@@ -9,7 +9,7 @@ session_start();
         $text_color=$setting['text_color'];
 $bg_color=$_POST['bg'];
 $text_color=$_POST['txtColor'];
-        mysqli_query($connect, "UPDATE `settings_users` SET `background` = '$bg_color', `text_color` = '$text_color' WHERE `id` = '$id_user'");
-        header('Location: settings.php');
+        mysqli_query($connect, "UPDATE `settings_users` SET `background` = '$bg_color', `text_color` = '$text_color' WHERE `id_user` = '$id_user'");
+         header('Location: settings.php');
         ?>
         

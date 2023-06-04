@@ -5,6 +5,7 @@ require_once "function/checkrole.php";
 require_once "action/connect.php";
 
 $id_user= $_SESSION['user']['id'];
+$type= $_SESSION['personal']['status'];
 $setting = mysqli_query($connect, "SELECT*FROM `settings_users` WHERE `id_user`='$id_user'"); 
 $setting = mysqli_fetch_assoc($setting);
 $bg_color=$setting['background'];

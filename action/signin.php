@@ -32,12 +32,13 @@ else{     if(mysqli_num_rows($check_user)>0)
         "id"=>$user['id'],
         "name"=>$user['name'],
         "status"=>$user['status'],
-        "mail"=>$user['mail']
+        "photo"=>$user['photo'],
+        "post"=>$user['post']
     ];
 
-     header('Location: ../index.php');
-    echo "User";
-    echo ($_SESSION['user']['status']);
+      header('Location: ../index.php');
+    // echo "<br>Тут пост - ".$user['post']."Тут ссылка на фото - ".$user['photo']."<br>";
+    // echo ($_SESSION['user']['status']);
 }
 else{
     $_SESSION['sms']='Не верный <br> логин или пароль';

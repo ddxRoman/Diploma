@@ -9,6 +9,25 @@ if ($_SESSION['user']['status'] != 9) {
     }
     $personal = mysqli_query($connect, "SELECT * FROM `personal` ORDER BY `id`"); // Подключение к определенной таблице, и получение Статуса записи
     $personal = mysqli_fetch_all($personal); // Выбирает все строки из набора $product и помещает их в массив  $product
+
+    $id_user= $_SESSION['user']['id'];
+    $setting = mysqli_query($connect, "SELECT*FROM `settings_users` WHERE `id_user`='$id_user'"); 
+    $setting = mysqli_fetch_assoc($setting);
+    $bg_color=$setting['background'];
+    $text_color=$setting['text_color'];
+
+    ?>
+<style>
+body{
+    background-color: <?=$bg_color?>;
+    color: <?=$text_color?>;
+}
+button{
+    color: <?=$text_color?>;
+}
+</style>
+
+
 ?>
 
 <!DOCTYPE html>

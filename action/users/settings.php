@@ -3,11 +3,13 @@
 session_start();
         require_once '../connect.php'; // Проверка подключения к БД
         $id_user= $_SESSION['user']['id'];
+        // $id_person = $_SESSION['person']['id'];
         $setting = mysqli_query($connect, "SELECT*FROM `settings_users` WHERE `id_user`='$id_user'"); 
         $setting = mysqli_fetch_assoc($setting);
         $bg_color=$setting['background'];
         $text_color=$setting['text_color'];
 echo "Только зашел на страницу, сразу получил то что есть - ".$bg_color;
+echo "<br>Айди текущего юезра<br>".$id_user;
 ?>
 
 <style>
@@ -36,5 +38,6 @@ button{
     <button>На главную</button>
 </a>
         </div>
+        
 
 
