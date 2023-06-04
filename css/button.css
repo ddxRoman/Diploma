@@ -15,6 +15,22 @@ button{
   background-color: #20a3d657;
 }
 
+.cancel{
+background-color: #ff5252;
+width: 55%;
+}
+
+.create{
+  background-color: #519e87;
+  color: #000000;
+  height: 35px;
+  width: 85px;
+}
+
+.download_photo{
+  background-color: aqua;
+}
+
 .no_rules_choice button{
   height: 50px;
   width: 100px;
@@ -100,4 +116,56 @@ button:hover {
   border-color: #c2863c;
   border-radius: 11px;
   width: 150px;
+}
+
+.input-file {
+	position: relative;
+	display: inline-block;
+}
+
+.input-file-btn {
+position: relative;
+	display: inline-block;
+	cursor: pointer;
+	outline: none;
+	text-decoration: none;
+	font-size: 14px;
+	vertical-align: middle;
+	color: rgb(255 255 255);
+	text-align: center;
+	border-radius: 0 4px 4px 0;
+	background-color: #419152;
+	line-height: 22px;
+	height: 40px;
+	padding: 10px 20px;
+	box-sizing: border-box;
+	border: none;
+	margin: 0;
+	transition: background-color 0.2s;
+}
+.input-file input[type=file] {
+	position: absolute;
+	z-index: -1;
+	opacity: 0;
+	display: block;
+	width: 0;
+	height: 0;
+}
+ 
+/* Focus */
+.input-file input[type=file]:focus + .input-file-btn {
+	box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+ 
+/* Hover/active */
+.input-file:hover .input-file-btn {
+	background-color: #70a77b;
+}
+.input-file:active .input-file-btn {
+	background-color: #89b390;
+}
+ 
+/* Disabled */
+.input-file input[type=file]:disabled + .input-file-btn {
+	background-color: #eee;
 }

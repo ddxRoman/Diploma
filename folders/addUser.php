@@ -28,6 +28,7 @@ color: <?=$text_color?>;
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="../css/adminStyle.css">
+    <link rel="stylesheet" type="text/css" href="../css/button.css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Добавление пользователя</title>
@@ -40,8 +41,9 @@ color: <?=$text_color?>;
     <!-- Сделать проверку, какая почта на такую кнопка из МИС и кидает -->
     <div class="addUser">
     <div class="addUserCard">
-    <form action="../action/CreateUser.php" method="POST" enctype="multipart/form-data">
+    
     <table>
+    <form action="../action/CreateUser.php" method="POST" enctype="multipart/form-data">
         <caption>Добавление пользователя</caption>
     <tr>
        <td><input required name="name" placeholder="Имя"></td> 
@@ -97,14 +99,25 @@ color: <?=$text_color?>;
 <td><input name="teams" placeholder="Teams"></td> 
 </tr>
 <tr>
-    <td><label>Фото сотрудника</label><input name="photo" type="file"></td>
+    <td></td>
+    <td>
+    <label  class="input-file">
+	   	<input  type="file" name="photo">        
+ 	   	<span  class="input-file-btn">Загрузить фото</span>
+ 	</label>
+
+    <!-- <label>Фото сотрудника</label><input class="download_photo" name="photo" type="file"></td> -->
 </tr>
-<tr><td><button>Создать</button></td> 
-<td><input type="reset"></td> 
+<tr><td><button class="create">Создать</button></td> 
+</Form>
+<td></td>
+<td align="end"><a href="user_list.php"><button class="cancel">Отмена</button></a></td> 
 </tr>
 
         </table>
-    </Form>
+        
+    
+
     <div class="message">
 <p class="sms"> <?echo $_SESSION['sms']; ?> </p> 
 </div>
