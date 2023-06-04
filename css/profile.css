@@ -19,6 +19,9 @@ margin-top: -1px;
     justify-items: end;
     width: 110px;
 }
+.post{
+    font-size: 8pt;
+}
 
 .exit{
     color: #888;
