@@ -95,3 +95,9 @@ unset($_SESSION['sms']);
 </div>
 </body>
 </html>
+<?php 
+
+    mysqli_query($connect, "INSERT INTO `settings_user` (`id`, `id_user`)
+    VALUES (NULL, `$id')
+    ");
+?>

@@ -8,15 +8,18 @@
     <title>Document</title>
 </head>
 <body>
-<a href="../index_admin.php">Назад</a>
+<a href="../index_admin.php">На Главную</a>
 <?php 
 require_once '../action/connect.php';
 $mail=$_GET['mail'];
 $person = mysqli_query($connect, "SELECT * FROM `personal` ORDER BY `mail`"); // Подключение к определенной таблице, и получение Статуса записи
 $person = mysqli_fetch_all($person); // Выбирает все строки из набора $product и помещает их в массив  $product
+
     foreach($person as $persons){
         if($persons[5]==$mail){
-            ?> 
+            $mail=$persons[5];
+
+            ?>
             <div class="user_card">
             <table class="user_card_table">
                 <thead>    <h3>Карточка сотрудника</h3></thead>
@@ -43,8 +46,22 @@ $person = mysqli_fetch_all($person); // Выбирает все строки и�
                 </th>
             </tr>
             </table>
-       <?}
-    }?>
+       <?
+                       $id_user = $persons[0];
+
+    $check_id = mysqli_query($connect, "SELECT * FROM `settings_users` WHERE `id_user` = '$id_user' ");
+
+        if(mysqli_num_rows($check_id)<1)
+        {
+        echo "Добавлены персональные настройки юзера <br>";
+        mysqli_query($connect, "INSERT INTO `settings_users` (`id`, `id_user`, `background`, `text_color`) VALUES (NULL, '$id_user', '000000', 'ffffff');");
+        
+}
+?> <a href="user_list.php"><button>Назад</button></a> <?
+    
+}
+}
+    ?>
       </div>      
            
 </body>
