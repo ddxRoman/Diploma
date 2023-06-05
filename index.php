@@ -116,11 +116,14 @@ color: <?=$text_color?>;
 
 </html>
 <script>
-       
        $('.info__add').click(function () {
            name= prompt('Введите название кнопки: ', ['Новая кнопка']);
-         $(this).parent().append($('<a>', {
-           'text': name, 'href': 'folders/newTask.php', 'target': '1'
-         }));
-       });
+           url= prompt('URL ', ['']);
+           if(name!="null" && url!=""){  
+         $(this).parent().append($('<a>', { 
+           'text': name, 'href': 'http://'+url, 'target': '_blank'}));
+        }
+        else{}
+       }
+       );
      </script>
