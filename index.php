@@ -3,27 +3,9 @@ session_start();
 require_once "function/checkaut.php";
 require_once "function/checkrole.php";
 require_once "action/connect.php";
-
-$id_user= $_SESSION['user']['id'];
-$type= $_SESSION['personal']['status'];
-$setting = mysqli_query($connect, "SELECT*FROM `settings_users` WHERE `id_user`='$id_user'"); 
-$setting = mysqli_fetch_assoc($setting);
-$bg_color=$setting['background'];
-$text_color=$setting['text_color'];
+require_once "action/users/StyleAndSettings.php";
 
 ?>
-<style>
-body{
-background-color: <?=$bg_color?>;
-color: <?=$text_color?>;
-}
-button{
-color: <?=$text_color?>;
-}
-</style>
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -95,7 +77,6 @@ color: <?=$text_color?>;
             <?
             }
             ?>
-            <!-- </div> -->
         </div>
         <hr class="footer-hr">
         <div class="footer">

@@ -10,7 +10,11 @@
 <body>
 <a href="../index_admin.php">На Главную</a>
 <?php 
+
+session_start();
 require_once '../action/connect.php';
+require_once '../action/users/StyleAndSettings.php';
+
 $mail=$_GET['mail'];
 $person = mysqli_query($connect, "SELECT * FROM `personal` ORDER BY `mail`"); // Подключение к определенной таблице, и получение Статуса записи
 $person = mysqli_fetch_all($person); // Выбирает все строки из набора $product и помещает их в массив  $product

@@ -8,8 +8,9 @@ session_start();
         $setting = mysqli_fetch_assoc($setting);
         $bg_color=$setting['background'];
         $text_color=$setting['text_color'];
-echo "Только зашел на страницу, сразу получил то что есть - ".$bg_color;
-echo "<br>Айди текущего юезра<br>".$id_user;
+        $btn_color=$setting['btn_color'];
+echo "Только зашел на страницу, сразу получил то что есть - ".$btn_color;
+
 ?>
 
 <style>
@@ -18,6 +19,7 @@ body{
     color: <?=$text_color?>;
 }
 button{
+    background-color:<?=$btn_color?>;
     color: <?=$text_color?>;
 }
 </style>
@@ -30,8 +32,13 @@ button{
 </tr>
 <tr>
     <th>Select text color:</th>
-    <th><input name="txtColor" type="Color" value="<?=$text_color?>"><br></th>
-</tr></table>
+    <th><input name="txtColor" type="color" value="<?=$text_color?>"><br></th>
+</tr>
+<tr>
+    <th>Select button color:</th>
+    <th><input name="btn_color" type="color" value="<?=$btn_color?>"><br></th>
+</tr>
+</table>
     <button>Применить</button>
     </form>
     <a href="../../index_admin.php">

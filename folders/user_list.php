@@ -2,32 +2,13 @@
 require_once "../function/checkaut.php";
 require_once "../function/checkrole.php";
 require_once "../action/connect.php";
-$bgColor=$_POST['bg'];
-$textColor=$_POST['txtColor'];
+require_once "../action/users/StyleAndSettings.php";
+
 if ($_SESSION['user']['status'] != 9) {
     header('Location: index.php');
     }
     $personal = mysqli_query($connect, "SELECT * FROM `personal` ORDER BY `id`"); // Подключение к определенной таблице, и получение Статуса записи
     $personal = mysqli_fetch_all($personal); // Выбирает все строки из набора $product и помещает их в массив  $product
-
-    $id_user= $_SESSION['user']['id'];
-    $setting = mysqli_query($connect, "SELECT*FROM `settings_users` WHERE `id_user`='$id_user'"); 
-    $setting = mysqli_fetch_assoc($setting);
-    $bg_color=$setting['background'];
-    $text_color=$setting['text_color'];
-
-    ?>
-<style>
-body{
-    background-color: <?=$bg_color?>;
-    color: <?=$text_color?>;
-}
-button{
-    color: <?=$text_color?>;
-}
-</style>
-
-
 ?>
 
 <!DOCTYPE html>
@@ -56,9 +37,9 @@ button{
             </div>
             <div class="knowledge">
                 <!--  Просто кнопка на Хелпер -->
-                <a href="../index.php" target="_self">
+                <a href="../index_admin.php" target="_self">
                     <!--  Просто кнопка на Хелпер -->
-                    <button class="MD">Админка</button>
+                    <button class="MD">На главную</button>
                 </a><!--  Просто кнопка на Хелпер -->
             </div><!--  Просто кнопка на Хелпер -->
             <div class="Right_head">

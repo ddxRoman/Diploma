@@ -2,29 +2,15 @@
 require_once "function/checkaut.php";
 require_once "function/checkrole.php";
 require_once "action/connect.php";
+require_once "action/users/StyleAndSettings.php";
 if ($role!= 1) {
     header('Location: index.php');
     }
-    $id_user= $_SESSION['user']['id'];
-    $setting = mysqli_query($connect, "SELECT*FROM `settings_users` WHERE `id_user`='$id_user'"); 
-    $setting = mysqli_fetch_assoc($setting);
-    $bg_color=$setting['background'];
-    $text_color=$setting['text_color'];
 
-    ?>
-<style>
-body{
-    background-color: <?=$bg_color?>;
-    color: <?=$text_color?>;
-}
-button{
-    color: <?=$text_color?>;
-}
-</style>
+?>
 
 <!DOCTYPE html>
 <html lang="en">
-
 
 <head>
     <meta charset="UTF-8">
@@ -36,8 +22,6 @@ button{
     <title>ORS-Admin</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 </head>
-
-
 
 <body>
     <div class="all">
@@ -77,7 +61,7 @@ button{
             <div class="container">
                 <iframe name="1" src="">
                 </iframe>
-           
+            
             </div>
             <!-- ТАм вообще есть отдельный файл с проверкой, надо с ним поработать -->
             <?php if ($_SESSION['user']['status'] == 9) { ?><!-- Берем Роль пользователя и проверяем если она равно 9 (у нас это админ) то показываем Правое меню-->

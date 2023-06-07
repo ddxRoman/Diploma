@@ -1,27 +1,9 @@
 <?
-require_once '../action/connect.php';
-require_once "../function/checkaut.php";
 session_start();
-
-$id_user= $_SESSION['user']['id'];
-$setting = mysqli_query($connect, "SELECT*FROM `settings_users` WHERE `id_user`='$id_user'"); 
-$setting = mysqli_fetch_assoc($setting);
-$bg_color=$setting['background'];
-$text_color=$setting['text_color'];
-
+require_once '../action/connect.php';
+require_once '../action/users/StyleAndSettings.php';
+require_once "../function/checkaut.php";
 ?>
-<style>
-body{
-
-background-color: <?=$bg_color?>;
-color: <?=$text_color?>;
-}
-button{
-color: <?=$text_color?>;
-}
-</style>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -33,15 +15,13 @@ color: <?=$text_color?>;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Добавление пользователя</title>
 </head>
-<style>
 
-</style>
 <body>
     <!--    Надо это все в таблицу сделать -->
     <!-- Сделать проверку, какая почта на такую кнопка из МИС и кидает -->
+
     <div class="addUser">
     <div class="addUserCard">
-    
     <table>
     <form action="../action/CreateUser.php" method="POST" enctype="multipart/form-data">
         <caption>Добавление пользователя</caption>
@@ -90,7 +70,6 @@ color: <?=$text_color?>;
     </select>  
     </td>  
     <td> 
-        
 </td>   
 </tr>
 <tr>
