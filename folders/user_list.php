@@ -25,6 +25,7 @@ if ($_SESSION['user']['status'] != 9) {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 </head>
 
+
 <body>
     <div class="all">
         <!-- Общий блок на всю страницу-->
@@ -58,9 +59,7 @@ if ($_SESSION['user']['status'] != 9) {
                 <a href="addUser.php" target="1"><button>Добавить сотрудника</button></a>
                 </div>
              </div>
-            
                 <div class="contant">
-
 <table>
 <thead>
     <th>Фото</th>

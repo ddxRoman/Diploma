@@ -1,101 +1,39 @@
+<header role="banner">
+  header
+</header>
+<main role="main">
+  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam qui odit corrupti, beatae rem consequatur distinctio. Ullam vel, impedit unde voluptate quibusdam nisi saepe similique veniam inventore doloremque ut porro. Cum voluptates eius saepe est expedita explicabo consectetur amet ipsam ipsa quaerat maiores modi, nisi voluptatibus incidunt vitae recusandae accusantium sed alias ullam harum minima dignissimos esse! Iure inventore tenetur corporis esse repudiandae nihil blanditiis iste dignissimos odio! Laboriosam eligendi nulla mollitia, veritatis quis quisquam nesciunt, dolore magni laborum quae, quidem vel impedit iste quo ea odit consequatur molestiae enim nihil? Fugiat, reiciendis. Temporibus laboriosam fugit eaque dolores sed sapiente quasi iusto perspiciatis sit illum reiciendis laborum ad at ut labore ipsum neque reprehenderit officiis, omnis magnam, totam nihil ipsam expedita! Facere excepturi doloribus totam libero dignissimos! Sunt repudiandae deleniti voluptatum. Dolore dolores facere quaerat perferendis. Facere, natus quas. Repellat molestias atque soluta inventore ex incidunt, deserunt rerum aliquam quae necessitatibus cum iure reprehenderit aut suscipit, saepe nisi praesentium sunt dolore! Nihil culpa fugiat nostrum sed neque modi accusamus, hic maiores officia excepturi ut ipsum, necessitatibus laudantium maxime expedita ea laboriosam cum eum repellat tempore voluptatem ab in explicabo! Consequatur dicta eaque ullam laborum tempora atque iusto harum maiores recusandae fugiat natus eos rerum molestiae quam, aperiam quibusdam voluptates explicabo sint deleniti eius odio est nulla? Ipsam fuga, autem sequi, facilis natus doloribus quam excepturi ab neque quo hic labore nihil accusantium est, at voluptatibus mollitia libero sint officiis quasi necessitatibus totam. Corrupti, possimus cumque aliquam distinctio ducimus veritatis ea id, similique dicta impedit dolore! Beatae pariatur libero incidunt esse, molestiae error placeat asperiores fuga? Quos libero cupiditate voluptas officiis non provident distinctio consectetur odio ducimus eveniet dolor quae a molestiae inventore, laborum sint, voluptatum at reprehenderit id debitis recusandae quis corporis temporibus! Et dolorum, odio hic consectetur ea illo ratione vitae porro beatae reiciendis reprehenderit, corrupti, assumenda totam! Necessitatibus neque deleniti, voluptas consequatur rerum id maxime animi! Expedita accusamus et maxime odit illo temporibus qui corporis. Eum ipsam officiis perspiciatis amet architecto unde. Quos perspiciatis sunt nemo ipsum eaque inventore voluptas deserunt nulla, laborum omnis magnam autem quas ab? Libero explicabo voluptas excepturi. Voluptatum perspiciatis, magnam similique esse ipsam consequatur illo id sapiente tenetur, sequi debitis quidem deleniti minima laudantium suscipit? Nulla iusto magni veritatis debitis laborum. Corporis ipsum mollitia unde nobis tempora fugit veritatis animi optio, dignissimos quisquam, blanditiis aspernatur, explicabo numquam a veniam magni sequi facere laudantium cupiditate inventore. Quisquam rem temporibus aliquid nemo laborum facere excepturi et minima voluptatem accusamus vel nihil voluptatibus eos illum quod reiciendis nesciunt pariatur laboriosam ullam, sunt enim esse neque ab. Vero quasi sit animi dicta maiores minus ex neque a, doloremque officiis voluptatibus laboriosam deserunt deleniti, eveniet nobis dolor porro odit ipsa blanditiis. Doloremque dicta, alias temporibus explicabo at recusandae facere neque suscipit laudantium eius earum, quam, sed harum provident ipsam molestiae? Libero, facilis modi? Sequi corporis perspiciatis similique saepe laboriosam, praesentium fugit eius libero odit sapiente tenetur quo, rerum adipisci ullam voluptates asperiores. Cupiditate ullam placeat voluptatum voluptas iste eos vitae illum hic accusantium ipsa doloribus, deserunt delectus quibusdam dolores blanditiis consequuntur quaerat similique. Voluptates blanditiis tenetur, perferendis nisi harum consequatur repudiandae corrupti ullam voluptatibus molestiae veritatis maxime impedit nulla accusantium similique in, et totam! Dolore impedit, amet quo magnam sit ea adipisci repellendus neque maxime veniam quisquam culpa temporibus illo nihil molestias, officiis nemo? Facilis veniam perspiciatis suscipit, non architecto dicta accusantium nostrum temporibus qui tenetur quia in laudantium doloribus ut fuga quae! Dignissimos ipsa eligendi minus iure. Incidunt perferendis veniam suscipit amet, nihil quidem officiis cum voluptatem. Similique tempora asperiores odit aut. Voluptas porro sed expedita, hic eos non voluptatibus veniam molestias quo consequuntur a mollitia qui quidem labore laudantium aliquid tempore impedit at necessitatibus asperiores explicabo voluptates perferendis deleniti eligendi! Et voluptate eveniet repudiandae rerum veritatis sapiente, aliquid quo quis magni. Maiores consequatur ipsa numquam adipisci, voluptatem, corrupti alias obcaecati temporibus earum praesentium quo sint explicabo minima ipsam quos voluptates debitis! Sed, dolorem cum? Porro voluptatibus consequuntur eligendi velit inventore doloribus, esse eos rem vero dolorem quaerat id quisquam quod sunt, unde laboriosam libero ratione nihil dignissimos natus numquam voluptates incidunt quidem temporibus? Delectus mollitia dicta animi unde odio temporibus error. Dignissimos, eaque ab debitis ducimus, id similique, impedit quos culpa doloribus sit voluptatum? Repellat rem voluptates nisi provident consectetur harum. Sed reprehenderit est natus accusamus magnam dolor modi architecto in rem exercitationem, facilis vero enim ea dolorem ex. Praesentium, quia impedit. Beatae, rem rerum. Nesciunt id animi vel harum quibusdam ut quam, dicta repudiandae autem, quasi architecto? Dolor, id. Et!
+  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, eum a! Eveniet velit ad illum, magni quaerat ea saepe! Iste consequuntur voluptatibus voluptatem est beatae alias asperiores atque fugiat adipisci dignissimos nesciunt optio ut aliquid tenetur, deserunt neque! Voluptatem fugit omnis deleniti, molestiae accusantium dolorem ex amet provident, quod qui voluptates inventore enim consequatur. Aperiam sed impedit doloribus excepturi, itaque facilis. At similique veritatis dolor sapiente quasi quidem ducimus corrupti id ullam, quibusdam ipsa maxime quae rem, impedit neque excepturi culpa officiis voluptate qui. Perspiciatis eum unde beatae nisi provident inventore, illo corporis delectus accusamus exercitationem explicabo facere minus culpa, itaque velit veniam, incidunt esse. Consequatur laboriosam, earum optio nulla nisi laudantium, autem illo est at magnam nam ea? Saepe earum in illo magni quasi! Veritatis sequi officiis tempore eos recusandae quisquam provident inventore voluptate. Doloribus facere cum ullam et ad laborum quod, deleniti minima maiores natus omnis accusantium nam inventore dolores fugit ipsa iure molestias quos qui. Illo iure dolorem asperiores maxime. Quae fugiat impedit officiis, accusantium quia architecto perferendis fugit alias, esse ipsum amet cum obcaecati adipisci dolorem enim minus a omnis asperiores. Cupiditate, tempora iste ipsam id repellat nulla harum magni consequatur voluptatem exercitationem esse porro aut suscipit praesentium ut voluptates officiis nisi eligendi ratione mollitia perferendis officia molestiae sapiente possimus! Debitis nulla consequuntur quia eveniet modi asperiores, dolores voluptate esse? Eum explicabo labore sint laborum reiciendis atque cupiditate eius asperiores vitae doloremque. Labore quas illum eveniet nulla veniam libero unde cum dignissimos. Vitae, ut. Sint voluptas error laborum ipsam, sequi voluptate nemo autem reiciendis mollitia, similique, soluta odit aliquam deleniti dolorem eligendi corrupti! Veritatis ducimus iusto impedit dignissimos rerum maxime non expedita molestiae maiores, saepe sunt nam voluptates sequi repudiandae provident, voluptate ea reiciendis tempora atque ullam! Ratione quaerat voluptatibus cum saepe cumque ipsa odit fugit quo. Maxime fuga ab facere eum et placeat fugiat ad ipsam voluptates, voluptatem dignissimos. Quam, cupiditate dolorum. Culpa perferendis ullam dolores repudiandae facilis distinctio officiis error cum? Dolorum rerum libero asperiores tempore harum delectus, consequatur eligendi, atque debitis ratione vero, id laudantium perferendis aliquam soluta eius eum quae veritatis. Quisquam natus porro explicabo mollitia, vero nam quae eum minima perspiciatis quibusdam soluta ipsa laboriosam cum minus? Illo omnis praesentium perferendis eos quidem, pariatur ea iusto quam eius voluptatum laborum quibusdam nostrum ducimus odit, sunt eum, similique expedita alias. Cumque voluptate voluptates at quis ex itaque quibusdam fugit pariatur eligendi reprehenderit ea, beatae consequuntur veritatis inventore assumenda? Architecto adipisci, reprehenderit nihil expedita in voluptates labore amet fugiat enim sint eius culpa, repellendus repudiandae ipsam quas dignissimos minima, veniam debitis possimus nostrum ullam illum. Voluptatibus vero sit nostrum maiores obcaecati deleniti ipsa quasi quia animi excepturi, earum aperiam autem, cumque nisi minima, nobis exercitationem! Ullam expedita iste, rem porro assumenda aperiam alias quae molestias velit corrupti facilis ab! Alias ipsa illum error commodi corrupti fugit est vitae impedit, rem quaerat, quo rerum enim praesentium sapiente a distinctio quidem aspernatur eligendi, aliquam vero inventore. Assumenda blanditiis ex impedit in! Similique debitis quod eligendi quidem alias tempora provident sit eveniet corrupti, quis quisquam repellendus. Repellat quam aperiam rerum quos ratione illum voluptate error explicabo, voluptatibus excepturi earum quia voluptatem deleniti similique eveniet? Rem commodi optio libero quibusdam repudiandae magni iste, accusantium quos ad voluptatum consectetur nostrum expedita aspernatur recusandae impedit alias modi molestias voluptas quaerat distinctio doloribus nam repellat officiis. Harum porro fugiat aspernatur architecto illo nobis mollitia et ratione, hic quod! Suscipit eius aperiam consequatur atque autem dolorum laboriosam rem consectetur accusantium doloribus nisi rerum perspiciatis, tempora corrupti, aliquid aliquam repellendus repudiandae molestias excepturi porro soluta dolor iusto? Eveniet deleniti vel praesentium maxime nam, veritatis nihil recusandae voluptatibus eius nostrum obcaecati quos modi voluptas consectetur harum sed cupiditate ducimus aliquid soluta reprehenderit perferendis at. Quidem, in! Similique nulla voluptates, dolores dolorem quo vero sapiente expedita officia pariatur modi cumque? Pariatur, vel blanditiis culpa, eaque tempora dicta veritatis perspiciatis deleniti hic commodi alias dolorem voluptas iure cum vitae sequi magnam? Error dolore ex neque, qui vero quae velit nisi ea earum unde quos similique pariatur. Dolor blanditiis nesciunt aut fuga soluta laborum reiciendis ipsam fugit quasi saepe distinctio laboriosam necessitatibus nam corrupti unde debitis qui id alias temporibus sint facilis veritatis culpa, ipsa inventore. Qui perspiciatis nobis sequi voluptatem. Nulla quis unde magni minima excepturi totam quas enim voluptates consequuntur reprehenderit quidem distinctio, iste neque vitae hic officiis quisquam labore sequi at? Adipisci necessitatibus quasi assumenda quaerat porro quod harum labore soluta omnis, numquam fugit ut, quis illo enim dolores nemo tenetur, rem quisquam libero repellendus. Sunt quas eos provident qui aspernatur vero reprehenderit error natus optio beatae veniam minima aliquam enim laboriosam, tempora, voluptate illum temporibus praesentium rem at? Cum quia libero quam ab necessitatibus, accusamus magni repellendus autem assumenda. Sequi impedit quidem corporis in magni, modi ab necessitatibus, facere voluptatibus ad vel!
+</main>
+<footer role="contentinfo">
+  footer
+</footer>
 
-              <!doctype html>
-<html lang="ru">
+<style>
 
-<head>
-  <title>jQuery - Метод replaceWith (пример)</title>
-  <meta charset="utf-8">
-  <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/button.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-</head>
+html {
+  height: 100%;
+}
 
-<body>
+body {
+  margin: 0;
+  color: #fff;
+  /* Растягиваем body по высоте html */
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
 
-  <div style="margin: 50px;">
-    <div class="info">
-      <button class="info__add">Добавить кнопку</button>
-    </div>
-  </div>
+header {
+  background: blue;
+}
 
-  <!-- jQuery -->
-  <script src="/examples/vendors/jquery/jquery-3.4.1.min.js"></script>
+main {
+  background: red;
+}
 
-  <script>
-       
-    $('.info__add').click(function () {
-        name= prompt('Введите название кнопки: ', ['Новая кнопка']);
-      $(this).parent().append($('<button>', {
-        'text': name, 'href': 'index.php'
-      }));
-    });
-  </script>
+footer {
+  background: black;
+}
 
-
-</body>
-
-</html>
-						
-
-<!-- Закрывашка сообщейни-->
-
-<!doctype html>
-<html lang="ru">
-
-<head>
-  <title>jQuery - Метод replaceWith (пример)</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <style>
-    .message {
-      margin: 10px;
-      padding: 10px;
-      border: 1px solid black;
-      background-color: wheat;
-    }
-
-    .message__text {
-      margin-bottom: 8px;
-    }
-  </style>
-</head>
-
-<body>
-
-  <div style="margin: 50px;">
-    <div class="message">
-      <div class="message__text">Текст сообщения...</div>
-    </div>
-    <div class="message">
-      <div class="message__text">Текст сообщения...</div>
-    </div>
-    <div class="message">
-      <div class="message__text">Текст сообщения...</div>
-    </div>
-    <br>
-    <button id="after">Добавить кнопку закрыть после текста сообщения</button>
-  </div>
-
-  <!-- jQuery -->
-  <script src="/examples/vendors/jquery/jquery-3.4.1.min.js"></script>
-
-  <script>
-    $('#after').click(function () {
-      $('.message__text').after($('<button>', {
-        class: 'close',
-        text: 'Закрыть сообщение'
-      }));
-      $(this).remove();
-    });
-
-    $(document).on('click', '.close', function () {
-      $(this).parent().remove();
-    });
-  </script>
-
-
-</body>
-
-</html>
-					
+</style>

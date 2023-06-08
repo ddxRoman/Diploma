@@ -26,9 +26,9 @@ require_once "../function/checkaut.php";
     <form action="../action/CreateUser.php" method="POST" enctype="multipart/form-data">
         <caption>Добавление пользователя</caption>
     <tr>
-       <td><input required name="name" placeholder="Имя"></td> 
-      <td><input required name="surname" placeholder="Фамилия"></td>  
-      <td><input  name="patronymic" placeholder="Отчество"></td>    
+        <td><input required name="surname" placeholder="Фамилия"></td>  
+        <td><input required name="name" placeholder="Имя"></td> 
+        <td><input  name="patronymic" placeholder="Отчество"></td>    
     </tr>
     <tr>
         <td><input  name="telephone" type="tel" placeholder="Телефон">  </td>   
@@ -39,7 +39,7 @@ require_once "../function/checkaut.php";
 <tr>
     <td> 
     <label>Отдел:<br></label>
-    <select>
+    <select name="department">
         <option hidden>Отдел</option>
         <option name="">Внедрение</option>
         <option>Продажи</option>
@@ -49,7 +49,7 @@ require_once "../function/checkaut.php";
     </td>  
     <td>
     <label>Должность:<br></label>
-    <select>
+    <select name="post">
         <option hidden>Должность</option>
         <optgroup label = "Внедрение">
         <option name="">Руководитель отдела</option>
