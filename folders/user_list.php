@@ -59,7 +59,7 @@ if ($_SESSION['user']['status'] != 9) {
                 <a href="addUser.php" target="1"><button>Добавить сотрудника</button></a>
                 </div>
              </div>
-                <div class="contant">
+            <div class="contant">
 <table>
 <thead>
     <th>Фото</th>
@@ -74,7 +74,8 @@ if ($_SESSION['user']['status'] != 9) {
 <?php
         foreach ($personal as $personals) { // Перебор массива $product c его записью в массив $productS
             ?>
-            <tr> 
+            <tr>
+                
                 <td><img class="personal_face" src="<?=$personals[12]?>"> </td>
                 <td> <a href="user_card.php?mail=<?=$personals[5]?>"><?=$personals[2]?> </a> </td>
                 <td> <a href="user_card.php?mail=<?=$personals[5]?>"><?=$personals[1]?> </a> </td>

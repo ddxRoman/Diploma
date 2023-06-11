@@ -15,14 +15,13 @@ session_start();
 require_once '../action/connect.php';
 require_once '../action/users/StyleAndSettings.php';
 
-$mail=$_GET['mail'];
+$mail=$_GET['mail']; 
+echo "<br>"."ПОЧТА - ".$mail;
 $person = mysqli_query($connect, "SELECT * FROM `personal` ORDER BY `mail`"); // Подключение к определенной таблице, и получение Статуса записи
 $person = mysqli_fetch_all($person); // Выбирает все строки из набора $product и помещает их в массив  $product
 
     foreach($person as $persons){
         if($persons[5]==$mail){
-            $mail=$persons[5];
-
             ?>
             <div class="user_card">
             <table class="user_card_table">
@@ -61,7 +60,10 @@ $person = mysqli_fetch_all($person); // Выбирает все строки и�
         mysqli_query($connect, "INSERT INTO `settings_users` (`id`, `id_user`, `background`, `text_color`) VALUES (NULL, '$id_user', '000000', 'ffffff');");
         
 }
-?> <a href="user_list.php"><button>Назад</button></a> <?
+?> <a href="user_list.php"><button>Назад</button></a>
+<a href="editUser.php?mail=<?=$persons[5]?>"><button>Редактировать</button></a>
+
+<a href="editUser.php"></a> <?
     
 }
 }

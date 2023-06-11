@@ -14,7 +14,6 @@ div { /* Границы всех Дивов что только есть*/
     margin-left: -7%;
     display: grid;
     margin-top: 1%;
-
 }
 
 .helperSearch input{
@@ -306,6 +305,8 @@ margin-top: 1px;
 
 table{
     border: 3px solid rgba(109, 109, 109, 0.432);
+    background-color: rgba(0, 0, 0, 0.103);
+    justify-self: center;
 } 
 
 .personal_face{
@@ -328,24 +329,26 @@ caption {
     border: 2px solid rgb(150, 150, 150);
     width: 80%;
     height: 50%;
+
 }
 th{
-    border: 0px solid #000;
+    border: 1px solid #000;
 }
+
 .user_card{
     width: 70%;
     height: 700px;
     justify-self: center;
 }
 
+
 /* -------------------Добавления таблицы-------------*/
 .addUser{
     width: 80%;
     justify-self: center;
 }
-table{
-    justify-self: center;
-}
+
+
 
 .addUserCard{
     width: 50%;
