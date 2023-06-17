@@ -54,7 +54,7 @@ require_once "action/users/StyleAndSettings.php";
             </div><!--  Просто кнопка на Хелпер -->
             <div class="Right_head">
                 <!-- Правый верхний блок с профилем-->
-                <? require_once "action\profileindex.php"; ?>
+                <? require_once "action/profileindex.php"; ?>
                 <!-- Просто подключение другого файла в этот блок-->
             </div><!-- Правый верхний блок с профилем-->
         </div> <!-- Конец хедера-->
@@ -90,7 +90,7 @@ require_once "action/users/StyleAndSettings.php";
         <div class="footer">
                 <div></div>
             <div class="refresh">
-            <p class="ink"><img src="file\icons\Logo.png" alt="test"><br>
+            <p class="ink"><img src="file/icons/Logo.png" alt="test"><br>
                  ORStudio <br> Оксентий Роман Сергеевич Студио <br> Copyright 2022-2023 </p>
             </div>
             <div id="clock" class="clock">         

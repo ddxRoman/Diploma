@@ -45,7 +45,7 @@ if ($_SESSION['user']['status'] != 9) {
             </div><!--  Просто кнопка на Хелпер -->
             <div class="Right_head">
                 <!-- Правый верхний блок с профилем-->
-                <? require_once "../action\profileindex.php"; ?>
+                <? require_once "../action/profileindex.php"; ?>
                 <!-- Просто подключение другого файла в этот блок-->
             </div><!-- Правый верхний блок с профилем-->
         </div> <!-- Конец хедера-->
@@ -88,7 +88,7 @@ if ($_SESSION['user']['status'] != 9) {
                 <td><a href="<?=$personals[9]?>" target="_blank"><img class="logo_messendger"  src="../file/icons/telegram_logo.png" title="Телеграм"></a> </td> <!-- Тут нужна подменя ссылко, десктоп приложение копирует t.me а веб версия это web.telegram -->
                 <?} 
                 if($personals[10]!=Null){?>
-                <td><a href="<?=$personals[10]?>" target="_blank"><img class="logo_messendger" src="../file/icons/teams_logo.jpg" title="Teams" alt="Teams"></a> </td>
+                <td><a href="<?=$personals[10]?>" target="_blank"><img class="logo_messendger" src="../file/icons/teams_logo.png" title="Teams" alt="Teams"></a> </td>
                 <?} 
                 if($personals[11]!=Null){?>
                 <td><a href="<?=$personals[11]?>" target="_blank"><img class="logo_messendger" src="../file/icons/zoom_logo.png" title="Zoom" alt="Zoom"></a> </td>
@@ -104,7 +104,7 @@ if ($_SESSION['user']['status'] != 9) {
         <div class="footer">
                 <div></div>
             <div class="refresh">
-            <p class="ink"><br><img src="../file\icons\Logo.png" alt="test"><br>
+            <p class="ink"><br><img src="../file/icons/Logo.png" alt="test"><br>
                  ORStudio <br> Оксентий Роман Сергеевич Студио <br> Copyright 2022-2023 </p>
             </div>
             <div id="clock" class="clock">         
