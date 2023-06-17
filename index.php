@@ -12,12 +12,21 @@ require_once "action/users/StyleAndSettings.php";
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="icon" type="image" href="file/icons/Logo.png">
+    <link rel="icon" type="image" href="file/icons/Logo/Logo.png">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/button.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ORS</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="theme-color" content="#ff0000"/>
+    <link rel="manifest" href="JavaScript/manifest.json">
+    <script>
+        if('serviceWorker' in navigator) {
+          navigator.serviceWorker.register('sw.js');
+        };
+      </script>
 </head>
 
 <body>
@@ -57,7 +66,6 @@ require_once "action/users/StyleAndSettings.php";
             <a href="https://<?=$mailLink?>" target="_blank"><button>Почта</button></a>
             <a href="Test.php" target="_blank"><button>Test</button></a>
             <button class="info__add">Добавить кнопку</button>
-
            </div><!-- Тут заканчивается МИС панель-->
         <hr class="misPanel-hr" width="85%"><!-- ХРка полоска -->
        <div class="body">   <!-- Начало Тела сайта -->
@@ -80,9 +88,7 @@ require_once "action/users/StyleAndSettings.php";
         </div>
         <hr class="footer-hr">
         <div class="footer">
-            
                 <div></div>
-            
             <div class="refresh">
             <p class="ink"><img src="file\icons\Logo.png" alt="test"><br>
                  ORStudio <br> Оксентий Роман Сергеевич Студио <br> Copyright 2022-2023 </p>

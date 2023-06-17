@@ -21,6 +21,17 @@ if ($role!= 1) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ORS-Admin</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="theme-color" content="#ff0000"/>
+    <link rel="manifest" href="JavaScript/manifest.json">
+    <script>
+        if('serviceWorker' in navigator) {
+          navigator.serviceWorker.register('sw.js');
+        };
+      </script>
+
 </head>
 
 <body>

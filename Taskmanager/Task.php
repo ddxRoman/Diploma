@@ -74,7 +74,7 @@
                                 </form>
                             </form>
                             <div class="accordion__content">
-                                <?= $products[2];
+                               <pre> <?= $products[2]; ?></pre><?
                                 if($products[8]!="NULL"){
                                     ?>
                                     <a href="<?= $products[8]; ?>" target="_blank"><img class="pictures-in-tasks" src="<?= $products[8]; ?>"></a><?
@@ -121,7 +121,7 @@
                                     </select>
                                 </form>
                                 <div color="yellow" class="accordion__content">
-                                    <?= $products[2] ?>
+                                <span>   <?= $products[2]; ?></span> 
                                     <img src="<?= $products[8]; ?>">
                                 </div>
                                 <a title="Профиль автора" href="/action/profile2.php?id=<?=$products[4];?>" target="_blank">

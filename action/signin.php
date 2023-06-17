@@ -20,7 +20,6 @@ if(mysqli_num_rows($check_admin)>0)
         "avatar"=>$user['avatar'],
         "role"=>$user['role'],
         "status"=>$user['status']
-        
     ];
    header('Location: ../index_admin.php');
 }
@@ -31,6 +30,7 @@ else{     if(mysqli_num_rows($check_user)>0)
     [
         "id"=>$user['id'],
         "name"=>$user['name'],
+        "mail"=>$user['mail'],
         "status"=>$user['status'],
         "photo"=>$user['photo'],
         "post"=>$user['post']
