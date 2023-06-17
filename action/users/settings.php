@@ -3,7 +3,6 @@
 session_start();
         require_once '../connect.php'; // Проверка подключения к БД
         $id_user= $_SESSION['user']['id'];
-        // $id_person = $_SESSION['person']['id'];
         $setting = mysqli_query($connect, "SELECT*FROM `settings_users` WHERE `id_user`='$id_user'"); 
         $setting = mysqli_fetch_assoc($setting);
         $bg_color=$setting['background'];

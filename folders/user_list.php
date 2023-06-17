@@ -75,7 +75,6 @@ if ($_SESSION['user']['status'] != 9) {
         foreach ($personal as $personals) { // Перебор массива $product c его записью в массив $productS
             ?>
             <tr>
-                
                 <td><img class="personal_face" src="<?=$personals[12]?>"> </td>
                 <td> <a href="user_card.php?mail=<?=$personals[5]?>"><?=$personals[2]?> </a> </td>
                 <td> <a href="user_card.php?mail=<?=$personals[5]?>"><?=$personals[1]?> </a> </td>

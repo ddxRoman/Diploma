@@ -60,6 +60,7 @@ if ($role!= 1) {
             <!-- Тут начинает МИС панель.-->
             <a href="action/users/settings.php"><button>Настройки</button></a>
             <a href="Test.php" target="_blank"><button>Test</button></a>
+            <a href="action/users/create_task_for_user.php" target="_blank"><button>Создать задание</button></a>
             <button class="info__add">Добавить кнопку</button>
            </div><!-- Тут заканчивается МИС панель-->
         <hr class="misPanel-hr" width="85%"><!-- ХРка полоска -->

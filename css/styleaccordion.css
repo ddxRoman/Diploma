@@ -102,6 +102,13 @@ form img{
   margin-left: 3px;
 }
 
+.status{
+  font-weight: 600;
+}
+.priority{
+  font-weight: 400;
+
+}
 
 body::-webkit-scrollbar {
   width:3px;  /* ширина scrollbar */

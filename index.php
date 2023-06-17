@@ -49,7 +49,7 @@ require_once "action/users/StyleAndSettings.php";
                 <?} else{?>
                 <a href="folders/knowledge.php" target="_self">
                     <!--  Просто кнопка на Хелпер -->
-                    <button class="MD">CSD</button>
+                    <button class="MD">База знаний</button>
                 </a><!--  Просто кнопка на Хелпер --> <?}?>
             </div><!--  Просто кнопка на Хелпер -->
             <div class="Right_head">
@@ -81,7 +81,11 @@ require_once "action/users/StyleAndSettings.php";
                     </iframe>
                 </div>
             <?  } else { 
-            ?><div class="not-visible-rmenu"><iframe name="" src=""></iframe></div>
+            ?>
+            <div class="rmenu">
+                    <iframe name="task" src="Taskmanager/task_user.php">
+                    </iframe>
+                </div>
             <?
             }
             ?>

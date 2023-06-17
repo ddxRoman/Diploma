@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <?php if ($_SESSION['user']['status'] == 9) { ?>
+    
         <div class="taskheader">
             <a class="Aaddtask" href="../folders/newTask.php"><button class="addtask" title="Добавить задачу">+</button></a> <!-- Кнопка добавления таски-->
         </div>
@@ -203,9 +203,9 @@
                     } else ?>
                         </div>
                     <?
-                } else {
+             
                     header('Location: ../action/NoRules.php');
-                }
+                
                     ?>
 </body>
 </html>
