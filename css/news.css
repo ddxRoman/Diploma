@@ -14,3 +14,12 @@ hr{
 h4{
     margin-top: -15px;
 }
+.end_news{
+    margin-top: -20px;
+    height: 2px;
+    background-color: rgb(0, 0, 0);
+}
+/* .block_news{
+    border: 2px solid #423e1b2c;
+    margin-bottom: 10px;
+} */

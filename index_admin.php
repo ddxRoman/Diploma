@@ -61,8 +61,7 @@ if ($role!= 1) {
             <a href="action/users/settings.php"><button>Настройки</button></a>
             <a href="folders/user_list.php" target="_self"><button>Список сотрудников</button></a>
             <a href="Taskmanager/task_user.php" target="1"><button>Задачи сотрудников</button></a>
-
-            <button class="info__add">Добавить кнопку</button>
+            <a href="folders/addNews.php" target="1"><button>Добавить Новость</button></a>
            </div><!-- Тут заканчивается МИС панель-->
         <hr class="misPanel-hr" width="85%"><!-- ХРка полоска -->
        <div class="body">   <!-- Начало Тела сайта -->
@@ -108,15 +107,3 @@ if ($role!= 1) {
 </body>
 
 </html>
-<script>
-       $('.info__add').click(function () {
-           name= prompt('Введите название кнопки: ', ['Новая кнопка']);
-           url= prompt('URL ', ['']);
-           if(name!="null" && url!=""){  
-         $(this).parent().append($('<a>', {
-           'text': name, 'href': 'http://'+url, 'target': '_blank'}));
-        }
-        else{}
-       }
-       );
-     </script>

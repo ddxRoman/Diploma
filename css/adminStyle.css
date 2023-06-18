@@ -248,7 +248,19 @@ h2{
     height: 60px;
 }
 
+input[name="newsheader"]{
+    height: 10%;
+    width: 55%;
+    margin-bottom: 5px;
+}
+
 textarea[name="body"] {
+    border: 1px solid rgb(0, 255, 221);
+    background-color: #eaf5e5;
+    height: 180px;
+    width: 90%;
+}
+textarea[name="news"] {
     border: 1px solid rgb(0, 255, 221);
     background-color: #eaf5e5;
     height: 180px;
