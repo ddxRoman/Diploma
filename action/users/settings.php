@@ -51,8 +51,8 @@ $btn_color=$setting['btn_color'];
 
 <h3>Добавление кнопок:</h3>
 <form action="addbutton.php?id=<?=$id_user?>" method="post" >
-    <input name="button"  type="text" placeholder="Название кнопки">
-    <input  type="text" name="url" placeholder="URL кнопки"><br>
+    <input required name="button" type="text" placeholder="Название кнопки">
+    <input required type="text" name="url" placeholder="URL кнопки"><br>
     <!-- 2. <input name="button2"  type="text" placeholder="Название кнопки">
     <input  type="url" name="url2" placeholder="URL кнопки"><br>
     3. <input name="button3"  type="text" placeholder="Название кнопки">

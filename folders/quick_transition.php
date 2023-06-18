@@ -9,13 +9,13 @@
 </head>
 <body>
 <form target="_blank" action="../action/header.php" method="post" >
-<input type="text" name="yandex" placeholder="Яндекс" >
+<input type="search" name="yandex" placeholder="Яндекс" >
 <a href="header.php" > 
     <button type="submit">Поиск</button>
 </a>
 </form>
 <form target="_blank" action="../action/header.php" method="post">
-<input type="text" name="google" placeholder="Google" >
+<input type="search" name="google" placeholder="Google" >
 <a href="header.php" > 
     <button type="submit">Поиск</button>
 </a>

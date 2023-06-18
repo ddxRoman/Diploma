@@ -7,8 +7,6 @@ $id_user=$_GET['id'];
 $btn=$_POST['button'];
 $url=$_POST['url'];
 
-echo "<br>".$btn."-".$url."<br><br>". $id_user;
-
 mysqli_query($connect, "INSERT INTO `button_user` (`id`, `user_id`, `button`, `url`) 
 VALUES (NULL, '$id_user', '$btn', '$url')");
  header ('Location: settings.php');
