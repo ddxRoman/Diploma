@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-<a href="../index_admin.php">На Главную</a>
+
 <?php 
 
 session_start();
@@ -41,7 +41,7 @@ $person = mysqli_fetch_all($person); // Выбирает все строки и�
                      if($persons[9]!=Null){?>
                      <a href="<?= $persons[9]?>"><img src="../file/icons/telegram_logo.png" class="logo_messendger_user_card"></a><?
                     }if($persons[10]!=Null){?>
-                    <a href="<?= $persons[10]?>"><img src="../file/icons/teams_logo.jpg" class="logo_messendger_user_card"></a>
+                    <a href="<?= $persons[10]?>"><img src="../file/icons/teams_logo.png" class="logo_messendger_user_card"></a>
                     <?}if($persons[11]!=Null){?>
                     <a href="<?= $persons[11]?>"><img src="../file/icons/zoom_logo.png" class="logo_messendger_user_card"></a>
                     <?}?>

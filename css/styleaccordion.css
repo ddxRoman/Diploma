@@ -90,7 +90,7 @@ body {
 
 .taskheader{
   display: grid;
-  justify-content: end;
+  justify-content: center;
 }
 
 .owner{
@@ -98,19 +98,7 @@ body {
   color: #914a4a;
 }
 
-.addtask_user{
-  border-radius: 12px;
-  height: 30px;
-    width: 40px;
-    border-color: rgba(125, 175, 120, 0.767);
-  }
-  .addtask_user:hover{
-    border-radius: 12px;
-    height: 30px;
-      width: 90px;
-      border-color: rgba(88, 172, 56, 0.767);
-      background-color: #56973c;
-    }
+
 
 form img{
   margin-left: 3px;

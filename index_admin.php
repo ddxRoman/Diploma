@@ -59,7 +59,7 @@ if ($role!= 1) {
         <div class="MisPanel">
             <!-- Тут начинает МИС панель.-->
             <a href="action/users/settings.php"><button>Настройки</button></a>
-            <a href="Test.php" target="_blank"><button>Test</button></a>
+            <a href="folders/user_list.php" target="_self"><button>Список сотрудников</button></a>
             <a href="Taskmanager/task_user.php" target="1"><button>Задачи сотрудников</button></a>
 
             <button class="info__add">Добавить кнопку</button>
@@ -68,7 +68,7 @@ if ($role!= 1) {
        <div class="body">   <!-- Начало Тела сайта -->
             <div class="lmenu"> 
                 <div class="links">
-                    <a href="folders/user_list.php" target="_self"><button>Список сотрудников</button></a>
+                    
                     
                 </div>
              </div>

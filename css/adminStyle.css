@@ -207,9 +207,12 @@ width: 20px;
     width: 35px;
     height: 35px;
 }
+h2{
+    color: #000;
+}
 
 .user_card_photo{
-    width: 50%;
+    width: 100%;
     max-width: 200px;
 }
 
@@ -348,6 +351,10 @@ th{
     justify-self: center;
 }
 
+.card{
+
+    color: rgb(17, 17, 17);
+}
 
 
 .addUserCard{

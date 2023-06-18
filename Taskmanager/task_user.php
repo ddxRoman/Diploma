@@ -2,7 +2,7 @@
 $id_user=$_SESSION['user']['id'];
 
 $status_user = $_SESSION['user']['status'];
-
+require_once '../action/connect.php'; // Прaоверка подключения к БД
 
 ?>
 <!doctype html>
@@ -17,12 +17,13 @@ $status_user = $_SESSION['user']['status'];
 </head>
 
 <body>
+<?if($status_user==9){?>
 <div class="taskheader">
-            <a class="Aaddtask" href="../action/users/create_task_for_user.php"><button class="addtask_user" title="Добавить задачу">+</button></a> <!-- Кнопка добавления таски-->
+            <a class="Aaddtask" href="../action/users/create_task_for_user.php"><button class="addtask_user transition" title="Добавить задачу">+</button></a> <!-- Кнопка добавления таски-->
         </div>
-    <?php
-        require_once '../action/connect.php'; // Проверка подключения к БД
-        if($status_user==9){
+  
+        
+        <?
             $task = mysqli_query($connect, "SELECT * FROM `user_task`  ORDER BY `status` ASC"); // Подключение к определенной таблице, и получение Статуса записи
         }else {
         $task = mysqli_query($connect, "SELECT * FROM `user_task` WHERE `id_user`=$id_user ORDER BY `status` ASC"); // Подключение к определенной таблице, и получение Статуса записи

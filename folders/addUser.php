@@ -88,7 +88,7 @@ require_once "../function/checkaut.php";
     <!-- <label>Фото сотрудника</label><input class="download_photo" name="photo" type="file"></td> -->
 </tr>
 <tr><td><button class="create">Создать</button></td> 
-</Form>
+</form>
 <td></td>
 <td align="end"><a href="user_list.php"><button class="cancel">Отмена</button></a></td> 
 </tr>

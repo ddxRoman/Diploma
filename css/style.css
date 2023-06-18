@@ -291,6 +291,47 @@ margin-top: 1px;
 }
 
 
+.tab {
+    height: 50px;
+    overflow: hidden;
+    border: 1px solid #4CAF50;
+    background-color: #C8E6C9;
+}
+
+
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    height: 50px;
+}
+
+
+.tab button:hover {
+    background-color: #FFEB3B;
+}
+
+
+.tab button.active {
+    height: 50px;
+    background-color: #4CAF50;
+	color: #fff;
+}
+
+
+.tabcontent {
+    display: none;
+
+    border: 1px solid #4CAF50;
+    border-top: none;
+    height: 50px;
+}
+
+
 /*  Изменение цвета текста в плейс холдере для разных браузеров.
 
 Современные браузеры 

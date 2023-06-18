@@ -50,13 +50,14 @@ if ($_SESSION['user']['status'] != 9) {
             </div><!-- Правый верхний блок с профилем-->
         </div> <!-- Конец хедера-->
         <div class="MisPanel">
+            <a href="../index_admin.php" target="_self"><button> Назад</button></a>
             <!-- Тут начинает МИС панель.-->
            </div><!-- Тут заканчивается МИС панель-->
         <hr class="misPanel-hr" width="85%"><!-- ХРка полоска -->
        <div class="body">   <!-- Начало Тела сайта -->
             <div class="lmenu"> 
                 <div class="links">
-                <a href="addUser.php" target="1"><button>Добавить сотрудника</button></a>
+                <a href="addUser.php" target="_self"><button>Добавить сотрудника</button></a>
                 </div>
              </div>
             <div class="contant">
@@ -84,13 +85,13 @@ if ($_SESSION['user']['status'] != 9) {
                 <td><?=$personals[8]?> </td>
                 <td><?=$personals[7]?> </td>
                 <?if($personals[9]!=Null){?>
-                <td><a href="<?=$personals[9]?>" target="_blank"><img class="logo_messendger"  src="../file/icons/telegram_logo.png" title="Телеграм"></a> </td> <!-- Тут нужна подменя ссылко, десктоп приложение копирует t.me а веб версия это web.telegram -->
+                <td><a href="<?=$personals[9]?>" target="_self"><img class="logo_messendger"  src="../file/icons/telegram_logo.png" title="Телеграм"></a> </td> <!-- Тут нужна подменя ссылко, десктоп приложение копирует t.me а веб версия это web.telegram -->
                 <?} 
                 if($personals[10]!=Null){?>
-                <td><a href="<?=$personals[10]?>" target="_blank"><img class="logo_messendger" src="../file/icons/teams_logo.png" title="Teams" alt="Teams"></a> </td>
+                <td><a href="<?=$personals[10]?>" target="_self"><img class="logo_messendger" src="../file/icons/teams_logo.png" title="Teams" alt="Teams"></a> </td>
                 <?} 
                 if($personals[11]!=Null){?>
-                <td><a href="<?=$personals[11]?>" target="_blank"><img class="logo_messendger" src="../file/icons/zoom_logo.png" title="Zoom" alt="Zoom"></a> </td>
+                <td><a href="<?=$personals[11]?>" target="_self"><img class="logo_messendger" src="../file/icons/zoom_logo.png" title="Zoom" alt="Zoom"></a> </td>
                 <?}?>
             </tr>    
             <?
