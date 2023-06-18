@@ -67,6 +67,7 @@ $button = mysqli_fetch_all($button); // Выбирает все строки и�
             <a href="action/users/settings.php" target="_blank"><button><img src="file/icons/settings.png" >Настройки</button></a>
             <a href="https://<?=$mailLink?>" target="_blank"><button> <img src="file/icons/email.png"> Почта</button></a>
             <a href="https://telemost.yandex.ru/j/05547869279270" target="_blank"><button><img src="file/icons/yabridg.png">Телемост</button></a>
+            <a href="folders/news.php" target="1"><button><img src="file/icons/news.png">Новости</button></a>
            </div><!-- Тут заканчивается МИС панель-->
         <hr class="misPanel-hr" width="85%"><!-- ХРка полоска -->
        <div class="body">   <!-- Начало Тела сайта -->
@@ -80,7 +81,8 @@ $button = mysqli_fetch_all($button); // Выбирает все строки и�
 
              </div>
             <div class="container">
-                <iframe name="1" src="">
+                <iframe name="1" src="folders/news.php">
+                    
                 </iframe>
             </div>
             <?php if ($_SESSION['user']['status'] == 9) { ?><!-- Берем Роль пользователя и проверяем если она равно 9 (у нас это админ) то показываем Правое меню-->

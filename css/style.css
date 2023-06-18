@@ -334,7 +334,10 @@ margin-top: 1px;
 
 
 .MisPanel img{
-    width: 16px;
+    width: 18px;
+}
+.MisPanel button{
+    
 }
 
 /*  Изменение цвета текста в плейс холдере для разных браузеров.

@@ -49,11 +49,17 @@ require_once '../action/connect.php'; // Прaоверка подключени�
                                                                                                             ?>
                         </div>
                         <div class="accordion__body">
+                        <form action="../action/statusTask.php?id=<?= $tasks[0] ?>" method="post" name="form"> <!-- форма с селектами-->
+
                                 <font class="status">Актуально</font> <!-- Проверяем если статус задачи 1 то выводим Селект где первая запись Активный  -->
+                                <form action="../action/accept_delete_user.php?id=<?= $tasks[0] ?>" method="post" name="real_delete">
+                                    <a href="../action/accept_delete_user.php?id=<?= $tasks[0] ?>"><img src="/file/icons/delete.png" width="16px" height="16px"></a>
+                                </form>
                             <div class="accordion__content">
                                <pre> <?= $tasks[2]; ?></pre><?
                                 if($tasks[8]!="NULL"){
                                     ?>
+                                    
                                     <a href="<?= $tasks[8]; ?>" target="_blank"><img class="pictures-in-tasks" src="<?= $tasks[8]; ?>"></a><?
                                 }
                                 ?>

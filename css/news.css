@@ -1,0 +1,16 @@
+h1{
+    text-align: center;
+}
+h2{
+    background: linear-gradient(90deg, rgba(228, 228, 228, 0.623), rgba(216, 217, 218, 0));
+}
+p{
+    background-color: rgba(231, 229, 218, 0.295);
+}
+hr{
+    height: 2px;
+    background-color: rgba(105, 105, 105, 0.658);
+}
+h4{
+    margin-top: -15px;
+}
