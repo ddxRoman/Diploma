@@ -1,6 +1,8 @@
 <?php session_start(); 
 $id_user=$_SESSION['user']['id'];
 
+$status_user = $_SESSION['user']['status'];
+
 
 ?>
 <!doctype html>
@@ -15,9 +17,16 @@ $id_user=$_SESSION['user']['id'];
 </head>
 
 <body>
+<div class="taskheader">
+            <a class="Aaddtask" href="../action/users/create_task_for_user.php"><button class="addtask_user" title="Добавить задачу">+</button></a> <!-- Кнопка добавления таски-->
+        </div>
     <?php
         require_once '../action/connect.php'; // Проверка подключения к БД
+        if($status_user==9){
+            $task = mysqli_query($connect, "SELECT * FROM `user_task`  ORDER BY `status` ASC"); // Подключение к определенной таблице, и получение Статуса записи
+        }else {
         $task = mysqli_query($connect, "SELECT * FROM `user_task` WHERE `id_user`=$id_user ORDER BY `status` ASC"); // Подключение к определенной таблице, и получение Статуса записи
+        }
         $task = mysqli_fetch_all($task); // Выбирает все строки из набора $product и помещает их в массив  $product
         $comment = mysqli_query($connect, "SELECT * FROM `comments` ORDER BY `id` ASC "); // Подключение к определенной таблице, и получение Статуса записи
         $comment = mysqli_fetch_all($comment); // Выбирает все строки из набора $Comment и помещает их в массив  $Comments
@@ -39,12 +48,7 @@ $id_user=$_SESSION['user']['id'];
                                                                                                             ?>
                         </div>
                         <div class="accordion__body">
-                            
                                 <font class="status">Актуально</font> <!-- Проверяем если статус задачи 1 то выводим Селект где первая запись Активный  -->
-                                    
-                                    
-                              
-                            
                             <div class="accordion__content">
                                <pre> <?= $tasks[2]; ?></pre><?
                                 if($tasks[8]!="NULL"){

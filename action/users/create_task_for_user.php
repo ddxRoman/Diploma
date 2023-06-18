@@ -23,18 +23,13 @@ if ($_SESSION['user']['status'] != 9) {
         <a href="../Taskmanager/task_user.php"><img class="return" src="../../file/icons/return.png" ></a>
     </div>
     <div class="taskadd">
-    <form action="add_task_for_user.php?=<?=$id?>" method="POST" enctype="multipart/form-data">
+    <form action="add_task_for_user.php" method="POST" enctype="multipart/form-data">
     <input required type="text" name="name" placeholder="Введите название">
     <select name="user"> <?
 foreach($personal as $personals){
     
-$id = $personals[0];
-
-$name = $personals[1]." ";
-
-$surname = $personals[2];
 ?>
-    <option name="id"><?=$name.$surname.$id?></option>
+    <option name="id"><?=$personals[0]." ". $personals[1]." ".$personals[3];?></option>
 
 <?}?>
 
