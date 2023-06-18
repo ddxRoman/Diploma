@@ -4,6 +4,8 @@ require_once "function/checkaut.php";
 require_once "function/checkrole.php";
 require_once "action/connect.php";
 require_once "action/users/StyleAndSettings.php";
+$button = mysqli_query($connect, "SELECT * FROM `button_user` WHERE `user_id`=$id_user "); // Подключение к определенной таблице, и получение Статуса записи
+$button = mysqli_fetch_all($button); // Выбирает все строки из набора $product и помещает их в массив  $product
 
 ?>
 
@@ -62,14 +64,20 @@ require_once "action/users/StyleAndSettings.php";
             <!-- Тут начинает МИС панель.-->
             <? $mailLink=$_SESSION['user']['mail'];
             ?>
-            <a href="action/users/settings.php"><button>Настройки</button></a>
-            <a href="https://<?=$mailLink?>" target="_blank"><button>Почта</button></a>
-            <a href="Test.php" target="_blank"><button>Test</button></a>
-            <button class="info__add">Добавить кнопку</button>
+            <a href="action/users/settings.php" target="1"><button><img src="file/icons/settings.png" >Настройки</button></a>
+            <a href="https://<?=$mailLink?>" target="_blank"><button> <img src="file/icons/email.png"> Почта</button></a>
+            <a href="https://telemost.yandex.ru/j/05547869279270" target="_blank"><button><img src="file/icons/yabridg.png">Телемост</button></a>
            </div><!-- Тут заканчивается МИС панель-->
         <hr class="misPanel-hr" width="85%"><!-- ХРка полоска -->
        <div class="body">   <!-- Начало Тела сайта -->
             <div class="lmenu"> 
+
+            <? foreach($button as $buttons){
+                    ?><a href="<?=$buttons[3]?>" target="_blank"><button><?=$buttons[2]?></button></a>
+<?
+            }
+            ?>
+
              </div>
             <div class="container">
                 <iframe name="1" src="">

@@ -1,4 +1,5 @@
 <?
+session_start();
 require_once "../../function/checkaut.php";
 require_once "../../function/checkrole.php";
 require_once "../connect.php";
@@ -32,7 +33,6 @@ foreach($personal as $personals){
     <option name="id"><?=$personals[0]." ". $personals[1]." ".$personals[3];?></option>
 
 <?}?>
-
 </select>
 
 
@@ -42,6 +42,7 @@ foreach($personal as $personals){
         <option value=" 2">Срочно </option>
     </select>
 
+    
     <br>
     <label>Суть задачи:</label><br>
     <textarea required type="text" name="body"></textarea><br>

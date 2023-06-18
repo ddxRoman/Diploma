@@ -120,8 +120,9 @@ body {
 
 .lmenu {
     /* background-color: rgb(230, 230, 230); */
-    padding: 15px;
-    display: grid;
+    /* padding: 15px; */
+    /* display: grid; */
+    margin-top: 10px;
 }
 
 .rmenu {
@@ -313,6 +314,7 @@ margin-top: 1px;
 
 .tab button:hover {
     background-color: #FFEB3B;
+
 }
 
 
@@ -325,12 +327,15 @@ margin-top: 1px;
 
 .tabcontent {
     display: none;
-
     border: 1px solid #4CAF50;
     border-top: none;
     height: 50px;
 }
 
+
+.MisPanel img{
+    width: 16px;
+}
 
 /*  Изменение цвета текста в плейс холдере для разных браузеров.
 

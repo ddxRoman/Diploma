@@ -9,7 +9,11 @@ $text_color=$setting['text_color'];
 $btn_color=$setting['btn_color'];
 
 ?>
-
+<div class="header_settings">
+    <a href="../../index_admin.php">
+    <button>На главную</button>
+</a>
+</div>
 
 <div class="tab">
   <button class="tablinks" onclick="openCity(event, 'Тема')">Тема</button>
@@ -18,7 +22,6 @@ $btn_color=$setting['btn_color'];
 </div>
 
 <div id="Тема" class="tabcontent">
-    
 <div class="links">
                 <form action="color.php" name="bg" method="post">
                 <table>
@@ -37,9 +40,7 @@ $btn_color=$setting['btn_color'];
 </table>
     <button>Применить</button>
     </form>
-    <a href="../../index_admin.php">
-    <button>На главную</button>
-</a>
+
         </div>
         
 
@@ -48,22 +49,36 @@ $btn_color=$setting['btn_color'];
 
 <div id="Кнопки" class="tabcontent">
 
-
+<h3>Добавление кнопок:</h3>
+<form action="addbutton.php?id=<?=$id_user?>" method="post" >
+    <input name="button"  type="text" placeholder="Название кнопки">
+    <input  type="text" name="url" placeholder="URL кнопки"><br>
+    <!-- 2. <input name="button2"  type="text" placeholder="Название кнопки">
+    <input  type="url" name="url2" placeholder="URL кнопки"><br>
+    3. <input name="button3"  type="text" placeholder="Название кнопки">
+    <input  type="url" name="url3" placeholder="URL кнопки"><br>
+    4. <input name="button4"  type="text" placeholder="Название кнопки">
+    <input  type="url" name="url4" placeholder="URL кнопки"><br>
+    5. <input name="button5"  type="text" placeholder="Название кнопки">
+    <input  type="url" name="url5" placeholder="URL кнопки"><br> -->
+    <br>
+    <button>Добавить</button>
+</form>
 </div>
 
 <div id="Профиль" class="tabcontent">
 
-
-
 </div>
 
 <style>
+    input{
+        margin-top: 5px;
+    }
   .tab {
     overflow: hidden;
     border: 1px solid #4CAF50;
     background-color: #C8E6C9;
 }
-
 
 .tab button {
     background-color: inherit;
@@ -75,23 +90,28 @@ $btn_color=$setting['btn_color'];
     transition: 0.3s;
 }
 
-
 .tab button:hover {
     background-color: #FFEB3B;
 }
-
 
 .tab button.active {
     background-color: #4CAF50;
 	color: #fff;
 }
 
-
 .tabcontent {
     display: none;
     padding: 6px 12px;
-    border: 1px solid #4CAF50;
+    border: 1px solid #599735;    
     border-top: none;
+}
+.header_settings{
+    display: grid;
+  justify-content: end;
+
+}
+body{
+    background-color: #999999;
 }
 </style>
 
