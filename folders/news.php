@@ -13,7 +13,11 @@
 require_once '../action/connect.php';
 $new = mysqli_query($connect, "SELECT * FROM `news` ORDER BY `id` DESC "); // Подключение к определенной таблице, и получение Статуса записи
 $new = mysqli_fetch_all($new); // Выбирает все строки из набора $Comment и помещает их в массив  $Comments
-foreach($new as $news){?>
+foreach($new as $news){
+    
+    
+    
+    ?>
     
 
 
@@ -25,10 +29,17 @@ foreach($new as $news){?>
     <p>
     <?= $news[2]?> 
     </p><br>
-    <h4><b>Автор:</b> <i><?=$news[3]?></i></h4>
+
+    <?$owner = mysqli_query($connect, "SELECT * FROM `users` WHERE `id`=$news[3] ");
+      $owner = mysqli_fetch_all($owner);
+        foreach($owner as $owners){
+    ?><h4><b>Автор:</b> <i><?=$owners[1]?></i></h4> 
+    <?}?>
     <hr class="end_news">
     </div>
 <?}?>
 
 </body>
 </html>
+
+
