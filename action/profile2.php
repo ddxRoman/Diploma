@@ -56,7 +56,7 @@ $check_id = mysqli_query($connect, "SELECT * FROM `settings_users` WHERE `id_use
 $person = mysqli_query($connect, "SELECT * FROM `personal` ORDER BY `mail`"); // Подключение к определенной таблице, и получение Статуса записи
 $person = mysqli_fetch_all($person); // Выбирает все строки из набора $product и помещает их в массив  $product
     foreach($person as $persons){
-        echo "<br>PERS - ". $persons[5];
+
         if($persons[5]==$mail){
             ?>
             <div class="user_card">
