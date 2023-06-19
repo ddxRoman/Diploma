@@ -36,10 +36,10 @@ foreach($personal as $personals){
 </select>
 
 
-    <select name="prioritet"> 
+    <select name="priority"> 
         <option value="0">Заметка </option>
-        <option value=" 1">Надо сделать</option> 
-        <option value=" 2">Срочно </option>
+        <option value="1">Надо сделать</option> 
+        <option value="2">Срочно </option>
     </select>
 
     

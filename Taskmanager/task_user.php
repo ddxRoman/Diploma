@@ -21,8 +21,6 @@ require_once '../action/connect.php'; // Прaоверка подключени�
 <div class="taskheader">
             <a class="Aaddtask" href="../action/users/create_task_for_user.php"><button class="addtask_user transition" title="Добавить задачу">+</button></a> <!-- Кнопка добавления таски-->
         </div>
-  
-        
         <?
             $task = mysqli_query($connect, "SELECT * FROM `user_task`  ORDER BY `status` ASC"); // Подключение к определенной таблице, и получение Статуса записи
         }else {
@@ -49,7 +47,7 @@ require_once '../action/connect.php'; // Прaоверка подключени�
                                                                                                             ?>
                         </div>
                         <div class="accordion__body">
-                        <form action="../action/statusTask.php?id=<?= $tasks[0] ?>" method="post" name="form"> <!-- форма с селектами-->
+                        
 
                                 <font class="status">Актуально</font> <!-- Проверяем если статус задачи 1 то выводим Селект где первая запись Активный  -->
                                 <? if($status_user==9){?>
@@ -58,7 +56,7 @@ require_once '../action/connect.php'; // Прaоверка подключени�
                                 </form>
                             <?}?>
                             <div class="accordion__content">
-                               <pre> <?= $tasks[2]; ?></pre><? 
+                               <pre> <?= $tasks[2]; ?></pre><?
                                 if($tasks[8]=="NULL"){
                                     ?>
                                     
@@ -66,8 +64,19 @@ require_once '../action/connect.php'; // Прaоверка подключени�
                                 }
                                 ?>
                             </div>
+
+                            
+                            <?$owner = mysqli_query($connect, "SELECT * FROM `users` WHERE `id`=$tasks[4] ");
+                            $owner = mysqli_fetch_all($owner);?>
+
+
                             <a title="Профиль автора" href="/action/profile2.php?id=<?=$tasks[4];?>" target="_blank">
-                                <font class="owner"> <? echo $tasks[4]; ?> </font>
+
+                                <font class="owner"> <?
+                                foreach($owner as $owners){
+                                
+                                 echo $owners[1];}
+                                 ?> </font>
                             </a>
                             <font class="creation_date"><b>Создано:</b> <?= $tasks[6] ?></font>
 <!----------------------------------------Начало пати с комментариями------------------------------------------------------------------>
@@ -76,12 +85,14 @@ require_once '../action/connect.php'; // Прaоверка подключени�
                                                             if ($comments[1] == $tasks[0]) {//Проверяем если айди таска комента равно айди самого таска то выводим его
                                                                ?><a title="Профиль автора" href="/action/profile2.php?id=<?=$comments[3];?>" target="_blank">
                                 <font class="owner-comment"> <? echo $comments[3]; ?> </font>
-                            </a><?
+                            </a><?if($comments[5]!="NO"){
                                                                 echo ($comments[4] . "<br><hr>" . $comments[2]  . "<a href='$comments[5]'><img src='$comments[5]' class='pictures-in-tasks'></a> <hr class='end-comments'>");
-                                                            }
+                                                            } else {
+                                                                echo ($comments[4] . "<br><hr>" . $comments[2]."<br>");
+                                                            }}
                                                         } ?>
                                                         <div class="block-add-comments">
-                                <form action="../action/addComents.php" method="post" enctype="multipart/form-data">
+                                <form action="../action/users/addComents_user.php" method="post" enctype="multipart/form-data">
                                     <textarea class="add-comments" name="contant"></textarea><br>
                                     <input type="file" name="picture"><br>
                                     <input type="hidden" name="id_task" value="<?= $tasks[0] ?>">
@@ -100,12 +111,32 @@ require_once '../action/connect.php'; // Прaоверка подключени�
                             <div class="accordion__body">
                             <font>Выполнено</font> <!-- Проверяем если статус задачи 1 то выводим Селект где первая запись Активный  -->
                                 <div color="yellow" class="accordion__content">
-                                <span>   <?= $tasks[2]; ?></span> 
-                                    <img src="<?= $tasks[8]; ?>">
-                                </div>
-                                <a title="Профиль автора" href="/action/profile2.php?id=<?=$tasks[4];?>" target="_blank">
-                                <font class="owner"> <? echo $tasks[4]; ?> </font>
+
+
+                                <pre> <?= $tasks[2]; ?></pre><? 
+                                if($tasks[8]=="NULL"){
+                                    ?>
+                                    
+                                    <a href="<?= $tasks[8]; ?>" target="_blank"><img class="pictures-in-tasks" src="<?= $tasks[8]; ?>"></a><?
+                                }
+                                ?>
+                            </div>
+
+                            
+                            <?$owner = mysqli_query($connect, "SELECT * FROM `users` WHERE `id`=$tasks[4] ");
+                            $owner = mysqli_fetch_all($owner);?>
+
+
+                            <a title="Профиль автора" href="/action/profile2.php?id=<?=$tasks[4];?>" target="_blank">
+
+                                <font class="owner"> <?
+                                foreach($owner as $owners){
+                                
+                                 echo $owners[1];}
+                                 ?> </font>
                             </a>
+
+
                                 <font class="creation_date"><b>Создано:</b> <?= $tasks[6] ?></font> <br>
                                 <font class="creation_date"><b>Закрыто:</b> <?= $tasks[7] ?></font>
 <!----------------------------------------Начало пати с комментариями------------------------------------------------------------------>
@@ -115,7 +146,7 @@ require_once '../action/connect.php'; // Прaоверка подключени�
                                                                 echo ($comments[3] . " " . $comments[4] . "< br><hr>" . $comments[2]  . "<a href='$comments[5]'><img src='$comments[5]' class='pictures-in-tasks'></a> <hr class='end-comments'>");
                                                             }
                                                         } ?>
-                                <form action="../action/addComents.php" method="post" enctype="multipart/form-data">
+                                <form action="../action/users/addComents_user.php" method="post" enctype="multipart/form-data">
                                     <textarea class="add-comments" name="contant"></textarea><br>
                                     <input type="file" name="picture"><br>
                                     <input type="hidden" name="id_task" value="<?= $tasks[0] ?>">
@@ -139,12 +170,31 @@ require_once '../action/connect.php'; // Прaоверка подключени�
                                 <div class="accordion__body">
                                 <font>Не актуально</font> <!-- Проверяем если статус задачи 1 то выводим Селект где первая запись Активный  -->
                                     <div color="yellow" class="accordion__content">
-                                        <?= $tasks[2] ?>
-                                        <img src="<?= $tasks[8]; ?>">
-                                    </div>
-                                    <a title="Профиль автора" href="/action/profile2.php?id=<?=$tasks[4];?>" target="_blank">
-                                <font class="owner"> <? echo $tasks[4]; ?> </font>
+
+                                    <pre> <?= $tasks[2]; ?></pre><? 
+                                if($tasks[8]=="NULL"){
+                                    ?>
+                                    
+                                    <a href="<?= $tasks[8]; ?>" target="_blank"><img class="pictures-in-tasks" src="<?= $tasks[8]; ?>"></a><?
+                                }
+                                ?>
+                            </div>
+
+                            
+                            <?$owner = mysqli_query($connect, "SELECT * FROM `users` WHERE `id`=$tasks[4] ");
+                            $owner = mysqli_fetch_all($owner);?>
+
+
+                            <a title="Профиль автора" href="/action/profile2.php?id=<?=$tasks[4];?>" target="_blank">
+
+                                <font class="owner"> <?
+                                foreach($owner as $owners){
+                                
+                                 echo $owners[1];}
+                                 ?> </font>
                             </a>
+
+
                                     <font class="creation_date"><b>Создано:</b> <?= $tasks[6] ?></font>
 <!----------------------------------------Начало пати с комментариями------------------------------------------------------------------>
 <div class="comments-block"><?
@@ -153,7 +203,7 @@ require_once '../action/connect.php'; // Прaоверка подключени�
                                                                 echo ($comments[3] . " " . $comments[4] . "<br><hr>" . $comments[2]  . "<a href='$comments[5]'><img src='$comments[5]' class='pictures-in-tasks'></a> <hr class='end-comments'>");
                                                             }
                                                         } ?>
-                                <form action="../action/addComents.php" method="post" enctype="multipart/form-data">
+                                <form action="../action/users/addComents_user.php" method="post" enctype="multipart/form-data">
                                     <textarea class="add-comments" name="contant"></textarea><br>
                                     <input type="file" name="picture"><br>
                                     <input type="hidden" name="id_task" value="<?= $tasks[0] ?>">

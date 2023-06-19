@@ -60,7 +60,7 @@ if ($role!= 1) {
             <!-- Тут начинает МИС панель.-->
             <a href="action/users/settings.php"><button>Настройки</button></a>
             <a href="folders/user_list.php" target="_self"><button>Список сотрудников</button></a>
-            <a href="Taskmanager/task_user.php" target="1"><button>Задачи сотрудников</button></a>
+            <a href="Taskmanager/task_user.php" target="1"><button>Задачи сотрудникам</button></a>
             <a href="folders/addNews.php" target="1"><button>Добавить Новость</button></a>
            </div><!-- Тут заканчивается МИС панель-->
         <hr class="misPanel-hr" width="85%"><!-- ХРка полоска -->

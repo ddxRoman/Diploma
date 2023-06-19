@@ -74,16 +74,33 @@
                                 </form>
                             </form>
                             <div class="accordion__content">
-                               <pre> <?= $products[2]; ?></pre><?
+
+
+                            <pre> <?= $products[2]; ?></pre><? 
                                 if($products[8]!="NULL"){
                                     ?>
+                                    
                                     <a href="<?= $products[8]; ?>" target="_blank"><img class="pictures-in-tasks" src="<?= $products[8]; ?>"></a><?
                                 }
                                 ?>
                             </div>
+
+                            
+                            <?$owner = mysqli_query($connect, "SELECT * FROM `users` WHERE `id`=$products[4] ");
+                            $owner = mysqli_fetch_all($owner);?>
+
+
                             <a title="Профиль автора" href="/action/profile2.php?id=<?=$products[4];?>" target="_blank">
-                                <font class="owner"> <? echo $products[4]; ?> </font>
+
+                                <font class="owner"> <?
+                                foreach($owner as $owners){
+                                
+                                 echo $owners[1];}
+                                 ?> </font>
                             </a>
+
+
+
                             <font class="creation_date"><b>Создано:</b> <?= $products[6] ?></font>
 <!----------------------------------------Начало пати с комментариями------------------------------------------------------------------>
                             <div class="comments-block"><?
@@ -121,12 +138,31 @@
                                     </select>
                                 </form>
                                 <div color="yellow" class="accordion__content">
-                                <span>   <?= $products[2]; ?></span> 
-                                    <img src="<?= $products[8]; ?>">
-                                </div>
-                                <a title="Профиль автора" href="/action/profile2.php?id=<?=$products[4];?>" target="_blank">
-                                <font class="owner"> <? echo $products[4]; ?> </font>
+
+                                <pre> <?= $products[2]; ?></pre><? 
+                                if($products[8]=="NULL"){
+                                    ?>
+                                    
+                                    <a href="<?= $products[8]; ?>" target="_blank"><img class="pictures-in-tasks" src="<?= $products[8]; ?>"></a><?
+                                }
+                                ?>
+                            </div>
+
+                            
+                            <?$owner = mysqli_query($connect, "SELECT * FROM `users` WHERE `id`=$products[4] ");
+                            $owner = mysqli_fetch_all($owner);?>
+
+
+                            <a title="Профиль автора" href="/action/profile2.php?id=<?=$products[4];?>" target="_blank">
+
+                                <font class="owner"> <?
+                                foreach($owner as $owners){
+                                
+                                 echo $owners[1];}
+                                 ?> </font>
                             </a>
+
+
                                 <font class="creation_date"><b>Создано:</b> <?= $products[6] ?></font> <br>
                                 <font class="creation_date"><b>Закрыто:</b> <?= $products[7] ?></font>
 <!----------------------------------------Начало пати с комментариями------------------------------------------------------------------>
@@ -166,11 +202,27 @@
                                         </select>
                                     </form>
                                     <div color="yellow" class="accordion__content">
-                                        <?= $products[2] ?>
-                                        <img src="<?= $products[8]; ?>">
-                                    </div>
-                                    <a title="Профиль автора" href="/action/profile2.php?id=<?=$products[4];?>" target="_blank">
-                                <font class="owner"> <? echo $products[4]; ?> </font>
+                                    <pre> <?= $products[2]; ?></pre><? 
+                                if($products[8]=="NULL"){
+                                    ?>
+                                    
+                                    <a href="<?= $products[8]; ?>" target="_blank"><img class="pictures-in-tasks" src="<?= $products[8]; ?>"></a><?
+                                }
+                                ?>
+                            </div>
+
+                            
+                            <?$owner = mysqli_query($connect, "SELECT * FROM `users` WHERE `id`=$products[4] ");
+                            $owner = mysqli_fetch_all($owner);?>
+
+
+                            <a title="Профиль автора" href="/action/profile2.php?id=<?=$products[4];?>" target="_blank">
+
+                                <font class="owner"> <?
+                                foreach($owner as $owners){
+                                
+                                 echo $owners[1];}
+                                 ?> </font>
                             </a>
                                     <font class="creation_date"><b>Создано:</b> <?= $products[6] ?></font>
 <!----------------------------------------Начало пати с комментариями------------------------------------------------------------------>
