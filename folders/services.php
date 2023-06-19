@@ -9,10 +9,10 @@
 </head>
 <body>
     <div class="services">
-<a href="https://docs.yandex.ru/docs?type=docx" target="_blank"><button>Документы</button></a>
-<a href="https://disk.yandex.ru/client/disk" target="_blank"><button>Файлы</button></a>
-<a href="https://calendar.yandex.ru/" target="_blank"><button>Календарь</button></a>
-<a href="https://translate.yandex.ru/" target="_blank"><button>Переводчик</button></a>
+<a href="https://docs.yandex.ru/docs?type=docx" target="_blank"><button><img src="../file/icons/yandex/docs.png">Документы</button></a>
+<a href="https://disk.yandex.ru/client/disk" target="_blank"><button><img src="../file/icons/yandex/file.png">Файлы</button></a>
+<a href="https://calendar.yandex.ru/" target="_blank"><button><img src="../file/icons/yandex/calendar.png">Календарь</button></a>
+<a href="https://translate.yandex.ru/" target="_blank"><button><img src="../file/icons/yandex/translate.png">Переводчик</button></a>
 </div>
 </body>
 </html>

@@ -187,7 +187,11 @@ position: relative;
 }
 
 .services button{
-  background-color: #a0a0a0;
-  width: 125px;
-  height: 125px;
+  background-color: #ece2e2;
+  width: 100px;
+  height: 100px;
+}
+
+.services img{
+  width: 55px;
 }
