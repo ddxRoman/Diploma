@@ -185,3 +185,9 @@ position: relative;
 .input-file input[type=file]:disabled + .input-file-btn {
 	background-color: #eee;
 }
+
+.services button{
+  background-color: #a0a0a0;
+  width: 125px;
+  height: 125px;
+}
