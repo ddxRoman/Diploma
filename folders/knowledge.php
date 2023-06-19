@@ -7,8 +7,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>База знаний</title>
 </head>
+
+<style>
+        body{
+            background-color: aliceblue;
+        }
+        div{
+            /* border: 2px solid #000; */
+        }
+
+        .all {
+    display: grid;
+    margin-left: 2%;
+    margin-right: 2%;
+    grid-template-rows: 15% 70% 15%  ; /* Хедер, мис панелька, сама полоска hr, боди, нижний hr, футер*/
+}
+.header{
+    text-align: center;
+    align-items: center;
+}
+.container{
+    grid-template-columns: 25% 75%;
+}
+iframe{
+    width: 100%;
+    height: 300%;
+
+}
+
+</style>
 <body>
-    <h1 align="center">Тут будет база знаний</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique omnis voluptatibus beatae explicabo inventore quis molestias veniam. Nobis, error sit? Iste consequatur dolores itaque accusamus omnis dolor sequi? Repellendus, velit! Perspiciatis dolor velit nobis. Voluptate iure fugit omnis delectus eius ipsum nostrum, ipsam minus necessitatibus laboriosam similique vitae rerum doloremque ad nulla? Inventore corporis tempore voluptates perspiciatis quia aliquid, unde dicta, sapiente consectetur porro excepturi laudantium ut nam tempora at possimus vero. Minima ut harum exercitationem eaque, tempore voluptatem? Recusandae dicta vitae incidunt obcaecati numquam! Atque voluptatibus repellat porro quae quaerat natus totam unde exercitationem mollitia quisquam quas quis ratione, ea illo blanditiis cum ipsum magni magnam. Doloremque fugit error, adipisci eligendi libero cum, debitis iusto quibusdam fuga quisquam quia qui omnis quaerat pariatur! Quia, odit? Ex, cupiditate, deserunt consequuntur ducimus vero voluptatum cumque reprehenderit optio nesciunt quasi ullam tempora architecto animi. Aliquid dicta, exercitationem nihil odit fugiat sint soluta corrupti deserunt modi minus, nesciunt sed fuga, culpa commodi voluptatem in! Asperiores ea, soluta doloribus officiis optio numquam cum tenetur sed quod natus nobis recusandae inventore fuga corporis? A neque molestiae commodi? Qui veniam aliquid iure fugiat doloremque omnis autem earum, facilis ut expedita sit non, dolorem molestiae impedit? Doloremque, facere, reiciendis rem dolore tenetur a voluptatem aperiam, accusamus itaque nisi vel quo expedita ullam qui nulla fuga magni soluta modi. Aliquid ad aut odio reprehenderit autem voluptatibus facere alias voluptatum ratione, repudiandae nesciunt quae, ipsam vero, sunt optio doloribus labore accusantium incidunt quibusdam a numquam. Porro fugiat repellat at ullam consequuntur, velit, unde nesciunt libero doloribus facere earum rerum delectus voluptatem nostrum ratione, saepe harum tempora! Quo doloremque dolor ipsum voluptatum odio eius ipsa facilis consectetur obcaecati explicabo dolorum voluptate, cumque magni sed? Veritatis, consectetur autem harum molestias aspernatur deserunt consequatur minima voluptate fugiat eligendi quas laborum alias expedita iure dolorum amet necessitatibus labore quos repellendus nemo optio corporis dolore tenetur. Dolore ullam necessitatibus fugiat nostrum est beatae esse impedit ducimus, hic blanditiis quis eligendi ipsum, placeat et odio nihil iusto, facilis consectetur at voluptatibus! Excepturi officia incidunt fuga. Iste voluptates ab assumenda quaerat voluptatibus natus inventore vel aliquam debitis repudiandae quibusdam reiciendis, distinctio, voluptatum architecto cumque fugit tempora odit maxime exercitationem laboriosam deleniti sequi recusandae hic officiis! Natus, necessitatibus? Voluptate rem atque, suscipit consectetur qui ullam deserunt velit amet sapiente dolor adipisci hic at incidunt et facilis unde nisi assumenda fugit odio beatae optio quisquam est molestias. Aperiam unde recusandae quod quo voluptatibus culpa molestias tempora dolore aut? Incidunt, deserunt eveniet? Laboriosam dolores iure perferendis veniam adipisci, tempore porro inventore expedita in rerum eveniet facere iste distinctio quod optio id veritatis aliquam rem atque. Id, aut pariatur. Totam mollitia ratione suscipit non facere, quasi animi accusamus aut vel iste, quae numquam rerum! Eaque amet incidunt delectus quod explicabo laudantium accusamus dolorem ullam? Dignissimos pariatur, hic repudiandae vero dolore optio quasi, ex consequatur est eveniet voluptate. Harum autem earum numquam quibusdam sed odio maxime cupiditate provident debitis dolore voluptas ad, quidem ut. Maxime voluptate et provident iste ex, qui nesciunt autem! Repellendus exercitationem neque accusamus dignissimos quia? Quibusdam commodi sint quos! Maxime aspernatur dicta ipsum esse praesentium? In reprehenderit sed quas mollitia sapiente, vero ratione quis neque, natus deserunt maxime commodi perferendis sequi voluptatum vel architecto, cupiditate nam iste dolorem consequuntur a. Labore pariatur mollitia earum obcaecati laborum reprehenderit modi nulla sapiente. Numquam omnis explicabo provident. Qui omnis quo, dignissimos quod deleniti vitae maiores ipsum mollitia soluta ipsam magni maxime iusto aperiam nostrum nobis eligendi! Esse dignissimos ullam, quod omnis possimus, quisquam maiores explicabo aperiam dicta asperiores quam animi aliquam corporis architecto quaerat voluptatum, quos sequi earum fugiat! Laborum optio omnis ullam sint illo dicta repudiandae, harum necessitatibus. Praesentium neque laudantium voluptatibus architecto, cum nulla officiis fugit soluta quod? Et dolorum, reiciendis voluptatum, at maiores deleniti quae neque quidem sint nihil labore amet minima nisi beatae quia nam expedita nemo ut fugiat quibusdam corporis pariatur. Esse corporis, blanditiis quas magni, obcaecati nobis dicta vero quasi tempora, rerum sapiente? Praesentium, optio! Atque maxime neque autem earum possimus ex facere nemo omnis quaerat maiores doloribus repellendus, quos, quia cum? Hic iusto pariatur facilis vel magnam voluptatum non, autem cupiditate, aliquam veritatis, architecto quis inventore animi temporibus. Consequuntur omnis perspiciatis alias suscipit modi debitis fugiat exercitationem rerum a, unde harum officia vero praesentium esse quaerat in architecto veniam nesciunt nam assumenda fugit totam doloremque cumque? Quam nulla unde quo iste odit. Facere, id eos, reiciendis rerum earum, ab exercitationem mollitia debitis ratione asperiores est! Ipsum esse eligendi omnis accusantium reprehenderit incidunt quisquam, explicabo expedita quos similique! Consectetur quo aspernatur quidem veritatis voluptatum ex, in, ipsum accusantium facilis libero autem! Nemo harum doloribus ea dicta exercitationem minus dolore expedita, impedit quia, corporis adipisci cumque aliquid, ab delectus libero vel repudiandae doloremque nam culpa! Voluptatem temporibus voluptate officia libero consequatur, cupiditate harum accusantium alias!</p>
+    <div class="all">
+    <div class="header"> <h1 align="center">База знаний</h1></div>
+       
+    <div class="container">
+        <div class="navigation">
+        <ol>
+   <a href="knowledge/1.html" target="1"><li>Общие сведения</li></a>
+   <a href="knowledge/2.html" target="1"><li> Настройки
+    <ol>
+    <a href="knowledge/3.html" target="1">  <li>Тема</li></a>
+    <a href="knowledge/4.html" target="1">  <li>Кнопки</li></a>
+    <a href="knowledge/5.html" target="1">   <li>Профиль</li></a>
+    </ol>
+    <a href="knowledge/6.html" target="1">   <li>Главная страница</li></a>
+    <ol>
+    <a href="knowledge/7.html" target="1">   <li>Поиск</li></a>
+    <a href="knowledge/8.html" target="1">   <li>Профиль</li></a>
+    </ol>
+   </li>
+   <a href="knowledge/9.html" target="1">  <li>Горизонтальная панель</li></a>
+   <a href="knowledge/10.html" target="1">  <li>Задачи</li></a>
+</ol>
+            </div>
+            <div class="content">
+                <iframe src="" name="1">
+                
+                </iframe> 
+            </div>
+        </div>
+                <div class="footer">
+
+    </div>
+    </div>
+    
 </body>
 </html>
