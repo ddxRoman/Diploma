@@ -8,9 +8,9 @@
     <title>newNews</title>
 </head>
 <body>
-    <form action="../action/addnews.php">
-        <input name="newsheader" placeholder="Зоголовок"><br>
-        <textarea name="news"></textarea><br>
+    <form action="../action/addnews.php" method="post">
+        <input required name="newsheader" placeholder="Зоголовок"><br>
+        <textarea required name="news"></textarea><br>
         <button>Опубликовать</button>
 
     </form>

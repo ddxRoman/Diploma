@@ -45,7 +45,7 @@ $check_id = mysqli_query($connect, "SELECT * FROM `settings_users` WHERE `id_use
     mysqli_query($connect, "INSERT INTO `settings_users` (`id`, `id_user`, `background`, `text_color`) VALUES (NULL, '$id_user', '000000', 'ffffff');");
 }
 ?> <a href="../index.php"><button>Назад</button></a>
-<a href="editUser.php?mail=<?=$admins[5]?>"><button>Редактировать</button></a>
+<a href="users/settings.php?mail=<?=$persons[5]?>"><button>Редактировать</button></a>
 
 <?
 }
@@ -94,7 +94,7 @@ $person = mysqli_fetch_all($person); // Выбирает все строки и�
         mysqli_query($connect, "INSERT INTO `settings_users` (`id`, `id_user`, `background`, `text_color`) VALUES (NULL, '$id_user', '000000', 'ffffff');");
 }
 ?> <a href="../index.php"><button>Назад</button></a>
-<a href="editUser.php?mail=<?=$persons[5]?>"><button>Редактировать</button></a>
+<a href="users/settings.php?mail=<?=$persons[5]?>"><button>Редактировать</button></a>
 
  <?
 }
