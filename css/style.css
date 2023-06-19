@@ -342,6 +342,15 @@ margin-top: 1px;
 
 }
 
+.footer_epic{
+    height: 22px;
+    background-color: #716e8834;
+    font-weight: 700;
+}
+.body_topic{
+    background-color: #716e8834;
+}
+
 /*  Изменение цвета текста в плейс холдере для разных браузеров.
 
 Современные браузеры 
@@ -379,3 +388,4 @@ input::-moz-placeholder {
 input:-ms-input-placeholder {
     color: #444444b6;
 }
+

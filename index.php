@@ -69,6 +69,7 @@ $button = mysqli_fetch_all($button); // Выбирает все строки и�
             <a href="https://telemost.yandex.ru/j/05547869279270" target="_blank"><button><img src="file/icons/yabridg.png">Телемост</button></a>
             <a href="folders/news.php" target="1"><button><img src="file/icons/news.png">Новости</button></a>
             <a href="folders/services.php" target="1"><button><img src="file/icons/services.png">Сервисы</button></a>
+            <a href="folders/discussion.php" target="1"><button><img src="file/icons/discussion.png">Обсуждение</button></a>
            </div><!-- Тут заканчивается МИС панель-->
         <hr class="misPanel-hr" width="85%"><!-- ХРка полоска -->
        <div class="body">   <!-- Начало Тела сайта -->

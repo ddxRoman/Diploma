@@ -4,12 +4,21 @@ h1{
 h2{
     background: linear-gradient(90deg, rgba(228, 228, 228, 0.623), rgba(216, 217, 218, 0));
 }
+h3{
+    color: rgb(255, 255, 255);
+    font-weight: 800;
+    font-family: Georgia;
+}
 p{
     background-color: rgba(231, 229, 218, 0.295);
 }
 hr{
     height: 2px;
     background-color: rgba(105, 105, 105, 0.658);
+}
+.body{
+    height: 1px;
+    background-color: rgba(105, 105, 105, 0.336);
 }
 h4{
     margin-top: -15px;
@@ -19,7 +28,48 @@ h4{
     height: 2px;
     background-color: rgb(0, 0, 0);
 }
-/* .block_news{
-    border: 2px solid #423e1b2c;
-    margin-bottom: 10px;
-} */
+.body_topic{
+    background-color: rgba(109, 109, 109, 0.205);
+}
+.header_comments{
+font-size: 12px;
+font-weight: 500;
+}
+
+.allbody{
+    background-color: rgba(255, 255, 255, 0.205);
+}
+
+
+body {
+    background: rgba(255, 255, 255, 0.144);
+}
+
+.box {
+    margin: 5px;
+    width: 80%;
+    height: auto;
+    background-color: rgba(65, 235, 241, 0.089);
+    border-radius: 3px;
+}
+button {
+    width: 78%;
+    line-height: 15px;
+    background-color: rgba(233, 209, 165, 0.342);
+
+    color: #fff;
+    text-align: center;
+    margin-left: 10px;
+    margin-right: auto;
+}
+.addcom{
+    background-color: black;
+    width: 85px;
+    height: 20px;
+}
+textarea{
+    border: 0px;
+    height: 15%;
+    width: 80%;
+    margin-left: 10px;
+}

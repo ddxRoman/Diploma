@@ -14,13 +14,8 @@ require_once '../action/connect.php';
 $new = mysqli_query($connect, "SELECT * FROM `news` ORDER BY `id` DESC "); // Подключение к определенной таблице, и получение Статуса записи
 $new = mysqli_fetch_all($new); // Выбирает все строки из набора $Comment и помещает их в массив  $Comments
 foreach($new as $news){
-    
-    
-    
+
     ?>
-    
-
-
 <div class="block_news">
     <h2><?= $news[1]?> </h2>
 
