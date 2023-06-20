@@ -15,7 +15,7 @@
         }
 
         .all {
-    display: grid
+    display: grid;
     margin-left: 5%;
     margin-right: 5%;
     grid-template-rows: 20% auto  20%; 
