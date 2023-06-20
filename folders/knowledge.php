@@ -10,30 +10,48 @@
 
 <style>
         body{
-            background-color: aliceblue;
+            
         }
         div{
-            /* border: 2px solid #000; */
+            border: 2px solid #006;
         }
 
         .all {
     display: grid;
-    margin-left: 2%;
-    margin-right: 2%;
-    grid-template-rows: 15% 70% 15%  ; /* Хедер, мис панелька, сама полоска hr, боди, нижний hr, футер*/
+    margin-left: 5%;
+    margin-right: 5%;
+    grid-template-rows: 20% auto  20%; 
 }
 .header{
     text-align: center;
     align-items: center;
+
 }
 .container{
     grid-template-columns: 25% 75%;
+    grid-template-rows: 1fr;
+min-height: 500px;
+max-height: auto;
 }
-iframe{
-    width: 100%;
-    height: 300%;
 
+iframe {
+    width: 98%;
+    height: 450px;
+    margin: 1%;
+    border: 0px;
+    border: 2px solid #323;
 }
+
+/* .footer {
+    display: grid;
+    align-content: end;
+    justify-content: end;
+    position: absolute;
+    bottom: 10;
+    width: 90%;
+    grid-template-rows: 2fr;
+    background-color: deeppink;
+} */
 
 </style>
 <body>
@@ -61,14 +79,12 @@ iframe{
 </ol>
             </div>
             <div class="content">
-                <iframe src="" name="1">
-                
+                <iframe  name="1" src="">
+                    
                 </iframe> 
             </div>
         </div>
-                <div class="footer">
 
-    </div>
     </div>
     
 </body>
