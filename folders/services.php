@@ -8,11 +8,12 @@
     <title>services</title>
 </head>
 <body>
-    <div class="services">
+<div class="services">
 <a href="https://docs.yandex.ru/docs?type=docx" target="_blank"><button><img src="../file/icons/yandex/docs.png">Документы</button></a>
 <a href="https://disk.yandex.ru/client/disk" target="_blank"><button><img src="../file/icons/yandex/file.png">Файлы</button></a>
 <a href="https://calendar.yandex.ru/" target="_blank"><button><img src="../file/icons/yandex/calendar.png">Календарь</button></a>
 <a href="https://translate.yandex.ru/" target="_blank"><button><img src="../file/icons/yandex/translate.png">Переводчик</button></a>
+<a href="https://anydesk.com/ru/downloads/windows?dv=win_exe" target="_blank"><button><img src="../file/icons/yandex/anydesk.png">AnyDesk</button></a>
 </div>
 </body>
 </html>

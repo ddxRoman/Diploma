@@ -23,7 +23,7 @@ require_once '../action/connect.php'; // Прaоверка подключени�
 $check_task = mysqli_query($connect, "SELECT * FROM `user_task` WHERE `id_user` = '$id_user' ");
 
 
-if(mysqli_num_rows($check_task)<1){
+if(mysqli_num_rows($check_task)<1 && $status_user!=9){
 ?> <div class="taskheader"><font class="NoTask"><?= "Для вас нет активных задач";?></font></div>
 
 <?}else{
