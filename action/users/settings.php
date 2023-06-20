@@ -63,10 +63,10 @@ $btn_color=$setting['btn_color'];
 </div>
 
 <div id="Профиль" class="tabcontent">
+ <?= require_once '../../folders/editUser.php';?>
+
 
 </div>
-
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem maiores mollitia totam delectus, eligendi possimus perspiciatis est, voluptates asperiores iure quo amet eum! Unde corrupti perspiciatis deleniti exercitationem harum, cumque consequuntur modi, nesciunt tenetur earum dolores a, repellendus saepe at repudiandae? Quam dolorem dignissimos veritatis optio ab quisquam, expedita vitae suscipit doloribus maxime adipisci quas dolores facere ipsum obcaecati. Soluta, dolorem enim. Vitae aut magni soluta quaerat. Modi nulla, cum beatae natus adipisci recusandae delectus ipsum, eius veritatis laborum minima aliquid rem quo eos? Error officia at ratione magni sit totam, fugiat esse pariatur ab reprehenderit tempora quidem, laudantium est suscipit impedit perspiciatis rem cum repellendus deserunt hic labore voluptate iste? Doloribus deserunt inventore labore veniam possimus assumenda amet placeat voluptatibus, ipsum dolore eaque aliquid praesentium fugiat tenetur voluptates id provident aut tempore illo culpa explicabo neque architecto. Reiciendis animi exercitationem voluptate doloribus! Distinctio accusantium nam alias ad repudiandae accusamus. Veniam inventore nemo ullam distinctio molestias autem praesentium debitis qui, ea quibusdam quo saepe quasi, eius in ab magnam et veritatis laudantium! Doloremque cupiditate sint veritatis omnis quaerat natus laboriosam nesciunt fuga voluptatibus! Aliquid, aliquam? Enim sed aspernatur quidem dignissimos ab voluptas velit quibusdam, cumque optio. Nobis aspernatur, reiciendis reprehenderit laudantium harum consequuntur placeat, distinctio magni neque ex itaque modi accusantium natus aperiam libero similique aliquam. Dolore debitis ipsam accusantium, voluptatibus, odit porro expedita quod ratione corporis alias fugit aliquid quasi atque dolorum praesentium pariatur quisquam dicta quam iste ipsa, officia facilis aspernatur! Necessitatibus magni nesciunt, libero ipsum doloremque adipisci, quas cum temporibus ea enim recusandae.</p>
 
 <style>
     input{

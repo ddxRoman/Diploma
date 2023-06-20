@@ -6,8 +6,6 @@ $password=$_POST['password'];
 $check_admin = mysqli_query($connect, "SELECT * FROM `users` WHERE `name`='$login' AND `password` = '$password' ");
 $check_user = mysqli_query($connect, "SELECT * FROM `personal` WHERE `mail`='$login' AND `password` = '$password' ");
 
-echo "Логин-".$login."<br>"." Пароль-".$password;
-
 if(mysqli_num_rows($check_admin)>0)
 {
     $user = mysqli_fetch_assoc($check_admin);
@@ -37,8 +35,7 @@ else{     if(mysqli_num_rows($check_user)>0)
     ];
 
       header('Location: ../index.php');
-    // echo "<br>Тут пост - ".$user['post']."Тут ссылка на фото - ".$user['photo']."<br>";
-    // echo ($_SESSION['user']['status']);
+
 }
 else{
     $_SESSION['sms']='Не верный <br> логин или пароль';

@@ -52,7 +52,7 @@ require_once "../function/checkaut.php";
     <select name="post">
         <option hidden>Должность</option>
         <optgroup label = "Внедрение">
-        <option name="">Руководитель отдела</option>
+        <option >Руководитель отдела</option>
         <option>Интегратор</option>
         <option>Менеджер</option>
         <option>Менеджер внедрения</option>
@@ -64,9 +64,9 @@ require_once "../function/checkaut.php";
         <option>Старший бухгалтер</option>
         <option>Бухгалтер</option>
         <optgroup label = "Руководители">
-        <option name="">СЕО</option>
-        <option name="">Директор</option>
-        <option name="">Комерческий директор</option>
+        <option >СЕО</option>
+        <option >Директор</option>
+        <option >Комерческий директор</option>
     </select>  
     </td>  
     <td> 
@@ -92,11 +92,7 @@ require_once "../function/checkaut.php";
 <td></td>
 <td align="end"><a href="user_list.php"><button class="cancel">Отмена</button></a></td> 
 </tr>
-
-        </table>
-        
-    
-
+        </table> 
     <div class="message">
 <p class="sms"> <?echo $_SESSION['sms']; ?> </p> 
 </div>
