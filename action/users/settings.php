@@ -9,7 +9,9 @@ $bg_color=$setting['background'];
 $text_color=$setting['text_color'];
 $btn_color=$setting['btn_color'];
 
-?>
+?><head>
+    <link rel="stylesheet" type="text/css" href="../../css/style_settings.css">
+    </head>
 <div class="header_settings">
     <a href="../../index_admin.php">
     <button>На главную</button>
@@ -19,7 +21,7 @@ $btn_color=$setting['btn_color'];
 <div class="tab">
   <button class="tablinks" onclick="openCity(event, 'Тема')">Тема</button>
   <button class="tablinks" onclick="openCity(event, 'Кнопки')">Кнопки</button>
-  <button class="tablinks" onclick="openCity(event, 'Профиль')">Профиль</button>
+
 </div>
 
 <div id="Тема" class="tabcontent">
@@ -61,58 +63,6 @@ $btn_color=$setting['btn_color'];
     <button>Добавить</button>
 </form>
 </div>
-
-<div id="Профиль" class="tabcontent">
- <?= require_once '../../folders/editUser.php';?>
-
-
-</div>
-
-<style>
-    input{
-        margin-top: 5px;
-    }
-  .tab {
-    overflow: hidden;
-    border: 1px solid #4CAF50;
-    background-color: #C8E6C9;
-}
-
-.tab button {
-    background-color: inherit;
-    float: left;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 14px 16px;
-    transition: 0.3s;
-}
-
-.tab button:hover {
-    background-color: #FFEB3B;
-}
-
-.tab button.active {
-    background-color: #4CAF50;
-	color: #fff;
-}
-
-.tabcontent {
-    display: none;
-    padding: 6px 12px;
-    border: 1px solid #599735;    
-    border-top: none;
-}
-.header_settings{
-    display: grid;
-  justify-content: end;
-
-}
-body{
-    background-color: #999999;
-}
-</style>
-
 <script>
   function openCity(evt, cityName) {
     var i, tabcontent, tablinks;

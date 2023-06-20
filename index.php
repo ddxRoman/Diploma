@@ -104,7 +104,9 @@ $button = mysqli_fetch_all($button); // Выбирает все строки и�
         </div>
         <hr class="footer-hr">
         <div class="footer">
-                <div></div>
+                <div>
+                    
+                </div>
             <div class="refresh">
             <p class="ink"><img src="file/icons/Logo.png" alt="test"><br>
                  ORStudio <br> Оксентий Роман Сергеевич Студио <br> Copyright 2022-2023 </p>

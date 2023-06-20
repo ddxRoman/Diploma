@@ -44,22 +44,17 @@ $owner = mysqli_fetch_all($owner);
 
 
 <div class="wrapper-boxes">
-<div class="box"><p><font >Автор от Дата</font><br>Lorem ipsum dolor sit </p></div>
-<div class="box"><p><font >Автор от Дата</font><br>Lorem ipsum dolor sit </p></div>
-<div class="box"><p><font >Автор от Дата</font><br>Lorem ipsum dolor sit </p></div>
-<div class="box"><p><font >Автор от Дата</font><br>Lorem ipsum dolor sit </p></div>
-<div class="box"><p><font >Автор от Дата</font><br>Lorem ipsum dolor sit </p></div>
-<div class="box"><p><font >Автор от Дата</font><br>Lorem ipsum dolor sit </p></div>
-<div class="box"><p><font >Автор от Дата</font><br>Lorem ipsum dolor sit </p></div>
-<div class="box"><p><font >Автор от Дата</font><br>Lorem ipsum dolor sit </p></div>
-<div class="box"><p><font >Автор от Дата</font><br>Lorem ipsum dolor sit </p></div>
-<div class="box"><p><font >Автор от Дата</font><br>Lorem ipsum dolor sit </p></div>
-<div class="box"><p><font >Автор от Дата</font><br>Lorem ipsum dolor sit </p></div>
-<div class="box"><p><font >Автор от Дата</font><br>Lorem ipsum dolor sit </p></div>
-<div class="box"><p><font >Автор от Дата</font><br>Lorem ipsum dolor sit </p></div>
-<div class="box"><p><font >Автор от Дата</font><br>Lorem ipsum dolor sit </p></div>
-<div class="box"><p><font >Автор от Дата</font><br>Lorem ipsum dolor sit </p></div>
-<div class="box"><p><font >Автор от Дата</font><br>Lorem ipsum dolor sit </p></div>
+<div class="box"><p><font ><b>Роман 20.06.23</b></font><hr class="comment"><br> Всем спасибо</p></div>
+<div class="box"><p><font ><b>Игорь 20.06.23</b></font><hr class="comment"><br>Все отлично. И документы под рукой, и телемост, и календарь и погода</p></div>
+<div class="box"><p><font ><b>Коля 16.06.23</b></font><hr class="comment"><br>Хотелось бы свой собственный мессенджер, что бы не переходить в телеграмм каждый раз </p></div>
+<div class="box"><p><font ><b>Игорь 16.06.23</b></font><hr class="comment"><br>Можно самому добавлять кнопки, взрослый конструктор </p></div>
+<div class="box"><p><font ><b>Виталий Станиславович 16.06.23</b></font><hr class="comment"><br>Поменяйте мне фотку </p></div>
+<div class="box"><p><font ><b>Виктор 16.06.23</b></font><hr class="comment"><br>Норм </p></div>
+<div class="box"><p><font ><b>Сергей 16.06.23</b></font><hr class="comment"><br> -Приходится работать </p></div>
+<div class="box"><p><font ><b>Саша 15.06.23</b></font><hr class="comment"><br>+ Быстрый доступ ко всему необходимому </p></div>
+<div class="box"><p><font ><b>Женя 15.06.23</b></font><hr class="comment"><br>Удобно что есть все кнопки под рукой </p></div>
+<div class="box"><p><font ><b>Павел 15.06.23</b></font><hr class="comment"><br>Нравится что можно самому выбирать себе оформление, тему, цвета </p></div>
+
 </div>
 <button id="button">Show 10</button>
 

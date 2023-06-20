@@ -12,6 +12,11 @@ h3{
 p{
     background-color: rgba(231, 229, 218, 0.295);
 }
+.comment{
+    height: 1px;
+    margin-top: -10x;
+    margin-bottom: -10px;
+}
 hr{
     height: 2px;
     background-color: rgba(105, 105, 105, 0.658);
@@ -38,6 +43,7 @@ font-weight: 500;
 
 .allbody{
     background-color: rgba(255, 255, 255, 0.205);
+    padding: 2%;
 }
 
 
