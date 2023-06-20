@@ -9,15 +9,13 @@
 </head>
 
 <style>
-        body{
-            
-        }
+
         div{
             border: 2px solid #006;
         }
 
         .all {
-    display: grid;
+    display: grid
     margin-left: 5%;
     margin-right: 5%;
     grid-template-rows: 20% auto  20%; 
@@ -42,16 +40,7 @@ iframe {
     border: 2px solid #323;
 }
 
-/* .footer {
-    display: grid;
-    align-content: end;
-    justify-content: end;
-    position: absolute;
-    bottom: 10;
-    width: 90%;
-    grid-template-rows: 2fr;
-    background-color: deeppink;
-} */
+
 
 </style>
 <body>
