@@ -17,7 +17,18 @@ require_once '../action/connect.php'; // Прaоверка подключени�
 </head>
 
 <body>
-<?if($status_user==9){?>
+    
+<?
+
+$check_task = mysqli_query($connect, "SELECT * FROM `user_task` WHERE `id_user` = '$id_user' ");
+
+
+if(mysqli_num_rows($check_task)<1){
+?> <div class="taskheader"><font class="NoTask"><?= "Для вас нет активных задач";?></font></div>
+
+<?}else{
+
+if($status_user==9){?>
 <div class="taskheader">
             <a class="Aaddtask" href="../action/users/create_task_for_user.php"><button class="addtask_user transition" title="Добавить задачу">+</button></a> <!-- Кнопка добавления таски-->
         </div>
@@ -220,7 +231,7 @@ require_once '../action/connect.php'; // Прaоверка подключени�
                                 </script>
                                 </div>
                             </div>
-                        <? }?>
+                        <? }}?>
 
 </body>
 </html>

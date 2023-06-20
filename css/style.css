@@ -129,6 +129,7 @@ body {
     border: 3px solid rgba(0, 255, 221, 0.356);
     display: grid;
     height: 100%;
+    justify-content: center;
     /* background-color: rgba(230, 230, 230); */
 }
 

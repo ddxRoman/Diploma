@@ -82,6 +82,10 @@ body {
   color: #202020;
 }
 
+.NoTask{
+  
+  font-weight: 700;
+}
 
 pre {
   white-space: pre-wrap;       /* css-3 */
