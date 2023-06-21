@@ -5,7 +5,7 @@ h2{
     background: linear-gradient(90deg, rgba(228, 228, 228, 0.623), rgba(216, 217, 218, 0));
 }
 h3{
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     font-weight: 800;
     font-family: Georgia;
 }
@@ -34,7 +34,7 @@ h4{
     background-color: rgb(0, 0, 0);
 }
 .body_topic{
-    background-color: rgba(109, 109, 109, 0.205);
+    background-color: rgb(218, 218, 218);
 }
 .header_comments{
 font-size: 12px;
@@ -48,25 +48,29 @@ font-weight: 500;
 
 
 body {
-    background: rgba(255, 255, 255, 0.144);
+    background: rgba(255, 255, 255, 0.445);
 }
 
 .box {
     margin: 5px;
-    width: 80%;
+
     height: auto;
-    background-color: rgba(65, 235, 241, 0.089);
+    background-color: rgba(202, 253, 255, 0.13);
     border-radius: 3px;
+    padding: 0.5%;
+    margin: 2%;
+    width: 95%;
 }
 button {
-    width: 78%;
+    width: 95%;
     line-height: 15px;
-    background-color: rgba(233, 209, 165, 0.342);
-
-    color: #fff;
+    background-color: rgba(255, 246, 228, 0.342);
+    font-weight: 600;
+    color: rgb(255, 255, 255);
     text-align: center;
-    margin-left: 10px;
+    margin-left: 15px;
     margin-right: auto;
+    
 }
 .addcom{
     background-color: black;
@@ -76,6 +80,6 @@ button {
 textarea{
     border: 0px;
     height: 15%;
-    width: 80%;
+    width: 96%;
     margin-left: 10px;
 }
