@@ -26,7 +26,7 @@
 
 }
 .container{
-    grid-template-columns: 25% 75%;
+    grid-template-columns: 20% 80%;
     grid-template-rows: 1fr;
 min-height: 500px;
 max-height: auto;
@@ -49,6 +49,7 @@ iframe {
        
     <div class="container">
         <div class="navigation">
+            <a href="../index.php"><button>На главную</button></a>
         <ol>
    <a href="knowledge/1.html" target="1"><li>Общие сведения</li></a>
    <a href="knowledge/2.html" target="1"><li> Настройки

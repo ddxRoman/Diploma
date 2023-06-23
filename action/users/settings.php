@@ -26,7 +26,8 @@ $btn_color=$setting['btn_color'];
 
 <div id="Тема" class="tabcontent">
 <div class="links">
-                <form action="color.php" name="bg" method="post">
+                
+<form action="color.php" name="bg" method="post">
                 <table>
 <tr>
     <th>Select  background: </th>

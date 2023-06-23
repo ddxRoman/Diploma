@@ -119,18 +119,15 @@ body {
 }
 
 .lmenu {
-    /* background-color: rgb(230, 230, 230); */
-    /* padding: 15px; */
-    /* display: grid; */
+
     margin-top: 10px;
+    background-color: #15721800;
 }
 
 .rmenu {
     border: 3px solid rgba(0, 255, 221, 0.356);
     display: grid;
     height: 100%;
-    /* justify-content: center; */
-    /* background-color: rgba(230, 230, 230); */
 }
 
 .container {

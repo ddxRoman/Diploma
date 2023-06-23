@@ -6,7 +6,7 @@ $password=$_POST['password'];
 $check_admin = mysqli_query($connect, "SELECT * FROM `users` WHERE `name`='$login' AND `password` = '$password' ");
 $check_user = mysqli_query($connect, "SELECT * FROM `personal` WHERE `mail`='$login' AND `password` = '$password' ");
 
-if(mysqli_num_rows($check_admin)>0)
+if(mysqli_num_rows($check_admin)>0) 
 {
     $user = mysqli_fetch_assoc($check_admin);
 
