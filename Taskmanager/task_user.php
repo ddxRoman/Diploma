@@ -20,7 +20,7 @@ require_once '../action/connect.php'; // Прaоверка подключени�
     
 <?
 
-$check_task = mysqli_query($connect, "SELECT * FROM `user_task` WHERE `id_user` = '$id_user' ");
+$check_task = mysqli_query($connect, "SELECT * FROM `tasks` WHERE `id_user` = '$id_user' ");
 
 
 if(mysqli_num_rows($check_task)<1 && $status_user!=9){
@@ -33,9 +33,9 @@ if($status_user==9){?>
             <a class="Aaddtask" href="../action/users/create_task_for_user.php"><button class="addtask_user transition" title="Добавить задачу">+</button></a> <!-- Кнопка добавления таски-->
         </div>
         <?
-            $task = mysqli_query($connect, "SELECT * FROM `user_task`  ORDER BY `status` ASC"); // Подключение к определенной таблице, и получение Статуса записи
+            $task = mysqli_query($connect, "SELECT * FROM `tasks`  ORDER BY `status` ASC"); // Подключение к определенной таблице, и получение Статуса записи
         }else {
-        $task = mysqli_query($connect, "SELECT * FROM `user_task` WHERE `id_user`=$id_user ORDER BY `status` ASC"); // Подключение к определенной таблице, и получение Статуса записи
+        $task = mysqli_query($connect, "SELECT * FROM `tasks` WHERE `id_user`=$id_user ORDER BY `status` ASC"); // Подключение к определенной таблице, и получение Статуса записи
         }
         $task = mysqli_fetch_all($task); // Выбирает все строки из набора $product и помещает их в массив  $product
         $comment = mysqli_query($connect, "SELECT * FROM `comments` ORDER BY `id` ASC "); // Подключение к определенной таблице, и получение Статуса записи
