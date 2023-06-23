@@ -11,22 +11,20 @@ $https="https://";
 
 echo "URL - ".$url;
 
-if (strpos($url, $https) !== false) {
+if (strpos($url, $https) !== false || strpos($url, $http) !== false) {
+
 mysqli_query($connect, "INSERT INTO `button_user` (`id`, `user_id`, `button`, `url`) 
 VALUES (NULL, '$id_user', '$btn', '$url')");
-//  header ('Location: ../../index.php');
-echo"Протокол изначально был";
-}else{ if (strpos($url, $http) !== false) {
+ header ('Location: ../../index.php');
 
-    mysqli_query($connect, "INSERT INTO `button_user` (`id`, `user_id`, `button`, `url`) 
-    VALUES (NULL, '$id_user', '$btn', '$url')");
-echo"Протокол изначально был";
+}else
 
-}else{
+{
     $url='https://'.$url;
     mysqli_query($connect, "INSERT INTO `button_user` (`id`, `user_id`, `button`, `url`) 
     VALUES (NULL, '$id_user', '$btn', '$url')");
-    echo"Добавлен протокол";
+ header ('Location: ../../index.php');
+
 }
-}
+
 ?>
