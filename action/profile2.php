@@ -12,12 +12,12 @@
 <?php 
 
 session_start();
-$status = $_SESSION['user']['status'];
+$status = $_SESSION['user']['post'];
 require_once '../action/connect.php';
 require_once '../action/users/StyleAndSettings.php';
 $mail=$_GET['mail']; 
 if($status!=1936){
-$admin = mysqli_query($connect, "SELECT * FROM `users` ORDER BY `email`"); // Подключение к определенной таблице, и получение Статуса записи
+$admin = mysqli_query($connect, "SELECT * FROM `users` ORDER BY `mail`"); // Подключение к определенной таблице, и получение Статуса записи
 $admin = mysqli_fetch_all($admin); // Выбирает все строки из набора $product и помещает их в массив  $product
 foreach($admin as $admins){
 
@@ -27,7 +27,7 @@ foreach($admin as $admins){
         <table class="user_card_table">
             <thead>    <h2 color="black">Карточка сотрудника</h2></thead>
             <tr>
-            <th rowspan="2"><a href="<?= $admins[4]?>"><img src="<?=$admins[4]?>" class="user_card_photo"></a></th>
+            <th rowspan="2"><a href="<?= $admins[4]?>"><img src="<?=$admins[12]?>" class="user_card_photo"></a></th>
             <th><br><font class="card"><?= "Код сотрудника:<br>"?></font><?= $admins[0] ?></th>
             <th><font class="card"><?= "Должность:<br>"?></font><?=$admins[5]?></th>
             </tr>
@@ -53,7 +53,7 @@ $check_id = mysqli_query($connect, "SELECT * FROM `settings_users` WHERE `id_use
 
 
 }else{
-$person = mysqli_query($connect, "SELECT * FROM `personal` ORDER BY `mail`"); // Подключение к определенной таблице, и получение Статуса записи
+$person = mysqli_query($connect, "SELECT * FROM `users` ORDER BY `mail`"); // Подключение к определенной таблице, и получение Статуса записи
 $person = mysqli_fetch_all($person); // Выбирает все строки из набора $product и помещает их в массив  $product
     foreach($person as $persons){
 

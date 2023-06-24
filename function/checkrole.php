@@ -1,7 +1,7 @@
 <?php
 session_start();
 $status= $_SESSION['user']['status'];
-if($status==9){
+if($status==1936){
 $role=1;
 }
 else {

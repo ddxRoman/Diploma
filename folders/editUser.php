@@ -2,7 +2,7 @@
 session_start();
 require_once '../action/connect.php';
 $mail=$_GET['mail'];
-$editPerson = mysqli_query($connect, "SELECT * FROM `personal` WHERE `mail`='$mail'"); // Подключение к определенной таблице, и получение Статуса записи
+$editPerson = mysqli_query($connect, "SELECT * FROM `users` WHERE `mail`='$mail'"); // Подключение к определенной таблице, и получение Статуса записи
 $editPerson = mysqli_fetch_assoc($editPerson); // Выбирает все строки из набора $product и помещает их в массив  $product
 
 

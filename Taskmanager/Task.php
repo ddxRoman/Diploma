@@ -12,7 +12,6 @@
 </head>
 
 <body>
-    
         <div class="taskheader">
             <a class="Aaddtask" href="../folders/newTask.php"><button class="addtask" title="Добавить задачу">+</button></a> <!-- Кнопка добавления таски-->
         </div>

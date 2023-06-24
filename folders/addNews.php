@@ -9,7 +9,12 @@
 </head>
 <body>
     <form action="../action/addnews.php" method="post">
-        <input required name="newsheader" placeholder="Зоголовок"><br>
+    <input required name="newsheader" placeholder="Зоголовок"><br>
+        <select name="type">
+            <option>Новость</option>
+            <option>Обсуждение</option>
+        </select>
+
         <textarea required name="news"></textarea><br>
         <button>Опубликовать</button>
 

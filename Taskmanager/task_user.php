@@ -3,10 +3,6 @@ $id_user=$_SESSION['user']['id'];
 
 $status_user = $_SESSION['user']['status'];
 require_once '../action/connect.php'; // Прaоверка подключения к БД
-
-
-
-
 ?>
 <!doctype html>
 <html lang="ru">
@@ -18,19 +14,13 @@ require_once '../action/connect.php'; // Прaоверка подключени�
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Taskmanager</title>
 </head>
-
 <body>
     
 <?
-
-$check_task = mysqli_query($connect, "SELECT * FROM `tasks` WHERE `id_user` = '$id_user' ");
-
-
+$check_task = mysqli_query($connect, "SELECT * FROM `tasks` WHERE `executor` = '$id_user' ");
 if(mysqli_num_rows($check_task)<1 && $status_user!=9){
 ?> <div class="taskheader"><font class="NoTask"><?= "Для вас нет активных задач";?></font></div>
-
 <?}else{
-
 if($status_user==9){?>
 <div class="taskheader">
             <a class="Aaddtask" href="../action/users/create_task_for_user.php"><button class="addtask_user transition" title="Добавить задачу">+</button></a> <!-- Кнопка добавления таски-->
@@ -38,7 +28,7 @@ if($status_user==9){?>
         <?
             $task = mysqli_query($connect, "SELECT * FROM `tasks`  ORDER BY `status` ASC"); // Подключение к определенной таблице, и получение Статуса записи
         }else {
-        $task = mysqli_query($connect, "SELECT * FROM `tasks` WHERE `id_user`=$id_user ORDER BY `status` ASC"); // Подключение к определенной таблице, и получение Статуса записи
+        $task = mysqli_query($connect, "SELECT * FROM `tasks` WHERE `executor`=$id_user ORDER BY `status` ASC"); // Подключение к определенной таблице, и получение Статуса записи
         }
         $task = mysqli_fetch_all($task); // Выбирает все строки из набора $product и помещает их в массив  $product
         $comment = mysqli_query($connect, "SELECT * FROM `comments` ORDER BY `id` ASC "); // Подключение к определенной таблице, и получение Статуса записи
@@ -238,3 +228,18 @@ if($status_user==9){?>
 
 </body>
 </html>
+
+
+
+<?
+require_once "../function/checkaut.php";
+require_once "../function/checkrole.php";
+require_once "../action/connect.php";
+require_once "../action/users/StyleAndSettings.php";
+if ($role!= 1) {
+    header('Location: index.php');
+    }
+
+?>
+
+

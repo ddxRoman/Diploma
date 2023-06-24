@@ -10,7 +10,7 @@
 <?php
 session_start();
 
-$status= $_SESSION['user']['status'];
+$status= $_SESSION['user']['post'];
 if($status==9){
 $role=1;
 }
@@ -18,10 +18,10 @@ else {
     $role=2;
 }
 
-$type = $_SESSION['user']['status'];
+$type = $_SESSION['user']['post'];
 $id_user=$_SESSION['user']['mail'];
 
-if($type==1936){      
+if($type==1996){      
     $user=$_SESSION['user']['name'];
 
 ?>

@@ -325,9 +325,12 @@ table{
 } 
 
 .personal_face{
-    width: 60px;
+    width: auto;
     height: 90px;
+    align-content: center;
 }
+
+
 
 caption {
     font-family: annabelle, cursive;
@@ -347,7 +350,8 @@ caption {
 
 }
 th{
-    border: 1px solid #000;
+    align-content: start;
+    /* border: 1px solid #000; */
 }
 
 .user_card{

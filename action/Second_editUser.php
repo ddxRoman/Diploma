@@ -1,7 +1,7 @@
 <?php
 require_once 'connect.php';
 
-$person = mysqli_query($connect, "SELECT * FROM `personal` ORDER BY `id`"); // Подключение к определенной таблице, и получение Статуса записи
+$person = mysqli_query($connect, "SELECT * FROM `users` ORDER BY `id`"); // Подключение к определенной таблице, и получение Статуса записи
 $person = mysqli_fetch_all($person); // Выбирает все строки из набора $product и помещает их в массив  $product
 
 session_start();

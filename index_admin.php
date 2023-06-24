@@ -46,7 +46,7 @@ if ($role!= 1) {
                 <!--  Просто кнопка на Хелпер -->
                 <a href="index.php" target="_self">
                     <!--  Просто кнопка на Хелпер -->
-                    <button class="MD">Админка</button>
+                    <button class="MD">Рабочая область</button>
                 </a><!--  Просто кнопка на Хелпер -->
             </div><!--  Просто кнопка на Хелпер -->
             <div class="Right_head">
@@ -57,11 +57,10 @@ if ($role!= 1) {
         </div> <!-- Конец хедера-->
         <div class="MisPanel">
             <!-- Тут начинает МИС панель.-->
-            <a href="action/users/settings.php"><button>Настройки</button></a>
             <a href="folders/user_list.php" target="_self"><button>Список сотрудников</button></a>
             <a href="Taskmanager/task_user.php" target="1"><button>Задачи сотрудникам</button></a>
-            <a href="folders/addNews.php" target="1"><button>Добавить Новость</button></a>
-            <a href="folders/newdiscussion.php" target="1"><button>Создать обсуждение</button></a>
+            <a href="folders/addNews.php" target="1"><button>Публикации</button></a>
+
            </div><!-- Тут заканчивается МИС панель-->
         <hr class="misPanel-hr" width="85%"><!-- ХРка полоска -->
        <div class="body">   <!-- Начало Тела сайта -->

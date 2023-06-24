@@ -12,8 +12,7 @@ $btn_color=$setting['btn_color'];
     <link rel="stylesheet" type="text/css" href="../../css/style_settings.css">
     </head>
 <div class="header_settings">
-    <a href="../../index_admin.php">
-    <button>На главную</button>
+
 </a>
 </div>
 <div class="tab">
@@ -55,7 +54,7 @@ $btn_color=$setting['btn_color'];
 </form>
 </div>
 <script>
-  function openCart(evt, cityName) {
+  function openCart(evt, settingsName) {
     var i, tabcontent, tablinks;
 
     tabcontent = document.getElementsByClassName("tabcontent");
@@ -68,7 +67,7 @@ $btn_color=$setting['btn_color'];
         tablinks[i].className = tablinks[i].className.replace(" active", "");
     }
 
-    document.getElementById(cityName).style.display = "block";
+    document.getElementById(settingsName).style.display = "block";
     evt.currentTarget.className += " active";
 }
 </script>
