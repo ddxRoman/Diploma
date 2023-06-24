@@ -120,15 +120,3 @@ $button = mysqli_fetch_all($button); // Выбирает все строки и�
 </body>
 
 </html>
-<script>
-       $('.info__add').click(function () {
-           name= prompt('Введите название кнопки: ', ['Новая кнопка']);
-           url= prompt('URL ', ['']);
-           if(name!="null" && url!=""){  
-         $(this).parent().append($('<a>', { 
-           'text': name, 'href': 'http://'+url, 'target': '_blank'}));
-        }
-        else{}
-       }
-       );
-     </script>

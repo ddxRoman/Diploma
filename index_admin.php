@@ -31,7 +31,6 @@ if ($role!= 1) {
           navigator.serviceWorker.register('sw.js');
         };
       </script>
-
 </head>
 
 <body>

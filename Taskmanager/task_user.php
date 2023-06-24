@@ -4,6 +4,9 @@ $id_user=$_SESSION['user']['id'];
 $status_user = $_SESSION['user']['status'];
 require_once '../action/connect.php'; // Прaоверка подключения к БД
 
+
+
+
 ?>
 <!doctype html>
 <html lang="ru">

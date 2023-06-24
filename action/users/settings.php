@@ -8,7 +8,6 @@ $setting = mysqli_fetch_assoc($setting);
 $bg_color=$setting['background'];
 $text_color=$setting['text_color'];
 $btn_color=$setting['btn_color'];
-
 ?><head>
     <link rel="stylesheet" type="text/css" href="../../css/style_settings.css">
     </head>
@@ -17,13 +16,10 @@ $btn_color=$setting['btn_color'];
     <button>На главную</button>
 </a>
 </div>
-
 <div class="tab">
-  <button class="tablinks" onclick="openCity(event, 'Тема')">Тема</button>
-  <button class="tablinks" onclick="openCity(event, 'Кнопки')">Кнопки</button>
-
+  <button class="tablinks" onclick="openCart(event, 'Тема')">Тема</button>
+  <button class="tablinks" onclick="openCart(event, 'Кнопки')">Кнопки</button>
 </div>
-
 <div id="Тема" class="tabcontent">
 <div class="links">
                 
@@ -44,13 +40,7 @@ $btn_color=$setting['btn_color'];
 </table>
     <button>Применить</button>
     </form>
-
-
         </div>
-        
-
-
-        
 </div>
 
 
@@ -65,7 +55,7 @@ $btn_color=$setting['btn_color'];
 </form>
 </div>
 <script>
-  function openCity(evt, cityName) {
+  function openCart(evt, cityName) {
     var i, tabcontent, tablinks;
 
     tabcontent = document.getElementsByClassName("tabcontent");
