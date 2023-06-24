@@ -1,7 +1,7 @@
 <?php 
 $id_user= $_SESSION['user']['id'];
 $type= $_SESSION['personal']['status'];
-$setting = mysqli_query($connect, "SELECT*FROM `settings_users` WHERE `id_user`='$id_user'"); 
+$setting = mysqli_query($connect, "SELECT*FROM `users` WHERE `id`='$id_user'"); 
 $setting = mysqli_fetch_assoc($setting);
 $bg_color=$setting['background'];
 $text_color=$setting['text_color'];

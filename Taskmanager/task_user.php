@@ -3,6 +3,9 @@ $id_user=$_SESSION['user']['id'];
 
 $status_user = $_SESSION['user']['status'];
 require_once '../action/connect.php'; // Прaоверка подключения к БД
+require_once "../function/checkaut.php";
+require_once "../function/checkrole.php";
+require_once "../action/users/StyleAndSettings.php";
 ?>
 <!doctype html>
 <html lang="ru">
@@ -18,16 +21,16 @@ require_once '../action/connect.php'; // Прaоверка подключени�
     
 <?
 $check_task = mysqli_query($connect, "SELECT * FROM `tasks` WHERE `executor` = '$id_user' ");
-if(mysqli_num_rows($check_task)<1 && $status_user!=9){
+if(mysqli_num_rows($check_task)<1 && $status_user!=1936){
 ?> <div class="taskheader"><font class="NoTask"><?= "Для вас нет активных задач";?></font></div>
 <?}else{
-if($status_user==9){?>
+if($status_user==1936){?>
 <div class="taskheader">
             <a class="Aaddtask" href="../action/users/create_task_for_user.php"><button class="addtask_user transition" title="Добавить задачу">+</button></a> <!-- Кнопка добавления таски-->
         </div>
         <?
             $task = mysqli_query($connect, "SELECT * FROM `tasks`  ORDER BY `status` ASC"); // Подключение к определенной таблице, и получение Статуса записи
-        }else {
+        }else{
         $task = mysqli_query($connect, "SELECT * FROM `tasks` WHERE `executor`=$id_user ORDER BY `status` ASC"); // Подключение к определенной таблице, и получение Статуса записи
         }
         $task = mysqli_fetch_all($task); // Выбирает все строки из набора $product и помещает их в массив  $product
@@ -51,14 +54,39 @@ if($status_user==9){?>
                                                                                                             ?>
                         </div>
                         <div class="accordion__body">
-                        
-
-                                <font class="status">Актуально</font> <!-- Проверяем если статус задачи 1 то выводим Селект где первая запись Активный  -->
-                                <? if($status_user==9){?>
-                                <form action="../action/accept_delete_user.php?id=<?= $tasks[0] ?>" method="post" name="real_delete">
-                                    <a href="../action/accept_delete_user.php?id=<?= $tasks[0] ?>"><img src="/file/icons/delete.png" width="16px" height="16px"></a>
+                        <form action="../action/statusTask.php?id=<?= $products[0] ?>" method="post" name="form"> <!-- форма с селектами-->
+                                <select name="currency" onchange="this.form.submit()">
+                                    <? //if ($product[3] == 0) { 
+                                    ?> <!-- Проверяем если статус задачи 1 то выводим Селект где первая запись Активный  -->
+                                    <option value="0">Актуально</option>
+                                    <option value="1">Выполнено</option>
+                                    <option value="2">Не актуально</option>
+                                    <? //}
+                                    ?>
+                                </select>
+                                <a href="../action/editTask.php?id=<?= $products[0] ?>"><img width="16px" height="16px" title="Редактировать" src="../file/icons/edit.png"></a> <!-- Кнопка редактировать -->
+                                <select name="priority" onchange="this.form.submit()"><!-- Селект с сортировкой Статусов задач, выглядит как хуйня, надо переделать что бы тут был запрос и с запроса шел этот статус-->
+                                    <? if ($products[5] == 0) { ?>
+                                        <option value="0">Backlog</option>
+                                        <option value="1">Надо сделать</option>
+                                        <option value="2">Нет знаний</option>
+                                    <?
+                                    } else if ($products[5] == 1) { ?>
+                                        <option value="1">Надо сделать</option>
+                                        <option value="0">Backlog</option>
+                                        <option value="2">Нет знаний</option>
+                                    <?
+                                    } else if ($products[5] == 2) { ?>
+                                        <option value="2">Нет знаний</option>
+                                        <option value="1">Надо сделать</option>
+                                        <option value="0">Backlog</option>
+                                    <?
+                                    } ?>
+                                </select>
+                                <form action="../action/accept_delete.php?id=<?= $products[0] ?>" method="post" name="real_delete">
+                                    <a href="../action/accept_delete.php?id=<?= $products[0] ?>"><img src="/file/icons/delete.png" width="16px" height="16px"></a>
                                 </form>
-                            <?}?>
+                            </form>
                             <div class="accordion__content">
                                <pre> <?= $tasks[2]; ?></pre><?
                                 if($tasks[8]=="NULL"){
@@ -82,7 +110,7 @@ if($status_user==9){?>
                                  echo $owners[1];}
                                  ?> </font>
                             </a>
-                            <font class="creation_date"><b>Создано:</b> <?= $tasks[6] ?></font>
+                            <font class="creation_date"><b>Создано:</b> <?= $tasks[7] ?></font>
 <!----------------------------------------Начало пати с комментариями------------------------------------------------------------------>
                             <div class="comments-block"><?
                                                         foreach ($comment as $comments) { // Перебор массива $ c его записью в массив $
@@ -125,7 +153,7 @@ if($status_user==9){?>
                                 }
                                 ?>
                             </div>
-
+ 
                             
                             <?$owner = mysqli_query($connect, "SELECT * FROM `users` WHERE `id`=$tasks[4] ");
                             $owner = mysqli_fetch_all($owner);?>
@@ -141,8 +169,8 @@ if($status_user==9){?>
                             </a>
 
 
-                                <font class="creation_date"><b>Создано:</b> <?= $tasks[6] ?></font> <br>
-                                <font class="creation_date"><b>Закрыто:</b> <?= $tasks[7] ?></font>
+                                <font class="creation_date"><b>Создано:</b> <?= $tasks[7] ?></font> <br>
+                                <font class="creation_date"><b>Закрыто:</b> <?= $tasks[8] ?></font>
 <!----------------------------------------Начало пати с комментариями------------------------------------------------------------------>
 <div class="comments-block"><?
                                                         foreach ($comment as $comments) { // Перебор массива $ c его записью в массив $
@@ -165,11 +193,8 @@ if($status_user==9){?>
                                 <div style="background: linear-gradient(45deg, #7a7a22, #bdba64, #e3e3ac, #ffffe5);" class="accordion__header">
                                     <p class="number"> № <s> <?= $tasks[0]  ?> : </p>
                                     <p class="nametasks"><?= $tasks[1] ?></s></p>
-                                    <? if ($tasks[5] == 0) { // Проверка на статус таски, и вывод приоитета возле названия в заголовке
-                                    ?><font class="prioritet-task0">Backlog</font><?
-                                                                            } else if ($tasks[5] == 1) { ?><font class="prioritet-task1">Надо сделать</font> <?
-                                                                                                        } else if ($tasks[5] == 2) { ?><font class="prioritet-task2">Нет знаний</font><?
-                                                                                                        }?>
+                                    <font class="prioritet-task0"><? $tasks[7]?></font>
+
                                 </div>
                                 <div class="accordion__body">
                                 <font>Не актуально</font> <!-- Проверяем если статус задачи 1 то выводим Селект где первая запись Активный  -->
@@ -199,7 +224,7 @@ if($status_user==9){?>
                             </a>
 
 
-                                    <font class="creation_date"><b>Создано:</b> <?= $tasks[6] ?></font>
+                                    <font class="creation_date"><b>Создано:</b> <?= $tasks[7] ?></font>
 <!----------------------------------------Начало пати с комментариями------------------------------------------------------------------>
 <div class="comments-block"><?
                                                         foreach ($comment as $comments) { // Перебор массива $ c его записью в массив $
@@ -232,10 +257,7 @@ if($status_user==9){?>
 
 
 <?
-require_once "../function/checkaut.php";
-require_once "../function/checkrole.php";
-require_once "../action/connect.php";
-require_once "../action/users/StyleAndSettings.php";
+
 if ($role!= 1) {
     header('Location: index.php');
     }

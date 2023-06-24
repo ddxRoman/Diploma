@@ -64,7 +64,7 @@ $button = mysqli_fetch_all($button); // Выбирает все строки и�
             <!-- Тут начинает МИС панель.-->
             <? $mailLink=$_SESSION['user']['mail'];
             ?>
-            <a href="action/users/settings.php" target="_blank"><button><img src="file/icons/settings.png" >Настройки</button></a>
+            <a href="action/users/settings.php" target="1"><button><img src="file/icons/settings.png" >Настройки</button></a>
             <a href="https://<?=$mailLink?>" target="_blank"><button> <img src="file/icons/email.png"> Почта</button></a>
             <a href="https://telemost.yandex.ru/j/05547869279270" target="_blank"><button><img src="file/icons/yabridg.png">Телемост</button></a>
             <a href="folders/news.php" target="1"><button><img src="file/icons/news.png">Новости</button></a>
@@ -74,13 +74,11 @@ $button = mysqli_fetch_all($button); // Выбирает все строки и�
         <hr class="misPanel-hr" width="85%"><!-- ХРка полоска -->
        <div class="body">   <!-- Начало Тела сайта -->
             <div class="lmenu"> 
-
             <? foreach($button as $buttons){
                     ?><a href="<?=$buttons[3]?>" target="_blank"><button><?=$buttons[2]?></button></a>
 <?
             }
             ?>
-
              </div>
             <div class="container">
                 <iframe name="1" src="folders/news.php">

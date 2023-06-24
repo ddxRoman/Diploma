@@ -5,7 +5,7 @@ require_once "../action/connect.php";
 require_once "../action/users/StyleAndSettings.php";
 
 if ($_SESSION['user']['status'] != 1936) {
-    header('Location: index.php');
+    header('Location: ../action/autorization.php');
     }
     $personal = mysqli_query($connect, "SELECT * FROM `users` ORDER BY `id`"); // Подключение к определенной таблице, и получение Статуса записи
     $personal = mysqli_fetch_all($personal); // Выбирает все строки из набора $product и помещает их в массив  $product
