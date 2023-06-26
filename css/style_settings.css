@@ -6,7 +6,6 @@ overflow: hidden;
 border: 1px solid #4CAF50;
 background-color: #686868;
 }
-
 .tab button {
 background-color: inherit;
 float: left;
@@ -16,17 +15,14 @@ cursor: pointer;
 padding: 14px 16px;
 transition: 0.3s;
 }
-
 .tab button:hover {
 background-color: #ffffff;
 color: #000000;
 }
-
 .tab button.active {
 background-color: #4c63af;
 color: #fff;
 }
-
 .tabcontent {
 display: none;
 padding: 6px 12px;

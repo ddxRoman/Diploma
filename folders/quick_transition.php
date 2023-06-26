@@ -1,4 +1,4 @@
-<? require_once "function/checkaut.php";?>
+<? require_once "function/profilecheck.php";?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

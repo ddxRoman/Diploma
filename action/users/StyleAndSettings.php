@@ -7,7 +7,6 @@ $bg_color=$setting['background'];
 $text_color=$setting['text_color'];
 $btn_color=$setting['btn_color'];
 ?>
-
 <style>
 body{
     background-color: <?=$bg_color?>;

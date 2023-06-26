@@ -4,7 +4,6 @@
     height: 55%;
     border: 2px solid #00ccff07;
 }
-
 .Ava img{
 display: grid;
 height:  70px;
@@ -12,7 +11,6 @@ justify-items: end;
 align-content: center;
 margin-top: -1px;
 }
-
 .date{
     display: grid;
     align-content: end;
@@ -22,12 +20,10 @@ margin-top: -1px;
 .post{
     font-size: 8pt;
 }
-
 .exit{
     color: #888;
     size: 10px;
 }
-
 .full button{
 font-size: 12px;
     height: 19px;
@@ -35,8 +31,6 @@ font-size: 12px;
     color: rgb(0, 0, 0);
     border-radius: 4px;
 }
-
-
    A {
     color: rgb(255, 0, 0); /* Цвет ссылок */
     font-weight: 600;

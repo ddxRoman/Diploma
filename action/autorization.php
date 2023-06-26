@@ -13,7 +13,6 @@ if($_SESSION['user']) header('Location: ../index.php')
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
 </head>
-
 <body>
     <style>
 body{
@@ -28,7 +27,6 @@ body{
     <input required type="password" name="password" placeholder="Пароль"><br>
 <button type="submit">Get to work</button>
 </form>
-
 <div class="message">
 <p class="sms"> <?echo $_SESSION['sms']; ?> </p> 
 </div>

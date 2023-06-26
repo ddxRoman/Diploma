@@ -1,6 +1,5 @@
 <?
-require_once "../function/checkaut.php";
-require_once "../function/checkrole.php";
+require_once "../function/profilecheck.php";
 require_once "../action/connect.php";
 require_once "../action/users/StyleAndSettings.php";
 
@@ -45,7 +44,7 @@ if ($_SESSION['user']['status'] != 1936) {
             </div>
             <div class="knowledge">
                 <!--  Просто кнопка на Хелпер -->
-                <a href="index.php" target="_self">
+                <a href="../index.php" target="_self">
                     <!--  Просто кнопка на Хелпер -->
                     <button class="MD">Рабочая область</button>
                 </a><!--  Просто кнопка на Хелпер -->
@@ -59,14 +58,14 @@ if ($_SESSION['user']['status'] != 1936) {
         <div class="MisPanel">
             <!-- Тут начинает МИС панель.-->
             <a href="folders/user_list.php" target="_self"><button>Список сотрудников</button></a>
-            <a href="Taskmanager/task_user.php" target="1"><button>Задачи сотрудникам</button></a>
+            <a href="../Taskmanager/task.php" target="1"><button>Задачи сотрудникам</button></a>
             <a href="folders/addNews.php" target="1"><button>Публикации</button></a>
            </div><!-- Тут заканчивается МИС панель-->
         <hr class="misPanel-hr" width="85%"><!-- ХРка полоска -->
        <div class="body">   <!-- Начало Тела сайта -->
             <div class="lmenu"> 
                 <div class="links">
-                    
+                    <a href="addUser.php" target="_blank"><button>Добавить сотрудника</button></a>
                     
                 </div>
              </div>

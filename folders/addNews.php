@@ -14,10 +14,8 @@
             <option>Новость</option>
             <option>Обсуждение</option>
         </select>
-
         <textarea required name="news"></textarea><br>
         <button>Опубликовать</button>
-
     </form>
 </body>
 </html>

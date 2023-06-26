@@ -12,9 +12,9 @@
 <?php 
 
 session_start();
+require_once "../function/profilecheck.php";
 require_once '../action/connect.php';
 require_once '../action/users/StyleAndSettings.php';
-
 $mail=$_GET['mail']; 
 $person = mysqli_query($connect, "SELECT * FROM `users` ORDER BY `mail`"); // Подключение к определенной таблице, и получение Статуса записи
 $person = mysqli_fetch_all($person); // Выбирает все строки из набора $product и помещает их в массив  $product
@@ -26,14 +26,14 @@ $person = mysqli_fetch_all($person); // Выбирает все строки и�
             <table class="user_card_table">
                 <thead>    <h3>Карточка сотрудника</h3></thead>
                 <tr>
-                <th rowspan="2"><a href="<?= $persons[12]?>"><img src="<?=$persons[12]?>" class="user_card_photo"></a></th>
-                <th><br><?= $persons[2], " ",  $persons[1], " ", $persons[3] ?></th>
+                <th  rowspan="2"><a href="<?= $persons[12]?>"><img src="<?=$persons[12]?>" class="user_card_photo"></a></th>
+                <th><br><?= $persons[2], "<br> ",  $persons[1], " ", $persons[3] ?></th>
                 <th><?= $persons[4]?></th>
                 <th><?= $persons[5]?></th>
                 </tr>
                 <tr>
                 <th><?= $persons[7]?></th>
-                <th><?= $persons[8]?></th>
+                <th colspan="2"><?= $persons[8]?></th>
             </tr>
             <tr>
                 <th>
@@ -51,14 +51,6 @@ $person = mysqli_fetch_all($person); // Выбирает все строки и�
        <?
                        $id_user = $persons[0];
 
-    $check_id = mysqli_query($connect, "SELECT * FROM `settings_users` WHERE `id_user` = '$id_user' ");
-
-        if(mysqli_num_rows($check_id)<1)
-        {
-        echo "Добавлены персональные настройки юзера <br>";
-        mysqli_query($connect, "INSERT INTO `settings_users` (`id`, `id_user`, `background`, `text_color`) VALUES (NULL, '$id_user', '000000', 'ffffff');");
-        
-}
 ?> <a href="user_list.php"><button>Назад</button></a>
 <a href="editUser.php?mail=<?=$persons[5]?>"><button>Редактировать</button></a>
 

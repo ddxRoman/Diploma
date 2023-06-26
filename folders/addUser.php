@@ -2,7 +2,7 @@
 session_start();
 require_once '../action/connect.php';
 require_once '../action/users/StyleAndSettings.php';
-require_once "../function/checkaut.php";
+require_once "../function/profilecheck.php";
 ?>
 
 <!DOCTYPE html>
@@ -81,11 +81,12 @@ require_once "../function/checkaut.php";
     <td></td>
     <td>
     <label  class="input-file">
-	   	<input  type="file" name="photo">        
+	   	<input accept="image/*" class="download_photo" type="file" name="photo">        
  	   	<span  class="input-file-btn">Загрузить фото</span>
  	</label>
 
-    <!-- <label>Фото сотрудника</label><input class="download_photo" name="photo" type="file"></td> -->
+    
+     <!-- <input class="download_photo" name="photo" type="file"></td> -->
 </tr>
 <tr><td><button class="create">Создать</button></td> 
 </form>

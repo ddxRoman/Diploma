@@ -1,14 +1,13 @@
 <?
 session_start();
-require_once "../../function/checkaut.php";
-require_once "../../function/checkrole.php";
+require_once "../../function/profilecheck.php";
 require_once "../connect.php";
 require_once "StyleAndSettings.php";
 
-if ($_SESSION['user']['status'] != 9) {
+if ($_SESSION['user']['status'] != 1936) {
     header('Location: index.php');
     }
-    $personal = mysqli_query($connect, "SELECT * FROM `personal` ORDER BY `id`"); // Подключение к определенной таблице, и получение Статуса записи
+    $personal = mysqli_query($connect, "SELECT * FROM `users` ORDER BY `id`"); // Подключение к определенной таблице, и получение Статуса записи
     $personal = mysqli_fetch_all($personal); // Выбирает все строки из набора $product и помещает их в массив  $product
    ?> 
 <!DOCTYPE html>
