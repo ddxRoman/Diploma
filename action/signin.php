@@ -19,13 +19,12 @@ function getIp() {
       }
     }
   }
-  $date = date( "Y-m-d H:i:s" );  
   $ip = getIp();
 if(mysqli_num_rows($check_admin)>0) 
 {
     $user = mysqli_fetch_assoc($check_admin);
     mysqli_query($connect, "INSERT INTO `log` (`id`, `error`, `login`, `ip`, `date`)
-    VALUES (NULL, 'Авторизация', '$login', '$ip', '$date')");
+    VALUES (NULL, 'Авторизация', '$login', '$ip', NOW() )");
     $_SESSION['user'] = 
     [
         "id"=>$user['id'],
@@ -35,11 +34,12 @@ if(mysqli_num_rows($check_admin)>0)
         "role"=>$user['post'],
         "status"=>$user['status']
     ];
+  
    header('Location: ../index_admin.php');
 }
 else{
     mysqli_query($connect, "INSERT INTO `log` (`id`, `error`, `login`, `password`, `ip`,`date`)
-    VALUES (NULL, 'Попытка авторизации', '$login','$password', '$ip','$date')");   
+    VALUES (NULL, 'Попытка авторизации', '$login','$password', '$ip', NOW() )");   
     $_SESSION['sms']='Не верный <br> логин или пароль'; 
     header('Location: autorization.php');
 }

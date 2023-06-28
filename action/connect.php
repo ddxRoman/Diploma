@@ -1,6 +1,6 @@
 <?php
 error_reporting(E_ERROR | E_PARSE);
-$connect = mysqli_connect('localhost', 'root','qazwsx','Diplom');
+$connect = mysqli_connect('localhost', 'root','qazwsx','diplom');
 if(!$connect){?>  
    <style>
         .header{
