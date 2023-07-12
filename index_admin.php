@@ -42,6 +42,8 @@ if ($role!= 1) {
             <a href="folders/user_list.php" target="_self"><button>Список сотрудников</button></a>
             <a href="Taskmanager/task.php" target="1"><button>Задачи сотрудникам</button></a>
             <a href="folders/addNews.php" target="1"><button>Публикации</button></a>
+            <a href="folders/knowledge.php" target="_self"><button>База знаний</button>
+                </a>
            </div>
         <hr class="misPanel-hr" width="85%">
        <div class="body">

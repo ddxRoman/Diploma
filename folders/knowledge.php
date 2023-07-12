@@ -51,7 +51,7 @@ iframe {
         <div class="navigation">
             <a href="../index.php"><button>На главную</button></a>
         <ol>
-   <a href="knowledge/1.html" target="1"><li>Общие сведения</li></a>
+   <a href="knowledge/1.html" target="1"><li>Работа со строками</li></a>
    <a href="knowledge/2.html" target="1"><li> Настройки
     <ol>
     <a href="knowledge/3.html" target="1">  <li>Тема</li></a>
