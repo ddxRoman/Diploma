@@ -5,6 +5,7 @@ require_once "action/users/StyleAndSettings.php";
 if ($role!= 1) {
     header('Location: index.php');
     }
+    //Test
 ?>
 <!DOCTYPE html>
 <html lang="en">
