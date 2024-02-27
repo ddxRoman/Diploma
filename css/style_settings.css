@@ -1,3 +1,6 @@
+:root {
+    --colorBG: rgb(231, 231, 178);
+}
 input{
     margin-top: 5px;
 }
@@ -6,6 +9,7 @@ overflow: hidden;
 border: 1px solid #4CAF50;
 background-color: #686868;
 }
+
 .tab button {
 background-color: inherit;
 float: left;
@@ -15,26 +19,38 @@ cursor: pointer;
 padding: 14px 16px;
 transition: 0.3s;
 }
+
 .tab button:hover {
 background-color: #ffffff;
 color: #000000;
 }
+
 .tab button.active {
 background-color: #4c63af;
 color: #fff;
 }
+
 .tabcontent {
 display: none;
 padding: 6px 12px;
 border: 1px solid #599735;    
 border-top: none;
 }
+
+.tabcontent table{
+    margin: 0 auto;
+}
+
 .header_settings{
 display: grid;
 justify-content: start;
 margin-bottom: 15px;
+padding: 10px;
 }
 body{
-background-color: #d6d6d6;
+background-color: var(--colorBG);
 }
 
+h4{
+    color: #00000021;
+}

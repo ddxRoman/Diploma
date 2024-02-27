@@ -1,21 +1,29 @@
 <?    
 session_start();
-require_once "function/profilecheck.php";
+$current_year=date("Y");
+require_once "function/checkaut.php";
+require_once "function/checkrole.php";
 require_once "action/connect.php";
+require_once "action/connect_table.php";
 require_once "action/users/StyleAndSettings.php";
-$button = mysqli_query($connect, "SELECT * FROM `button_user` WHERE `user_id`=$id_user ");
-$button = mysqli_fetch_all($button); 
+$button = mysqli_query($connect, "SELECT * FROM `button_user` WHERE `user_id`=$id_user "); // Подключение к определенной таблице, и получение Статуса записи
+$button = mysqli_fetch_all($button); // Выбирает все строки из набора $product и помещает их в массив  $product
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="icon" type="image" href="file/icons/Logo/Logo.png">
-    <link rel="stylesheet" type="text/css" href="css/Style.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/button.css">
-    <title>ORS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ORS</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="theme-color" content="#ff0000"/>
     <link rel="manifest" href="JavaScript/manifest.json">
     <script>
@@ -24,72 +32,147 @@ $button = mysqli_fetch_all($button);
         };
       </script>
 </head>
+
 <body>
     <div class="all">
+        <!-- Общий блок на всю страницу-->
         <div class="header">
+            <!-- Общий Блок на шапку-->
             <div class="quick_transition">
-                <? require_once "folders/quick_transition.php"; ?>
+                <!-- Блок С полями в левом верхнем углу-->
+                <? 
+                // require_once "folders/quick_transition.php"; 
+                ?>
+                            <div>
+            <?php 
+$now = new DateTime(); // текущее время на сервере
+$date = DateTime::createFromFormat("Y-m-d", '2022-10-28'); // задаем дату в любом формате
+$interval = $now->diff($date); // получаем разницу в виде объекта DateInterval
+if($interval->y>0){
+     $days=$interval->days;
+}else{ echo "тут вапще щотчык не сработал";}
+
+ ?> <p class="count_married"><?=$days?> Дней </p>
+
+            <?php 
+$now = new DateTime(); // текущее время на сервере
+$date = DateTime::createFromFormat("Y-m-d", '2022-07-02'); // задаем дату в любом формате
+$interval = $now->diff($date); // получаем разницу в виде объекта DateInterval
+if($interval->y>0){
+     $days=$interval->days;
+}else{ echo "тут вапще щотчык не сработал";}
+
+ ?> <p class="count_married"><?=$days?> Дней </p>
+
+
+<style>
+    .count_married{
+        font-weight: 900;
+        font-size: large;
+    }
+</style>
+            </div>
+                <!-- Подключение файла в котором поля с нашими заказами-->
             </div>
             <div class="knowledge">
-                <? if($_SESSION['user']['status'] == 1936){?>
+                <!--  Просто кнопка на Хелпер -->
+                <? if($_SESSION['user']['status'] == 9){?>
                     <a href="index_admin.php" target="_self">
+                    <!--  Просто кнопка на Админка -->
                     <button class="MD">Админка</button>
-                </a>
+                </a><!--  Просто кнопка на Админку-->
                 <?} else{?>
-                <a href="folders/knowledge.php" target="_self">
+                <a href="folders/knowledge.php" target="_blank">
+                    <!--  Просто кнопка на Хелпер -->
                     <button class="MD">База знаний</button>
-                </a><?}?>
-            </div>
+                </a><!--  Просто кнопка на Хелпер --> <?}?>
+            </div><!--  Просто кнопка на Хелпер -->
             <div class="Right_head">
+                <!-- Правый верхний блок с профилем-->
                 <? require_once "action/profileindex.php"; ?>
-            </div>
-        </div> 
+                <!-- Просто подключение другого файла в этот блок-->
+            </div><!-- Правый верхний блок с профилем-->
+        </div> <!-- Конец хедера-->
         <div class="MisPanel">
-            <? 
-            $mailLink=$_SESSION['user']['mail'];
+            <!-- Тут начинает МИС панель.-->
+            <? $mailLink=$_SESSION['user']['mail'];
             ?>
-            <a href="action/users/settings.php" target="_blank"><button><img src="file/icons/settings.png" >Настройки</button></a>
-            <a href="https://<?=$mailLink?>" target="_blank"><button> <img src="file/icons/email.png"> Почта</button></a>
-            <a href="https://telemost.yandex.ru/j/05547869279270" target="_blank"><button><img src="file/icons/yabridg.png">Телемост</button></a>
-            <a href="folders/news.php" target="1"><button><img src="file/icons/news.png">Новости</button></a>
-            <a href="folders/services.php" target="1"><button><img src="file/icons/services.png">Сервисы</button></a>
-            <a href="folders/discussion.php" target="1"><button><img src="file/icons/discussion.png">Обсуждение</button></a>
-           </div>
-        <hr class="misPanel-hr" width="85%">
-       <div class="body">   
+            <a href="action/users/settings.php" target="_blank"><button>Настройки</button></a>
+            <a href="https://meet.google.com/" target="_blank"><button>Meet</button></a>
+            <a href="https://mail.google.com" target="_blank"><button>Почта</button></a>
+            <a href="https://topvisor.com/projects/" target="_blank"><button><b>TOP</b><i>visor</i></button></a>
+            <a href="https://jira.bizonoff-dev.net/projects/KINDPEOPLE/" target="_blank"><button>Наша Жира</button></a>
+            <a href="folders/countsymbolForm.php" target="1"><button>Подсчёт</button></a>
+            <a href="folders/creeds.php" target="1"><button>Доступы</button></a>
+           </div><!-- Тут заканчивается МИС панель-->
+        <hr class="misPanel-hr" width="85%"><!-- ХРка полоска -->
+       <div class="body">   <!-- Начало Тела сайта -->
             <div class="lmenu"> 
-            <? foreach($button as $buttons){
-                    ?><a href="<?=$buttons[3]?>" target="_blank"><button><?=$buttons[2]?></button></a>
-<?
-            }
-            ?>
+            
+            <? 
+             foreach($sites_categorie as $sites_categories){
+            if($sites_categories[4]==1){?>
+                          <a href="<?=$sites_categories[3]?>" target="1"><button class="document"><?=$sites_categories[1]?></button></a><br>
+            <?} else{?>
+
+          <a href="<?=$sites_categories[3]?>" target="1"><button><?=$sites_categories[1]?></button></a><br>
+           <? }} ?>
+            <!--<a href="folders/docs.php" target="1"><button>Доки</button></a><br>-->
+            <!--        <a href="folders/helper.php" target="1"><button>Хелпер</button></a><br>         -->
+            <!--        <a href="folders/GooglFolders.php" target="1"><button>Папки</button></a><br>                   -->
+            <!--        <a href="folders/Backlog.php" target="1"><button>Старье</button></a><br>-->
+            <!--        <a href="folders/mis.php" target="1"><button>Миски</button></a><br>-->
+            <!--        <a href="folders/sites.php" target="1"><button class="site_btn">Сайты</button></a><br>-->
+            <!--        <a href="https://docs.google.com/spreadsheets/d/1mFn7zDyJ47eAOvhSJ-e8eDeBEnwHVbKv/edit#gid=1585440672" target="_blank"><button class="document">МояДока</button></a><br>-->
+            <!--        <a href="https://drive.google.com/drive/u/0/my-drive" target="_blank"><button class="document">ГуглДиск</button></a><br>-->
              </div>
-            <div class="container">
-                <iframe name="1" src="folders/news.php">
+            <div class="container frame">
+                <iframe name="1" src="folders/sites.php">
                     
                 </iframe>
             </div>
+            <?php if ($_SESSION['user']['status'] == 9) { ?><!-- Берем Роль пользователя и проверяем если она равно 9 (у нас это админ) то показываем Правое меню-->
                 <div class="rmenu">
-                    <iframe name="task" src="Taskmanager/task.php">
-                        
+                    <iframe name="task" src="Taskmanager/task_bootstrap.php">
                     </iframe>
                 </div>
+            <?  } else { 
+            ?>
+            <div class="rmenu">
+                    <iframe name="task" src="Taskmanager/task_user.php">
+                    </iframe>
+                </div>
+            <?
+            }
+            ?>
         </div>
         <hr class="footer-hr">
         <div class="footer">
                 <div>
-                    
+                    <?require_once 'function/weather.php';?>
                 </div>
             <div class="refresh">
             <p class="ink"><img src="file/icons/Logo.png" alt="test"><br>
-                 ORStudio <br> Оксентий Роман Сергеевич <br> ИСзб-18 </p>
+                 ORStudio <br> Оксентий Роман Сергеевич Студио <br> Copyright 2022-<?=$current_year?> </p>
             </div>
             <div id="clock" class="clock">         
             <script src="JavaScript/clock.js">
-            </script> 
-            </div>
+            </script> <!-- Подключение файла с часами-->
+            </div><!-- ЧАСЫ-->
         </div>
     </div>
 </body>
-</html>
 
+</html>
+<script>
+       $('.info__add').click(function () {
+           name= prompt('Введите название кнопки: ', ['Новая кнопка']);
+           url= prompt('URL ', ['']);
+           if(name!="null" && url!=""){  
+         $(this).parent().append($('<a>', { 
+           'text': name, 'href': 'http://'+url, 'target': '_blank'}));
+        }
+        else{}
+       }
+       );
+     </script>

@@ -1,8 +1,9 @@
 const monthNames = ["Января", "Февраля", "Марта", "Апреля", "Мая", "Июня",
   "Июля", "Августа", "Сентября", "Октября", "Ноября", "Декабря"
 ];
+
 function currentTime() {
-  var date = new Date(); 
+  var date = new Date(); /* creating object of Date class */
   var day = date.getDate();
   var month = date.getMonth();
   var year = date.getFullYear();
@@ -13,9 +14,10 @@ function currentTime() {
   min = updateTime(min);
   sec = updateTime(sec);
   month = monthNames[month];
-  document.getElementById("clock").innerText = day + " " +  month + " " + year + "\n"+  hour + " : " + min + " : " + sec; /* adding time to the div */
+  document.getElementById("clock").innerText = hour + " : " + min + " : " + sec + "\n"+  day + " " +  month + " " + year; /* adding time to the div */
     var t = setTimeout(function(){ currentTime() }, 1000); /* setting timer */
 }
+
 function updateTime(k) {
   if (k < 10) {
     return "0" + k;
@@ -24,4 +26,5 @@ function updateTime(k) {
     return k;
   }
 }
-currentTime();
+
+currentTime(); /* calling currentTime() function to initiate the process */

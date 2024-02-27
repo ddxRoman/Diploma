@@ -1,3 +1,50 @@
+@media screen and (max-width:900px){
+  div.MisPanel{
+    display:none;
+  }
+.misPanel-hr{
+  display: none;
+}
+}
+
+
+.MisPanel button {
+  display: inline;
+text-align: center;
+border-color: rgb(230, 153, 123);
+min-width: 3.5%;
+padding: 2px;
+border-radius: 15px;
+}
+
+.MisPanel button:hover {
+text-align: center;
+border-color:rgb(214, 118, 81);
+min-width: 3.5%;
+padding: 2px;
+}
+
+.add_creeds_btn{
+background-color: #f19426;
+color: #eee;
+font-weight: 700;
+  border-radius: 25px;
+  margin-top: 1%;
+  width: 25%;
+  height: 35px;
+margin-left: 70%;
+}
+.add_creeds_btn:hover{
+  background-color: #f08f19;
+  color: #ffffff;
+  font-weight: 900;
+    border-radius: 30px;
+    margin-top: 1%;
+    width: 26%;
+    height: 38px;
+  margin-left: 70%;
+  }
+
 .addtask{
     border-radius: 12px;
     height: 22px;
@@ -5,14 +52,17 @@
       border-color: rgba(120, 137, 175, 0.767);
     }
     .addtask:hover{
+      
       border-radius: 12px;
       height: 22px;
         width: 22px;
         border-color: rgb(214, 219, 230);
       }
+
       .transition {
         transition: 0.3s;
       }
+
       .addtask_user{
         border-radius: 12px;
         height: 30px;
@@ -26,23 +76,35 @@
             border-color: rgba(53, 76, 206, 0.411);
             background-color: #48ff0034;
           }
+
+          .Smoke_btn{
+            background-color: rgb(0, 0, 0);
+            color: #ff0000;
+            border-color: rgba(255, 0, 0);
+          }
+
+
 .cancel{
 background-color: #ff5252;
 width: 55%;
 }
+
 .create{
   background-color: #519e87;
   color: #000000;
   height: 35px;
   width: 85px;
 }
+
 .download_photo{
-  background-color: rgba(0, 0, 0, 0);
+  background-color: aqua;
 }
+
 .no_rules_choice button{
   height: 50px;
   width: 100px;
 }
+
 .folders button {
   border-color: rgb(255, 255, 255);
   border-radius: 7px;
@@ -50,51 +112,49 @@ width: 55%;
   width: 25%;
   margin-bottom: 3px;
 }
+
 .helperSearch button{
   width: 7%;
 }
+
 .link button {
   height: 8%;
   width: 13%;
 }
+
 .lmenu button {
   border-color: rgb(230, 153, 123);
   border-radius: 4px;
-  min-width: 80%;
+  min-width: 100%;
   margin: 1px;
   padding: 3px;
+
 }
+
 .lmenu button:hover {
-  border-color: rgb(231, 115, 69);
+  border-color: rgb(204, 130, 101);
   border-radius: 4px;
-  min-width: 80%;
+  min-width: 103%;
   margin: 1px;
   padding: 3px;
 }
-.MisPanel button {
-    display: inline;
-    text-align: center;
-    border-color: rgb(230, 153, 123);
-    min-width: 6.5%;
-    padding: 2px;
-}
-.MisPanel button:hover {
-    text-align: center;
-    border-color:rgb(214, 118, 81);
-    min-width: 6.5%;
-    padding: 2px;
-}
+
+
+
 .document{
   background-color: rgb(45, 216, 29);
 }
+
 button {
   border-color: rgb(187, 167, 159);
   border-radius: 15px;
 }
+
 button:hover {
   border-color: rgb(153, 140, 135);
   border-radius: 15px;
 }
+
 .autorize button {
   height: 30px;
   margin-top: 10px;
@@ -104,6 +164,7 @@ button:hover {
   border-radius: 11px;
   width: 150px;
 }
+
 .autorize button:hover {
   height: 30px;
   margin-top: 10px;
@@ -113,10 +174,12 @@ button:hover {
   border-radius: 11px;
   width: 150px;
 }
+
 .input-file {
 	position: relative;
 	display: inline-block;
 }
+
 .input-file-btn {
 position: relative;
 	display: inline-block;
@@ -145,23 +208,31 @@ position: relative;
 	width: 0;
 	height: 0;
 }
+ 
+/* Focus */
 .input-file input[type=file]:focus + .input-file-btn {
 	box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
 }
+ 
+/* Hover/active */
 .input-file:hover .input-file-btn {
 	background-color: #70a77b;
 }
 .input-file:active .input-file-btn {
 	background-color: #89b390;
 }
+ 
+/* Disabled */
 .input-file input[type=file]:disabled + .input-file-btn {
 	background-color: #eee;
 }
+
 .services button{
   background-color: #ece2e2;
   width: 100px;
   height: 100px;
 }
+
 .services img{
   width: 55px;
 }

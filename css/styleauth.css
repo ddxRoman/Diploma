@@ -1,0 +1,72 @@
+body{
+    background: linear-gradient(90deg, blue, pink);
+   }
+   button {
+    height: 30px;
+    margin-top: 10px;
+    background-color: #519e87;
+    border-color: #f19426;
+    border-radius: 11px;
+    width: 150px;
+  }
+  
+   button:hover {
+    height: 30px;
+    margin-top: 10px;
+    background-color: #1dd8a0;
+    border-color: #c2863c;
+    border-radius: 11px;
+    width: 150px;
+  }
+/*****************************************/
+.allAutorize {
+    display: grid;
+    justify-content: center;
+    margin-top: 5%;
+    grid-template-rows: 40% 50% 10%;
+}
+.autorize {
+    display: grid;
+    border: 1px solid rgba(0, 225, 255, 0.062);
+    justify-content: center;
+    margin-top: 50%;
+}
+.allAutorize img {
+    display: grid;
+    width: 180px;
+    height: 156px;    
+    padding-top: -20px;
+}
+
+.autorize form{
+    margin-top: 20px;
+}
+.autorize a{
+    height: 156px;
+}
+.sms {
+    color: rgb(212, 22, 22);
+    font-size: 18px;
+    font-weight: 900;
+    text-align: center;
+}
+.message {
+    border: #ff0000;
+    font-weight: 800;
+}
+.LogoAutorization{
+    padding-bottom: 10px;
+}
+form .settings{
+margin-top: 1px;
+}
+input {
+
+    border: 1px solid #f19426;
+    background: linear-gradient(90deg, rgb(0, 238, 255), rgb(0, 179, 185));
+    
+}
+h2{
+    color: rgba(0, 0, 0, 0.253);
+    text-align: center;
+}

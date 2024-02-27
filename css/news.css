@@ -39,7 +39,6 @@ h4{
 .header_comments{
 font-size: 12px;
 font-weight: 500;
-
 }
 .allbody{
     background-color: rgba(255, 255, 255, 0.205);
@@ -48,6 +47,7 @@ font-weight: 500;
 body {
     background: rgba(255, 255, 255, 0.445);
 }
+
 .box {
     margin: 5px;
 
@@ -79,8 +79,8 @@ textarea{
     height: 15%;
     width: 96%;
     margin-left: 10px;
-    background: linear-gradient(90deg, rgb(211, 211, 211), rgba(48, 48, 48, 0.164));
 }
-.wrapper-boxes{
-    background-color: rgba(169, 184, 214, 0.322);
+.shadow{
+    color: rgba(0, 0, 0, 0.253);
+    text-align: center;
 }

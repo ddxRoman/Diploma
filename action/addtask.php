@@ -1,6 +1,7 @@
 <?php
 require_once '../action/connect.php';
 session_start();
+
 $name=$_POST['name'];
 $body=$_POST['body'];
 $prioritet=$_POST['prioritet'];
@@ -15,11 +16,14 @@ if($name!=''){
 mysqli_query($connect, "INSERT INTO `tasks` (`id`, `name`, `content`, `Status`, `owner`, `Priority`, `date`)
  VALUES (NULL, '$name', '$body', '0', '$author', '$prioritet','$today')");
   header ('Location: ../Taskmanager/Task.php');
+
 }else{
     mysqli_query($connect, "INSERT INTO `tasks` (`id`, `name`, `content`, `Status`, `owner`, `Priority`, `date`,`pictures`)
  VALUES (NULL, '$name', '$body', '0', '$author', '$prioritet','$today','$path')");
    header ('Location: ../Taskmanager/Task.php');
+
 }
 }
 else  echo"False";
+
 ?>

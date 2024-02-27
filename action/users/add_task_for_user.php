@@ -20,13 +20,14 @@ $today = date("d-m-Y в H:i:s ");
 $picture=$_FILES['pic']['name'];
 $path='../../file/taskmanager_picture/'.time().$_FILES['pic']['name'];
 
+echo "TYT".$path;
 if(!move_uploaded_file($_FILES['pic']['tmp_name'],$path)){
-mysqli_query($connect, "INSERT INTO `tasks` (`id`, `name`, `content`, `status`, `owner`, `executor`, `priority`, `date`, `file`, `type`)
-                                         VALUES (NULL, '$name', '$body', '0', '$author', '$id_users','$priority', '$today', '$path', '1861')");
-header ('Location: ../../Taskmanager/task.php');
+mysqli_query($connect, "INSERT INTO `user_task` (`id`, `name`, `contant`, `status`, `owner`, `priority`, `date`, `date_close`, `pictures`, `id_user`)
+                                         VALUES (NULL, '$name', '$body', '0', '$author', '$priority', '$today', '0', '$path', '$id_users')");
+header ('Location: ../../Taskmanager/task_user.php');
 } else{
-    mysqli_query($connect, "INSERT INTO `tasks` (`id`, `name`, `content`, `status`, `owner`, `executor`, `priority`, `date`, `type`)
-    (NULL, '$name', '$body', '0', '$author', '$id_users','$priority', '$today', '1861')");
-header ('Location: ../../Taskmanager/task.php');
+    mysqli_query($connect, "INSERT INTO `user_task` (`id`, `name`, `contant`, `status`, `owner`, `priority`, `date`, `date_close`, `id_user`)
+    VALUES (NULL, '$name', '$body', '0', '$author', '$priority', '$today', '0', '$id_users')");
+header ('Location: ../../Taskmanager/task_user.php');
 }
 ?>
