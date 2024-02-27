@@ -1,5 +1,6 @@
 <? 
 require_once "../function/checkaut.php";
+$page_id = 6;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +14,7 @@ require_once "../function/checkaut.php";
 </head>
 <body class="iframe-body">
 <div class="folders">
-<a href="https://kolbiko.com/admin/products" target="_blank"><button>Колбико</button></a>
+<!-- <a href="https://kolbiko.com/admin/products" target="_blank"><button>Колбико</button></a>
 <a href="https://master-gadget.ru" target="_blank"><button>Мастер Гаджет</button></a>
 <a href="https://justyabloko.ru" target="_blank"><button>Яблоко</button></a>
 <a href="https://dontelevizor.ru/" target="_blank"><button>Телевизор</button></a>
@@ -26,7 +27,19 @@ require_once "../function/checkaut.php";
 <a href="https://crm.vremya-dobryh.ru" target="_blank"><button>Время Добрых CRM</button></a>
 <a href="https://doninside.ru/" target="_blank"><button>Don-inside</button></a>
 <a href="https://psiholog.bizonoff-dev.net" target="_blank"><button>Алина</button></a>
-<a href="https://psiholog-kovaleva.bizonoff-dev.net/" target="_blank"><button>Наталья</button></a>
+<a href="https://psiholog-kovaleva.bizonoff-dev.net/" target="_blank"><button>Наталья</button></a> -->
+
+<?
+    require_once "../action/connect.php";
+    foreach($site as $sites)
+    {
+        if($sites[3]==$page_id){
+        ?><a href="<?=$sites[2]?>" target="_blank"><button class="docs_btn"><?=$sites[1]?></button></a>
+                <?
+        }
+    }
+    ?>
+
 </div>
 </body>
 </html>

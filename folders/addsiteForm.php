@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <? 
-require_once "../action/connect_table.php";
+require_once "../action/connect.php";
 ?>
 <html lang="en">
 <head>
@@ -18,9 +18,9 @@ require_once "../action/connect_table.php";
     <input type="text" placeholder="link" name="link">
     <select name="categories">
         <option value="">Категория</option>
-        <? foreach($sites_categorie as $sites_categories) {?>
+        <? foreach($sites_categorie as $sites_categories) if($sites_categories[4]==0){ {?>
         <option value="<?=$sites_categories[0]?>"><?=$sites_categories[1]?></option>
-       <? }?>
+       <? }}?>
     </select>
 <button class="add_creeds_btn">Добавить</button>
 </form>

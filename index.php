@@ -4,7 +4,7 @@ $current_year=date("Y");
 require_once "function/checkaut.php";
 require_once "function/checkrole.php";
 require_once "action/connect.php";
-require_once "action/connect_table.php";
+// require_once "action/connect_table.php";
 require_once "action/users/StyleAndSettings.php";
 $button = mysqli_query($connect, "SELECT * FROM `button_user` WHERE `user_id`=$id_user "); // Подключение к определенной таблице, и получение Статуса записи
 $button = mysqli_fetch_all($button); // Выбирает все строки из набора $product и помещает их в массив  $product
@@ -95,9 +95,10 @@ if($interval->y>0){
         </div> <!-- Конец хедера-->
         <div class="MisPanel">
             <!-- Тут начинает МИС панель.-->
-            <? $mailLink=$_SESSION['user']['mail'];
+            <? 
+            $mailLink=$_SESSION['user']['mail'];
             ?>
-            <a href="action/users/settings.php" target="_blank"><button>Настройки</button></a>
+            <a href="action/users/settings.php"><button>Настройки</button></a>
             <a href="https://meet.google.com/" target="_blank"><button>Meet</button></a>
             <a href="https://mail.google.com" target="_blank"><button>Почта</button></a>
             <a href="https://topvisor.com/projects/" target="_blank"><button><b>TOP</b><i>visor</i></button></a>
@@ -108,15 +109,16 @@ if($interval->y>0){
         <hr class="misPanel-hr" width="85%"><!-- ХРка полоска -->
        <div class="body">   <!-- Начало Тела сайта -->
             <div class="lmenu"> 
-            
             <? 
              foreach($sites_categorie as $sites_categories){
             if($sites_categories[4]==1){?>
-                          <a href="<?=$sites_categories[3]?>" target="1"><button class="document"><?=$sites_categories[1]?></button></a><br>
-            <?} else{?>
-
+                          <a href="<?=$sites_categories[3]?>" target="_blank"><button class="document"><?=$sites_categories[1]?></button></a><br>
+            <?} else if($sites_categories[4]==0){?>
           <a href="<?=$sites_categories[3]?>" target="1"><button><?=$sites_categories[1]?></button></a><br>
-           <? }} ?>
+           <? } else if($sites_categories[4]==2){?>
+                <a href="<?=$sites_categories[3]?>" target="_blank"><button><?=$sites_categories[1]?></button></a><br>
+            <?}
+           } ?>
             <!--<a href="folders/docs.php" target="1"><button>Доки</button></a><br>-->
             <!--        <a href="folders/helper.php" target="1"><button>Хелпер</button></a><br>         -->
             <!--        <a href="folders/GooglFolders.php" target="1"><button>Папки</button></a><br>                   -->

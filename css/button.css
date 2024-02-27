@@ -6,7 +6,9 @@
   display: none;
 }
 }
-
+.docsFolders_btn{
+  margin: 2px;
+}
 
 .MisPanel button {
   display: inline;
