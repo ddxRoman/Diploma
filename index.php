@@ -117,6 +117,10 @@ if($interval->y>0){
           <a href="<?=$sites_categories[3]?>" target="1"><button><?=$sites_categories[1]?></button></a><br>
            <? } else if($sites_categories[4]==2){?>
                 <a href="<?=$sites_categories[3]?>" target="_blank"><button><?=$sites_categories[1]?></button></a><br>
+            <?
+        }
+            else if($sites_categories[4]==3){?>
+              <a href="<?=$sites_categories[3]?>" target="1"><button><?=$sites_categories[1]?></button></a><br>
             <?}
            } ?>
             <!--<a href="folders/docs.php" target="1"><button>Доки</button></a><br>-->

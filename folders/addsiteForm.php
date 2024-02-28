@@ -15,7 +15,6 @@ require_once "../action/connect.php";
 <form action="../action/addsiteList.php" method="post">
     <input type="text" placeholder="URL" name="url">
     <input type="text" placeholder="name" name="name">
-    <input type="text" placeholder="link" name="link">
     <select name="categories">
         <option value="">Категория</option>
         <? foreach($sites_categorie as $sites_categories) if($sites_categories[4]==0){ {?>
