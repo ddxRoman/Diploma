@@ -98,11 +98,16 @@ if($interval->y>0){
             <a href="https://jira.bizonoff-dev.net/projects/KINDPEOPLE/" target="_blank"><button>Жира</button></a>
             <a href="folders/countsymbolForm.php" target="1"><button>Подсчёт</button></a>
             <a href="folders/creeds.php" target="1"><button>Доступы</button></a>
+
            </div><!-- Тут заканчивается МИС панель-->
 
        <div class="body">   <!-- Начало Тела сайта -->
             <div class="lmenu"> 
-
+            <div class="container frame">
+                <iframe name="1" src="">
+                    
+                </iframe>
+            </div>
 
 <? foreach($sites_categorie as $sites_categories){
                 if($sites_categories[4]==1){?>
@@ -196,11 +201,7 @@ if($interval->y>0){
             <!--        <a href="https://docs.google.com/spreadsheets/d/1mFn7zDyJ47eAOvhSJ-e8eDeBEnwHVbKv/edit#gid=1585440672" target="_blank"><button class="document">МояДока</button></a><br>-->
             <!--        <a href="https://drive.google.com/drive/u/0/my-drive" target="_blank"><button class="document">ГуглДиск</button></a><br>-->
              </div>
-            <!-- <div class="container frame">
-                <iframe name="1" src="folders/sites.php">
-                    
-                </iframe>
-            </div> -->
+
 
 
 
