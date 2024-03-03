@@ -21,7 +21,7 @@ else{ ?>
 $sites_categorie = mysqli_query($connect, "SELECT * FROM `sites_categories` ORDER BY `sequence_number` ASC"); // Подключение к определенной таблице, и получение Статуса записи
 $sites_categorie = mysqli_fetch_all($sites_categorie); // Выбирает все строки из набора $Comment и помещает их в массив  $Comments
 
-$site = mysqli_query($connect, "SELECT * FROM `sites` ORDER BY `id` ASC"); // Подключение к определенной таблице, и получение Статуса записи
+$site = mysqli_query($connect, "SELECT * FROM `sites` ORDER BY `id` DESC"); // Подключение к определенной таблице, и получение Статуса записи
 $site = mysqli_fetch_all($site); // Выбирает все строки из набора $Comment и помещает их в массив  $Comments
 
 ?>

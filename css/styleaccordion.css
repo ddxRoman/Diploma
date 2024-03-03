@@ -18,6 +18,9 @@ body {
   box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 15%);
 }
 
+.taskBootstrap-frame{
+  height: 300px;
+}
 
 .accordion-header {
   justify-content: space-between;

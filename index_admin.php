@@ -18,6 +18,7 @@ if ($role!= 1) {
     <link rel="icon" type="image" href="file/icons/Logo.png">
     <link rel="stylesheet" type="text/css" href="css/adminStyle.css">   <!-- Надо переработать вот тут, почистить и сделать норм настройки -->
     <link rel="stylesheet" type="text/css" href="css/button.css">
+    <link rel="stylesheet" type="text/css" href="../css/profile.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ORS-Admin</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>

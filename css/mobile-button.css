@@ -1,11 +1,3 @@
-@media screen and (max-width:900px){
-  div.MisPanel{
-    display:none;
-  }
-.misPanel-hr{
-  display: none;
-}
-}
 .docsFolders_btn{
   margin: 2px;
 }
@@ -63,6 +55,13 @@ margin-left: 70%;
   margin-left: 70%;
   }
 
+  .MD {/*шрифт в кнопке медклауд*/
+    width: 100%;
+    height: 50px;
+    font-weight: 700;
+
+}
+
 .addtask{
     border-radius: 12px;
     height: 22px;
@@ -110,7 +109,7 @@ width: 55%;
 .create{
   background-color: #519e87;
   color: #000000;
-  height: 45px;
+  height: 35px;
   width: 85px;
 }
 
@@ -126,8 +125,8 @@ width: 55%;
 .folders button {
   border-color: rgb(255, 255, 255);
   border-radius: 7px;
-  height: 40px;
-  width: 25%;
+  height: 55px;
+  width: 70px;
   margin-bottom: 3px;
 }
 
@@ -135,26 +134,24 @@ width: 55%;
   width: 7%;
 }
 
+
+
 .link button {
-  /* height: 8%; */
+  height: 8%;
   width: 13%;
 }
 
 .lmenu button {
   border-color: rgb(230, 153, 123);
   border-radius: 4px;
-  min-width: 100%;
-  margin: 1px;
-  padding: 3px;
+  min-width: 25%;
+  /* margin: 1px; */
+  /* padding: 3px; */
 
 }
 
 .lmenu button:hover {
   border-color: rgb(204, 130, 101);
-  border-radius: 4px;
-  min-width: 103%;
-  margin: 1px;
-  padding: 3px;
 }
 
 
@@ -253,4 +250,10 @@ position: relative;
 
 .services img{
   width: 55px;
+}
+.MisPanel button{
+  height: 25px;
+  width: 48px;
+  font-size: 6pt;
+
 }

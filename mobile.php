@@ -4,11 +4,12 @@ $current_year=date("Y");
 require_once "function/checkaut.php";
 require_once "function/checkrole.php";
 require_once "action/connect.php";
-require_once "function/check-device.php";
 // require_once "action/connect_table.php";
 require_once "action/users/StyleAndSettings.php";
 $button = mysqli_query($connect, "SELECT * FROM `button_user` WHERE `user_id`=$id_user "); // Подключение к определенной таблице, и получение Статуса записи
 $button = mysqli_fetch_all($button); // Выбирает все строки из набора $product и помещает их в массив  $product
+
+
 ?>
 
 <!DOCTYPE html>
@@ -17,9 +18,9 @@ $button = mysqli_fetch_all($button); // Выбирает все строки и�
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="icon" type="image" href="file/icons/Logo/Logo.png">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/button.css">
-    <link rel="stylesheet" type="text/css" href="../css/profile.css">
+    <link rel="stylesheet" type="text/css" href="css/mobile-style.css">
+    <link rel="stylesheet" type="text/css" href="css/mobile-button.css">
+    <link rel="stylesheet" type="text/css" href="css/mobile-profile.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ORS</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
@@ -35,15 +36,12 @@ $button = mysqli_fetch_all($button); // Выбирает все строки и�
 </head>
 
 <body>
+    
     <div class="all">
         <!-- Общий блок на всю страницу-->
         <div class="header">
             <!-- Общий Блок на шапку-->
             <div class="quick_transition">
-                <!-- Блок С полями в левом верхнем углу-->
-                <? 
-                // require_once "folders/quick_transition.php"; 
-                ?>
                             <div>
             <?php 
 $now = new DateTime(); // текущее время на сервере
@@ -66,12 +64,6 @@ if($interval->y>0){
  ?> <p class="count_married"><?=$days?> Дней </p>
 
 
-<style>
-    .count_married{
-        font-weight: 900;
-        font-size: large;
-    }
-</style>
             </div>
                 <!-- Подключение файла в котором поля с нашими заказами-->
             </div>
@@ -103,27 +95,98 @@ if($interval->y>0){
             <a href="https://meet.google.com/" target="_blank"><button>Meet</button></a>
             <a href="https://mail.google.com" target="_blank"><button>Почта</button></a>
             <a href="https://topvisor.com/projects/" target="_blank"><button><b>TOP</b><i>visor</i></button></a>
-            <a href="https://jira.bizonoff-dev.net/projects/KINDPEOPLE/" target="_blank"><button>Наша Жира</button></a>
+            <a href="https://jira.bizonoff-dev.net/projects/KINDPEOPLE/" target="_blank"><button>Жира</button></a>
             <a href="folders/countsymbolForm.php" target="1"><button>Подсчёт</button></a>
             <a href="folders/creeds.php" target="1"><button>Доступы</button></a>
            </div><!-- Тут заканчивается МИС панель-->
-        <hr class="misPanel-hr" width="85%"><!-- ХРка полоска -->
+
        <div class="body">   <!-- Начало Тела сайта -->
             <div class="lmenu"> 
-            <? 
-             foreach($sites_categorie as $sites_categories){
-            if($sites_categories[4]==1){?>
-                          <a href="<?=$sites_categories[3]?>" target="_blank"><button class="document"><?=$sites_categories[1]?></button></a><br>
-            <?} else if($sites_categories[4]==0){?>
-          <a href="<?=$sites_categories[3]?>" target="1"><button><?=$sites_categories[1]?></button></a><br>
-           <? } else if($sites_categories[4]==2){?>
-                <a href="<?=$sites_categories[3]?>" target="_blank"><button><?=$sites_categories[1]?></button></a><br>
-            <?
-        }
-            else if($sites_categories[4]==3){?>
-              <a href="<?=$sites_categories[3]?>" target="1"><button><?=$sites_categories[1]?></button></a><br>
-            <?}
-           } ?>
+
+
+<? foreach($sites_categorie as $sites_categories){
+                if($sites_categories[4]==1){?>
+    <a href="<?=$sites_categories[3]?>" target="_blank"><button class="document"><?=$sites_categories[1]?></button></a><br>
+    <?} else if($sites_categories[4]==0){?>
+            <details class="faq-block__item" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <summary class="name-part faq-block__question" itemprop="name">
+                        <span>
+                        <?=$sites_categories[1]?>
+                    </span>
+
+            </summary>
+                <div itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div class="faq-block__answer text-section" itemprop="text">
+                    <div class="container frame">
+<iframe name="1" class="mobile_frame" src="<?=$sites_categories[3]?>">
+                    
+                </iframe>
+            </div>
+                    </div>
+                </div>
+            </details>
+
+<?
+} else if($sites_categories[4]==2){?>
+    <a href="<?=$sites_categories[3]?>" target="_blank"><button><?=$sites_categories[1]?></button></a><br>
+<?
+           } else if($sites_categories[4]==3){?>
+
+
+
+
+
+                <details class="faq-block__item" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <summary class="faq-block__question" class="name-part" itemprop="name">
+                        <span >
+                        <?=$sites_categories[1]?>
+                    </span>
+
+            </summary>
+                <div itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div class="faq-block__answer text-section" itemprop="text">
+                    <div class="container frame">
+<iframe name="1" class="mobile_frame" src="<?=$sites_categories[3]?>">
+                    
+                </iframe>
+            </div>
+                    </div>
+                </div>
+            </details>
+
+
+              <?}
+
+
+
+}?>
+<details class="faq-block__item" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <summary class="faq-block__question" itemprop="name"><span>Таск Менеджер</span></summary>
+                <div itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div class="faq-block__answer text-section" itemprop="text">
+                        
+
+
+
+                        <div class="rmenu">
+            <?php if ($_SESSION['user']['status'] == 9) { ?><!-- Берем Роль пользователя и проверяем если она равно 9 (у нас это админ) то показываем Правое меню-->
+                    <iframe class="taskBootstrap-frame" name="task" src="Taskmanager/task_bootstrap.php">
+                    </iframe>
+
+            <?  } else { 
+            ?>
+
+                    <iframe class="taskBootstrap-frame" name="task" src="Taskmanager/task_bootstrap.php">
+                    </iframe>
+                    <?
+            }
+            ?>
+            </div>
+                                </div>
+                </div>
+            </details>
+
+
             <!--<a href="folders/docs.php" target="1"><button>Доки</button></a><br>-->
             <!--        <a href="folders/helper.php" target="1"><button>Хелпер</button></a><br>         -->
             <!--        <a href="folders/GooglFolders.php" target="1"><button>Папки</button></a><br>                   -->
@@ -133,30 +196,43 @@ if($interval->y>0){
             <!--        <a href="https://docs.google.com/spreadsheets/d/1mFn7zDyJ47eAOvhSJ-e8eDeBEnwHVbKv/edit#gid=1585440672" target="_blank"><button class="document">МояДока</button></a><br>-->
             <!--        <a href="https://drive.google.com/drive/u/0/my-drive" target="_blank"><button class="document">ГуглДиск</button></a><br>-->
              </div>
-            <div class="container frame">
+            <!-- <div class="container frame">
                 <iframe name="1" src="folders/sites.php">
                     
                 </iframe>
-            </div>
-            <?php if ($_SESSION['user']['status'] == 9) { ?><!-- Берем Роль пользователя и проверяем если она равно 9 (у нас это админ) то показываем Правое меню-->
-                <div class="rmenu">
-                    <iframe name="task" src="Taskmanager/task_bootstrap.php">
-                    </iframe>
-                </div>
-            <?  } else { 
-            ?>
-            <div class="rmenu">
-                    <iframe name="task" src="Taskmanager/task_user.php">
-                    </iframe>
-                </div>
-            <?
-            }
-            ?>
+            </div> -->
+
+
+
         </div>
-        <hr class="footer-hr">
         <div class="footer">
                 <div>
-                    <?require_once 'function/weather.php';?>
+                    
+
+                    <?php
+$apiKey = "72f259ba4f74e5a8d0cbdcebe3a564bd";
+$cityId = "542420";
+$apiUrl = "http://api.openweathermap.org/data/2.5/weather?id=" . $cityId . "&lang=ru&units=metric&APPID=" . $apiKey;
+$crequest = curl_init();
+
+curl_setopt($crequest, CURLOPT_HEADER, 0);
+curl_setopt($crequest, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($crequest, CURLOPT_URL, $apiUrl);
+curl_setopt($crequest, CURLOPT_FOLLOWLOCATION, 1);
+curl_setopt($crequest, CURLOPT_VERBOSE, 0);
+curl_setopt($crequest, CURLOPT_SSL_VERIFYPEER, false);
+$response = curl_exec($crequest);
+
+curl_close($crequest);
+$data = json_decode($response);
+$currentTime = time();    
+            $temp = $data->main->temp_max;
+            $temp = (int)$temp;
+?>
+        <font class="temperature"><?php echo $temp; ?>°C </font> <br><!-- Температура -->
+   <font class="other_parameters"><img src="file/icons/weather/wett.png" width="20px"> <?php echo $data->main->humidity; ?> % <!-- Влажность -->
+    <img src="file/icons/weather/wind.png" width="20px"><?php echo $data->wind->speed; ?> м/с<br><!-- Скорость ветра --></font>
+
                 </div>
             <div class="refresh">
             <p class="ink"><img src="file/icons/Logo.png" alt="test"><br>

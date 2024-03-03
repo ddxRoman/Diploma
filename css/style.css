@@ -148,10 +148,14 @@ body {
     width: 100%;
     height: 100%;
 }
-
-.folders{
-    height: 300px;
+.temperature{
+    font-size: 18pt;
+    font-weight: 600;
 }
+.other_parameters{
+    font-size: 12pt;
+}
+
 
 iframe {
     width: 98%;

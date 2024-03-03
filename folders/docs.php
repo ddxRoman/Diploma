@@ -7,6 +7,9 @@ $page_id = 1;
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link rel="stylesheet" type="text/css" href="../css/button.css">
+    <link rel="stylesheet" type="text/css" href="../css/mobile-style.css">
+    <link rel="stylesheet" type="text/css" href="../css/mobile-button.css">
+    <link rel="stylesheet" type="text/css" href="../css/mobile-profile.css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Documents</title>

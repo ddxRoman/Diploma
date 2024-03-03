@@ -1,12 +1,4 @@
 <?php
-
-// Яндекс 30 дней бесплатно 15 июня
-// $apiKey = "3932d373-648f-4daa-bbf8-4a4cdde407ef";
-// $cityId = "542420";
-// $apiUrl = "http://api.openweathermap.org/data/2.5/weather?id=" . $cityId . "&lang=ru&units=metric&APPID=" . $apiKey;
-// $crequest = curl_init();
-
-// Опер Везер тут хз по датам
 $apiKey = "72f259ba4f74e5a8d0cbdcebe3a564bd";
 $cityId = "542420";
 $apiUrl = "http://api.openweathermap.org/data/2.5/weather?id=" . $cityId . "&lang=ru&units=metric&APPID=" . $apiKey;
@@ -24,16 +16,6 @@ curl_close($crequest);
 $data = json_decode($response);
 $currentTime = time();
 ?>
-
-<style>
-    .temperature{
-        font-size: 18pt;
-        font-weight: 600;
-    }
-    .other_parameters{
-        font-size: 12pt;
-    }
-</style>
     <?php 
     
             $temp = $data->main->temp_max;
