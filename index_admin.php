@@ -64,6 +64,7 @@ if ($role!= 1) {
                         <a href="folders/addsiteForm.php" target="1"><button>Добавить сайт</button></a>
             <a href="https://s2.hostiman.ru/phpmyadmin/index.php"><button>База Данных</button></a>
             <a href="https://my.hostiman.ru/cabinet/services/shared/files/245637"><button>Менеджер файлов</button></a>
+            <a href="bot/bot.php"><button>Бот</button></a>
             
            
            </div><!-- Тут заканчивается МИС панель-->
