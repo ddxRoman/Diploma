@@ -1,49 +1,50 @@
 <?php
 
-$botToken ="6048362058:AAFv50Fltmm_0Ufa-GYzAga-poK1-niyxVo";
+$data = $_POST['data'];
+$data = date('d.m');
+$holiday = $_POST['holiday'];
+$description = $_POST['description'];
+$comments = $_POST['comments'];
+$photo = $_POST['url'];
+
+
+$token ="6048362058:AAFv50Fltmm_0Ufa-GYzAga-poK1-niyxVo";
 $chatId = "2116281958";
+// Устанавливаем путь к картинке
 
-// Подключаем Guzzle HTTP
-require '../vendor/autoload.php';
+// Устанавливаем подпись к картинке
+$caption = "<b>Дата</b> - ".$data."\n<b>Праздник</b> - ".$holiday." \n<b>Подпись</b> - ".$description. "\n\n".$comments;
+// Формируем URL для отправки сообщения
+// $url = "https://api.telegram.org/bot$token/sendPhoto";
+$url = "https://api.telegram.org/bot$token/sendPhoto?chat_id=$chatId&parse_mode=html";
 
-use GuzzleHttp\Client;
+// Формируем массив с параметрами запроса
+$postFields = [
+    'chat_id' => $chatId,
+    'photo' => $photo,
+    'caption' => $caption,
+];
 
-// Токен вашего бота
-$token = '6048362058:AAFv50Fltmm_0Ufa-GYzAga-poK1-niyxVo';
+// Инициализируем cURL сессию
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-Type:multipart/form-data"));
+curl_setopt($ch, CURLOPT_URL, $url);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $postFields);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
-// ID чата, в который нужно отправить фото
-$chatId = '2116281958';
+// Отправляем запрос на сервер Telegram
+$output = curl_exec($ch);
 
-// Путь к файлу с изображением
-$photoPath = 'https://www.orsdiplom.h1n.ru/file/avatar/ava.jpeg';
+// Закрываем cURL сессию
+curl_close($ch);
 
-// Создаем экземпляр Guzzle HTTP клиента
-$client = new Client([
-    'base_uri' => 'https://api.telegram.org/bot' . $token . '/'
-    // https://api.telegram.org/bot{$token}/sendMessage?chat_id={$chat_id}&parse_mode=html&text={$msg}","r"
-]);
-
-// Отправляем запрос на сервер Телеграма для отправки фото
-$response = $client->request('POST', 'sendPhoto', [
-    'multipart' => [
-        [
-            'name' => 'chat_id',
-            'contents' => $chatId
-        ],
-        [
-            'name' => 'photo',
-            'contents' => fopen($photoPath, 'r'),
-            'filename' => basename($photoPath)
-        ]
-    ]
-]);
-
-// Обрабатываем ответ
-$body = $response->getBody();
-$json = json_decode($body);
-if ($json->ok) {
-    echo 'Фото успешно отправлено!';
+// Отлавливаем возможные ошибки
+if ($output === false) {
+    echo "Ошибка отправки сообщения: " . curl_error($ch);
 } else {
-    echo 'Ошибка при отправке фото: ' . $json->description;
+    echo "Сообщение успешно отправлено!";
+    header('Location: '); 
 }
+
 ?>

@@ -11,12 +11,14 @@
 }
 
 .MisPanel button {
+  
   display: inline;
 text-align: center;
 border-color: rgb(230, 153, 123);
-min-width: 3.5%;
+
 padding: 2px;
 border-radius: 15px;
+min-width: 60px;
 }
 .modal-footer button{
   width: 85px;
@@ -38,7 +40,6 @@ border-radius: 15px;
 .MisPanel button:hover {
 text-align: center;
 border-color:rgb(214, 118, 81);
-min-width: 3.5%;
 padding: 2px;
 }
 
