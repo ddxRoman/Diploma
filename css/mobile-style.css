@@ -66,6 +66,7 @@ width: 32%;
     display: grid;
     background-color: rgba(220, 220, 235, 0.247);
     grid-template-columns: 23% 50% 27%;
+    height: 65px;
 }
 
 body {
@@ -124,14 +125,27 @@ body {
     background-color: #15721800;
 }
 
+@media (min-width: 768px) {
+
+    
+}
+
 .rmenu {
     border: 3px solid rgba(0, 255, 221, 0.356);
     display: grid;
-    height: 600px;
+    height: 430px;
+}
+.rmenu iframe{
+    border: 3px solid rgba(0, 255, 221, 0.356);
+    display: grid;
+    height: 430px;
 }
 
 .container {
     display: grid;
+}
+.accordion__item{
+    height: 80px;
 }
 
 .no_rules_pictures{
@@ -405,4 +419,24 @@ input:-ms-input-placeholder {
 
 footer h3{
     color: #f12626;
+}
+.container_admin{
+    height: 350px;
+}
+.container_admin iframe{
+    height: 550px;
+}
+.form_addCreeds{
+    padding-top: 25px;
+    width: 350px;
+    /* height: 100px; */
+}
+.form_addCreeds{
+    width: 50%;
+}
+.accordion__header{
+    display: flex;
+}
+.nametasks{
+    margin: 0;
 }

@@ -32,6 +32,11 @@ body {
   /* border: 1px solid #8f802b ; */
   display: flex;
 }
+.accordion{
+  max-width: none;
+  width: 100%;
+
+}
 
 .accordion__header::after {
   flex-shrink: 0;
@@ -78,6 +83,7 @@ body {
 
 .nametasks{
   color: #202020;
+  margin: 0;
 }
 
 .NoTask{
@@ -96,6 +102,7 @@ pre {
   color:#ffffff;
   font-size: 12px;
   font-weight: 600;
+  margin: 0;
 }
 
 .taskheader{

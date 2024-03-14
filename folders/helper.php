@@ -1,9 +1,13 @@
-<? require_once "../function/checkaut.php";?>
+<? 
+require_once "../function/checkaut.php";
+require_once "../action/connect.php";
+?>
 <html>
 
 <head>
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link rel="stylesheet" type="text/css" href="../css/button.css">
+    <link rel="stylesheet" type="text/css" href="../css/table.css">
 </head>
 <body class="iframe-body">
 <div class="helper">
@@ -30,8 +34,32 @@
         target="_blank"><button>Helper</button></a>
         </div>
 
+        <table>
 
+  <thead>
+    <tr>
+      <th scope="col">name</th>
+      <th scope="col">Date</th>
+    </tr>
+  </thead>
+  <tbody>
 
+    <?
+ foreach($helper_log as $helper_logs) { 
+
+        ?>
+    <tr>
+      <td>
+        <a href="<?=$helper_logs[2]?>" target="_blank">
+            <?=$helper_logs[1]?>
+        </a>
+        </td>
+      <td><?=$helper_logs[3]?></td>
+
+    </tr>
+    <?}?>
+  </tbody>
+</table>
     </div>
 
 </body>

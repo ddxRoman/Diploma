@@ -16,10 +16,9 @@ div { /* Границы всех Дивов что только есть*/
     margin-top: 1%;
 }
 .form_addCreeds{
-        padding-top: 3%;
-    /* padding-left:30% ; */
+    padding-top: 3%;
     width: 700px;
-    height: 100px;
+    height: 150px;
 }
 .form_addCreeds input, select{
     height: 25px;
@@ -100,12 +99,12 @@ body {
     background-color: rgba(255, 255, 255, 0);
  } 
 
-.Right_head {
+/* .Right_head {
     justify-content: end;
     display: grid;
     height: 80%;
     
-}
+} */
 
 .knowledge {
     justify-content: center;
@@ -491,3 +490,23 @@ input:-ms-input-placeholder {
     padding-left: 5%;
 
 }
+input[type="date"] {
+    position: relative;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: auto;
+    height: auto;
+    color: transparent;
+    background: transparent;
+}
+
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-clear-button {
+     z-index: 1;
+ }

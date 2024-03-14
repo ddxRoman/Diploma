@@ -1,13 +1,11 @@
 <?
 require_once "function/checkaut.php";
 require_once "function/checkrole.php";
-require_once "function/check-device-for-admin.php";
 require_once "action/connect.php";
 require_once "action/users/StyleAndSettings.php";
 if ($role!= 1) {
     header('Location: index.php');
     }
-
 ?>
 
 <!DOCTYPE html>
@@ -17,9 +15,10 @@ if ($role!= 1) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="icon" type="image" href="file/icons/Logo.png">
-    <link rel="stylesheet" type="text/css" href="css/adminStyle.css">   <!-- Надо переработать вот тут, почистить и сделать норм настройки -->
-    <link rel="stylesheet" type="text/css" href="css/button.css">
-    <link rel="stylesheet" type="text/css" href="../css/profile.css">
+    <!-- <link rel="stylesheet" type="text/css" href="css/adminStyle.css">   Надо переработать вот тут, почистить и сделать норм настройки -->
+    <link rel="stylesheet" type="text/css" href="css/mobile-style.css">
+    <link rel="stylesheet" type="text/css" href="css/mobile-button.css">
+    <link rel="stylesheet" type="text/css" href="css/mobile-profile.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ORS-Admin</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
@@ -77,7 +76,7 @@ if ($role!= 1) {
                     
                 </div>
              </div>
-            <div class="container">
+            <div class="container_admin">
                 <iframe name="1" src="">
                 </iframe>
             

@@ -3,7 +3,7 @@ $token = "6048362058:AAFv50Fltmm_0Ufa-GYzAga-poK1-niyxVo";
 $chatId = "2116281958";
 
 $data = $_POST['data'];
-$data = date('d.m');
+// $data = date('d.m');
 $holiday = $_POST['holiday'];
 $description = $_POST['description'];
 $comments = $_POST['comments'];

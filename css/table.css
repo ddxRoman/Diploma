@@ -1,0 +1,15 @@
+table {width: 100px; height: 100px;}
+.helper_table{
+
+}
+
+
+table {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid rgb(219, 216, 216);
+    margin-top: 3%;
+    max-width: 350px;
+  }
+  
