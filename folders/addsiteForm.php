@@ -29,6 +29,7 @@ img{
 }
 </style>
 
+
 <body>
     <div class="form_addCreeds">
         <form action="../action/addsiteList.php" method="post">
@@ -60,77 +61,9 @@ img{
                     <td class="table_sile" ><?= $sites[2] ?></td>
                     <td><?= $sites[3] ?></td>
                     <td>
-                        <a href=""><img class="icon" src="../file/icons/edit-svgrepo-com.svg" title="Редактировать"></a>
+                        <a href="../action/editSiteList.php?id=<?=$sites[0]?>"><img class="icon" src="../file/icons/edit-svgrepo-com.svg" title="Редактировать"></a>
                     </td>
                     <td>
-
-
-                    <button type="button"  data-toggle="modal"
-    data-target="#exampleModal"
-    id="submit"> 
-    <a data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            <img class="icon" src="../file/icons/delete.svg" title="Удалить">
-                        </a> 
-</button> 
-
-                       
-                    </td>
-                    <!-- <div class="container mt-2">  -->
-<!-- Input field to accept user input -->
-<!-- Name: <input type="text" name="name"
-    id="name"><br><br> 
-Marks: <input hidden value="" type="text" name="marks"
-    id="marks"><br><br> 
-<button type="button" class="btn btn-primary 
-    btn-sm" data-toggle="modal"
-    data-target="#exampleModal"
-    id="submit"> 
-    Submit 
-</button>  -->
-<!-- Modal -->
-<div class="modal fade" id="exampleModal"
-    tabindex="-1"
-    aria-labelledby="exampleModalLabel"
-    aria-hidden="true"> 
-    
-    <div class="modal-dialog"> 
-        <div class="modal-content"> 
-            <div class="modal-header"> 
-                <h5 class="modal-title"
-                    id="exampleModalLabel"> 
-                    Confirmation  <?= $sites[1] ?> this task
-                </h5> 
-                
-                <button type="button"
-                    class="close"
-                    data-dismiss="modal"
-                    aria-label="Close"> 
-                    <span aria-hidden="true"> 
-                        × 
-                    </span> 
-                </button> 
-            </div> 
-
-            <div class="modal-body"> 
-
-                <!-- Data passed is displayed 
-                    in this part of the 
-                    modal body -->
-                <h6 id="modal_body"></h6> 
-                <button type="button"
-                    class="btn btn-success btn-sm"
-                    data-toggle="modal"
-                    data-target="#exampleModal"
-                    id="submit"> 
-                    Submit 
-                </button> 
-            </div> 
-        </div> 
-    </div> 
-</div> 
-<!-- </div>  -->
-
-
 <script type="text/javascript"> 
 $("#submit").click(function () { 
     var name = $("#name").val(); 
