@@ -68,7 +68,7 @@ if ($photo!="") {
 }
 if ($sendToTelegram) {
     echo "Сообщение успешно отправлено!";
-    header ('Location: ../folders/clear_page.php');
-} else {
+    header ('Location: ../folders/TgBotForm.php');
+} else if(!$sendToTelegram){
     echo "Ошибка";
 }
