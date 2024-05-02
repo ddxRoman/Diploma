@@ -103,7 +103,7 @@ if($interval->y>0){
             <a href="https://meet.google.com/" target="_blank"><button>Meet</button></a>
             <a href="https://mail.google.com" target="_blank"><button>Почта</button></a>
             <a href="https://topvisor.com/projects/" target="_blank"><button><b>TOP</b><i>visor</i></button></a>
-            <a href="https://jira.bizonoff-dev.net/projects/KINDPEOPLE/" target="_blank"><button>Наша Жира</button></a>
+            <a href="https://jira.bizonoff-dev.net/secure/Dashboard.jspa" target="_blank"><button>Наша Жира</button></a>
             <a href="folders/countsymbolForm.php" target="1"><button>Подсчёт</button></a>
             <a href="folders/creeds.php" target="1"><button>Доступы</button></a>
            </div><!-- Тут заканчивается МИС панель-->
