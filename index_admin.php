@@ -85,7 +85,7 @@ if ($role!= 1) {
             <!-- ТАм вообще есть отдельный файл с проверкой, надо с ним поработать -->
             <?php if ($_SESSION['user']['status'] == 9) { ?><!-- Берем Роль пользователя и проверяем если она равно 9 (у нас это админ) то показываем Правое меню-->
                 <div class="rmenu">
-                    <iframe name="task" src="Taskmanager/Task.php">
+                    <iframe name="task" src="Taskmanager/task_bootstrap.php">
                     </iframe>
                 </div>
             <?  } else { 
