@@ -20,7 +20,7 @@ $product=mysqli_fetch_assoc($product);
     <form action="Second_Edit_task.php" method="post" enctype="multipart/form-data">
         <input type="hidden" name="id" value="<?=$product['id']?>">
                 <label>№<?=$product['id']?>:<?=$product['name']?></label>
-                <a href="../Taskmanager/Task.php"><img class="return" src="../file/icons/return.png" ></a><br>
+                <a href="../Taskmanager/task_bootstrap.php"><img class="return" src="../file/icons/return.png" ></a><br>
                 <input type="text" name="name" value="<?=$product['name']?>"><br>
                 <textarea type="text" name="body"><?=$product['content']?></textarea><br>
                 <input type="file" name="avatar"><br>

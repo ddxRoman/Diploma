@@ -6,4 +6,4 @@
 
     <h1>Real Delete task? №<?= $id ?></h1>
     <a href="delete_task.php?id=<?=$id?>"><button>YES</button></a>
-    <a href="../Taskmanager/Task.php"><button>NO</button></a>
+    <a href="../Taskmanager/task_bootstrap.php"><button>NO</button></a>

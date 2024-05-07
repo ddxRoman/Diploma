@@ -14,5 +14,5 @@ VALUES (NULL, '$id_task', '$content', '$author', '$today')");
 mysqli_query($connect, "INSERT INTO `comments` (`id`, `task_id`, `content`, `owner`, `data`, `pictures`)
  VALUES (NULL, '$id_task', '$content', '$author', '$today', '$path')");
     }
- header ('Location: ../Taskmanager/Task.php');
+ header ('Location: ../Taskmanager/task_bootstrap.php');
 ?>
