@@ -5,12 +5,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link rel="stylesheet" href="../css/styleaccordion.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <!-- <link rel="stylesheet" type="text/css" href="../css/button.css"> -->
     <title>Document</title>
 </head>
 
 <body>
+<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Добавить новую задачу</button>
+
+<div class="offcanvas offcanvas-end " data-bs-scroll="true" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+  <div class="offcanvas-header">
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Закрыть"></button>
+  </div>
+  <div class="offcanvas-body">
+<body class="iframe-body">
+    <div class="taskadd">
+    <form action="../action/addtask.php" method="POST" >
+    <input required type="text" name="name" placeholder="Введите название">
+
+    
+    <select name="prioritet"> 
+        <option value="0">Backlog </option>
+        <option value=" 1">Надо сделать</option> 
+        <option value=" 2">Нет знаний </option>
+    </select>
+
+
+    <br>
+    <label>Суть задачи:</label><br>
+    <textarea required type="text" name="body"></textarea><br>
+<button type="submit">Сохранить</button>
+    </form>
+    </div>
+
+
+
+  </div>
+</div>
+
     <?php
     require_once '../action/connect.php'; // Проверка подключения к БД
     $product = mysqli_query($connect, "SELECT * FROM `tasks` ORDER BY `status` ASC, `date_close` DESC, `id` DESC "); // Подключение к определенной таблице, и получение Статуса записи
@@ -71,22 +105,22 @@
 
                                     } ?>
                                 </select>
-                                <div data-bs-toggle="modal" data-bs-target="#start">
+                                <!-- <div data-bs-toggle="modal" data-bs-target="#start">
                                     <div class="itd_triangle"><img width="16px" src="../file/icons/delete.png">
-
-
                                     </div>
+                                </div> -->
 
-
-                                </div>
+                                <form action="../action/accept_delete.php?id=<?= $products[0] ?>" method="post" name="real_delete">
+                                    <a href="../action/accept_delete.php?id=<?= $products[0] ?>"><img src="/file/icons/delete.png" width="16px" height="16px"></a>
+                                </form>
                             </form>
-                            <input type="button" onclick="writeId()" value="ID">
+                            <!-- <input type="button" onclick="writeId()" value="ID">
                             <script>
                                 function writeId() {
                                     <? $id = $products[0]; ?>
                                     alert(<?= $id ?>)
                                 }
-                            </script>
+                            </script> -->
 
                             <div class="accordion__content">
                                 <pre> <?= $products[2]; ?></pre><?
@@ -281,7 +315,7 @@
             }
             ?>
 
-            <div class="modal fade" id="start" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <!-- <div class="modal fade" id="start" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -295,7 +329,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
 
 

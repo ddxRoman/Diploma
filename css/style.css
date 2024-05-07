@@ -6,7 +6,7 @@
 }
 
 div { /* Границы всех Дивов что только есть*/
-    border: 1px solid rgba(255, 0, 0, 0);
+    /* border: 1px solid rgba(255, 0, 0, 0); */
 }
 
 .footer-hr{

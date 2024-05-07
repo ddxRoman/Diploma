@@ -10,5 +10,5 @@ require_once 'connect.php';
         }
         else{
     mysqli_query($connect, "UPDATE `tasks` SET  `name` = '$name', `content` = '$content', `pictures`= '$path' WHERE `id` = '$id'");}
-    header('Location: ../Taskmanager/Task.php');
+    header ('Location: ../Taskmanager/task_bootstrap.php');
     ?>  
