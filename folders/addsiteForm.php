@@ -53,13 +53,15 @@ img{
             <th>Папка</th>
         </tr>
         <div class="sitelist">
-            <? foreach ($site as $sites) { ?>
-                
+            <? foreach ($site as $sites) { 
+                    $categories=mysqli_query($connect, "SELECT*FROM `sites_categories` WHERE `id`='$sites[3]'");
+                    $categories_name=mysqli_fetch_assoc($categories);
+                ?>
                 <tr class="site_table">
                     <td><?= $sites[0] ?></td>
                     <td><?= $sites[1] ?></td>
                     <td class="table_sile" ><?= $sites[2] ?></td>
-                    <td><?= $sites[3] ?></td>
+                    <td><?= $categories['name'] ?></td>
                     <td>
                         <a href="../action/editSiteList.php?id=<?=$sites[0]?>"><img class="icon" src="../file/icons/edit-svgrepo-com.svg" title="Редактировать"></a>
                     </td>
@@ -74,45 +76,6 @@ $("#submit").click(function () {
     $("#modal_body").html(str); 
 }); 
 </script> 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                 </tr>
             <? } ?>
     </table>

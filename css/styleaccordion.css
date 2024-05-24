@@ -105,7 +105,7 @@ body {
 
 .nametasks{
   color: #202020;
-  margin: 0;
+  margin: 5px;
 }
 
 .NoTask{
@@ -186,23 +186,23 @@ body::-webkit-scrollbar-thumb {
                 font-weight: 400;
                 font-size: 14px;
                 align-items: end;
-                margin-right: 5%;
+                margin-right: 1%;
               }
               .prioritet-task1{
                 color: #56973c;
                 font-weight: 500;
                 font-size: 14px;
-                /* margin-left: 5%; */
+                margin-left: 1%;
               }
               .prioritet-task2{
                 color: #af6d37;
                 font-weight: 500;
                 font-size: 14px;
-                /* margin-left: 5%; */
+                margin-left: 1%;
               }
 
 .pictures-in-tasks{
-  width: 80%;
+  max-width: 80px;
 }
 
 .add-comments{
