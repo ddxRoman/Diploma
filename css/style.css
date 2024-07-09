@@ -404,3 +404,29 @@ input:-ms-input-placeholder {
 footer h3{
     color: #f12626;
 }
+input.jiratask{
+    width: 15px;
+    height: 10px;
+    background-color: #f12626;
+}
+
+.task_body{
+    width: 65%;
+    
+}
+
+.count_married{
+    font-weight: 900;
+    font-size: large;
+}
+.jiratask{
+    width: 150px;
+    height: 25px;
+}
+input, select{
+    width: 95px;
+    height: 25px;
+}
+select{
+    width: 120px;
+}

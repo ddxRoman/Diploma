@@ -1,138 +1,27 @@
 <!DOCTYPE html>
-<?
-require_once "action/connect.php";
-// require_once "../test.php";
-?>
 <html lang="en">
-<style>
-table {
-
-width: 100px;
-
-border-collapse: collapse;
-
-border: 2px solid white;
-
-}
-
-td {
-
-padding: 3px;
-
-border: 1px solid ;
-
-text-align: left;
-
-}
-img{
-    width: 24px;
-}
-</style>
-
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<?require_once "action/connect.php";?>
 <body>
-    <div class="form_addCreeds">
-        <form action="../action/addsiteList.php" method="post">
-            <input type="text" placeholder="URL" name="url">
-            <input type="text" placeholder="name" name="name">
-            <select name="categories">
-                <option value="">Категория</option>
-                <? foreach ($sites_categorie as $sites_categories) if ($sites_categories[4] == 0) { { ?>
-                        <option value="<?= $sites_categories[0] ?>"><?= $sites_categories[1] ?></option>
-                <? }
-                } ?>
-            </select>
-            <button class="add_creeds_btn">Добавить</button>
-        </form>
-    </div>
-    <table class="table_addsite">
-        <tr>
-            <th>id</th>
-            <th>Название</th>
-            <th class="table_sile" >URL</th>
-            <th>Папка</th>
-        </tr>
-        <div class="sitelist">
-            <? foreach ($site as $sites) { ?>
-                
-                <tr class="site_table">
-                    <td><?= $sites[0] ?></td>
-                    <td><?= $sites[1] ?></td>
-                    <td class="table_sile" ><?= $sites[2] ?></td>
-                    <td><?= $sites[3] ?></td>
-                    <td>
-                        <!-- <a href=""><img class="icon" src="../file/icons/edit-svgrepo-com.svg" title="Редактировать"></a> -->
-                    </td>
-                    <td>
+<a href="">
+    <button>Download</button>
+</a><br><br>
+<?
+$test = mysqli_query($connect, "SELECT * FROM `test`"); // Подключение к определенной таблице, и получение Статуса записи
+$test = mysqli_fetch_all($test); // Выбирает все строки из набора $Comment и помещает их в массив  $Comments
+$min = -150000; 
+$max = 150000;
+$txt = "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius nulla obcaecati tempore inventore cumque incidunt excepturi? Dignissimos enim saepe rem nihil earum cumque itaque impedit nam nostrum molestias tempore, commodi mollitia illo facere omnis praesentium incidunt deleniti aut. Iste alias facilis eaque, magni fugit dolores omnis voluptatum voluptas, distinctio reprehenderit amet sapiente praesentium quia ratione maiores enim dignissimos nisi officiis doloribus recusandae nobis cum debitis natus reiciendis. Sit saepe tempore deleniti ut perspiciatis doloribus? Vitae velit atque aliquid ipsum magni mollitia hic in, sint dolorem doloremque! Et dignissimos consequuntur dolorem sapiente enim, consectetur in voluptatum maiores voluptates iste tenetur? Adipisci, hic. Pariatur nobis perferendis deleniti quibusdam, quaerat dicta adipisci? Obcaecati animi aut ipsa dicta, eum in molestiae dolore cum nostrum! Suscipit unde mollitia eveniet numquam, veritatis maiores quas dignissimos commodi sunt natus doloremque soluta illum. In maiores atque corporis tenetur nemo saepe magni ducimus qui architecto laboriosam, corrupti dolor aperiam.";
+    for ($n = 0; $n <= 100000; $n++) {
+        // $txt=rand( $min, $max);
+ mysqli_query($connect, "INSERT INTO `test` (`id`, `one`, `two`, `three`, `four`, `pyat`, `six`, `seven`, `eight`, `nine`) VALUES (NULL, '$txt','$txt','$txt','$txt','$txt','$txt','$txt','$txt','$txt' );");
+echo $txt."<br>";
+} 
+?>
 
-
-                    <button type="button"  data-toggle="modal"
-    data-target="#exampleModal"
-    id="submit"> 
-    <a data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            <!-- <img class="icon" src="../file/icons/delete.svg" title="Удалить"> -->
-                        </a> 
-</button> 
-
-                       
-                    </td>
-
-<div class="modal fade" id="exampleModal"
-    tabindex="-1"
-    aria-labelledby="exampleModalLabel"
-    aria-hidden="true"> 
-    
-    <div class="modal-dialog"> 
-        <div class="modal-content"> 
-            <div class="modal-header"> 
-                <h5 class="modal-title"
-                    id="exampleModalLabel"> 
-                    Confirmation  <?= $sites[1] ?> this task
-                </h5> 
-                <button type="button"
-                    class="close"
-                    data-dismiss="modal"
-                    aria-label="Close"> 
-                    <span aria-hidden="true"> 
-                        × 
-                    </span> 
-                </button> 
-            </div> 
-            <div class="modal-body"> 
-                <!-- Data passed is displayed 
-                    in this part of the 
-                    modal body -->
-                <h6 id="modal_body"></h6> 
-                <button type="button"
-                    class="btn btn-success btn-sm"
-                    data-toggle="modal"
-                    data-target="#exampleModal"
-                    id="submit"> 
-                    Submit 
-                </button> 
-            </div> 
-        </div> 
-    </div> 
-</div> 
-<!-- </div>  -->
-
-
-<script type="text/javascript"> 
-$("#submit").click(function () { 
-    var name = $("#name").val(); 
-    var marks = $("#marks").val(); 
-    var str = "You Have Entered " 
-        + "Name: " + name 
-        + " and Marks: " + marks; 
-    $("#modal_body").html(str); 
-}); 
-</script> 
-                </tr>
-            <? } ?>
-    </table>
-
-
-    </div>
 </body>
-
 </html>
-<!-- echo $sites[1]." - ".$sites[2]." - ".$sites[3]." - ".$sites[4]."<br>"; -->
