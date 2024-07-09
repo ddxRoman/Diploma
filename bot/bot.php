@@ -60,9 +60,11 @@ if ($photo!="") {
     }
     $sendToTelegram = fopen("https://api.telegram.org/bot{$token}/sendMessage?chat_id={$chatId}&parse_mode=html&text={$msg}", "r");
 }
-if ($sendToTelegram) {
-    echo "Сообщение успешно отправлено!";
-    header ('Location: ../folders/TgBotForm.php');
-} else if(!$sendToTelegram){
-    echo "Ошибка";
-}
+     header ('Location: ../folders/TgBotForm.php');
+
+// if ($sendToTelegram) {
+//     echo "Сообщение успешно отправлено!";
+//     header ('Location: ../folders/TgBotForm.php');
+// } else if(!$sendToTelegram){
+//     echo "Ошибка";
+// }
