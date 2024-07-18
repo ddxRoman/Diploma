@@ -67,10 +67,7 @@ if($interval->y>0){
 
 
 <style>
-    .count_married{
-        font-weight: 900;
-        font-size: large;
-    }
+
 </style>
             </div>
                 <!-- Подключение файла в котором поля с нашими заказами-->

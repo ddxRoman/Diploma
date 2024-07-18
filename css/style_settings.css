@@ -54,3 +54,9 @@ background-color: var(--colorBG);
 h4{
     color: #00000021;
 }
+.settings_preview{
+    margin-left: 5%;
+    width: 90%;
+    height: 500px;
+    border: 2px solid #fff;
+}

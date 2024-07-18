@@ -27,6 +27,10 @@ $count=$_SESSION['txt'];
     <form action="../action/countSymb.php" method="post">
         <textarea name="text"><?=$val?></textarea><br>
         <button class="checkcount">Посчитать</button>
+    </form><br>
+    <form action="../action/textGenerator.php" method="post">
+        <!-- <input type="number" name="col" placeholder="кол-во слов"> -->
+    <button>Сгенерировать текст</button>
     </form>
     <h3>Количество символов всего: <?=$full?></h3>
     <h2>Количество символов без пробелов: <?=$count?></h2>

@@ -15,6 +15,12 @@ $btn_color=$setting['btn_color'];
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../../css/style_settings.css">
     </head>
+    <style>
+        .lmenu button{
+            min-width: 150px;
+            margin-top: 0.5%;
+        }
+    </style>
     <body>
 <div class="header_settings">
     <a href="../../index_admin.php">
@@ -95,8 +101,32 @@ $btn_color=$setting['btn_color'];
 
 
 <script src="../../js/bootstrap.bundle.min.js"></script>
+
+
+<!-- <iframe src="../../index.php" class="settings_frame" frameborder="0"></iframe> -->
+<div class="settings_preview">
+<?require_once "StyleAndSettings.php";?>
+<div class="lmenu"> 
+            <? 
+             foreach($sites_categorie as $sites_categories){
+            if($sites_categories[4]==1){?>
+                          <a href="<?=$sites_categories[3]?>" target="_blank"><button class="document"><?=$sites_categories[1]?></button></a><br>
+            <?} else if($sites_categories[4]==0){?>
+          <a href="<?=$sites_categories[3]?>" target="1"><button><?=$sites_categories[1]?></button></a><br>
+           <? } else if($sites_categories[4]==2){?>
+                <a href="<?=$sites_categories[3]?>" target="_blank"><button><?=$sites_categories[1]?></button></a><br>
+            <?
+        }
+            else if($sites_categories[4]==3){?>
+              <a href="<?=$sites_categories[3]?>" target="1"><button><?=$sites_categories[1]?></button></a><br>
+            <?}
+           } ?>
+             </div>
+</div>
+
+
 </body>
-<footer class=" footer-fluid text-center">
+<footer class="footer-fluid text-center">
         <h4>
         Bootstrap
     </h4>

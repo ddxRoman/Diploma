@@ -9,7 +9,7 @@ $btn_color=$setting['btn_color'];
 ?>
 
 <style>
-body{
+body, .settings_preview{
     background-color: <?=$bg_color?>;
     color: <?=$text_color?>;
 }
