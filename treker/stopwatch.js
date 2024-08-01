@@ -1,18 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Секундомер</title>
-</head>
-<body>
-  <h1 id="timer">00:00:00</h1>
-  <button id="startBtn">Старт</button>
-  <button id="pauseBtn" disabled>Пауза</button>
-  <button id="resetBtn" disabled>Сброс</button>
-
-  <script>
-    let timer = document.getElementById('timer');
+let timer = document.getElementById('timer');
 let startBtn = document.getElementById('startBtn');
 let pauseBtn = document.getElementById('pauseBtn');
 let resetBtn = document.getElementById('resetBtn');
@@ -58,6 +44,3 @@ resetBtn.addEventListener('click', () => {
   pauseBtn.disabled = true;
   resetBtn.disabled = true;
 });
-  </script>
-</body>
-</html>

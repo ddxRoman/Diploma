@@ -4,7 +4,9 @@ $status= $_SESSION['user']['status'];
 if($status==9){
 $role=1;
 }
-else {
+else if($status==5) {
+    $role=5;
+} else{
     $role=2;
 }
 ?>

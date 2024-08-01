@@ -7,6 +7,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Profile</title>
     </head>
+
+<style>
+    img.user_photo{
+        width: 50px;
+        height: 70px;
+    }
+</style>
+
+
 <?php
 session_start();
 
@@ -30,7 +39,7 @@ if($type==1936){
         <div class="date"> <a href="../action/profile2.php?mail=<?=$id_user?>" target="_Blank"><?= $user ?></a>
         <font  class="post" color="4C4F6B"><b><?= $_SESSION['user']['post'] ?></b></font><br>
     </div>
-    <div class="Ava"><a href="../action/profile2.php?mail=<?=$id_user?>" target="_Blank"><img src="<?= $_SESSION['user']['photo'] ?>" width="100%"></a>
+    <div class="Ava"><a href="../action/profile2.php?mail=<?=$id_user?>" target="_Blank"><img width="50px" class="user_photo" src="<?= $_SESSION['user']['photo'] ?>"></a>
     <a class="exit" href="/action/logout.php"><button>Выйти</button></a>
 </div>
     </div>

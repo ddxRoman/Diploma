@@ -1,0 +1,106 @@
+body{
+    background-color: rgba(185, 255, 127, 0.349);
+}
+
+form{
+    /* border: 1px solid #00000025; */
+    width: 100%;
+    text-align: center;
+
+}
+form input{
+    width: 70%;
+    height: 40px;
+    margin: 0;
+    padding: 0;
+justify-content: center;
+margin-bottom: 2%;
+}
+textarea{
+    width: 70%;
+    height: 150px;
+    margin-bottom: 2%;
+}
+form button{
+width: 55px;
+height: 25px;
+}
+select{
+    width: 70%;
+    height: 30px;
+    font-size: 14pt;
+    margin-bottom: 3%;
+}
+.placeholder_label{
+color: #00000046;
+}
+.modal-dialog{
+    margin-top: 8%;
+    max-width: 100%;
+    width: 70%;
+    height: 650px;
+    background-color: #fff;
+}
+
+header{
+    width: 90%;
+    height: 100px;
+}
+.btn_add_time{
+
+    margin-top: 3%;
+position: absolute;
+right: 25px;
+background-color: rgb(0, 68, 255);
+color: rgb(255, 255, 255);
+font-weight: 700;
+border-radius: 5%;
+width: 8%;
+height: 45px;
+}
+
+.full-track td{
+border: 2px solid #000;
+min-width: 50px;
+height: 40px;
+}
+.full-track th{
+border: 2px solid #000;
+}
+.section_table_treek{
+margin-left: 3%;
+margin-right: 3%;
+    margin-top: 3%;
+    border: 2px solid #000;
+    box-shadow: 0px 0px 10px 3px ;
+}
+.full-track .type_work{
+    min-width: 250px;
+height: 40px;
+}
+.full-track .comments_work{
+    min-width: 350px;
+}
+
+.fast-static{
+    margin-left: 10%;
+    border: none;
+    margin-top: 3%;
+}
+.fast-static td{
+    padding-right: 25px;
+
+}
+
+.footer{
+    height: 600px;
+}
+.btn_save_modal{
+    margin-top: 3%;
+    background-color: blue;
+    color: aliceblue;
+    font-weight: 900;
+    width: 60%;
+    height: 50px;
+height: 30px;
+}

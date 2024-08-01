@@ -9,6 +9,11 @@ require_once "function/check-device.php";
 require_once "action/users/StyleAndSettings.php";
 $button = mysqli_query($connect, "SELECT * FROM `button_user` WHERE `user_id`=$id_user "); // Подключение к определенной таблице, и получение Статуса записи
 $button = mysqli_fetch_all($button); // Выбирает все строки из набора $product и помещает их в массив  $product
+
+if($role==5){
+    header('Location: treker/treeker.php');
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -104,6 +109,7 @@ if($interval->y>0){
             <!-- <a href="folders/CsdTasks.php" target="_blank"><button>Задачи</button></a> -->
             <a href="folders/countsymbolForm.php" target="1"><button>Подсчёт</button></a>
             <a href="folders/creeds.php" target="1"><button>Доступы</button></a>
+            <a href="treker/treeker.php" target="1"><button>Трекер</button></a>
            </div><!-- Тут заканчивается МИС панель-->
         <hr class="misPanel-hr" width="85%"><!-- ХРка полоска -->
        <div class="body">   <!-- Начало Тела сайта -->
@@ -122,14 +128,6 @@ if($interval->y>0){
               <a href="<?=$sites_categories[3]?>" target="1"><button><?=$sites_categories[1]?></button></a><br>
             <?}
            } ?>
-            <!--<a href="folders/docs.php" target="1"><button>Доки</button></a><br>-->
-            <!--        <a href="folders/helper.php" target="1"><button>Хелпер</button></a><br>         -->
-            <!--        <a href="folders/GooglFolders.php" target="1"><button>Папки</button></a><br>                   -->
-            <!--        <a href="folders/Backlog.php" target="1"><button>Старье</button></a><br>-->
-            <!--        <a href="folders/mis.php" target="1"><button>Миски</button></a><br>-->
-            <!--        <a href="folders/sites.php" target="1"><button class="site_btn">Сайты</button></a><br>-->
-            <!--        <a href="https://docs.google.com/spreadsheets/d/1mFn7zDyJ47eAOvhSJ-e8eDeBEnwHVbKv/edit#gid=1585440672" target="_blank"><button class="document">МояДока</button></a><br>-->
-            <!--        <a href="https://drive.google.com/drive/u/0/my-drive" target="_blank"><button class="document">ГуглДиск</button></a><br>-->
              </div>
             <div class="container frame">
                 <iframe name="1" src="folders/sites.php">
