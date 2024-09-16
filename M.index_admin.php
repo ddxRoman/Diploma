@@ -59,7 +59,7 @@ if ($role!= 1) {
             <!-- Тут начинает МИС панель.-->
             <a href="folders/addcreeds.php" target="1"><button>Доступы</button></a>
             <!--<a href="folders/user_list.php" target="_self"><button>Список сотрудников</button></a>-->
-            <!--<a href="Taskmanager/task_user.php" target="1"><button>Задачи сотрудникам</button></a>-->
+            <a href="Taskmanager/task_user.php" target="1"><button>Задачи сотрудникам</button></a>
             <!--<a href="folders/addNews.php" target="1"><button>Добавить Новость</button></a>-->
                         <a href="folders/addsiteForm.php" target="1"><button>Добавить сайт</button></a>
             <a href="https://s2.hostiman.ru/phpmyadmin/index.php"><button>База Данных</button></a>

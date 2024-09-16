@@ -13,7 +13,6 @@ $button = mysqli_fetch_all($button); // Выбирает все строки и�
 if($role==5){
     header('Location: treker/treeker.php');
 }
-
 ?>
 
 <!DOCTYPE html>

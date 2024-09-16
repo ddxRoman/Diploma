@@ -66,6 +66,7 @@ if ($role!= 1) {
             <a href="https://s2.hostiman.ru/phpmyadmin/index.php"><button>База Данных</button></a>
             <a href="https://my.hostiman.ru/cabinet/services/shared/files/245637"><button>Менеджер файлов</button></a>
             <a href="folders/TgBotForm.php" target="1"><button class="btn_tg_index">Бот</button></a>
+            <a href="finance/finance.php" target="_blank"><button class="btn_tg_index">Финансы</button></a>
             
            
            </div><!-- Тут заканчивается МИС панель-->

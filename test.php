@@ -6,12 +6,18 @@
   <title>Секундомер</title>
 </head>
 <body>
-  <h1 id="timer">00:00:00</h1>
-  <button id="startBtn">Старт</button>
-  <button id="pauseBtn" disabled>Пауза</button>
-  <button id="resetBtn" disabled>Сброс</button>
 
-  <script>
+
+
+    <form action="treker/treakerController.php">
+        <input name="timer" id="timer">00:00:00</input>
+        <button>save</button>
+    </form>
+    <button id="startBtn">Старт</button>
+    <button id="pauseBtn" disabled>Пауза</button>
+        <button id="resetBtn" disabled>Сброс</button>
+
+        <script>
     let timer = document.getElementById('timer');
 let startBtn = document.getElementById('startBtn');
 let pauseBtn = document.getElementById('pauseBtn');
@@ -43,12 +49,14 @@ startBtn.addEventListener('click', () => {
 });
 
 pauseBtn.addEventListener('click', () => {
+    $timer=interval;
   clearInterval(interval);
   startBtn.disabled = false;
   pauseBtn.disabled = true;
 });
 
 resetBtn.addEventListener('click', () => {
+    $timer=interval;
   clearInterval(interval);
   seconds = 0;
   minutes = 0;
@@ -59,5 +67,9 @@ resetBtn.addEventListener('click', () => {
   resetBtn.disabled = true;
 });
   </script>
+
+
+
 </body>
 </html>
+

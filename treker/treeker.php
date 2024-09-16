@@ -1,3 +1,4 @@
+<?session_start();?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -78,19 +79,19 @@
     <input type="date" placeholder="Дата"><br>
     <input type="number" required placeholder="Время"><br>
 
-    
-    <h1 id="timer">00:00:00</h1>
-  <button id="startBtn">Старт</button>
-  <button id="pauseBtn" disabled>Пауза</button>
-  <button id="resetBtn" disabled>Сброс</button>
-
-  
-  <script src="stopwatch.js"></script>
-
-
-
     <button class="btn_save_modal">Сохранить</button>
 </form>
+
+<form  action="treakerController.php" method="post">
+    <p name="timer" type="text" id="timer"><?= $time='00:00:00'?></p>
+    <button>Сохранить</button>
+</form>
+<button id="startBtn">Старт</button>
+<button id="pauseBtn" disabled>Пауза</button>
+<button id="resetBtn" disabled>Сброс</button>
+    <script src="stopwatch.js"></script>
+
+
 </div>
     </div>
   </div>
