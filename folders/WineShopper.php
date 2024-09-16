@@ -1,5 +1,6 @@
-<? require_once "../function/checkaut.php";
-$page_id = 5;
+<? 
+require_once "../function/checkaut.php";
+$page_id = 4;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,8 +13,8 @@ $page_id = 5;
     <title>Mis</title>
 </head>
 <body class="iframe-body">
-    <div class="folders">
-            <?
+<div class="folders">
+<?
     require_once "../action/connect.php";
     foreach($site as $sites)
     {
@@ -23,7 +24,6 @@ $page_id = 5;
         }
     }
     ?>
-            </div>
-
+</div>
 </body>
 </html>

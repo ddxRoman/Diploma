@@ -27,7 +27,7 @@ $filter=mysqli_fetch_assoc($filter);
                         <?
                         $total=0;
                         foreach($finance as $finances){
-                            if($finances[2] == $filter_category ){
+                            if($finances[3] == $filter_category ){
                         ?>
                         <tr>
                             <td><a href="details/date.php" target="details">

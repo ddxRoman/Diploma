@@ -27,7 +27,7 @@ $filter=mysqli_fetch_assoc($filter);
                         <?
                         $total=0;
                         foreach($finance as $finances){
-                            if($finances[2] == $filter_category ){
+                            if($finances[4] == $filter_category ){
                         ?>
                         <tr>
                             <td><a href="details/date.php" target="details">
@@ -38,7 +38,7 @@ $filter=mysqli_fetch_assoc($filter);
                                                                 <?=$finances[2]; ?>
                             </a>
                             </td>
-                            <td><a href="details/product.php" title="<?=$finances[3];?>" target="details">
+                            <td><a href="details/purchase.php" title="<?=$finances[3];?>" target="details">
                                                                 <?=$finances[3]; ?>
                             </a>
                             </td>
