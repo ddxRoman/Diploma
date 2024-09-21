@@ -8,13 +8,13 @@ require_once '../action/connect.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="icon" type="image" href="file/icons/Logo/Logo.png">
-    <link rel="stylesheet" href="../css/finance/finance-style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="theme-color" content="#ff0000" />
     <link rel="manifest" href="JavaScript/manifest.json">
+    <link rel="stylesheet" href="../css/finance/finance-style.css">
     <title>Финaнсовый Учёт</title>
 </head>
 
@@ -29,7 +29,13 @@ require_once '../action/connect.php';
                 <h1 class="text-center">Расходы финансов</h1>
             </div>
             <div class="col-4">
-
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+            <a href="operation/FilterFamily.php">
+                <button class="common-Filter_btn">На благо</button>
+            </a>    
             </div>
         </div>
     </div>
@@ -37,7 +43,7 @@ require_once '../action/connect.php';
 
 <body>
     <main>
-        <div class="container">
+        <div class="container-fluid body_finance">
             <div class="row">
                 <div class="col-12">
                     <form action="operation/add-pay.php" method="post">
@@ -53,7 +59,7 @@ require_once '../action/connect.php';
                             <option value="Личное">Личное</option>
                         </select>
                         <input name="coast" placeholder="Сумма" type="number">
-                        <input name="purchase" placeholder="Покупка" required type="text">
+                        <input name="purchase" placeholder="Покупка" type="text">
                         <select name="payer" id="">
                             <option value="Рома">Рома</option>
                             <option value="Лера">Лера</option>
@@ -66,6 +72,7 @@ require_once '../action/connect.php';
         <div class="row">
             <div class="col-12">
                 <form action="operation/filter.php" target="details" method="post">
+                    <input type="date" name="date" id="">
                     <select name="category" id="">
                     <option value="Продукты">Продукты</option>
                             <option value="Еда">Еда</option>
@@ -90,6 +97,7 @@ require_once '../action/connect.php';
                 <div class="col-6 table-block">
                     <table class="table table-bordered">
                         <tr>
+                            <th></th>
                             <th>Дата</th>
                             <th>Категория</th>
                             <th>Транзакция</th>
@@ -101,6 +109,11 @@ require_once '../action/connect.php';
                         foreach($finance as $finances)
                         {?>
                         <tr>
+                            <td>
+<a href="operation/edit_operation_form.php?id=<?=$finances[0]?>">
+    <img src="../file/icons/edit_for_finance.svg" class="icon_edit_finance" alt="">
+</a>
+                            </td>
                             <td><a href="details/date.php?id=<?=$finances[1]?>" target="details">
                                 <?=$finances[1]; ?>
                             </a>

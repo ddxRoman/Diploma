@@ -13,10 +13,11 @@
 <?
 require_once '../../action/connect.php'; 
 $filter_category = $_GET['id'];
-$filter=mysqli_query($connect_finance, "SELECT*FROM `expenses` WHERE `id`='$filter_category'");
+$filter=mysqli_query($connect, "SELECT*FROM `expenses` WHERE `id`='$filter_category'");
 $filter=mysqli_fetch_assoc($filter);
+$total=0;
 ?>
-<h1><?=$filter_category?></h1>
+<h1><? echo $filter_category?> </h1>
 <table class="table table-hover">
                         <tr>
                             <th>Дата</th>
@@ -26,7 +27,7 @@ $filter=mysqli_fetch_assoc($filter);
                             <th>Плательщик</th>
                         </tr>
                         <?
-                        $total=0;
+
                         foreach($finance as $finances){
                             if($finances[2] == $filter_category ){
                         ?>

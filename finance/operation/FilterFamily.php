@@ -1,10 +1,9 @@
 <?php
 require_once '../../action/connect.php';
+$category1='Продукты';
+$category2='Общие расходы';
+$category3='Развлечения';
 $date=$_POST['date'];
-$category=$_POST['category'];
-$payer=$_POST['payer'];
-$date=$_POST['date'];
-
 // header('Location: ../finance.php')
 
 ?>
@@ -19,13 +18,13 @@ $date=$_POST['date'];
 </head>
 <body>
     
-<?=$total?>
-<? 
+
+<?
 require_once '../../action/connect.php'; 
 $filter_category = $_GET['id'];
-$filter=mysqli_query($connect, "SELECT*FROM `expenses` WHERE `id`='$filter_category'");
+$filter=mysqli_query($connect_finance, "SELECT*FROM `expenses` WHERE `id`='$filter_category'");
 $filter=mysqli_fetch_assoc($filter);
-?> 
+?>
 <table class="table table-hover">
                         <tr>
                             <th>Дата</th>
@@ -36,8 +35,8 @@ $filter=mysqli_fetch_assoc($filter);
                         </tr>
                         <?
                         $total=0;
-                        foreach($finance as $finances){
-                            if($finances[5] == $payer && $finances[2] == $category && $finances[1] == $date){
+                        foreach($finance as $finances ){
+                            if($finances[2] == $category1 || $finances[2] == $category2 || $finances[2] == $category3){
                         ?>
                         <tr>
                             <td><a href="details/date.php" target="details">
