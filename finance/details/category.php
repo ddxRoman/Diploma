@@ -16,6 +16,7 @@ $filter_category = $_GET['id'];
 $filter=mysqli_query($connect_finance, "SELECT*FROM `expenses` WHERE `id`='$filter_category'");
 $filter=mysqli_fetch_assoc($filter);
 ?>
+<h1><?=$filter_category?></h1>
 <table class="table table-hover">
                         <tr>
                             <th>Дата</th>

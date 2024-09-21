@@ -28,7 +28,7 @@ $site = mysqli_fetch_all($site); // Выбирает все строки из н
 $helper_log = mysqli_query($connect, "SELECT * FROM `helper_log` ORDER BY `date` DESC"); // Подключение к определенной таблице, и получение Статуса записи
 $helper_log = mysqli_fetch_all($helper_log); // Выбирает все строки из набора $Comment и помещает их в массив  $Comments
 
-$finance = mysqli_query($connect_finance, "SELECT * FROM `expenses` ORDER BY `date` ASC"); // Подключение к определенной таблице, и получение Статуса записи
+$finance = mysqli_query($connect_finance, "SELECT * FROM `expenses` ORDER BY `date` DESC"); // Подключение к определенной таблице, и получение Статуса записи
 $finance = mysqli_fetch_all($finance); // Выбирает все строки из набора $Comment и помещает их в массив  $Comments
 
 

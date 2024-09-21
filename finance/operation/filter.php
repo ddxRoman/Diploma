@@ -1,3 +1,13 @@
+<?php
+require_once '../../action/connect.php';
+$date=$_POST['date'];
+$category=$_POST['category'];
+$payer=$_POST['payer'];
+
+
+// header('Location: ../finance.php')
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +26,6 @@ $filter_category = $_GET['id'];
 $filter=mysqli_query($connect_finance, "SELECT*FROM `expenses` WHERE `id`='$filter_category'");
 $filter=mysqli_fetch_assoc($filter);
 ?>
-<h1><?=$filter_category?></h1>
 <table class="table table-hover">
                         <tr>
                             <th>Дата</th>
@@ -28,7 +37,7 @@ $filter=mysqli_fetch_assoc($filter);
                         <?
                         $total=0;
                         foreach($finance as $finances){
-                            if($finances[4] == $filter_category ){
+                            if($finances[5] == $payer && $finances[2] == $category ){
                         ?>
                         <tr>
                             <td><a href="details/date.php" target="details">
@@ -39,7 +48,7 @@ $filter=mysqli_fetch_assoc($filter);
                                                                 <?=$finances[2]; ?>
                             </a>
                             </td>
-                            <td><a href="details/purchase.php" title="<?=$finances[3];?>" target="details">
+                            <td><a href="details/product.php" title="<?=$finances[3];?>" target="details">
                                                                 <?=$finances[3]; ?>
                             </a>
                             </td>

@@ -19,10 +19,17 @@ require_once '../action/connect.php';
 </head>
 
 <header>
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-12">
+            <div class="col-5">
+Общак: <br> Рома - <br> Лера - <br>
+<button>Вкинуть</button>
+            </div>
+            <div class="col-3">
                 <h1 class="text-center">Расходы финансов</h1>
+            </div>
+            <div class="col-4">
+
             </div>
         </div>
     </div>
@@ -38,12 +45,15 @@ require_once '../action/connect.php';
                         <select required name="category" id="">
                             <option value="Продукты">Продукты</option>
                             <option value="Еда">Еда</option>
+                            <option value="Общие расходы">Общие расходы</option>
                             <option value="Собака">Собака</option>
+                            <option value="Развлечения">Развлечения</option>
                             <option value="Сигареты">Сигареты</option>
                             <option value="Кошка">Кошка</option>
+                            <option value="Личное">Личное</option>
                         </select>
-                        <input name="purchase" placeholder="Покупка" required type="text">
                         <input name="coast" placeholder="Сумма" type="number">
+                        <input name="purchase" placeholder="Покупка" required type="text">
                         <select name="payer" id="">
                             <option value="Рома">Рома</option>
                             <option value="Лера">Лера</option>
@@ -53,6 +63,29 @@ require_once '../action/connect.php';
                     </form>
                 </div>
             </div>
+        <div class="row">
+            <div class="col-12">
+                <form action="operation/filter.php" target="details" method="post">
+                    <select name="category" id="">
+                    <option value="Продукты">Продукты</option>
+                            <option value="Еда">Еда</option>
+                            <option value="Общие расходы">Общие расходы</option>
+                            <option value="Собака">Собака</option>
+                            <option value="Развлечения">Развлечения</option>
+                            <option value="Сигареты">Сигареты</option>
+                            <option value="Кошка">Кошка</option>
+                            <option value="Личное">Личное</option>
+                    </select>
+                    <select name="payer" id="">
+                    <option value=""> </option>
+                    <option value="Рома">Рома</option>
+                            <option value="Лера">Лера</option>
+                            <option value="Общее">Общее</option>
+                    </select>
+                    <button>Фильтровать</button>
+                </form>
+            </div>
+        </div>
             <div class="row">
                 <div class="col-6 table-block">
                     <table class="table table-bordered">
@@ -68,7 +101,7 @@ require_once '../action/connect.php';
                         foreach($finance as $finances)
                         {?>
                         <tr>
-                            <td><a href="details/date.php?id=<?=$finances[3]?>" target="details">
+                            <td><a href="details/date.php?id=<?=$finances[1]?>" target="details">
                                 <?=$finances[1]; ?>
                             </a>
                             </td>
@@ -81,7 +114,7 @@ require_once '../action/connect.php';
                             </a>
                             </td>
                             <td><a href="details/coast.php?id=<?=$finances[4]?>" target="details">
-                                        <?=$finances[4]; ?>
+                                        <?=$finances[4]; ?> руб.
                             </a>
                             </td>
                             <td><a href="details/payer.php?id=<?=$finances[5]?>" target="details">
@@ -95,7 +128,7 @@ require_once '../action/connect.php';
                         <tr>
                             <td colspan="4" style="text-align:right">ИТОГО:</td>
                             
-                            <td><?=$total?></td>
+                            <td><?=$total?> руб.</td>
                         </tr>
                     </table>
                 </div>
