@@ -29,12 +29,8 @@ require_once '../action/connect.php';
                 <h1 class="text-center">Расходы финансов</h1>
             </div>
             <div class="col-4">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
-            <a href="operation/FilterFamily.php">
-                <button class="common-Filter_btn">На благо</button>
+            <a href="operation/reports.php">
+                <button class="common-Filter_btn">Отчёты</button>
             </a>    
             </div>
         </div>

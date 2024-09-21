@@ -22,7 +22,7 @@ $date=$_POST['date'];
 <?
 require_once '../../action/connect.php'; 
 $filter_category = $_GET['id'];
-$filter=mysqli_query($connect_finance, "SELECT*FROM `expenses` WHERE `id`='$filter_category'");
+$filter=mysqli_query($connect, "SELECT*FROM `expenses` WHERE `id`='$filter_category'");
 $filter=mysqli_fetch_assoc($filter);
 ?>
 <table class="table table-hover">
