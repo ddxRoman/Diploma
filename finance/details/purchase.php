@@ -31,23 +31,24 @@ $filter=mysqli_fetch_assoc($filter);
                             if($finances[3] == $filter_category ){
                         ?>
                         <tr>
-                            <td><a href="details/date.php" target="details">
-                                <?=$finances[1]; ?>
+                            <td>
+                            <a href="date.php?id=<?=$finances[1]?>" target="details">
+                                <?=$finances[1];  ?> 
                                 </a>
                             </td>
-                            <td><a href="details/category.php" target="details">
+                            <td><a href="category.php?id=<?=$finances[2]?>" target="details">
                                                                 <?=$finances[2]; ?>
                             </a>
                             </td>
-                            <td><a href="details/product.php" title="<?=$finances[3];?>" target="details">
+                            <td><a href="purchase.php?id=<?=$finances[3]?>" title="<?=$finances[3];?>" target="details">
                                                                 <?=$finances[3]; ?>
                             </a>
                             </td>
-                            <td><a href="details/price.php" target="details">
+                            <td><a href="coast.php?id=<?=$finances[4]?>" target="details">
                                         <?=$finances[4]; ?>
                             </a>
                             </td>
-                            <td><a href="details/payer.php" target="details">
+                            <td><a href="payer.php?id=<?=$finances[5]?>" target="details">
                                                 <?=$finances[5]; ?>
                             </a>
                             </td>

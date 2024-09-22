@@ -67,26 +67,7 @@ require_once '../action/connect.php';
             </div>
         <div class="row">
             <div class="col-12">
-                <form action="operation/filter.php" target="details" method="post">
-                    <input type="date" name="date" id="">
-                    <select name="category" id="">
-                    <option value="Продукты">Продукты</option>
-                            <option value="Еда">Еда</option>
-                            <option value="Общие расходы">Общие расходы</option>
-                            <option value="Собака">Собака</option>
-                            <option value="Развлечения">Развлечения</option>
-                            <option value="Сигареты">Сигареты</option>
-                            <option value="Кошка">Кошка</option>
-                            <option value="Личное">Личное</option>
-                    </select>
-                    <select name="payer" id="">
-                    <option value=""> </option>
-                    <option value="Рома">Рома</option>
-                            <option value="Лера">Лера</option>
-                            <option value="Общее">Общее</option>
-                    </select>
-                    <button>Фильтровать</button>
-                </form>
+
             </div>
         </div>
             <div class="row">
