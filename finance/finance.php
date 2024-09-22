@@ -28,7 +28,7 @@ require_once '../action/connect.php';
             <div class="col-3">
                 <h1 class="text-center">Расходы финансов</h1>
             </div>
-            <div class="col-4">
+            <div class="col-4 reports_link_block">
             <a href="operation/reports.php">
                 <button class="common-Filter_btn">Отчёты</button>
             </a>    

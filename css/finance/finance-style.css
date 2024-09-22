@@ -3,7 +3,7 @@ header{
     height: 100px;
     background-color: rgba(255, 255, 0, 0.308);
     text-align: center;
-/* padding-top: 2%; */
+
 }
 body{
     width: 100%;
@@ -54,4 +54,31 @@ form button{
 .icon_edit_finance{
     width: 20px;
     height: 20px;
+}
+.payer_Lera{
+    font-weight: 600;
+    color: pink;
+}
+.payer_Roma{
+    font-weight: 600;
+    color: rgb(0, 38, 255);
+}
+.report_list{
+    margin-top: 3%;
+    text-decoration: none;
+    list-style-type: none;
+}
+.report_list li{
+    margin-top: 0.5%;
+    font-size: 14pt;
+    font-weight: 400;
+}
+.reports_link_block{
+margin-top: 1%;
+}
+.header_btn{
+    color: rgb(0, 0, 0);
+}
+table a{
+    color: black;
 }

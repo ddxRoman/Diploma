@@ -1,10 +1,8 @@
 <?php
-require_once '../../action/connect.php';
-$category1='Продукты';
-$category2='Общие расходы';
-$category3='Развлечения';
+require_once '../../../action/connect.php'; 
+$category='Продукты';
+$payer = 'Рома';
 $date=$_POST['date'];
-// header('Location: ../finance.php')
 
 ?>
 <!DOCTYPE html>
@@ -17,10 +15,7 @@ $date=$_POST['date'];
 
 </head>
 <body>
-    
-
 <?
-require_once '../../action/connect.php'; 
 $filter_category = $_GET['id'];
 $filter=mysqli_query($connect, "SELECT*FROM `expenses` WHERE `id`='$filter_category'");
 $filter=mysqli_fetch_assoc($filter);
@@ -35,35 +30,29 @@ $filter=mysqli_fetch_assoc($filter);
                         </tr>
                         <?
                         $total=0;
-                        foreach($finance as $finances ){
-                            if($finances[2] == $category1 || $finances[2] == $category2 || $finances[2] == $category3){
+                        foreach($finance as $finances  ){
+                            if($finances[2] == $category && $finances[5] == $payer){
                         ?>
                         <tr>
-                            <td><a href="details/date.php" target="details">
+                            <td>
                                 <?=$finances[1]; ?>
-                                </a>
                             </td>
-                            <td><a href="details/category.php" target="details">
+                            <td>
                                                                 <?=$finances[2]; ?>
-                            </a>
                             </td>
-                            <td><a href="details/product.php" title="<?=$finances[3];?>" target="details">
+                            <td>
                                                                 <?=$finances[3]; ?>
-                            </a>
                             </td>
-                            <td><a href="details/price.php" target="details">
+                            <td>
                                         <?=$finances[4]; ?>
-                            </a>
                             </td>
-                            <td><a href="details/payer.php" target="details">
+                            <td>
                                                 <?=$finances[5]; ?>
-                            </a>
                             </td>
                         </tr>
                         <?
                         $total=$total+$finances[4];
                         }
-
                         }?>
                         <tr >
                             <td colspan="4" style="text-align:right">ИТОГО:</td>
