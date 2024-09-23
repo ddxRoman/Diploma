@@ -18,13 +18,13 @@ $operation=mysqli_fetch_assoc($operation);
                         <select required name="category" id="" value="<?=$operation['category']?>">
                             <option value="<?=$operation['category']?>"><?=$operation['category']?></option>
                             <option value="Продукты">Продукты</option>
-                            <option value="Еда">Еда</option>
                             <option value="Общие расходы">Общие расходы</option>
                             <option value="Собака">Собака</option>
                             <option value="Развлечения">Развлечения</option>
                             <option value="Сигареты">Сигареты</option>
                             <option value="Кошка">Кошка</option>
                             <option value="Личное">Личное</option>
+                            <option value="Здоровье">Здоровье</option>
                         </select>
                         <input name="coast" placeholder="Сумма"  type="number" value="<?=$operation['coast']?>">
                         <input name="purchase" placeholder="Покупка" required type="text" value="<?=$operation['purchase']?>">

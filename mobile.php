@@ -98,6 +98,7 @@ if($interval->y>0){
             <a href="https://jira.bizonoff-dev.net/projects/KINDPEOPLE/" target="_blank"><button>Жира</button></a>
             <a href="folders/countsymbolForm.php" target="1"><button>Подсчёт</button></a>
             <a href="folders/creeds.php" target="1"><button>Доступы</button></a>
+            <a href="finance/finance.php"><button class="btn_tg_index">Финансы</button></a>
 
            </div><!-- Тут заканчивается МИС панель-->
 

@@ -36,7 +36,6 @@ require_once '../action/connect.php';
         </div>
     </div>
 </header>
-
 <body>
     <main>
         <div class="container-fluid body_finance">
@@ -46,13 +45,13 @@ require_once '../action/connect.php';
                         <input required name="date" type="date">
                         <select required name="category" id="">
                             <option value="Продукты">Продукты</option>
-                            <option value="Еда">Еда</option>
                             <option value="Общие расходы">Общие расходы</option>
                             <option value="Собака">Собака</option>
                             <option value="Развлечения">Развлечения</option>
                             <option value="Сигареты">Сигареты</option>
                             <option value="Кошка">Кошка</option>
                             <option value="Личное">Личное</option>
+                            <option value="Здоровье">Здоровье</option>
                         </select>
                         <input name="coast" placeholder="Сумма" type="number">
                         <input name="purchase" placeholder="Покупка" type="text">
@@ -60,14 +59,14 @@ require_once '../action/connect.php';
                             <option value="Рома">Рома</option>
                             <option value="Лера">Лера</option>
                             <option value="Общее">Общее</option>
-                        </select><br>
+                        </select>
+                        <br>
                         <button>Добавить</button>
                     </form>
                 </div>
             </div>
         <div class="row">
             <div class="col-12">
-
             </div>
         </div>
             <div class="row">
