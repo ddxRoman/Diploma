@@ -2,6 +2,7 @@
 <html lang="en">
 <?
 require_once '../action/connect.php';
+$date_today = date("Y-m-d");
 ?>
 <head>
     <meta charset="UTF-8">
@@ -42,7 +43,7 @@ require_once '../action/connect.php';
             <div class="row">
                 <div class="col-12">
                     <form action="operation/add-pay.php" method="post">
-                        <input required name="date" type="date">
+                        <input required name="date" type="date" value="<?=$date_today?>"/>
                         <select required name="category" id="">
                             <option value="Продукты">Продукты</option>
                             <option value="Общие расходы">Общие расходы</option>

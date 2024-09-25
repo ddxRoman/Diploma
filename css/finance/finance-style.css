@@ -81,4 +81,9 @@ margin-top: 1%;
 }
 table a{
     color: black;
+    text-decoration: none;
+}
+tr:hover{
+/* font-weight: 500; */
+text-shadow: 1px 4px 6px rgba(136, 136, 136, 0.39);
 }

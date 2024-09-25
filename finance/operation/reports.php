@@ -27,11 +27,10 @@
 
         <li>Расходы Лера на собаку</li>
     </a>
-    <a href="">
-
+    <a href="../details/reports/common_Roma.php">
         <li>Расходы Рома на общее дело</li>
     </a>
-    <a href="">
+    <a href="../details/reports/common_Lera.php">
 
         <li>Расходы Лера на общее дело</li>
     </a>
