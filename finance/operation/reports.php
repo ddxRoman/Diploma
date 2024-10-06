@@ -12,27 +12,19 @@
     </a>
 <hr>
 <ul class="report_list">
-<a href="../details/reports/Food_Roma.php">
-    <li>Расходы Рома на продукты</li>
+<a href="../details/reports/Food_reports.php" title="Все расходы на продукты">
+    <li>Расходы на продукты</li>
 </a>    
-    <a href="../details/reports/Food_Lera.php">
-
-        <li>Расходы Лера на продукты</li>
-    </a>
-    <a href="">
+    <a href="" title="Все расходы Ромы на собаку">
 
         <li>Расходы Рома на собаку</li>
     </a>
-    <a href="">
+    <a href="" title="Все расходы Леры на собаку">
 
         <li>Расходы Лера на собаку</li>
     </a>
-    <a href="../details/reports/common_Roma.php">
-        <li>Расходы Рома на общее дело</li>
-    </a>
-    <a href="../details/reports/common_Lera.php">
-
-        <li>Расходы Лера на общее дело</li>
+    <a href="../details/reports/common_reports.php" title="Все расходы на бытовую химию, подарки, развлечения, проезды и так далее, все кроме продуктов и прочие общие расходы">
+        <li>Расходы на общее дело</li>
     </a>
 </ul>
 

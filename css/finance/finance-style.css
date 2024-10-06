@@ -87,3 +87,11 @@ tr:hover{
 /* font-weight: 500; */
 text-shadow: 1px 4px 6px rgba(136, 136, 136, 0.39);
 }
+tfoot{
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+.reports_body{
+    margin-bottom: 80px;
+}

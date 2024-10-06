@@ -6,8 +6,11 @@ $purchase=$_POST['purchase'];
 $coast=$_POST['coast'];
 $payer=$_POST['payer'];
 
-if($category=='Сигареты'){
+if($category=='Сигареты' && $purchase=' '){
+    if ($coast=='') $coast='165';
     $purchase='Сигареты';
+} else if($category=='Продукты' && $purchase=' '){
+    $purchase='Пятёрочка';
 }
 echo $date. '<br>' .$category. '<br>' .$purchase. '<br>' .$coast. '<br>' .$payer; 
 

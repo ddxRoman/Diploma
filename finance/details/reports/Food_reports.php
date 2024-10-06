@@ -1,7 +1,6 @@
 <?php
 require_once '../../../action/connect.php'; 
 $category='Продукты';
-$payer = 'Рома';
 $date=$_POST['date'];
 
 ?>
@@ -12,9 +11,9 @@ $date=$_POST['date'];
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <link rel="stylesheet" href="../../../css/finance/finance-style.css">
 </head>
-<body>
+<body class="reports_body">
 <?
 $filter_category = $_GET['id'];
 $filter=mysqli_query($connect, "SELECT*FROM `expenses` WHERE `id`='$filter_category'");
@@ -31,7 +30,7 @@ $filter=mysqli_fetch_assoc($filter);
                         <?
                         $total=0;
                         foreach($finance as $finances  ){
-                            if($finances[2] == $category && $finances[5] == $payer){
+                            if($finances[2] == $category){
                         ?>
                         <tr>
                             <td>
@@ -54,7 +53,8 @@ $filter=mysqli_fetch_assoc($filter);
                         $total=$total+$finances[4];
                         }
                         }?>
-                        <tr >
+                      <tfoot class="footer_total_line_table">
+                        <tr>
                             <td colspan="4" style="text-align:right">ИТОГО:</td>
                             <td>
                                 <p class="total_table">
@@ -62,6 +62,7 @@ $filter=mysqli_fetch_assoc($filter);
                                 </p>
                             </td>
                         </tr>
+  </tfoot>
                     </table>
 </body>
 </html>
