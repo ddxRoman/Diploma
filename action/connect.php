@@ -1,5 +1,6 @@
 <?php
 error_reporting(E_ERROR | E_PARSE);
+$month = date('m')-1;
 $connect = mysqli_connect('localhost', 'user','qazwsx','diploma');
 if(!$connect){
     ?>  
@@ -29,6 +30,15 @@ $helper_log = mysqli_fetch_all($helper_log); // Выбирает все стро
 
 $finance = mysqli_query($connect, "SELECT * FROM `expenses` ORDER BY `date` DESC"); // Подключение к определенной таблице, и получение Статуса записи
 $finance = mysqli_fetch_all($finance); // Выбирает все строки из набора $Comment и помещает их в массив  $Comments
+
+$budget = mysqli_query($connect, "SELECT * FROM `budget`"); // Подключение к определенной таблице, и получение Статуса записи
+$budget = mysqli_fetch_all($budget); // Выбирает все строки из набора $Comment и помещает их в массив  $Comments
+
+$salary = mysqli_query($connect, "SELECT * FROM `salary` WHERE `month`= '$month' "); // Подключение к определенной таблице, и получение Статуса записи
+$salary = mysqli_fetch_assoc($salary); // Выбирает все строки из набора $Comment и помещает их в массив  $Comments
+
+$filter = mysqli_query($connect, "SELECT * FROM `expenses` ORDER BY `payer` ASC"); // Подключение к определенной таблице, и получение Статуса записи
+$filter = mysqli_fetch_all($filter); // Выбирает все строки из набора $Comment и помещает их в массив  $Comments
 
 
 ?>

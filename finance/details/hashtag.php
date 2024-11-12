@@ -15,9 +15,8 @@ require_once '../../action/connect.php';
 $filter_category = $_GET['id'];
 $filter=mysqli_query($connect, "SELECT*FROM `expenses` WHERE `id`='$filter_category'");
 $filter=mysqli_fetch_assoc($filter);
-$total=0;
 ?>
-<h1><? echo $filter_category?> </h1>
+<h1>#<?=$filter_category?></h1>
 <table class="table table-hover">
                         <tr>
                             <th>Дата</th>
@@ -27,14 +26,15 @@ $total=0;
                             <th>Плательщик</th>
                         </tr>
                         <?
-
+                        $total=0;
                         foreach($finance as $finances){
                             list($year, $month, $day) = explode('-', $finances[1]); // Если формат "день-месяц-год" 
-                            if($month == date('m') && $year == date('Y') && $finances[2] == $filter_category){
+                            if($month == date('m') && $year == date('Y') && $finances[6] == $filter_category){
                         ?>
                         <tr>
-                            <td><a href="date.php?id=<?=$finances[1]?>" target="details">
-                                <?=$finances[1];  ?>
+                            <td>
+                            <a href="date.php?id=<?=$finances[1]?>" target="details">
+                                <?=$finances[1];  ?> 
                                 </a>
                             </td>
                             <td><a href="category.php?id=<?=$finances[2]?>" target="details">

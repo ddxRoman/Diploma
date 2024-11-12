@@ -1,7 +1,7 @@
 <?php
 require_once '../../../action/connect.php'; 
 $category='Продукты';
-$date=$_POST['date'];
+$date=$_POST['interval'];
 
 ?>
 <!DOCTYPE html>
@@ -19,6 +19,10 @@ $filter_category = $_GET['id'];
 $filter=mysqli_query($connect, "SELECT*FROM `expenses` WHERE `id`='$filter_category'");
 $filter=mysqli_fetch_assoc($filter);
 ?>
+<h1>Еда</h1>
+<form action="Food_reports.php" method="post">
+    <input name="interval" onchange="this.form.submit()" type="date" value="<?=$interval?>">
+</form>
 <table class="table table-hover">
                         <tr>
                             <th>Дата</th>
@@ -29,30 +33,32 @@ $filter=mysqli_fetch_assoc($filter);
                         </tr>
                         <?
                         $total=0;
-                        foreach($finance as $finances  ){
-                            if($finances[2] == $category){
-                        ?>
-                        <tr>
-                            <td>
-                                <?=$finances[1]; ?>
-                            </td>
-                            <td>
-                                                                <?=$finances[2]; ?>
-                            </td>
-                            <td>
-                                                                <?=$finances[3]; ?>
-                            </td>
-                            <td>
-                                        <?=$finances[4]; ?>
-                            </td>
-                            <td>
-                                                <?=$finances[5]; ?>
-                            </td>
-                        </tr>
-                        <?
-                        $total=$total+$finances[4];
+                        foreach($finance as $finances){
+                            list($year, $month, $day) = explode('-', $finances[1]); // Если формат "день-месяц-год" 
+                            if($month == date('m') && $year == date('Y') && $finances[2] == $category){
+                                ?>
+                                <tr>
+                                    <td>
+                                        <?=$finances[1]; ?>
+                                    </td>
+                                    <td>
+                                                                        <?=$finances[2]; ?>
+                                    </td>
+                                    <td>
+                                                                        <?=$finances[3]; ?>
+                                    </td>
+                                    <td>
+                                                <?=$finances[4]; ?>
+                                    </td>
+                                    <td>
+                                                        <?=$finances[5]; ?>
+                                    </td>
+                                </tr>
+                                <?
+                                $total=$total+$finances[4];
+                                }
                         }
-                        }?>
+                        ?>
                       <tfoot class="footer_total_line_table">
                         <tr>
                             <td colspan="4" style="text-align:right">ИТОГО:</td>

@@ -92,6 +92,11 @@ tfoot{
     top: 0;
     right: 0;
 }
+.total_table{
+        color: blue;
+    font-size: 24pt;
+}
 .reports_body{
     margin-bottom: 80px;
+
 }

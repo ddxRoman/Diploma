@@ -28,7 +28,8 @@ $filter=mysqli_fetch_assoc($filter);
                         <?
                         $total=0;
                         foreach($finance as $finances){
-                            if($finances[3] == $filter_category ){
+                            list($year, $month, $day) = explode('-', $finances[1]); // Если формат "день-месяц-год" 
+                            if($month == date('m') && $year == date('Y') && $finances[3] == $filter_category){
                         ?>
                         <tr>
                             <td>

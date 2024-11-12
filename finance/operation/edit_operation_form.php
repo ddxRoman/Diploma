@@ -34,6 +34,7 @@ $operation=mysqli_fetch_assoc($operation);
                             <option value="Лера">Лера</option>
                             <option value="Общее">Общее</option>
                         </select>
+                        <input name="hashtag" type="text" value="<?=$operation['hashtag']?>">
                         <button>Изменить</button>
                     </form>
                     <a href="delete_operation.php?id=<?=$operation_id?>">
