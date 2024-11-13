@@ -68,7 +68,7 @@ if (($monthget==$key) || (date('m')==$key && $i==0 && $monthget<date('m'))){
                         foreach ($finance as $filters) {
                             if ($monthget == ""){
                                 list($year, $month, $day) = explode('-', $filters[1]); // Если формат "день-месяц-год" 
-                            if ($month == date('m') && $year == date('Y')) {
+                            if (($month == date('m') && $year == date('Y')) && ($filters[2]==$category1 || $filters[2]==$category2 || $filters[2]==$category3 || $filters[2]==$category4)) {
                         ?>
                                 <tr>
                                     <td><a href="details/date.php?id=<?= $filters[1] ?>" target="details">
@@ -108,7 +108,7 @@ if($filters[5]=='Общее') {$total_Common=$total_Common+$filters[4]; }
 
 
                                 list($year, $month, $day) = explode('-', $filters[1]); // Если формат "день-месяц-год" 
-                            if ($month == $monthget && $year == date('Y')) {
+                            if (($month == $monthget && $year == date('Y')) && ($filters[2]==$category1 || $filters[2]==$category2 || $filters[2]==$category3 || $filters[2]==$category4)) {
 
                         ?>
                                 <tr>
