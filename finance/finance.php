@@ -97,7 +97,7 @@ if (($monthget==$key) || (date('m')==$key && $i==0 && $monthget<date('m'))){
             <div class="row">
                 <div class="col-12">
                     <form action="operation/add-pay.php" method="post">
-                        <input required name="date" type="date" value="<?= $date_today ?>" />
+                        <input required name="date" type="date" value="<?= $date_today ?>" autofocus/>
                         <select required name="category" id="">
                             <option value="Продукты">Продукты</option>
                             <option value="Общие расходы">Общие расходы</option>
@@ -229,6 +229,9 @@ if (($monthget==$key) || (date('m')==$key && $i==0 && $monthget<date('m'))){
                             <td><?= $total ?> руб.</td>
                         </tr>
                     </table>
+                   <div class="total_coast">
+                       <?= $total ?> руб.
+                   </div>
                 </div>
                 <div class="col-6 ">
                     <iframe name="details" src="" class="finance_operation_frame" frameborder="0">

@@ -65,7 +65,7 @@ if (($monthget==$key) || (date('m')==$key && $i==0 && $monthget<date('m'))){
                         $total_Lera=0;
                         $total_Common=0;
                         $total = 0;
-                        foreach ($finance as $filters) {
+                        foreach ($filter as $filters) {
                             if ($monthget == ""){
                                 list($year, $month, $day) = explode('-', $filters[1]); // Если формат "день-месяц-год" 
                             if (($month == date('m') && $year == date('Y')) && ($filters[2]==$category1 || $filters[2]==$category2 || $filters[2]==$category3 || $filters[2]==$category4)) {

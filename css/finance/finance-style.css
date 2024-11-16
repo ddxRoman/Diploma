@@ -135,3 +135,11 @@ display: inline;
     background-color: rgb(99, 99, 99);
     border: 2px solid rgb(109, 209, 216);
 }
+.total_coast{
+    width: 200px;
+    position: absolute;
+    top: 230px;
+    left: 400px;
+    font-weight: 600;
+    font-size: 16pt;
+}
