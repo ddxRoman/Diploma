@@ -19,6 +19,9 @@
     <a href="../details/reports/common_reports.php" title="Все расходы на бытовую химию, подарки, развлечения, проезды и так далее, все кроме продуктов и прочие общие расходы">
         <li>Расходы на общее дело</li>
     </a>
+    <a href="../details/reports/pet_reports.php" title="Все расходы на животных">
+        <li>Животные</li>
+    </a>
 </ul>
 
 </body>

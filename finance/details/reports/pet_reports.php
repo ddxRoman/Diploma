@@ -1,8 +1,7 @@
 <?php
 require_once '../../../action/connect.php'; 
-$category1='Продукты';
-$category2='Общие расходы';
-$category3='Развлечения';
+$category1='Собака';
+$category2='Кошка';
 $month_list = array(
     "1" => "Январь",
     "2" => "Февраль",
@@ -19,6 +18,8 @@ $month_list = array(
 );
 $i=0;
 $monthget=$_GET['month'];
+// $pet_type=$_GET['pet'];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,7 +32,7 @@ $monthget=$_GET['month'];
 </head>
 <body>
     <a href="../../finance.php">
-        <h1>Общие расходы на благое дело</h1>
+        <h1>Животные</h1>
     </a>
     <div class="month_line">
         <ul class="month_ul_reports">
@@ -42,14 +43,20 @@ $monthget=$_GET['month'];
 if (($monthget==$key) || (date('m')==$key && $i==0 && $monthget<date('m'))){ 
     $i=1;
     ?>
-    <a class="current_month_reports" onchange="this.form.submit()" href="common_reports.php?month=<?=$key?>"><li><?=$month_lists?></li></a> <?
+    <a class="current_month_reports" onchange="this.form.submit()" href="pet_reports.php?month=<?=$key?>"><li><?=$month_lists?></li></a> <?
     }else{ 
-    ?><a onchange="this.form.submit()" href="common_reports.php?month=<?=$key?>"><li><?=$month_lists?></li></a><?
+    ?><a onchange="this.form.submit()" href="pet_reports.php?month=<?=$key?>"><li><?=$month_lists?></li></a><?
 }
             }?>
         </ul>
 
     </div>
+    <!-- <div class="pet_type">
+        <ul>
+            <a href="pet_reports.php?pet=cat" onchange="this.form.submit()"><li>Кошка</li></a>
+            <a href="pet_reports.php?pet=dog" onchange="this.form.submit()"><li>Собака</li></a>
+        </ul>
+    </div> -->
 <table class="table table-hover">
                         <tr>
                             <th>Дата</th>
@@ -60,10 +67,11 @@ if (($monthget==$key) || (date('m')==$key && $i==0 && $monthget<date('m'))){
                         </tr>
                         <?
                         $total=0;
-                        $total_Roma=0;
-                        $total_Lera=0;
-                        $total_Common=0;
-                        $total = 0;
+                        // $total_Roma=0;
+                        // $total_Lera=0;
+                        // $total_Common=0;
+                        $total_Cat=0;
+                        $total_Dog=0;
                         foreach ($filter as $filters) {
                             if ($monthget == ""){
                                 list($year, $month, $day) = explode('-', $filters[1]); // Если формат "день-месяц-год" 
@@ -100,6 +108,8 @@ if (($monthget==$key) || (date('m')==$key && $i==0 && $monthget<date('m'))){
                                 if($filters[5]=="Рома") {$total_Roma=$total_Roma+$filters[4]; }
 if($filters[5]=='Лера') {$total_Lera=$total_Lera+$filters[4]; }
 if($filters[5]=='Общее') {$total_Common=$total_Common+$filters[4]; }
+if($filters[2]=='Собака') {$total_Dog=$total_Dog+$filters[4]; }
+if($filters[2]=='Кошка') {$total_Cat=$total_Cat+$filters[4]; }
                             }
 
                         }
@@ -142,6 +152,8 @@ if($filters[5]=='Общее') {$total_Common=$total_Common+$filters[4]; }
                                 if($filters[5]=="Рома") {$total_Roma=$total_Roma+$filters[4]; }
 if($filters[5]=='Лера') {$total_Lera=$total_Lera+$filters[4]; }
 if($filters[5]=='Общее') {$total_Common=$total_Common+$filters[4]; }
+if($filters[2]=='Собака') {$total_Dog=$total_Dog+$filters[4]; }
+if($filters[2]=='Кошка') {$total_Cat=$total_Cat+$filters[4]; }
                             
                         }
 
@@ -151,10 +163,8 @@ if($filters[5]=='Общее') {$total_Common=$total_Common+$filters[4]; }
 
                     }
 
-}                         
-
-echo "<b>Рома</b> -".$total_Roma."<br> <b>Лера</b> - ".$total_Lera."<br> <b>Общее</b> - ".$total_Common;
-                      ?> 
+}                       echo "<b>Кошка</b> -".$total_Cat."<br> <b>Собака</b> - ".$total_Dog;
+?>     
                       
                       <tfoot class="footer_total_line_table">
                         <tr>
@@ -165,7 +175,8 @@ echo "<b>Рома</b> -".$total_Roma."<br> <b>Лера</b> - ".$total_Lera."<br>
                                 </p>
                             </td>
                         </tr>
+                        
   </tfoot>
-                    </table>
+                    </table>  
 </body>
 </html>

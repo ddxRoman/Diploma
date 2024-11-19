@@ -247,8 +247,8 @@ if (($monthget==$key) || (date('m')==$key && $i==0 && $monthget<date('m'))){
         <input name="date_pay" type="date">
         <input name="summa" type="number">
         <select name="contributor" id="">
-            <option value="Лера">Лера</option>
             <option value="Рома">Рома</option>
+            <option value="Лера">Лера</option>
         </select>
         <Button>Вкинуть лавеху</Button>
     </form>

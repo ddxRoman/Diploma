@@ -29,7 +29,7 @@ $monthget=$_GET['month'];
     <link rel="stylesheet" href="../../../css/finance/finance-style.css">
 </head>
 <body class="reports_body">
-<h1>Еда</h1>
+<a href="../../finance.php"><h1>Еда</h1></a>
 
 <div class="month_line">
         <ul class="month_ul_reports">
@@ -144,6 +144,7 @@ if($filters[5]=='Общее') {$total_Common=$total_Common+$filters[4]; }
 
                 }
                     }
+                    echo "<b>Рома</b> -".$total_Roma."<br> <b>Лера</b> - ".$total_Lera."<br> <b>Общее</b> - ".$total_Common;
                         ?>
                       <tfoot class="footer_total_line_table">
                         <tr>
