@@ -8,13 +8,11 @@
 
 </head>
 <body>
-    
 
 <?
 require_once '../../action/connect.php'; 
 $filter_category = $_GET['id'];
-$filter=mysqli_query($connect, "SELECT*FROM `expenses` WHERE `id`='$filter_category'");
-$filter=mysqli_fetch_assoc($filter);
+
 ?>
 <h1>#<?=$filter_category?></h1>
 <table class="table table-hover">
@@ -29,34 +27,35 @@ $filter=mysqli_fetch_assoc($filter);
                         $total=0;
                         foreach($finance as $finances){
                             list($year, $month, $day) = explode('-', $finances[1]); // Если формат "день-месяц-год" 
-                            if($month == date('m') && $year == date('Y') && $finances[6] == $filter_category){
-                        ?>
+                            if( $finances[6] == $filter_category){
+                                ?>
                         <tr>
                             <td>
                             <a href="date.php?id=<?=$finances[1]?>" target="details">
                                 <?=$finances[1];  ?> 
-                                </a>
-                            </td>
-                            <td><a href="category.php?id=<?=$finances[2]?>" target="details">
-                                                                <?=$finances[2]; ?>
                             </a>
-                            </td>
+                        </td>
+                        <td><a href="category.php?id=<?=$finances[2]?>" target="details">
+                            <?=$finances[2]; ?>
+                        </a>
+                    </td>
                             <td><a href="purchase.php?id=<?=$finances[3]?>" title="<?=$finances[3];?>" target="details">
-                                                                <?=$finances[3]; ?>
+                                <?=$finances[3]; ?>
                             </a>
                             </td>
                             <td><a href="coast.php?id=<?=$finances[4]?>" target="details">
                                         <?=$finances[4]; ?>
                             </a>
-                            </td>
+                        </td>
                             <td><a href="payer.php?id=<?=$finances[5]?>" target="details">
-                                                <?=$finances[5]; ?>
+                                <?=$finances[5]; ?>
                             </a>
-                            </td>
-                        </tr>
-                        <?
+                        </td>
+                    </tr>
+                    <?
                         $total=$total+$finances[4];
-                        }
+                    }
+                          
 
                         }?>
                         <tr >

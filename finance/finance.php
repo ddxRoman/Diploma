@@ -234,7 +234,7 @@ if (($monthget==$key) || (date('m')==$key && $i==0 && $monthget<date('m'))){
                    </div>
                 </div>
                 <div class="col-6 ">
-                    <iframe name="details" src="" class="finance_operation_frame" frameborder="0">
+                    <iframe name="details" src="details\short_reports.php" class="finance_operation_frame" frameborder="0">
                     </iframe>
                 </div>
             </div>

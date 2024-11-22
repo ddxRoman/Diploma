@@ -13,10 +13,12 @@
 <?
 require_once '../../action/connect.php'; 
 $filter_category = $_GET['id'];
+list($year, $month, $day) = explode('-', $finances[1]); // Если формат "день-месяц-год" 
+$PlusDay=$year+"-"+$month+"-"+$day;
 $filter=mysqli_query($connect, "SELECT*FROM `expenses` WHERE `id`='$filter_category'");
 $filter=mysqli_fetch_assoc($filter);
 ?>
-<h1><?=$filter_category?></h1>
+<h1><a href=""><</a><?=$filter_category?> <a href="date.php?id=<?=$PlusDay?>">></a> </h1>
 <table class="table table-hover">
                         <tr>
                             <th>Дата</th>

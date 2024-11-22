@@ -147,3 +147,19 @@ display: inline;
 .td_total{
     padding: 5px;
 }
+.block_smeta{
+    margin-top: 1%;
+    border: 2px solid rgba(42, 42, 175, 0.219);
+    background-color: rgba(0, 0, 255, 0.034);
+}
+.block_smeta li{
+    margin-top: 5px;
+    font-weight: 600;
+}
+.block_smeta select{
+margin-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 150px;
+
+}
