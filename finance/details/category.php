@@ -11,7 +11,6 @@
 </head>
 <body>
     
-
 <?
 require_once '../../action/connect.php'; 
 $filter_category = $_GET['id'];
@@ -29,7 +28,6 @@ $total=0;
                             <th>Плательщик</th>
                         </tr>
                         <?
-
                         foreach($finance as $finances){
                             list($year, $month, $day) = explode('-', $finances[1]); // Если формат "день-месяц-год" 
                             if($month == date('m') && $year == date('Y') && $finances[2] == $filter_category){
