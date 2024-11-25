@@ -5,6 +5,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/finance/finance-style.css">
+    <link rel="stylesheet" href="../../css/finance/finance-style.css">
 
 </head>
 <body>
@@ -17,7 +19,7 @@ $filter=mysqli_query($connect, "SELECT*FROM `expenses` WHERE `id`='$filter_categ
 $filter=mysqli_fetch_assoc($filter);
 $total=0;
 ?>
-<h1><? echo $filter_category?> </h1>
+<a href="short_reports.php"><h1><? echo $filter_category?> </h1></a>
 <table class="table table-hover">
                         <tr>
                             <th>Дата</th>
@@ -33,6 +35,11 @@ $total=0;
                             if($month == date('m') && $year == date('Y') && $finances[2] == $filter_category){
                         ?>
                         <tr>
+                        <td>
+                                        <a href="../operation/edit_operation_form.php?id=<?=$finances[0]?>">
+                                            <img src="../../file/icons/edit_for_finance.svg" class="icon_edit_finance" alt="">
+                                        </a>
+                                    </td>
                             <td><a href="date.php?id=<?=$finances[1]?>" target="details">
                                 <?=$finances[1];  ?>
                                 </a>

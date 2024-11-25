@@ -101,6 +101,7 @@ if (($monthget==$key) || (date('m')==$key && $i==0 && $monthget<date('m'))){
                         <select required name="category" id="">
                             <option value="Продукты">Продукты</option>
                             <option value="Общие расходы">Общие расходы</option>
+                            <option value="Общие расходы">Бытовые расходы</option>
                             <option value="Собака">Собака</option>
                             <option value="Развлечения">Развлечения</option>
                             <option value="Сигареты">Сигареты</option>

@@ -70,27 +70,27 @@ if (($monthget==$key) || (date('m')==$key && $i==0 && $monthget<date('m'))){
                             if (($month == date('m') && $year == date('Y')) && ($filters[2]==$category1 || $filters[2]==$category2)) {
                         ?>
                                 <tr>
-                                    <td><a href="details/date.php?id=<?= $filters[1] ?>" target="details">
+                                    <td><a href="../date.php?id=<?= $filters[1] ?>" target="details">
                                             <?= $filters[1]; ?>
                                         </a>
                                     </td>
-                                    <td><a href="details/category.php?id=<?= $filters[2] ?>" target="details">
+                                    <td><a href="../category.php?id=<?= $filters[2] ?>" target="details">
                                             <?= $filters[2]; ?>
                                         </a>
                                     </td>
-                                    <td><a href="details/purchase.php?id=<?= $filters[3] ?>" title="<?= $filters[3]; ?>" target="details">
+                                    <td><a href="../purchase.php?id=<?= $filters[3] ?>" title="<?= $filters[3]; ?>" target="details">
                                             <?= $filters[3]; ?>
                                         </a>
                                     </td>
-                                    <td><a href="details/coast.php?id=<?= $filters[4] ?>" target="details">
+                                    <td><a href="../coast.php?id=<?= $filters[4] ?>" target="details">
                                             <?= $filters[4]; ?> руб.
                                         </a>
                                     </td>
-                                    <td><a href="details/payer.php?id=<?= $filters[5] ?>" target="details">
+                                    <td><a href="../payer.php?id=<?= $filters[5] ?>" target="details">
                                             <?= $filters[5]; ?>
                                         </a>
                                     </td>
-                                    <td><a href="details/hashtag.php?id=<?= $filters[6] ?>" target="details">
+                                    <td><a href="../hashtag.php?id=<?= $filters[6] ?>" target="details">
                                             <?= $filters[6]; ?>
                                         </a>
                                     </td>
@@ -112,27 +112,27 @@ if($filters[5]=='Общее') {$total_Common=$total_Common+$filters[4]; }
                         ?>
                                 <tr>
 
-                                    <td><a href="details/date.php?id=<?= $filters[1] ?>" target="details">
+                                    <td><a href="../date.php?id=<?= $filters[1] ?>" target="details">
                                             <?= $filters[1]; ?>
                                         </a>
                                     </td>
-                                    <td><a href="details/category.php?id=<?= $filters[2] ?>" target="details">
+                                    <td><a href="../category.php?id=<?= $filters[2] ?>" target="details">
                                             <?= $filters[2]; ?>
                                         </a>
                                     </td>
-                                    <td><a href="details/purchase.php?id=<?= $filters[3] ?>" title="<?= $filters[3]; ?>" target="details">
+                                    <td><a href="../purchase.php?id=<?= $filters[3] ?>" title="<?= $filters[3]; ?>" target="details">
                                             <?= $filters[3]; ?>
                                         </a>
                                     </td>
-                                    <td><a href="details/coast.php?id=<?= $filters[4] ?>" target="details">
+                                    <td><a href="../coast.php?id=<?= $filters[4] ?>" target="details">
                                             <?= $filters[4]; ?> руб.
                                         </a>
                                     </td>
-                                    <td><a href="details/payer.php?id=<?= $filters[5] ?>" target="details">
+                                    <td><a href="../payer.php?id=<?= $filters[5] ?>" target="details">
                                             <?= $filters[5]; ?>
                                         </a>
                                     </td>
-                                    <td><a href="details/hashtag.php?id=<?= $filters[6] ?>" target="details">
+                                    <td><a href="detai..ls/hashtag.php?id=<?= $filters[6] ?>" target="details">
                                             <?= $filters[6]; ?>
                                         </a>
                                     </td>

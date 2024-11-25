@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/finance/finance-style.css">
-    <title>Document</title>
+    <title>Отчёт</title>
 </head>
 <body>
     
@@ -15,6 +15,7 @@ $mount_today = date("m");
 $total1=0;
 $total2=0;
 $total3=0;
+$total_other=0;
 $total4=0;
 $total5=0;
 $total6=0;
@@ -40,6 +41,7 @@ foreach($finance as $finances){
         if($mount_today==$month){
         if($finances[2]=="Продукты")    $total1=$total1+$finances[4];
         if($finances[2]=="Общие расходы")    $total2=$total2+$finances[4];
+        if($finances[2]=="Прочие расходы")    $total_other=$total_other+$finances[4];
         if($finances[2]=="Собака")      $total3=$total3+$finances[4];
         if($finances[2]=="Развлечения")    $total4=$total4+$finances[4];
         if($finances[2]=="Сигареты")    $total5=$total5+$finances[4];
@@ -49,22 +51,22 @@ foreach($finance as $finances){
     }
     
 }
-
 ?>
 
 
 <div class="col-6 block_smeta">
-
+<h2><a href="../finance.php" target="_blank">Главная</a></h2>
         
 <ul>
-    <li><b><a href="category.php?id=Продукты" title="Продукты" target="details">Продукты</a></b>    - <?=$total1?></li>
-    <li><b> <a href="category.php?id=Продукты" title="Продукты" target="details">Общие расходы</a></b>    - <?=$total2?></li>
+    <li><b> <a href="category.php?id=Продукты" title="Продукты" target="details">Продукты</a></b>    - <?=$total1?></li>
+    <li><b> <a href="category.php?id=Общие расходы" title="Продукты" target="details">Общие расходы</a></b>    - <?=$total2?></li>
+    <li><b> <a href="category.php?id=Прочие расходы" title="Продукты" target="details">Прочие расходы</a></b>    - <?=$total_other?></li>
     <li><b> <a href="category.php?id=Собака" title="Собака" target="details">Собака</a></b>    - <?=$total3?></li>
     <li><b> <a href="category.php?id=Развлечения" title="Развлечения" target="details">Развлечения</a></b>    - <?=$total4?></li>
     <li><b> <a href="category.php?id=Сигареты" title="Сигареты" target="details">Сигареты</a></b>    - <?=$total5?></li>
     <li><b> <a href="category.php?id=Кошка" title="Кошка" target="details">Кошка</a></b>    - <?=$total6?></li>
-    <li><b><a href="category.php?id=Личное" title="Личное" target="details"> Личное</a></b>    - <?=$total7?></li>
-    <li><b><a href="category.php?id=Здоровье" title="Здоровье" target="details"> Здоровье</a></b>    - <?=$total8?></li>
+    <li><b> <a href="category.php?id=Личное" title="Личное" target="details"> Личное</a></b>    - <?=$total7?></li>
+    <li><b> <a href="category.php?id=Здоровье" title="Здоровье" target="details"> Здоровье</a></b>    - <?=$total8?></li>
 </ul>
 
 </div>
