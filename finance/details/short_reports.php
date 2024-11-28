@@ -67,7 +67,7 @@ foreach($finance as $finances){
     <li><b> <a href="category.php?id=Прочие расходы" title="Продукты" target="details">Прочие расходы</a></b>    - <?=$total_other?> руб.</li>
     <li><b> <a href="category.php?id=Собака" title="Собака" target="details">Собака</a></b>    - <?=$total_dog?> руб.</li>
     <li><b> <a href="category.php?id=Развлечения" title="Развлечения" target="details">Развлечения</a></b>    - <?=$total_entertainment?> руб.</li>
-    <li><b> <a href="category.php?id=Сигареты" title="Сигареты" target="details">Сигареты</a></b>    - <?=$total_smoke?></li>
+    <li><b> <a href="category.php?id=Сигареты" title="Сигареты" target="details">Сигареты</a></b>    - <?=$total_smoke?> руб.</li>
     <li><b> <a href="category.php?id=Кошка" title="Кошка" target="details">Кошка</a></b>    - <?=$total_cat?> руб.</li>
     <li><b> <a href="category.php?id=Личное" title="Личное" target="details"> Личное</a></b>    - <?=$total_private?> руб.</li>
     <li><b> <a href="category.php?id=Здоровье" title="Здоровье" target="details"> Здоровье</a></b>    - <?=$total_health?> руб.</li>
