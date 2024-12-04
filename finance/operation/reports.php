@@ -34,6 +34,9 @@ $date_today = date("m");
                     <a href="../details/reports/pet_reports.php" title="Все расходы на животных">
                         <li>Животные</li>
                     </a>
+                    <a href="../details/reports/smoke_reports.php" title="Все расходы на животных">
+                        <li>Сигареты</li>
+                    </a>
                 </ul>
 
             </div>
