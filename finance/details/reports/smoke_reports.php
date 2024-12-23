@@ -1,6 +1,11 @@
 <?php
 require_once '../../../action/connect.php'; 
 $category1='Сигареты';
+$monthget=$_GET['month'];
+$today=date('d');
+$year = date('y');
+$last = date('t-'.$monthget.'-Y', mktime(0, 0, 0, $monthget+1, -1, $year));
+list($last_day) = explode('-', $last); // Если формат "день-месяц-год" 
 $month_list = array(
     "1" => "Январь",
     "2" => "Февраль",
@@ -16,7 +21,7 @@ $month_list = array(
     "12" => "Декабрь",
 );
 $i=0;
-$monthget=$_GET['month'];
+
 // $pet_type=$_GET['pet'];
 
 ?>
@@ -142,19 +147,24 @@ if (($monthget==$key) || (date('m')==$key && $i==0 && $monthget<date('m'))){
 
                     }
 
-}                       echo "<b>Кошка</b> -".$total_Cat."<br> <b>Собака</b> - ".$total_Dog;
-?>     
+}                       if($monthget != "" && $monthget != $month ){ $avrg_coast=$total/$last_day; }
+else {$avrg_coast=$total/$today;}
+
+echo "<b>Рома</b> -".$total_Roma."<br> <b>Лера</b> - ".$total_Lera."<br> <b>Общее</b> - ".$total_Common;
+                      ?> 
                       
                       <tfoot class="footer_total_line_table">
                         <tr>
                             <td colspan="4" style="text-align:right">ИТОГО:</td>
                             <td>
-                                <p class="total_table">
-                                    <?=$total?> Руб
+                                <p class="total_table" title="В Среднем в день - <?=number_format((float)$avrg_coast, 2, '.', '')?>">
+                                    <?=$total?> <br>
+                                </p>
+                                <p class="avrg_table">
+                                    <?=number_format((float)$avrg_coast, 2, '.', '')?>
                                 </p>
                             </td>
                         </tr>
-                        
   </tfoot>
                     </table>  
 </body>
