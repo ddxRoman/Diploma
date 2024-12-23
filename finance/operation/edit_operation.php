@@ -11,6 +11,6 @@ $hashtag = strtolower($hashtag);
 
 
 mysqli_query($connect, "UPDATE `expenses` SET  `date` = '$date', `category` = '$category', `purchase`= '$purchase', `coast`= '$coast', `payer`= '$payer', `hashtag`= '$hashtag' WHERE `id` = '$id'");
-header('Location: ../details/short_reports.php');
+header('Location: ../finance.php');
 
 ?>

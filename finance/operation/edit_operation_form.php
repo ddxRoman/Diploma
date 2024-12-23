@@ -19,7 +19,7 @@ $operation=mysqli_fetch_assoc($operation);
                             <option value="<?=$operation['category']?>"><?=$operation['category']?></option>
                             <option value="Продукты">Продукты</option>
                             <option value="Общие расходы">Общие расходы</option>
-                            <option value="Прочие расходы">Прочие расходы</option>
+                            <option value="Бытовые расходы">Бытовые расходы</option>
                             <option value="Собака">Собака</option>
                             <option value="Развлечения">Развлечения</option>
                             <option value="Сигареты">Сигареты</option>

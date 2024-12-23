@@ -42,7 +42,7 @@ foreach($finance as $finances){
         if($mount_today==$month){
         if($finances[2]=="Продукты")    $total_food=$total_food+$finances[4];
         if($finances[2]=="Общие расходы")    $total_common=$total_common+$finances[4];
-        if($finances[2]=="Прочие расходы")    $total_other=$total_other+$finances[4];
+        if($finances[2]=="Бытовые расходы")    $total_other=$total_other+$finances[4];
         if($finances[2]=="Собака")      $total_dog=$total_dog+$finances[4];
         if($finances[2]=="Развлечения")    $total_entertainment=$total_entertainment+$finances[4];
         if($finances[2]=="Сигареты")    $total_smoke=$total_smoke+$finances[4];
@@ -63,8 +63,8 @@ foreach($finance as $finances){
         <div class="col-8 block_smeta">
         <ul>
     <li><b> <a href="category.php?id=Продукты" title="Продукты" target="details">Продукты</a></b>    - <?=$total_food?> руб.</li>
-    <li><b> <a href="category.php?id=Общие расходы" title="Продукты" target="details">Общие расходы</a></b>    - <?=$total_common?> руб.</li>
-    <li><b> <a href="category.php?id=Прочие расходы" title="Продукты" target="details">Прочие расходы</a></b>    - <?=$total_other?> руб.</li>
+    <li><b> <a href="category.php?id=Общие расходы" title="Общие" target="details">Общие расходы</a></b>    - <?=$total_common?> руб.</li>
+    <li><b> <a href="category.php?id=Бытовые расходы" title="Бытовые" target="details">Бытовые расходы</a></b>    - <?=$total_other?> руб.</li>
     <li><b> <a href="category.php?id=Собака" title="Собака" target="details">Собака</a></b>    - <?=$total_dog?> руб.</li>
     <li><b> <a href="category.php?id=Развлечения" title="Развлечения" target="details">Развлечения</a></b>    - <?=$total_entertainment?> руб.</li>
     <li><b> <a href="category.php?id=Сигареты" title="Сигареты" target="details">Сигареты</a></b>    - <?=$total_smoke?> руб.</li>
