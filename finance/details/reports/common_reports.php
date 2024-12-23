@@ -3,6 +3,11 @@ require_once '../../../action/connect.php';
 $category1='Продукты';
 $category2='Общие расходы';
 $category3='Развлечения';
+$monthget=$_GET['month'];
+$today=date('d');
+$year = date('y');
+$last = date('t-'.$monthget.'-Y', mktime(0, 0, 0, $monthget+1, -1, $year));
+list($last_day) = explode('-', $last); // Если формат "день-месяц-год" 
 $month_list = array(
     "1" => "Январь",
     "2" => "Февраль",
@@ -17,8 +22,8 @@ $month_list = array(
     "11" => "Ноябрь",
     "12" => "Декабрь",
 );
+
 $i=0;
-$monthget=$_GET['month'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -151,7 +156,9 @@ if($filters[5]=='Общее') {$total_Common=$total_Common+$filters[4]; }
 
                     }
 
-}                         
+}                                           
+if($monthget != "" && $monthget != $month ){ $avrg_coast=$total/$last_day; }
+else {$avrg_coast=$total/$today;}
 
 echo "<b>Рома</b> -".$total_Roma."<br> <b>Лера</b> - ".$total_Lera."<br> <b>Общее</b> - ".$total_Common;
                       ?> 
@@ -160,8 +167,11 @@ echo "<b>Рома</b> -".$total_Roma."<br> <b>Лера</b> - ".$total_Lera."<br>
                         <tr>
                             <td colspan="4" style="text-align:right">ИТОГО:</td>
                             <td>
-                                <p class="total_table">
-                                    <?=$total?> Руб
+                                <p class="total_table" title="В Среднем в день - <?=number_format((float)$avrg_coast, 2, '.', '')?>">
+                                    <?=$total?> <br>
+                                </p>
+                                <p class="avrg_table">
+                                    <?=number_format((float)$avrg_coast, 2, '.', '')?>
                                 </p>
                             </td>
                         </tr>

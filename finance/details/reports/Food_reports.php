@@ -1,7 +1,12 @@
 <?php
 require_once '../../../action/connect.php'; 
 $category='Продукты';
-$date=$_POST['interval'];
+$monthget=$_GET['month'];
+$today=date('d');
+$year = date('y');
+$last = date('t-'.$monthget.'-Y', mktime(0, 0, 0, $monthget+1, -1, $year));
+list($last_day) = explode('-', $last); // Если формат "день-месяц-год" 
+
 $month_list = array(
     "1" => "Январь",
     "2" => "Февраль",
@@ -48,10 +53,6 @@ if (($monthget==$key) || (date('m')==$key && $i==0 && $monthget<date('m'))){
         </ul>
     </div>
 
-    <form action="Food_reports.php" method="post">
-    <input name="interval" onchange="this.form.submit()" type="date" value="<?=$interval?>">
-</form>
-
 <table class="table table-hover">
                         <tr>
                             <th>Дата</th>
@@ -68,7 +69,7 @@ if (($monthget==$key) || (date('m')==$key && $i==0 && $monthget<date('m'))){
                        $total = 0;
                        foreach ($filter as $filters) {
                            if ($monthget == ""){
-                               list($year, $month, $day) = explode('-', $filters[1]); // Если формат "день-месяц-год" 
+                               list($year, $month, $day) = explode('-', $filters[1]); // Если формат "год-месяц-день" 
                            if (($month == date('m') && $year == date('Y')) && ($filters[2]==$category)) {
                        ?>
                             
@@ -144,18 +145,25 @@ if($filters[5]=='Общее') {$total_Common=$total_Common+$filters[4]; }
 
                 }
                     }
+                    if($monthget != "" && $monthget != $month ){ $avrg_coast=$total/$last_day; }
+                    else {$avrg_coast=$total/$today; }
+                    
                     echo "<b>Рома</b> -".$total_Roma."<br> <b>Лера</b> - ".$total_Lera."<br> <b>Общее</b> - ".$total_Common;
-                        ?>
-                      <tfoot class="footer_total_line_table">
-                        <tr>
-                            <td colspan="4" style="text-align:right">ИТОГО:</td>
-                            <td>
-                                <p class="total_table">
-                                    <?=$total?>
-                                </p>
-                            </td>
-                        </tr>
-  </tfoot>
+                                          ?> 
+                                          
+                                          <tfoot class="footer_total_line_table">
+                                            <tr>
+                                                <td colspan="4" style="text-align:right">ИТОГО:</td>
+                                                <td>
+                                                    <p class="total_table" title="В Среднем в день - <?=number_format((float)$avrg_coast, 2, '.', '')?>">
+                                                        <?=$total?> <br>
+                                                    </p>
+                                                    <p class="avrg_table">
+                                                        <?=number_format((float)$avrg_coast, 2, '.', '')?>
+                                                    </p>
+                                                </td>
+                                            </tr>
+                      </tfoot>
                     </table>
 </body>
 </html>

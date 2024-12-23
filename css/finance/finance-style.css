@@ -92,6 +92,7 @@ tfoot{
 .total_table{
         color: blue;
     font-size: 24pt;
+
 }
 .reports_body{
     margin-bottom: 80px;
@@ -158,4 +159,18 @@ margin-left: 20px;
     margin-top: 10px;
     margin-bottom: 10px;
     width: 150px;
+}
+.avrg_table{
+color: rgb(170, 170, 170);
+font-weight: 900;
+}
+.avrg_table:hover{
+color: rgb(0, 0, 0);
+font-weight: 900;
+
+    /* cursor: url(cat.png) 2 2, default; */
+    cursor: default;
+}
+.footer_total_line_table{
+    cursor: default;
 }
