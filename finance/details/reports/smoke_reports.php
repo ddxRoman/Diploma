@@ -3,6 +3,7 @@ require_once '../../../action/connect.php';
 $category1='Сигареты';
 $monthget=$_GET['month'];
 $today=date('d');
+$current_month=date('m');
 $year = date('y');
 $last = date('t-'.$monthget.'-Y', mktime(0, 0, 0, $monthget+1, -1, $year));
 list($last_day) = explode('-', $last); // Если формат "день-месяц-год" 
@@ -21,9 +22,6 @@ $month_list = array(
     "12" => "Декабрь",
 );
 $i=0;
-
-// $pet_type=$_GET['pet'];
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -53,7 +51,6 @@ if (($monthget==$key) || (date('m')==$key && $i==0 && $monthget<date('m'))){
 }
             }?>
         </ul>
-
     </div>
 <table class="table table-hover">
                         <tr>
@@ -102,14 +99,10 @@ if (($monthget==$key) || (date('m')==$key && $i==0 && $monthget<date('m'))){
 
                         }
                         else {
-
-
                                 list($year, $month, $day) = explode('-', $filters[1]); // Если формат "день-месяц-год" 
                             if (($month == $monthget && $year == date('Y')) && ($filters[2]==$category1)) {
-
                         ?>
                                 <tr>
-
                                     <td><a href="../date.php?id=<?= $filters[1] ?>" target="details">
                                             <?= $filters[1]; ?>
                                         </a>
@@ -137,20 +130,10 @@ if (($monthget==$key) || (date('m')==$key && $i==0 && $monthget<date('m'))){
                                 </tr>
                         <?
                                 $total = $total + $filters[4];
-
-                            
                         }
-
-
-
-                        
-
                     }
-
-}                       if($monthget != "" && $monthget != $month ){ $avrg_coast=$total/$last_day; }
-else {$avrg_coast=$total/$today;}
-
-echo "<b>Рома</b> -".$total_Roma."<br> <b>Лера</b> - ".$total_Lera."<br> <b>Общее</b> - ".$total_Common;
+}                       if($monthget != "" && $monthget != $current_month ){ $avrg_coast=$total/$last_day; echo "IF".$monthget."--".$last_day;}
+else {$avrg_coast=$total/$today; echo "ELSE".$monthget."--".$current_month."--".$today;}
                       ?> 
                       
                       <tfoot class="footer_total_line_table">
