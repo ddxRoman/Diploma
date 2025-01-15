@@ -89,7 +89,6 @@ if (($monthget==$key) || (date('m')==$key && $i==0 && $monthget<date('m'))){
 
                         <?
                         $total=0;
-                        // echo $monthget.'---'.$select_year;
                         foreach ($filter as $filters) {
                             if ($monthget == ""){
                                 list($year, $month, $day) = explode('-', $filters[1]); // Если формат "день-месяц-год" 
