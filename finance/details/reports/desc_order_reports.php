@@ -29,6 +29,7 @@ $monthget=$_GET['month'];
   
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../../css/finance/finance-style.css">
+    <title><?=$category1?></title>
 </head>
 <body>
     <a href="../../operation/reports.php">
@@ -51,12 +52,6 @@ if (($monthget==$key) || (date('m')==$key && $i==0 && $monthget<date('m'))){
         </ul>
 
     </div>
-    <!-- <div class="pet_type">
-        <ul>
-            <a href="pet_reports.php?pet=cat" onchange="this.form.submit()"><li>Кошка</li></a>
-            <a href="pet_reports.php?pet=dog" onchange="this.form.submit()"><li>Собака</li></a>
-        </ul>
-    </div> -->
 <table class="table table-hover">
                         <tr>
                             <th>Дата</th>
@@ -105,23 +100,13 @@ if (($monthget==$key) || (date('m')==$key && $i==0 && $monthget<date('m'))){
                                 $total = $total + $desc_finances[4];
                                 if($desc_finances[5]=="Рома") {$total_Roma=$total_Roma+$desc_finances[4]; }
 if($desc_finances[5]=='Лера') {$total_Lera=$total_Lera+$desc_finances[4]; }
-if($desc_finances[5]=='Общее') {$total_Common=$total_Common+$desc_finances[4]; }
-if($desc_finances[2]=='Собака') {$total_Roma=$total_Roma+$desc_finances[4]; }
-if($desc_finances[2]=='Кошка') {$total_Lera=$total_Lera+$desc_finances[4]; }
                             }
-
                         }
-                        
-
                         else {
-
-
                                 list($year, $month, $day) = explode('-', $desc_finances[1]); // Если формат "день-месяц-год" 
                             if (($month == $monthget && $year == date('Y'))) {
-
                         ?>
                                 <tr>
-
                                     <td><a href="../date.php?id=<?= $desc_finances[1] ?>" target="details">
                                             <?= $desc_finances[1]; ?>
                                         </a>
@@ -154,16 +139,9 @@ if($desc_finances[5]=='Лера') {$total_Lera=$total_Lera+$desc_finances[4]; }
 
                             
                         }
-
-
-
-                        
-
                     }
-
 }                       echo "<b>Лера</b> -".$total_Lera."<br> <b>Рома</b> - ".$total_Roma;
 ?>     
-                      
                       <tfoot class="footer_total_line_table">
                         <tr>
                             <td colspan="4" style="text-align:right">ИТОГО:</td>

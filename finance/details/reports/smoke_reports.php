@@ -213,9 +213,12 @@ else {$avrg_coast=$total/$today;
                             $total_smoke_month=$total_smoke_month+$filters[4];
                         }
                     }
+                    $total_year=$total_year + $total_smoke_month;
             echo $month_lists." - ".$total_smoke_month;
   ?>      </li>
-        <?}?>
+        <?}
+echo "Всего за год: ".$total_year." руб.";
+        ?>
 
 </ul>
       </div>
