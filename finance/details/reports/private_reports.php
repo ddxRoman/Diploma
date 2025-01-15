@@ -6,10 +6,15 @@ $category1='Личное';
 $yearget=$_GET['year'];
 if($yearget==""){
     $session['year']=date('Y');
-}else {$session['year']=$yearget; }?><br><?
+}else {$session['year']=$yearget; }
+
 $monthget=$_GET['month'];
+if($monthget==""){
+    $session['month']=date('m');
+}else {$session['month']=$monthget; }
+
 $today=date('d');
-$current_month=date('m');
+$select_month=$session['month'];
 $select_year = $session['year'];
 $last = date('t-'.$monthget.'-Y', mktime(0, 0, 0, $monthget+1, -1, $year));
 list($last_day) = explode('-', $last); // Если формат "день-месяц-год" 
@@ -91,9 +96,8 @@ if (($monthget==$key) || (date('m')==$key && $i==0 && $monthget<date('m'))){
                         $total=0;
                         // echo $monthget.'---'.$select_year;
                         foreach ($filter as $filters) {
-                            if ($monthget == ""){
                                 list($year, $month, $day) = explode('-', $filters[1]); // Если формат "день-месяц-год" 
-                            if (($month == date('m') && $year == $select_year) && ($filters[2]==$category1)) {
+                            if (($month == $select_month && $year == $select_year) && ($filters[2]==$category1)) {
                         ?>
                                 <tr>
                                     <td><a href="../date.php?id=<?= $filters[1] ?>" target="details">
@@ -124,47 +128,9 @@ if (($monthget==$key) || (date('m')==$key && $i==0 && $monthget<date('m'))){
                         <?
                                 $total = $total + $filters[4];
                             }
-
-                        }
-                        else {
-                                list($year, $month, $day) = explode('-', $filters[1]); // Если формат "день-месяц-год" 
-                            if (($month == $monthget && $year == $select_year) && ($filters[2]==$category1)) {
-                        ?>
-                                <tr>
-                                    <td><a href="../date.php?id=<?= $filters[1] ?>" target="details">
-                                            <?= $filters[1]; ?>
-                                        </a>
-                                    </td>
-                                    <td><a href="../category.php?id=<?= $filters[2] ?>" target="details">
-                                            <?= $filters[2]; ?>
-                                        </a>
-                                    </td>
-                                    <td><a href="../purchase.php?id=<?= $filters[3] ?>" title="<?= $filters[3]; ?>" target="details">
-                                            <?= $filters[3]; ?>
-                                        </a>
-                                    </td>
-                                    <td><a href="../coast.php?id=<?= $filters[4] ?>" target="details">
-                                            <?= $filters[4]; ?> руб.
-                                        </a>
-                                    </td>
-                                    <td><a href="../payer.php?id=<?= $filters[5] ?>" target="details">
-                                            <?= $filters[5]; ?>
-                                        </a>
-                                    </td>
-                                    <td><a href="../hashtag.php?id=<?= $filters[6] ?>" target="details">
-                                            <?= $filters[6]; ?>
-                                        </a>
-                                    </td>
-                                </tr>
-                        <?
-                                $total = $total + $filters[4];
-                        }
-                    }
 }                       if($monthget != "" && $monthget != $current_month ){ $avrg_coast=$total/$last_day; 
-    // echo "IF".$monthget."--".$last_day;
 }
 else {$avrg_coast=$total/$today; 
-    // echo "ELSE".$monthget."--".$current_month."--".$today;
 }
                       ?> 
                       
