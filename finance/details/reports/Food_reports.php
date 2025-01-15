@@ -146,8 +146,12 @@ if($filters[5]=='Общее') {$total_Common=$total_Common+$filters[4]; }
 
                 }
                     }
-                    if($monthget != "" && $monthget != $current_month ){ $avrg_coast=$total/$last_day; echo "IF".$monthget."--".$last_day;}
-                    else {$avrg_coast=$total/$today; echo "ELSE".$monthget."--".$current_month."--".$today;}
+                    if($monthget != "" && $monthget != $current_month ){ $avrg_coast=$total/$last_day; 
+                        // echo "IF".$monthget."--".$last_day;
+                    }
+                    else {$avrg_coast=$total/$today; 
+                        // echo "ELSE".$monthget."--".$current_month."--".$today;
+                    }
                     
                     echo "<b>Рома</b> -".$total_Roma."<br> <b>Лера</b> - ".$total_Lera."<br> <b>Общее</b> - ".$total_Common;
                                           ?> 
