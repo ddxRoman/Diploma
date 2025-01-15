@@ -1,7 +1,7 @@
 <?php
 require_once '../../../action/connect.php'; 
 $category1='Продукты';
-$category2='Общие расходы';
+// $category2='Общие расходы';
 $category3='Развлечения';
 $category4='Бытовые расходы';
 $monthget=$_GET['month'];
@@ -35,6 +35,7 @@ $i=0;
   
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../../css/finance/finance-style.css">
+    <title>Общие расходы на благое дело</title>
 </head>
 <body>
     <a href="../../finance.php">
@@ -74,7 +75,7 @@ if (($monthget==$key) || (date('m')==$key && $i==0 && $monthget<date('m'))){
                         foreach ($filter as $filters) {
                             if ($monthget == ""){
                                 list($year, $month, $day) = explode('-', $filters[1]); // Если формат "день-месяц-год" 
-                            if (($month == date('m') && $year == date('Y')) && ($filters[2]==$category1 || $filters[2]==$category2||$filters[2]==$category3|| $filters[2]==$category4)) {
+                            if (($month == date('m') && $year == date('Y')) && ($filters[2]==$category1 || $filters[2]==$category3|| $filters[2]==$category4)) {
                         ?>
                                 <tr>
                                     <td><a href="../date.php?id=<?= $filters[1] ?>" target="details">
@@ -114,7 +115,7 @@ if($filters[5]=='Общее') {$total_Common=$total_Common+$filters[4]; }
 
 
                                 list($year, $month, $day) = explode('-', $filters[1]); // Если формат "день-месяц-год" 
-                            if (($month == $monthget && $year == date('Y')) && ($filters[2]==$category1 || $filters[2]==$category2||$filters[2]==$category3|| $filters[2]==$category4)) {
+                            if (($month == $monthget && $year == date('Y')) && ($filters[2]==$category1 || $filters[2]==$category3|| $filters[2]==$category4)) {
 
                         ?>
                                 <tr>
@@ -159,8 +160,8 @@ if($filters[5]=='Общее') {$total_Common=$total_Common+$filters[4]; }
                     }
 
 }                                           
-if($monthget != "" && $monthget != $current_month ){ $avrg_coast=$total/$last_day; echo "IF".$monthget."--".$last_day;}
-else {$avrg_coast=$total/$today; echo "ELSE".$monthget."--".$current_month."--".$today;}
+if($monthget != "" && $monthget != $current_month ){ $avrg_coast=$total/$last_day;}
+else {$avrg_coast=$total/$today;}
 
 echo "<b>Рома</b> -".$total_Roma."<br> <b>Лера</b> - ".$total_Lera."<br> <b>Общее</b> - ".$total_Common;
                       ?> 
