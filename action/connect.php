@@ -31,9 +31,14 @@ $helper_log = mysqli_fetch_all($helper_log); // Выбирает все стро
 $finance = mysqli_query($connect, "SELECT * FROM `expenses` ORDER BY `date` DESC"); // Подключение к определенной таблице, и получение Статуса записи
 $finance = mysqli_fetch_all($finance); // Выбирает все строки из набора $Comment и помещает их в массив  $Comments
 
+$finance_total_smoke = mysqli_query($connect, "SELECT DISTINCT YEAR(date) FROM `expenses`  "); // Подключение к определенной таблице, и получение Статуса записи
+$finance_total_smoke = mysqli_fetch_all($finance_total_smoke); // Выбирает все строки из набора $Comment и помещает их в массив  $Comments
+
+$desc_finance = mysqli_query($connect, "SELECT * FROM `expenses` ORDER BY `coast` DESC"); // Подключение к определенной таблице, и получение Статуса записи
+$desc_finance = mysqli_fetch_all($desc_finance); // Выбирает все строки из набора $Comment и помещает их в массив  $Comments
+
 $budget = mysqli_query($connect, "SELECT * FROM `budget`"); // Подключение к определенной таблице, и получение Статуса записи
 $budget = mysqli_fetch_all($budget); // Выбирает все строки из набора $Comment и помещает их в массив  $Comments
-
 
 $filter = mysqli_query($connect, "SELECT * FROM `expenses` ORDER BY `payer` DESC"); // Подключение к определенной таблице, и получение Статуса записи
 $filter = mysqli_fetch_all($filter); // Выбирает все строки из набора $Comment и помещает их в массив  $Comments
