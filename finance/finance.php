@@ -1,13 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <?
+session_start();
 require_once '../action/connect.php';
 $i=0;
-$date_today = date("Y-m-d");
-$current_year=date('Y');
+
+$yearget=$_GET['year'];
+if($yearget==""){
+    $_SESSION['year']=date('Y');
+}else {$_SESSION['year']=$yearget; }
+
 $monthget=$_GET['month'];
-$yearget=$_POST['year'];
-// echo "Tyt - - ".$yearget;
+if($monthget==""){
+    $_SESSION['month']=date('m');
+}else {$_SESSION['month']=$monthget; }
+
+$today=date('d');
+$select_month=$_SESSION['month'];
+$select_year = $_SESSION['year'];
+
+$date_today = date("Y-m-d");
 $month_list = array(
     "1" => "Январь",
     "2" => "Февраль",
@@ -22,11 +34,7 @@ $month_list = array(
     "11" => "Ноябрь",
     "12" => "Декабрь",
 );
-
-
-
 ?>
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -45,20 +53,22 @@ $month_list = array(
     <title>Финaнсовый Учёт</title>
 </head>
 
-
 <header>
     <div class="container-fluid">
         <div class="row">
             <div class="col-5">
             <div class="row">
                 <div class="col-2">
-                    <form action="" method="post">
+                <ul class="month_ul_reports">
+<? 
 
-                        <select name="year" onchange="this.form.submit()" id="">
-                            <option value="2024">2024</option>
-                            <option value="2025">2025</option>
-                        </select>
-                    </form>
+        foreach ($finance_total as $finance_total) { 
+            ?>
+    <a onchange="this.form.submit()" href="finance.php?month=<?=$monthget?>&year=<?=$finance_total[0]?>"><li><?=$finance_total[0];?></li></a>
+               <?
+           }
+        ?>
+        </ul>
                 </div>
                 <div class="col-3">
 
@@ -105,9 +115,9 @@ foreach($month_list as $month_lists) {
 if (($monthget==$key) || (date('m')==$key && $i==0 && $monthget<date('m'))){ 
     $i=1;
     ?>
-    <a class="current_month" onchange="this.form.submit()" href="finance.php?month=<?=$key?>"><li><?=$month_lists?></li></a> <?
+    <a class="current_month" onchange="this.form.submit()" href="finance.php?month=<?=$key?>&year=<?=$select_year?>"><li><?=$month_lists?></li></a> <?
     }else{ 
-    ?><a onchange="this.form.submit()" href="finance.php?month=<?=$key?>"><li><?=$month_lists?></li></a><?
+    ?><a onchange="this.form.submit()" href="finance.php?month=<?=$key?>&year=<?=$select_year?>"><li><?=$month_lists?></li></a><?
 }
             }?>
         </ul>
@@ -158,10 +168,8 @@ if (($monthget==$key) || (date('m')==$key && $i==0 && $monthget<date('m'))){
                         <?
                         $total = 0;
                         foreach ($finance as $finances) {
-                            if ($monthget == ""){
-                            if ($yearget == ""){
                                 list($year, $month, $day) = explode('-', $finances[1]); // Если формат "день-месяц-год" 
-                            if ($month == date('m') && $year == date('Y')) {
+                            if ($month == $select_month && $year == $select_year) {
                         ?>
                                 <tr>
                                     <td>
@@ -197,53 +205,7 @@ if (($monthget==$key) || (date('m')==$key && $i==0 && $monthget<date('m'))){
                         <?
                                 $total = $total + $finances[4];
                             }
-                        }}
-                        else {
-
-
-                                list($year, $month, $day) = explode('-', $finances[1]); // Если формат "день-месяц-год" 
-                            if ($month == $monthget && $year == $yearget) {
-
-                        ?>
-                                <tr>
-                                    <td>
-                                        <a href="operation/edit_operation_form.php?id=<?= $finances[0] ?>">
-                                            <img src="../file/icons/edit_for_finance.svg" class="icon_edit_finance" alt="">
-                                        </a>
-                                    </td>
-                                    <td><a href="details/date.php?id=<?= $finances[1] ?>" target="details">
-                                            <?= $finances[1]; ?>
-                                        </a>
-                                    </td>
-                                    <td><a href="details/category.php?id=<?= $finances[2] ?>" target="details">
-                                            <?= $finances[2]; ?>
-                                        </a>
-                                    </td>
-                                    <td><a href="details/purchase.php?id=<?= $finances[3] ?>" title="<?= $finances[3]; ?>" target="details">
-                                            <?= $finances[3]; ?>
-                                        </a>
-                                    </td>
-                                    <td><a href="details/coast.php?id=<?= $finances[4] ?>" target="details">
-                                            <?= $finances[4]; ?> руб.
-                                        </a>
-                                    </td>
-                                    <td><a href="details/payer.php?id=<?= $finances[5] ?>" target="details">
-                                            <?= $finances[5]; ?>
-                                        </a>
-                                    </td>
-                                    <td><a href="details/hashtag.php?id=<?= $finances[6] ?>" target="details">
-                                            <?= $finances[6]; ?>
-                                        </a>
-                                    </td>
-                                </tr>
-                        <?
-                                $total = $total + $finances[4];
-                            
-                        }
-
-
-
-                        }
+                        
                         }?>
                         <tr>
                             <td colspan="4" style="text-align:right">ИТОГО:</td>

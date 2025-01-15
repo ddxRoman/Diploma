@@ -51,8 +51,9 @@ foreach($finance as $finances){
         if($finances[2]=="Здоровье")    $total_health=$total_health+$finances[4];
     }
     
-}
+} 
 ?>
+
 
 
 

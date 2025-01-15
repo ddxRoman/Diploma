@@ -5,17 +5,17 @@ require_once '../../../action/connect.php';
 $category1='Продукты';
 $yearget=$_GET['year'];
 if($yearget==""){
-    $session['year']=date('Y');
-}else {$session['year']=$yearget; }
+    $_SESSION['year']=date('Y');
+}else {$_SESSION['year']=$yearget; }
 
 $monthget=$_GET['month'];
 if($monthget==""){
-    $session['month']=date('m');
-}else {$session['month']=$monthget; }
+    $_SESSION['month']=date('m');
+}else {$_SESSION['month']=$monthget; }
 
 $today=date('d');
-$select_month=$session['month'];
-$select_year = $session['year'];
+$select_month=$_SESSION['month'];
+$select_year = $_SESSION['year'];
 $last = date('t-'.$monthget.'-Y', mktime(0, 0, 0, $monthget+1, -1, $year));
 list($last_day) = explode('-', $last); // Если формат "день-месяц-год" 
 $month_list = array(
