@@ -174,3 +174,9 @@ font-weight: 900;
 .footer_total_line_table{
     cursor: default;
 }
+.total_smoke{
+    background-color: rgba(68, 68, 85, 0);
+    border: 0;
+    color: blue;
+    font-weight: 700;
+}
