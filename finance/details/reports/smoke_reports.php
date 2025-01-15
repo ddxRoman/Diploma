@@ -9,6 +9,7 @@ if($yearget==""){
 }else {$session['year']=$yearget; }?><br><?
 
 $monthget=$_GET['month'];
+echo $monthget;
 $today=date('d');
 $current_month=date('m');
 $select_year = $session['year'];
@@ -40,6 +41,17 @@ $i=0;
     <link rel="stylesheet" href="../../../css/finance/finance-style.css">
 </head>
 <body>
+              <ul class="month_ul_reports">
+
+<? 
+
+        foreach ($finance_total as $finance_total) { 
+            ?>
+    <a onchange="this.form.submit()" href="smoke_reports.php?month=<?=$monthget?>&year=<?=$finance_total[0]?>"><li><?=$finance_total[0];?></li></a>
+               <?
+           }
+        ?>
+        </ul>
     <a href="../../finance.php">
         <h1>Сигареты</h1>
     </a>
@@ -67,6 +79,14 @@ if (($monthget==$key) || (date('m')==$key && $i==0 && $monthget<date('m'))){
                             <th>Сумма</th>
                             <th>Плательщик</th>
                         </tr>
+                        <tr>
+                            <th></th>
+                            <th></th>
+                            <th>       <h4 class="h4_reports"> <?=$select_year?></h4></th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+
                         <?
                         $total=0;
                         // echo $monthget.'---'.$select_year;
@@ -171,23 +191,16 @@ else {$avrg_coast=$total/$today;
 
 
 <!-- Modal -->
-<!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">  -->
+      <div class="modal-body"> 
 
-          <ul class="month_ul_reports">
-        <? 
-        foreach ($finance_total_smoke as $finance_total_smoke) { 
-            ?>
-    <a onchange="this.form.submit()" href="smoke_reports.php?month=<?=$monthget?>&year=<?=$finance_total_smoke[0]?>"><li><?=$finance_total_smoke[0];?></li></a>
-               <?
-           }
-        ?></ul>
+
            <ul><?
       foreach($month_list as $month_lists) { 
         $key = array_search ($month_lists, $month_list);
@@ -205,12 +218,12 @@ else {$avrg_coast=$total/$today;
         <?}?>
 
 </ul>
-      <!-- </div>
+      </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Окей</button>
       </div>
     </div>
   </div>
-</div>            -->
+</div>           
 </body>
 </html>
