@@ -4,7 +4,10 @@
 require_once '../action/connect.php';
 $i=0;
 $date_today = date("Y-m-d");
+$current_year=date('Y');
 $monthget=$_GET['month'];
+$yearget=$_POST['year'];
+// echo "Tyt - - ".$yearget;
 $month_list = array(
     "1" => "Январь",
     "2" => "Февраль",
@@ -47,6 +50,18 @@ $month_list = array(
     <div class="container-fluid">
         <div class="row">
             <div class="col-5">
+            <div class="row">
+                <div class="col-2">
+                    <form action="" method="post">
+
+                        <select name="year" onchange="this.form.submit()" id="">
+                            <option value="2024">2024</option>
+                            <option value="2025">2025</option>
+                        </select>
+                    </form>
+                </div>
+                <div class="col-3">
+
                 <? $Roma_budget = 0;
                 $Lera_budget = 0;
                 foreach ($budget as $budgets) {
@@ -61,6 +76,8 @@ $month_list = array(
                     ?>
                 <a data-fancybox href="#hidden"><button>Вкинуть</button></a>
             </div>
+            </div>
+            </div>
             <div class="col-3">
                 <h1 class="text-center">Расходы финансов</h1>
             </div>
@@ -74,12 +91,16 @@ $month_list = array(
     </div>
 </header>
 
+<style>
+
+</style>
+
 <body>
     <div class="month_line">
-        <ul class="month_ul">
+        <ul class="month_ul_reports">
         <?
 
-        foreach($month_list as $month_lists) { 
+foreach($month_list as $month_lists) { 
             $key = array_search ($month_lists, $month_list);
 if (($monthget==$key) || (date('m')==$key && $i==0 && $monthget<date('m'))){ 
     $i=1;
@@ -98,10 +119,10 @@ if (($monthget==$key) || (date('m')==$key && $i==0 && $monthget<date('m'))){
                 <div class="col-12">
                     <form action="operation/add-pay.php" method="post">
                         <input required name="date" type="date" value="<?= $date_today ?>" autofocus/>
-                        <select required name="category" id="">
+                        <select required name="category" id="" >
                             <option value="Продукты">Продукты</option>
-                            <option value="Общие расходы">Общие расходы</option>
-                            <option value="Общие расходы">Бытовые расходы</option>
+                            <option value="Общие расходы" title="Общие расходы - расходы которые касаются Праздников, прогулок, платежей, являются не регулярными и не стабильными">Общие расходы</option>
+                            <option value="Бытовые расходы" title="Бытовые расходы - расходы которые касаются общих мероприятий и явялются ежемесячными или регулярными" >Бытовые расходы</option>
                             <option value="Собака">Собака</option>
                             <option value="Развлечения">Развлечения</option>
                             <option value="Сигареты">Сигареты</option>
@@ -138,9 +159,9 @@ if (($monthget==$key) || (date('m')==$key && $i==0 && $monthget<date('m'))){
                         $total = 0;
                         foreach ($finance as $finances) {
                             if ($monthget == ""){
+                            if ($yearget == ""){
                                 list($year, $month, $day) = explode('-', $finances[1]); // Если формат "день-месяц-год" 
                             if ($month == date('m') && $year == date('Y')) {
-
                         ?>
                                 <tr>
                                     <td>
@@ -176,12 +197,12 @@ if (($monthget==$key) || (date('m')==$key && $i==0 && $monthget<date('m'))){
                         <?
                                 $total = $total + $finances[4];
                             }
-                        }
+                        }}
                         else {
 
 
                                 list($year, $month, $day) = explode('-', $finances[1]); // Если формат "день-месяц-год" 
-                            if ($month == $monthget && $year == date('Y')) {
+                            if ($month == $monthget && $year == $yearget) {
 
                         ?>
                                 <tr>

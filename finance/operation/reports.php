@@ -21,8 +21,8 @@ $date_today = date("m");
     <hr>
     <div class="container">
         <div class="row">
-            <div class="col-6">
-
+            <div class="col-3">
+<h2>Отчёты</h2>
                 <ul class="report_list">
                     <a href="../details/reports/Food_reports.php" title="Все расходы на продукты">
                         <li>Расходы на продукты</li>
@@ -37,8 +37,94 @@ $date_today = date("m");
                     <a href="../details/reports/smoke_reports.php" title="Все расходы на животных">
                         <li>Сигареты</li>
                     </a>
+                    <a href="../details/reports/private_reports.php" title="Все личные расходы">
+                        <li>Личное</li>
+                    </a>
+                    <a href="../details/reports/desc_order_reports.php" title="Все расходы от большего к меньшему">
+                        <li>По убыванию</li>
+                    </a>
                 </ul>
 
+            </div>
+            <div class="col-3">
+                <h2>По категориям</h2>
+                <ul>
+                    <?
+
+
+$finance_report = mysqli_query($connect, "SELECT DISTINCT category FROM expenses"); // Подключение к определенной таблице, и получение Статуса записи
+$finance_report = mysqli_fetch_all($finance_report); // Выбирает все строки из набора $Comment и помещает их в массив  $Comments
+
+?>
+   <ul>
+
+       <?
+ 
+ foreach ($finance_report as $finance_reports) { 
+ ?><li>
+
+     <?  echo '<pre>';
+    print_r($finance_reports[0]);
+    echo '</pre>'; 
+    ?></li><?
+}
+
+?>
+</ul>
+                 </ul>
+            </div>
+            <div class="col-3">
+                <h2>По транзакциям</h2>
+                <ul>
+                <?
+
+
+$finance_report = mysqli_query($connect, "SELECT DISTINCT purchase FROM expenses"); // Подключение к определенной таблице, и получение Статуса записи
+$finance_report = mysqli_fetch_all($finance_report); // Выбирает все строки из набора $Comment и помещает их в массив  $Comments
+
+?>
+   <ul>
+
+       <?
+ 
+ foreach ($finance_report as $finance_reports) { 
+ ?><li>
+
+     <?  echo '<pre>';
+    print_r($finance_reports[0]);
+    echo '</pre>'; 
+    ?></li><?
+}
+
+?>
+</ul>
+                </ul>
+            </div>
+            <div class="col-3">
+                <h2>По хештегам</h2>
+                <ul>
+                <?
+
+
+$finance_report = mysqli_query($connect, "SELECT DISTINCT hashtag FROM expenses"); // Подключение к определенной таблице, и получение Статуса записи
+$finance_report = mysqli_fetch_all($finance_report); // Выбирает все строки из набора $Comment и помещает их в массив  $Comments
+
+?>
+   <ul>
+
+       <?
+ 
+ foreach ($finance_report as $finance_reports) { 
+ ?><li>
+
+     <?  echo '<pre>';
+    print_r($finance_reports[0]);
+    echo '</pre>'; 
+    ?></li><?
+}
+
+?>
+                </ul>
             </div>
 
         </div>
