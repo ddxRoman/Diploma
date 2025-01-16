@@ -5,8 +5,6 @@ $category=$_POST['category'];
 $payer=$_POST['payer'];
 $date=$_POST['date'];
 
-// header('Location: ../finance.php')
-
 ?>
 <!DOCTYPE html>
 <html lang="en">

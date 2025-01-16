@@ -1,6 +1,10 @@
 <?
 require_once '../../action/connect.php';
 $date_today = date("m");
+$category_array=[];
+$purchase_array=[];
+$hashtag_array=[];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -57,17 +61,17 @@ $finance_report = mysqli_fetch_all($finance_report); // Выбирает все 
 
 ?>
    <ul>
-
        <?
- 
- foreach ($finance_report as $finance_reports) { 
- ?><li>
-
-     <?  echo '<pre>';
-    print_r($finance_reports[0]);
-    echo '</pre>'; 
-    ?></li><?
-}
+  foreach ($finance_report as $finance_reports) { 
+    $total_category=0;
+foreach($finance as $finances){
+    if($finance_reports[0]==$finances[2])        $total_category=$total_category+$finances[4];}
+    $category_array[$finance_reports[0]] = $total_category;
+    }
+    arsort($category_array);
+    foreach($category_array as $paramName => $paramValue)
+ echo "<li>".$paramName ." - ".$paramValue. " руб. </li>";
+ echo "<br><h4>".(count($category_array)."</h4>");
 
 ?>
 </ul>
@@ -84,17 +88,17 @@ $finance_report = mysqli_fetch_all($finance_report); // Выбирает все 
 
 ?>
    <ul>
-
        <?
- 
- foreach ($finance_report as $finance_reports) { 
- ?><li>
-
-     <?  echo '<pre>';
-    print_r($finance_reports[0]);
-    echo '</pre>'; 
-    ?></li><?
-}
+  foreach ($finance_report as $finance_reports) { 
+    $total_category=0;
+foreach($finance as $finances){
+    if($finance_reports[0]==$finances[2])        $total_category=$total_category+$finances[4];}
+    $purchase_array[$finance_reports[0]] = $total_category;
+    }
+    arsort($purchase_array);
+    foreach($purchase_array as $paramName => $paramValue)
+ echo "<li>".$paramName ." - ".$paramValue. " руб. </li>";
+ echo "<br><h4>".(count($purchase_array)."</h4>");
 
 ?>
 </ul>
@@ -110,18 +114,19 @@ $finance_report = mysqli_query($connect, "SELECT DISTINCT hashtag FROM expenses"
 $finance_report = mysqli_fetch_all($finance_report); // Выбирает все строки из набора $Comment и помещает их в массив  $Comments
 
 ?>
+
    <ul>
-
        <?
- 
- foreach ($finance_report as $finance_reports) { 
- ?><li>
-
-     <?  echo '<pre>';
-    print_r($finance_reports[0]);
-    echo '</pre>'; 
-    ?></li><?
-}
+  foreach ($finance_report as $finance_reports) { 
+    $total_category=0;
+foreach($finance as $finances){
+    if($finance_reports[0]==$finances[5])        $total_category=$total_category+$finances[4];}
+    $hashtag_array[$finance_reports[0]] = $total_category;
+    }
+    arsort($hashtag_array);
+    foreach($hashtag_array as $paramName => $paramValue)
+ echo "<li>".$paramName ." - ".$paramValue. " руб. </li>";
+ echo "<br><h4>".(count($hashtag_array)."</h4>");
 
 ?>
                 </ul>

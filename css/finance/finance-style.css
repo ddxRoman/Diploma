@@ -185,3 +185,8 @@ font-weight: 900;
 color: rgb(111, 0, 255);
 font-weight: 600;
 }
+.reports_info_page{
+    text-overflow: ellipsis ;
+    overflow-x: hidden;
+    cursor: help;
+}

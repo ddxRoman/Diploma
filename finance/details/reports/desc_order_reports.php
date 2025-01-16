@@ -98,39 +98,39 @@ if (($monthget==$key) || (date('m')==$key && $i==0 && $monthget<date('m'))){
 
                         <?
                         $total=0;
-                        foreach ($filter as $filters) {
+                        foreach ($desc_finance as $desc_finances) {
 
-                                list($year, $month, $day) = explode('-', $filters[1]); // Если формат "день-месяц-год" 
+                                list($year, $month, $day) = explode('-', $desc_finances[1]); // Если формат "день-месяц-год" 
                             if ($month == $select_month && $year == $select_year) {
                         ?>
                                 <tr>
-                                    <td><a href="../date.php?id=<?= $filters[1] ?>" target="details">
-                                            <?= $filters[1]; ?>
+                                    <td><a href="../date.php?id=<?= $desc_finances[1] ?>" target="details">
+                                            <?= $desc_finances[1]; ?>
                                         </a>
                                     </td>
-                                    <td><a href="../category.php?id=<?= $filters[2] ?>" target="details">
-                                            <?= $filters[2]; ?>
+                                    <td><a href="../category.php?id=<?= $desc_finances[2] ?>" target="details">
+                                            <?= $desc_finances[2]; ?>
                                         </a>
                                     </td>
-                                    <td><a href="../purchase.php?id=<?= $filters[3] ?>" title="<?= $filters[3]; ?>" target="details">
-                                            <?= $filters[3]; ?>
+                                    <td><a href="../purchase.php?id=<?= $desc_finances[3] ?>" title="<?= $desc_finances[3]; ?>" target="details">
+                                            <?= $desc_finances[3]; ?>
                                         </a>
                                     </td>
-                                    <td><a href="../coast.php?id=<?= $filters[4] ?>" target="details">
-                                            <?= $filters[4]; ?> руб.
+                                    <td><a href="../coast.php?id=<?= $desc_finances[4] ?>" target="details">
+                                            <?= $desc_finances[4]; ?> руб.
                                         </a>
                                     </td>
-                                    <td><a href="../payer.php?id=<?= $filters[5] ?>" target="details">
-                                            <?= $filters[5]; ?>
+                                    <td><a href="../payer.php?id=<?= $desc_finances[5] ?>" target="details">
+                                            <?= $desc_finances[5]; ?>
                                         </a>
                                     </td>
-                                    <td><a href="../hashtag.php?id=<?= $filters[6] ?>" target="details">
-                                            <?= $filters[6]; ?>
+                                    <td><a href="../hashtag.php?id=<?= $desc_finances[6] ?>" target="details">
+                                            <?= $desc_finances[6]; ?>
                                         </a>
                                     </td>
                                 </tr>
                         <?
-                                $total = $total + $filters[4];
+                                $total = $total + $desc_finances[4];
                             }
 
                         
@@ -179,10 +179,10 @@ else {$avrg_coast=$total/$today;
         ?><li>
 <?
                      $total_smoke_month = 0;
-                    foreach ($filter as $filters) {
-                        list($year, $month, $day) = explode('-', $filters[1]); // Если формат "день-месяц-год" 
+                    foreach ($filter as $desc_finances) {
+                        list($year, $month, $day) = explode('-', $desc_finances[1]); // Если формат "день-месяц-год" 
                         if($key==$month && $year==$select_year){
-                            $total_smoke_month=$total_smoke_month+$filters[4];
+                            $total_smoke_month=$total_smoke_month+$desc_finances[4];
                         }
                     }
                     $total_year=$total_year + $total_smoke_month;
