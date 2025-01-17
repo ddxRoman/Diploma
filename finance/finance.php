@@ -61,9 +61,9 @@ $month_list = array(
                 <div class="col-2">
                 <ul class="month_ul_reports">
 <? 
-
         foreach ($finance_total as $finance_total) { 
             ?>
+            
     <a onchange="this.form.submit()" href="finance.php?month=<?=$monthget?>&year=<?=$finance_total[0]?>"><li><?=$finance_total[0];?></li></a>
                <?
            }
@@ -163,7 +163,7 @@ if (($monthget==$key) || (date('m')==$key && $i==0 && $monthget<date('m'))){
                             <th>Транзакция</th>
                             <th>Сумма</th>
                             <th>Плательщик</th>
-                            <th>Примечание</th>
+                            <th>Хештег</th>
                         </tr>
                         <?
                         $total = 0;

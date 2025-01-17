@@ -92,7 +92,7 @@ $finance_report = mysqli_fetch_all($finance_report); // Выбирает все 
   foreach ($finance_report as $finance_reports) { 
     $total_category=0;
 foreach($finance as $finances){
-    if($finance_reports[0]==$finances[2])        $total_category=$total_category+$finances[4];}
+    if($finance_reports[0]==$finances[3])        $total_category=$total_category+$finances[4];}
     $purchase_array[$finance_reports[0]] = $total_category;
     }
     arsort($purchase_array);
@@ -120,18 +120,19 @@ $finance_report = mysqli_fetch_all($finance_report); // Выбирает все 
   foreach ($finance_report as $finance_reports) { 
     $total_category=0;
 foreach($finance as $finances){
-    if($finance_reports[0]==$finances[5])        $total_category=$total_category+$finances[4];}
+    if($finance_reports[0]==$finances[6])        $total_category=$total_category+$finances[4];}
     $hashtag_array[$finance_reports[0]] = $total_category;
     }
     arsort($hashtag_array);
     foreach($hashtag_array as $paramName => $paramValue)
- echo "<li>".$paramName ." - ".$paramValue. " руб. </li>";
+    if($paramName!=""){
+ echo "<li>".$paramName ." - ".$paramValue. " руб. </li>";}
+
  echo "<br><h4>".(count($hashtag_array)."</h4>");
 
 ?>
                 </ul>
             </div>
-
         </div>
     </div>
 </body>
