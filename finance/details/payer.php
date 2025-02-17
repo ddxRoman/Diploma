@@ -11,7 +11,10 @@
     
 
 <?
-require_once '../../action/connect.php'; 
+session_start();
+require_once '../../action/connect.php';
+$select_month = $_SESSION['month'];
+$select_year = $_SESSION['year'];
 $filter_category = $_GET['id'];
 $filter=mysqli_query($connect, "SELECT*FROM `expenses` WHERE `id`='$filter_category'");
 $filter=mysqli_fetch_assoc($filter);
@@ -29,7 +32,7 @@ $filter=mysqli_fetch_assoc($filter);
                         $total=0;
                         foreach($finance as $finances){
                             list($year, $month, $day) = explode('-', $finances[1]); // Если формат "день-месяц-год" 
-                            if($month == date('m') && $year == date('Y') && $finances[5] == $filter_category){
+                            if($month == $select_month && $year == $select_year && $finances[5] == $filter_category){
                         ?>
                         <tr>
                             <td>

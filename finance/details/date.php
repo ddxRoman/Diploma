@@ -11,7 +11,8 @@
     
 
 <?
-require_once '../../action/connect.php'; 
+session_start();
+require_once '../../action/connect.php';
 $filter_category = $_GET['id'];
 list($year, $month, $day) = explode('-', $finances[1]); // Если формат "день-месяц-год" 
 $PlusDay=$year+"-"+$month+"-"+$day;
