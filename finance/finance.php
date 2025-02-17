@@ -66,18 +66,14 @@ $month_list = array(
             <div class="row">
                 <div class="col-2">
                 <ul class="month_ul_reports">
-                    <form action="finance.php?month=<?=$select_month?>&year=<?=$finance_total[0]?>">
-                    <select onchange="this.form.submit()">
-                    <? 
+<? 
         foreach ($finance_total as $finance_total) { 
             ?>
-                <option value="finance.php?month=<?=$select_month?>&year=<?=$finance_total[0]?>">  <?=$finance_total[0];?></option>
-                
-                <?
+            
+    <a onchange="this.form.submit()" href="finance.php?month=<?=$select_month?>&year=<?=$finance_total[0]?>"><li><?=$finance_total[0];?></li></a>
+               <?
            }
-           ?>
-           </select>
-        </form>
+        ?>
         </ul>
                 </div>
                 <div class="col-3">
