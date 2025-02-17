@@ -55,15 +55,7 @@ $btn_color=$setting['btn_color'];
 </table>
     <button class="btn btn-success">Применить</button>
     </form>
-
-
-    
-        
-
-
-        
 </div>
-
 
 <div id="Кнопки" class="tabcontent text-center">
 
@@ -99,9 +91,7 @@ $btn_color=$setting['btn_color'];
 Тут пока ничего нет
 </div>
 
-
 <script src="../../js/bootstrap.bundle.min.js"></script>
-
 
 <!-- <iframe src="../../index.php" class="settings_frame" frameborder="0"></iframe> -->
 <div class="settings_preview">
@@ -123,7 +113,6 @@ $btn_color=$setting['btn_color'];
            } ?>
              </div>
 </div>
-
 
 </body>
 <footer class="footer-fluid text-center">

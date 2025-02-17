@@ -3,23 +3,29 @@
 <?
 session_start();
 require_once '../action/connect.php';
+
+if($_SESSION['last_date']==""){
+    $last_date=date("Y-m-d");
+
+} else {$last_date=$_SESSION['last_date'];}
 $i=0;
+if($_SESSION['year']=="") $_SESSION['year']=date('Y');
+if($_SESSION['month']=="") $_SESSION['month']=date('m');
 
 $yearget=$_GET['year'];
-if($yearget==""){
-    $_SESSION['year']=date('Y');
-}else {$_SESSION['year']=$yearget; }
-
 $monthget=$_GET['month'];
-if($monthget==""){
-    $_SESSION['month']=date('m');
-}else {$_SESSION['month']=$monthget; }
 
-$today=date('d');
-$select_month=$_SESSION['month'];
-$select_year = $_SESSION['year'];
+if($yearget!=""){
+    $_SESSION['year']=$yearget;
+}  
 
-$date_today = date("Y-m-d");
+if($monthget!=""){
+    $_SESSION['month']=$monthget;
+}  
+
+            $select_month = $_SESSION['month'];
+            $select_year = $_SESSION['year'];
+
 $month_list = array(
     "1" => "Январь",
     "2" => "Февраль",
@@ -60,31 +66,22 @@ $month_list = array(
             <div class="row">
                 <div class="col-2">
                 <ul class="month_ul_reports">
-<? 
+                    <form action="finance.php?month=<?=$select_month?>&year=<?=$finance_total[0]?>">
+                    <select onchange="this.form.submit()">
+                    <? 
         foreach ($finance_total as $finance_total) { 
             ?>
-            
-    <a onchange="this.form.submit()" href="finance.php?month=<?=$monthget?>&year=<?=$finance_total[0]?>"><li><?=$finance_total[0];?></li></a>
-               <?
+                <option value="finance.php?month=<?=$select_month?>&year=<?=$finance_total[0]?>">  <?=$finance_total[0];?></option>
+                
+                <?
            }
-        ?>
+           ?>
+           </select>
+        </form>
         </ul>
                 </div>
                 <div class="col-3">
 
-                <? $Roma_budget = 0;
-                $Lera_budget = 0;
-                foreach ($budget as $budgets) {
-
-                    if ($budgets[3] == "Рома")     $Roma_budget = $Roma_budget + $budgets[2];
-                    if ($budgets[3] == "Лера")     $Lera_budget = $Lera_budget + $budgets[2];
-                }
-                ?> Общак:
-                <br> Рома - <?= $Roma_budget ?>
-                <br> Лера - <?= $Lera_budget ?>
-                <br><?
-                    ?>
-                <a data-fancybox href="#hidden"><button>Вкинуть</button></a>
             </div>
             </div>
             </div>
@@ -96,23 +93,17 @@ $month_list = array(
                     <button class="common-Filter_btn">Отчёты</button>
                 </a>
             </div>
-
         </div>
     </div>
 </header>
-
-<style>
-
-</style>
 
 <body>
     <div class="month_line">
         <ul class="month_ul_reports">
         <?
-
-foreach($month_list as $month_lists) { 
+foreach($month_list as $month_lists) {     // Список месяцов в линию---------------------------------------------------------------
             $key = array_search ($month_lists, $month_list);
-if (($monthget==$key) || (date('m')==$key && $i==0 && $monthget<date('m'))){ 
+if (($select_month==$key) || (date('m')==$key && $i==0 && $select_month<date('m'))){ 
     $i=1;
     ?>
     <a class="current_month" onchange="this.form.submit()" href="finance.php?month=<?=$key?>&year=<?=$select_year?>"><li><?=$month_lists?></li></a> <?
@@ -121,14 +112,13 @@ if (($monthget==$key) || (date('m')==$key && $i==0 && $monthget<date('m'))){
 }
             }?>
         </ul>
-
     </div>
     <main>
         <div class="container-fluid body_finance">
             <div class="row">
                 <div class="col-12">
                     <form action="operation/add-pay.php" method="post">
-                        <input required name="date" type="date" value="<?= $date_today ?>" autofocus/>
+                        <input required name="date" type="date" value="<?= $last_date ?>" autofocus/>
                         <select required name="category" id="" >
                             <option value="Продукты">Продукты</option>
                             <option value="Общие расходы" title="Общие расходы - расходы которые касаются Праздников, прогулок, платежей, являются не регулярными и не стабильными">Общие расходы</option>

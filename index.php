@@ -43,7 +43,7 @@ if($role==5){
         <!-- Общий блок на всю страницу-->
         <div class="header">
             <!-- Общий Блок на шапку-->
-            <div class="quick_transition">
+            <div class="my_life_with_wife">
                 <!-- Блок С полями в левом верхнем углу-->
                 <? 
                 // require_once "folders/quick_transition.php"; 
@@ -69,10 +69,6 @@ if($interval->y>0){
 
  ?> <p class="count_married"><?=$days?> Дней </p>
 
-
-<style>
-
-</style>
             </div>
                 <!-- Подключение файла в котором поля с нашими заказами-->
             </div>

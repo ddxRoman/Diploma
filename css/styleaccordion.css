@@ -7,17 +7,14 @@ body {
   color: #000000;
   text-align: left;
 }
-
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
-
 .offcanvas-backdrop.show {
   opacity: .3;
 }
-
 .addtask{
   border-radius: 12px;
   height: 22px;
@@ -35,15 +32,12 @@ body {
     .return{
       width: 33px;
   }
-
 .accordion__item {
   box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 15%);
 }
-
 .taskBootstrap-frame{
   height: 300px;
 }
-
 .accordion-header {
   justify-content: space-between;
   color: #fff;
@@ -57,9 +51,7 @@ body {
 .accordion{
   max-width: none;
   width: 100%;
-
 }
-
 .accordion__header::after {
   flex-shrink: 0;
   width: 1.25rem;
@@ -71,32 +63,23 @@ body {
   content: "";
   transition: transform 0.2s ease-out;
 }
-
 .accordion__item_show .accordion__header::after,
 .accordion__item_slidedown .accordion__header::after {
   transform: rotate(-180deg);
   color: #000000;
 }
-
-
-
-
-
 .accordion__item:not(.accordion__item_show) .accordion__header {
    border-bottom-right-radius: 0.25rem;
   border-bottom-left-radius: 0.25rem; 
 }
-
 .accordion__content {
   padding: 0.25rem 0.5rem;
   background: rgb(255, 255, 255);
-
 }
 
 .accordion__content_close {
   padding: 0.25rem 0.5rem;
   background: rgb(153, 153, 153);
-
 }
 
 .accordion__item:not(.accordion__item_show) .accordion__body {
@@ -109,7 +92,6 @@ body {
 }
 
 .NoTask{
-  
   font-weight: 700;
 }
 
@@ -136,8 +118,6 @@ pre {
   font-weight: 700;
   color: #914a4a;
 }
-
-
 
 form img{
   margin-left: 3px;

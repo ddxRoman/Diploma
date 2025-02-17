@@ -43,5 +43,4 @@ $budget = mysqli_fetch_all($budget); // Выбирает все строки и�
 $filter = mysqli_query($connect, "SELECT * FROM `expenses` ORDER BY `payer` DESC"); // Подключение к определенной таблице, и получение Статуса записи
 $filter = mysqli_fetch_all($filter); // Выбирает все строки из набора $Comment и помещает их в массив  $Comments
 
-
 ?>

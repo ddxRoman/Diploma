@@ -13,17 +13,6 @@ $page_id = 5;
 </head>
 <body class="iframe-body">
     <div class="folders">
-            <!-- <a href="http://medcloud.csd.com.ua/" target="_blank"><button>CSD</button></a>
-            <a href="https://knpumbl.lab.helsi.pro/" target="_blank"><button>KNPUMBL</button></a>
-            <a href="https://crm.novadiahnostyka.com.ua" target="_blank"><button>ND</button></a>
-            <a href="https://miskbp.medcloud.pro/" target="_blank"><button>Medlab</button></a> 
-            <a href="https://medcloud.astra-dia.ua/" target="_blank"><button>ASTRA</button></a>
-            <a href="https://dclinic.analizi.pro" target="_blank"><button>Dclinik</button></a>
-            <a href="https://mis.mediland.com.ua/" target="_blank"><button>mediLAND</button></a>
-            <a href="https://study.helsi.pro/" target="_blank"><button>HelsiPro</button></a>
-            <a href="https://novadiahnostyka.com.ua/ru" target="_blank"><button>Новая Диагностика</button></a>
-            <a href="https://pre-prod-nd.bizonoff-dev.net" target="_blank"><button>ПреНД</button></a> -->
-
 
             <?
     require_once "../action/connect.php";

@@ -177,15 +177,15 @@ else {$avrg_coast=$total/$today;
         $key = array_search ($month_lists, $month_list);
         ?><li>
 <?
-                     $total_smoke_month = 0;
+                     $total_pets_month = 0;
                     foreach ($filter as $filters) {
                         list($year, $month, $day) = explode('-', $filters[1]); // Если формат "день-месяц-год" 
-                        if($key==$month && $year==$select_year && $filters[2]==$category1){
-                            $total_smoke_month=$total_smoke_month+$filters[4];
+                        if($key==$month && $year==$select_year && ($filters[2]==$category1 || $filters[2]==$category2)){
+                            $total_pets_month=$total_pets_month+$filters[4];
                         }
                     }
-                    $total_year=$total_year + $total_smoke_month;
-            echo $month_lists." - ".$total_smoke_month." руб.";
+                    $total_year=$total_year + $total_pets_month;
+            echo $month_lists." - ".$total_pets_month." руб.";
   ?>      </li>
         <?}
 echo "Всего за год: ".$total_year." руб.";

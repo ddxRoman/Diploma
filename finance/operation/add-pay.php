@@ -1,6 +1,8 @@
 <?php
+session_start();
 require_once '../../action/connect.php';
 $date=$_POST['date'];
+$_SESSION['last_date']=$date;
 $category=$_POST['category'];
 $coast=$_POST['coast'];
 $payer=$_POST['payer'];

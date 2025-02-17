@@ -25,7 +25,7 @@ session_start();
 
 
 <!--- ФОТКУ НАДО ЗАМЕИТЬ-->
-                <a href="https://github.com/ddxRoman"><img src="../file/icons/Logo/Logo192.png"  alt="Logo" title="ORStudio"></a>
+    <a href="https://github.com/ddxRoman"><img src="../file/icons/Logo/Logo192.png"  alt="Logo" title="ORStudio"></a>
     <form action="/action/signin.php" method="post">
     <input class="input-fluid" required type="text" name="login" placeholder="Логин"><br>
     <input class="input-fluid" required type="password" name="password" placeholder="Пароль"><br>

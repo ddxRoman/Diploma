@@ -89,10 +89,9 @@ tfoot{
     top: 0;
     right: 0;
 }
-.total_table{
+.total_common_month{
         color: blue;
     font-size: 24pt;
-
 }
 .reports_body{
     margin-bottom: 80px;
@@ -161,12 +160,13 @@ margin-left: 20px;
     width: 150px;
 }
 .avrg_table{
-color: rgb(170, 170, 170);
-font-weight: 900;
+font-weight: 700;
+font-size: 10pt;
+background-color: rgba(68, 68, 85, 0);
 }
 .avrg_table:hover{
 color: rgb(0, 0, 0);
-font-weight: 900;
+font-weight: 750;
 
     /* cursor: url(cat.png) 2 2, default; */
     cursor: default;

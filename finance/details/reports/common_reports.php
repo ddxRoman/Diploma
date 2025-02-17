@@ -78,21 +78,22 @@ if (($monthget==$key) || (date('m')==$key && $i==0 && $monthget<date('m'))){
 }
             }?>
         </ul>
+
     </div>
 <table class="table table-hover">
+    <tr>
+        <th></th>
+        <th></th>
+        <th>       <h4 class="h4_reports"> <?=$select_year?></h4></th>
+        <th></th>
+        <th></th>
+    </tr>
                         <tr>
                             <th>Дата</th>
                             <th>Категория</th>
                             <th>Транзакция</th>
                             <th>Сумма</th>
                             <th>Плательщик</th>
-                        </tr>
-                        <tr>
-                            <th></th>
-                            <th></th>
-                            <th>       <h4 class="h4_reports"> <?=$select_year?></h4></th>
-                            <th></th>
-                            <th></th>
                         </tr>
                         <?
                         $total=0;
@@ -129,6 +130,11 @@ if (($monthget==$key) || (date('m')==$key && $i==0 && $monthget<date('m'))){
                                 </tr>
                         <?
                                 $total = $total + $filters[4];
+                                if ($filters[5] == 'Рома') $total_Roma=$total_Roma+$filters[4];
+                                if ($filters[5] == 'Лера') $total_Lera=$total_Lera+$filters[4];
+                                if ($filters[5] == 'Общее') $total_common=$total_common+$filters[4];
+
+                                
                             }
 }                       if($monthget != "" && $monthget != $current_month ){ $avrg_coast=$total/$last_day; 
 }
@@ -138,8 +144,16 @@ else {$avrg_coast=$total/$today;
                       
                       <tfoot class="footer_total_line_table">
                         <tr>
+                            <td class="avrg_table">
+
+                                <?           echo " Рома: ".$total_Roma." руб.<br>";
+                                echo " Лера: ".$total_Lera." руб.<br>";
+                                echo " Общее: ".$total_common." руб.<br>";?>
+
+
+                            </td>
                             <td colspan="4" style="text-align:right">ИТОГО:</td>
-                            <td>
+                            <td class="total_common_month">
                                 <p class="total_table" title="В Среднем в день - <?=number_format((float)$avrg_coast, 2, '.', '')?>">
                                     <a href="#modal">
                                     <button type="button" class="total_smoke" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -147,9 +161,7 @@ else {$avrg_coast=$total/$today;
 </button>  <br>
                                     </a>
                                 </p>
-                                <p class="avrg_table">
-                                    <?=number_format((float)$avrg_coast, 2, '.', '')?>
-                                </p>
+
                             </td>
                         </tr>
   </tfoot>
@@ -171,18 +183,19 @@ else {$avrg_coast=$total/$today;
         $key = array_search ($month_lists, $month_list);
         ?><li>
 <?
-                     $total_smoke_month = 0;
+                     $total_category_month = 0;
                     foreach ($filter as $filters) {
                         list($year, $month, $day) = explode('-', $filters[1]); // Если формат "день-месяц-год" 
                         if($key==$month && $year==$select_year && $filters[2]==$category1){
-                            $total_smoke_month=$total_smoke_month+$filters[4];
+                            $total_category_month=$total_category_month+$filters[4];
                         }
                     }
-                    $total_year=$total_year + $total_smoke_month;
-            echo $month_lists." - ".$total_smoke_month." руб.";
+                    $total_year=$total_year + $total_category_month;
+            echo $month_lists." - ".$total_category_month." руб.";
   ?>      </li>
         <?}
 echo "Всего за год: ".$total_year." руб.";
+
         ?>
 </ul>
       </div>
@@ -191,6 +204,9 @@ echo "Всего за год: ".$total_year." руб.";
       </div>
     </div>
   </div>
-</div>           
+</div>        
+
+<!------------------------------------------------ Modal end ------------------->
+
 </body>
 </html>

@@ -114,7 +114,6 @@ $finance_report = mysqli_query($connect, "SELECT DISTINCT hashtag FROM expenses"
 $finance_report = mysqli_fetch_all($finance_report); // Выбирает все строки из набора $Comment и помещает их в массив  $Comments
 
 ?>
-
    <ul>
        <?
   foreach ($finance_report as $finance_reports) { 
