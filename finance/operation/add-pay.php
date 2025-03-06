@@ -9,6 +9,8 @@ $payer=$_POST['payer'];
 $hashtag=$_POST['hashtag'];
 $hashtag = strtolower($hashtag);
 
+$_SESSION['last_payer']=$payer;
+
 if($category=='Сигареты' && $purchase=' '){
     if ($coast=='') $coast='165';
     $purchase='Сигареты';

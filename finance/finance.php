@@ -12,6 +12,7 @@ $i=0;
 if($_SESSION['year']=="") $_SESSION['year']=date('Y');
 if($_SESSION['month']=="") $_SESSION['month']=date('m');
 
+
 $yearget=$_GET['year'];
 $monthget=$_GET['month'];
 
@@ -129,6 +130,10 @@ if (($select_month==$key) || (date('m')==$key && $i==0 && $select_month<date('m'
                         <input name="coast" placeholder="Сумма" type="number">
                         <input name="purchase" placeholder="Покупка" type="text">
                         <select name="payer" id="">
+                            <?
+                            
+                            if($_SESSION['last_payer']!="") {?><option value="<?=$_SESSION['last_payer']?>"><?=$_SESSION['last_payer']?></option><?}
+                            ?>
                             <option value="Рома">Рома</option>
                             <option value="Лера">Лера</option>
                             <option value="Общее">Общее</option>
@@ -213,7 +218,7 @@ if (($select_month==$key) || (date('m')==$key && $i==0 && $select_month<date('m'
 </body>
 
 <div style="display: none; width: 500px;" id="hidden">
-    <form action="operation/budget.php" method="post">
+    <!-- <form action="operation/budget.php" method="post">
         <input name="date_pay" type="date">
         <input name="summa" type="number">
         <select name="contributor" id="">
@@ -221,7 +226,7 @@ if (($select_month==$key) || (date('m')==$key && $i==0 && $select_month<date('m'
             <option value="Лера">Лера</option>
         </select>
         <Button>Вкинуть лавеху</Button>
-    </form>
+    </form> -->
 </div>
 
 </html>
