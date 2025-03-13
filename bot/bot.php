@@ -1,13 +1,14 @@
 <?php
+session_start();
 $token = "6048362058:AAFv50Fltmm_0Ufa-GYzAga-poK1-niyxVo";
 $chatId = "2116281958";
 
 $data = $_POST['data'];
-// $data = date('d.m');
 $holiday = $_POST['holiday'];
 $description = $_POST['description'];
 $comments = $_POST['comments'];
 $photo = $_POST['url'];
+$_SESSION['holidays_day'] = $data;
 
 
 // echo "дата ".$data."<br>Праздник ".$holiday."<br>Подпись ".$description ."<br>Коммент".$comments."<br>Фото ".$photo;
@@ -62,9 +63,4 @@ if ($photo!="") {
 }
      header ('Location: ../folders/TgBotForm.php');
 
-// if ($sendToTelegram) {
-//     echo "Сообщение успешно отправлено!";
-//     header ('Location: ../folders/TgBotForm.php');
-// } else if(!$sendToTelegram){
-//     echo "Ошибка";
-// }
+     
