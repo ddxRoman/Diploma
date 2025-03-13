@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  
+    <link rel="stylesheet" href="../../css/finance/finance-style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 </head>
@@ -36,6 +36,11 @@ $filter=mysqli_fetch_assoc($filter);
 
                         ?>
                         <tr>
+                        <td>
+                                        <a href="../operation/edit_operation_form.php?id=<?= $finances[0] ?>">
+                                            <img src="../../file/icons/edit_for_finance.svg" class="icon_edit_finance" alt="">
+                                        </a>
+                                    </td>
                             <td>
                             <a href="date.php?id=<?=$finances[1]?>" target="details">
                                 <?=$finances[1];  ?> 
