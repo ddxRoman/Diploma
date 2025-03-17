@@ -23,7 +23,6 @@ if($yearget!=""){
 if($monthget!=""){
     $_SESSION['month']=$monthget;
 }  
-
             $select_month = $_SESSION['month'];
             $select_year = $_SESSION['year'];
 
@@ -67,18 +66,23 @@ $month_list = array(
             <div class="row">
                 <div class="col-2">
                 <ul class="month_ul_reports">
-<? 
+                    <form  action="finance.php?month=<?=$select_month?>&year=<?=$finance_total[0]?>">
+                    <select class="select_year" onchange="this.form.submit()" name="year" id="" placeholder="Выберите год">
+                        <? if($yearget==''){?><option disabled selected value="">Выберите год</option> <?}
+                        else { ?> <option disabled selected value=""><?=$yearget?></option> <?}
         foreach ($finance_total as $finance_total) { 
             ?>
-            
-    <a onchange="this.form.submit()" href="finance.php?month=<?=$select_month?>&year=<?=$finance_total[0]?>"><li><?=$finance_total[0];?></li></a>
-               <?
+
+                    <option value="<?=$finance_total[0];?>"><?=$finance_total[0];?></option>
+                    
+                    <?
            }
-        ?>
+           ?>
+           </select>
+        </form>
         </ul>
                 </div>
                 <div class="col-3">
-
             </div>
             </div>
             </div>
