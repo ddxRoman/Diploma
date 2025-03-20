@@ -108,14 +108,6 @@ if($interval->y>0){
         <hr class="misPanel-hr" width="85%"><!-- ХРка полоска -->
        <div>   <!-- Начало Тела сайта -->
 
-
-
-
-
-
-
-
-
        <div class="accordion accordion-flush" id="accordionFlushExample">
   <div class="accordion-item">
     <h2 class="accordion-header" id="flush-headingOne">

@@ -434,3 +434,6 @@ input, select{
 select{
     width: 120px;
 }
+.input_jira{
+    margin-bottom: 25px;
+}

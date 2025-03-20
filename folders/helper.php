@@ -14,14 +14,14 @@ require_once "../action/connect.php";
 <div class="helperSearch">
             
         <form target="_blank" action="../action/helper.php" method="post">
-<input type="number" name="ticket" placeholder="Helper Ticket">
+<input type="number" name="ticket" placeholder="MEDSUP">
 <a href="header.php"> 
     <button type="submit">GO</button>
 </a>
 </form>
 <form target="_blank" action="../action/jiraСsd.php" method="post">
 <label>Минусовое значение это SUP</label><br>
-<input type="number" name="ticketJira"  placeholder="Jira Ticket">
+<input type="number" name="ticketJira"  placeholder="MEDRWK">
 <a href="jiraСsd.php"> 
     <button type="submit">GO</button>
 </a>
@@ -32,10 +32,11 @@ require_once "../action/connect.php";
         target="_blank"><button>TEMPO</button></a>
     <a href="https://helper.bizonoff-dev.net/admin/projects/medcloud/knowledge-bases/dokumentatsiia-funktsionala"
         target="_blank"><button>Helper</button></a>
+        <a href="https://docs.google.com/spreadsheets/d/1sjEopcZ5WOQyIz3S4ChNKx26nIP4iKaXx15vWqIn_rA/edit?gid=2048374952#gid=2048374952"
+        target="_blank"><button>Daily</button></a>
         </div>
 
         <table>
-
   <thead>
     <tr>
       <th scope="col">name</th>

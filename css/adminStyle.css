@@ -141,7 +141,7 @@ body {
 
 .body {
     display: grid;
-    grid-template-columns: 13% 57% 30%;
+    grid-template-columns: 70% 30%;
     height: 100%;
 }
 

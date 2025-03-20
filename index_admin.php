@@ -72,12 +72,6 @@ if ($role!= 1) {
            </div><!-- Тут заканчивается МИС панель-->
         <hr class="misPanel-hr" width="85%"><!-- ХРка полоска -->
        <div class="body">   <!-- Начало Тела сайта -->
-            <div class="lmenu"> 
-                <div class="links">
-                    
-                    
-                </div>
-             </div>
             <div class="container">
                 <iframe name="1" src="">
                 </iframe>

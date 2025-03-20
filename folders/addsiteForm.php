@@ -1,37 +1,31 @@
 <!DOCTYPE html>
 <?
 require_once "../action/connect.php";
-// require_once "../test.php";
 ?>
 <html lang="en">
 <style>
 table {
-
-width: 400px;
-
 border-collapse: collapse;
-
-border: 2px solid white;
-
+border: 2px  ;
 }
 
 td {
-
 padding: 3px;
-
 border: 1px solid ;
-
 text-align: left;
+}
 
-}
-img{
-    width: 24px;
-}
-td.table_sile{
-  white-space:nowrap;
+.table_sile{
+    width: 300px;
+    white-space:nowrap;
   overflow:hidden;
   text-overflow:ellipsis;
 }
+
+img{
+    width: 24px;
+}
+
 a{
     color: #000;
     text-decoration: none;
@@ -54,42 +48,31 @@ a{
             <button class="add_creeds_btn">Добавить</button>
         </form>
     </div>
+    <div class="sitelist">
     <table class="table_addsite">
         <tr>
             <th>id</th>
             <th>Название</th>
-            <th class="table_sile" >URL</th>
+            <th>URL</th>
             <th>Папка</th>
         </tr>
-        <div class="sitelist">
+
             <? foreach ($site as $sites) { 
                     $categories=mysqli_query($connect, "SELECT*FROM `sites_categories` WHERE `id`='$sites[3]'");
                     $categories=mysqli_fetch_assoc($categories);
                 ?>
                 <tr class="site_table">
                     <td><?= $sites[0] ?></td>
-                    <td><?= $sites[1] ?></td>
-                    <td class="table_sile"> <a href="<?= $sites[2] ?>" target="_blank"> <?= $sites[2] ?></a></td>
+                    <td class="url_table_colomn"><?= $sites[1] ?></td>
+                    <td class="table_sile"> <a href="<?= $sites[2] ?>" target="_blank" title="<?= $sites[2] ?>"><?= $sites[2] ?></a></td>
                     <td><?= $categories['name'] ?></td>
                     <td>
                         <a href="../action/editSiteList.php?id=<?=$sites[0]?>"><img class="icon" src="../file/icons/edit-svgrepo-com.svg" title="Редактировать"></a>
                     </td>
-                    <td>
-<script type="text/javascript"> 
-$("#submit").click(function () { 
-    var name = $("#name").val(); 
-    var marks = $("#marks").val(); 
-    var str = "You Have Entered " 
-        + "Name: " + name 
-        + " and Marks: " + marks; 
-    $("#modal_body").html(str); 
-}); 
-</script> 
+                    
                 </tr>
             <? } ?>
     </table>
-
-
     </div>
 </body>
 
