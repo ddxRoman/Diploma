@@ -26,6 +26,7 @@ $operation=mysqli_fetch_assoc($operation);
                             <option value="Кошка">Кошка</option>
                             <option value="Личное">Личное</option>
                             <option value="Здоровье">Здоровье</option>
+                            <option value="Кредитки">Кредитки</option>
                         </select>
                         <input name="coast" placeholder="Сумма"  type="number" value="<?=$operation['coast']?>">
                         <input name="purchase" placeholder="Покупка" required type="text" value="<?=$operation['purchase']?>">

@@ -130,6 +130,7 @@ if (($select_month==$key) || (date('m')==$key && $i==0 && $select_month<date('m'
                             <option value="Кошка">Кошка</option>
                             <option value="Личное">Личное</option>
                             <option value="Здоровье">Здоровье</option>
+                            <option value="Кредитки">Кредитки</option>
                         </select>
                         <input name="coast" placeholder="Сумма" type="number">
                         <input name="purchase" placeholder="Покупка" type="text">
@@ -162,6 +163,7 @@ if (($select_month==$key) || (date('m')==$key && $i==0 && $select_month<date('m'
                         </tr>
                         <?
                         $total = 0;
+                        $credits = 0;
                         foreach ($finance as $finances) {
                                 list($year, $month, $day) = explode('-', $finances[1]); // Если формат "день-месяц-год" 
                             if ($month == $select_month && $year == $select_year) {
@@ -199,17 +201,19 @@ if (($select_month==$key) || (date('m')==$key && $i==0 && $select_month<date('m'
                                 </tr>
                         <?
                                 $total = $total + $finances[4];
+                                if($finances[2]=='Кредитки'){ $credits=$credits+$finances[4]; }
                             }
                         
+
                         }?>
                         <tr>
                             <td colspan="4" style="text-align:right">ИТОГО:</td>
 
-                            <td><?= $total ?> руб.</td>
+                            <td><?=$total?> руб.</td>
                         </tr>
                     </table>
                    <div class="total_coast">
-                       <?= $total ?> руб.
+                       <?= $total; if($credits>0){?>(<span title="<?=$total-$credits ?>"><?=$credits?></span>)<?}?>  руб.
                    </div>
                 </div>
                 <div class="col-6 ">

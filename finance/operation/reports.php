@@ -44,6 +44,9 @@ $hashtag_array=[];
                     <a href="../details/reports/private_reports.php" title="Все личные расходы">
                         <li>Личное</li>
                     </a>
+                    <a href="../details/reports/credits.php" title="Кредитки">
+                        <li>Кредитки</li>
+                    </a>
                     <a href="../details/reports/desc_order_reports.php" title="Все расходы от большего к меньшему">
                         <li>По убыванию</li>
                     </a>
