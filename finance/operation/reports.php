@@ -67,14 +67,16 @@ $finance_report = mysqli_fetch_all($finance_report); // Выбирает все 
        <?
   foreach ($finance_report as $finance_reports) { 
     $total_category=0;
-foreach($finance as $finances){
-    if($finance_reports[0]==$finances[2])        $total_category=$total_category+$finances[4];}
-    $category_array[$finance_reports[0]] = $total_category;
-    }
-    arsort($category_array);
-    foreach($category_array as $paramName => $paramValue)
- echo "<li>".$paramName ." - ".$paramValue. " руб. </li>";
- echo "<br><h4>".(count($category_array)."</h4>");
+    $count=0;
+    foreach($finance as $finances){
+        if($finance_reports[0]==$finances[2]){ $total_category=$total_category+$finances[4]; 
+}}
+$category_array[$finance_reports[0]] = $total_category;
+}
+arsort($category_array);
+foreach($category_array as $paramName => $paramValue)
+    echo "<li>".$paramName ." - ".$paramValue. " руб. </li>";
+echo "<br><h4>".(count($category_array)."</h4>");
 
 ?>
 </ul>

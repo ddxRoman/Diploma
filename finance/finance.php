@@ -124,11 +124,11 @@ if (($select_month==$key) || (date('m')==$key && $i==0 && $select_month<date('m'
                             <option value="Продукты">Продукты</option>
                             <option value="Общие расходы" title="Общие расходы - расходы которые касаются Праздников, прогулок, платежей, являются не регулярными и не стабильными">Общие расходы</option>
                             <option value="Бытовые расходы" title="Бытовые расходы - расходы которые касаются общих мероприятий и явялются ежемесячными или регулярными" >Бытовые расходы</option>
-                            <option value="Собака">Собака</option>
-                            <option value="Развлечения">Развлечения</option>
                             <option value="Сигареты">Сигареты</option>
-                            <option value="Кошка">Кошка</option>
+                            <option value="Развлечения">Развлечения</option>
                             <option value="Личное">Личное</option>
+                            <option value="Собака">Собака</option>
+                            <option value="Кошка">Кошка</option>
                             <option value="Здоровье">Здоровье</option>
                             <option value="Кредитки">Кредитки</option>
                         </select>
