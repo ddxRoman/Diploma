@@ -2,6 +2,7 @@
 error_reporting(E_ERROR | E_PARSE);
 $month = date('m')-1;
 $connect = mysqli_connect('localhost', 'user','qazwsx','diploma');
+// $connect = mysqli_connect('localhost', 'ddx','Beetle19','diploma');
 if(!$connect){
     ?>  
    <style>
@@ -42,5 +43,8 @@ $budget = mysqli_fetch_all($budget); // Выбирает все строки и�
 
 $filter = mysqli_query($connect, "SELECT * FROM `expenses` ORDER BY `payer` DESC"); // Подключение к определенной таблице, и получение Статуса записи
 $filter = mysqli_fetch_all($filter); // Выбирает все строки из набора $Comment и помещает их в массив  $Comments
+
+$tracking = mysqli_query($connect, "SELECT * FROM `tracking` ORDER BY `date` DESC"); // Подключение к определенной таблице, и получение Статуса записи
+$tracking = mysqli_fetch_all($tracking); // Выбирает все строки из набора $Comment и помещает их в массив  $Comments
 
 ?>

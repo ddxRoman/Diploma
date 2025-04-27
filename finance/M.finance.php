@@ -1,4 +1,3 @@
-<?require_once "../function/check-device-finance.php";?>
 <!DOCTYPE html>
 <html lang="en">
 <?
@@ -67,9 +66,9 @@ $month_list = array(
             <div class="row">
                 <div class="col-2">
                 <ul class="month_ul_reports">
-                    <form  action="finance.php?month=<?=$select_month?>&year=<?=$finance_total[0]?>">
+                    <form  action="M.finance.php?month=<?=$select_month?>&year=<?=$finance_total[0]?>">
                     <select class="select_year" onchange="this.form.submit()" name="year" id="" placeholder="Выберите год">
-                        <? if($yearget==''){?><option disabled selected value="">Выберите год</option> <?}
+                        <? if($yearget==''){?><option disabled selected value=""><?=$select_year?></option> <?}
                         else { ?> <option disabled selected value=""><?=$yearget?></option> <?}
         foreach ($finance_total as $finance_total) { 
             ?>
@@ -81,14 +80,37 @@ $month_list = array(
            ?>
            </select>
         </form>
+        <form  action="M.finance.php?month=<?=$key?>&year=<?=$select_year?>">
+            
+            
+            <?
+    ?><select onchange="this.form.submit()" name="month" id=""><?
+foreach($month_list as $month_lists) {     // Список месяцов в линию---------------------------------------------------------------
+    $key = array_search ($month_lists, $month_list);
+    if (($select_month==$key) || (date('m')==$key && $i==0 && $select_month<date('m'))){ 
+        $i=1;
+        ?>
+        <option value="<?=$key?>" selected>
+            
+            <?=$month_lists?> 
+        </option>
+        <?
+    }else{ 
+        ?>
+    <option value="<?=$key?>">
+        <?=$month_lists?> 
+    </option>
+    
+    <?
+}
+}?>
+</select>
+        <!-- </ul> -->
+        </form>
         </ul>
                 </div>
-                <div class="col-3">
+
             </div>
-            </div>
-            </div>
-            <div class="col-3">
-                <h1 class="text-center">Расходы финансов</h1>
             </div>
             <div class="col-4 reports_link_block">
                 <a href="operation/reports.php">
@@ -101,19 +123,8 @@ $month_list = array(
 
 <body>
     <div class="month_line">
-        <ul class="month_ul_reports">
-        <?
-foreach($month_list as $month_lists) {     // Список месяцов в линию---------------------------------------------------------------
-            $key = array_search ($month_lists, $month_list);
-if (($select_month==$key) || (date('m')==$key && $i==0 && $select_month<date('m'))){ 
-    $i=1;
-    ?>
-    <a class="current_month" onchange="this.form.submit()" href="finance.php?month=<?=$key?>&year=<?=$select_year?>"><li><?=$month_lists?></li></a> <?
-    }else{ 
-    ?><a onchange="this.form.submit()" href="finance.php?month=<?=$key?>&year=<?=$select_year?>"><li><?=$month_lists?></li></a><?
-}
-            }?>
-        </ul>
+        <!-- <ul class="month_ul_reports"> -->
+
     </div>
     <main>
         <div class="container-fluid body_finance">
@@ -132,9 +143,9 @@ if (($select_month==$key) || (date('m')==$key && $i==0 && $select_month<date('m'
                             <option value="Кошка">Кошка</option>
                             <option value="Здоровье">Здоровье</option>
                             <option value="Кредитки">Кредитки</option>
-                        </select>
+                        </select><br>
                         <input name="coast" placeholder="Сумма" type="number">
-                        <input name="purchase" placeholder="Покупка" type="text">
+                        <input name="purchase" placeholder="Покупка" type="text"><br>
                         <select name="payer" id="">
                             <?
                             
@@ -160,7 +171,7 @@ if (($select_month==$key) || (date('m')==$key && $i==0 && $select_month<date('m'
                             <th>Транзакция</th>
                             <th>Сумма</th>
                             <th>Плательщик</th>
-                            <th>Хештег</th>
+                            <!-- <th>Хештег</th> -->
                         </tr>
                         <?
                         $total = 0;
@@ -168,8 +179,11 @@ if (($select_month==$key) || (date('m')==$key && $i==0 && $select_month<date('m'
                         foreach ($finance as $finances) {
                                 list($year, $month, $day) = explode('-', $finances[1]); // Если формат "день-месяц-год" 
                             if ($month == $select_month && $year == $select_year) {
+                                if ($i<16){
+                                $i++;
                         ?>
                                 <tr>
+
                                     <td>
                                         <a href="operation/edit_operation_form.php?id=<?= $finances[0] ?>">
                                             <img src="../file/icons/edit_for_finance.svg" class="icon_edit_finance" alt="">
@@ -195,12 +209,12 @@ if (($select_month==$key) || (date('m')==$key && $i==0 && $select_month<date('m'
                                             <?= $finances[5]; ?>
                                         </a>
                                     </td>
-                                    <td><a href="details/hashtag.php?id=<?= $finances[6] ?>" target="details">
+                                    <!-- <td><a href="details/hashtag.php?id=<?= $finances[6] ?>" target="details">
                                             <?= $finances[6]; ?>
                                         </a>
-                                    </td>
+                                    </td> -->
                                 </tr>
-                        <?
+                        <?}
                                 $total = $total + $finances[4];
                                 if($finances[2]=='Кредитки'){ $credits=$credits+$finances[4]; }
                             }
@@ -213,29 +227,17 @@ if (($select_month==$key) || (date('m')==$key && $i==0 && $select_month<date('m'
                             <td><?=$total?> руб.</td>
                         </tr>
                     </table>
-                   <div class="total_coast">
+                   <div class="m_total_coast">
                        <?= $total; if($credits>0){?>(<span title="<?=$total-$credits ?>"><?=$credits?></span>)<?}?>  руб.
                    </div>
                 </div>
-                <div class="col-6 ">
-                    <iframe name="details" src="details\short_reports.php" class="finance_operation_frame" frameborder="0">
-                    </iframe>
-                </div>
+
             </div>
         </div>
     </main>
 </body>
 
 <div style="display: none; width: 500px;" id="hidden">
-    <!-- <form action="operation/budget.php" method="post">
-        <input name="date_pay" type="date">
-        <input name="summa" type="number">
-        <select name="contributor" id="">
-            <option value="Рома">Рома</option>
-            <option value="Лера">Лера</option>
-        </select>
-        <Button>Вкинуть лавеху</Button>
-    </form> -->
 </div>
 
 </html>

@@ -193,3 +193,11 @@ font-weight: 600;
 .select_year{
     width: 130px;
 }
+.m_total_coast {
+    width: 200px;
+    position: absolute;
+    top: 25px;
+    left: 400px;
+    font-weight: 600;
+    font-size: 16pt;
+}

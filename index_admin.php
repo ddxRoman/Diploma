@@ -68,6 +68,7 @@ if ($role!= 1) {
             <a href="folders/TgBotForm.php" target="1"><button class="btn_tg_index">Бот</button></a>
             <a href="finance/finance.php" target="_blank"><button class="btn_tg_index">Финансы</button></a>
             <a href="folders\ventor_map.php" target="_blank"><button class="btn_tg_index">Карта</button></a>
+            <a href="folders\tracking.php" target=""><button class="btn_tg_index">Трек</button></a>
             
            
            </div><!-- Тут заканчивается МИС панель-->

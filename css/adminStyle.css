@@ -509,3 +509,43 @@ input[type="date"]::-webkit-inner-spin-button,
 input[type="date"]::-webkit-clear-button {
      z-index: 1;
  }
+
+ tfoot{
+border: 2px solid ;
+ }
+ .header_track{
+    text-align: center;
+    height: 100px;
+ }
+ a.track_header{
+     color: rgb(0, 247, 255);
+     font-size: 26pt;
+     text-decoration: none;
+    }
+    a.track_header:visited{
+        color: rgb(0, 0, 0);
+    }
+ .body_tracking{
+
+    display: block;
+    background-color: #eaecc9;
+ }
+ .table_track{
+    width: 100%;
+    font-weight: 600;
+
+ }
+ .tfoot_track{
+    background-color: #bdbdbd;
+    font-size: 16pt;
+    font-weight: 700;
+ }
+ .add_tracking{
+    height: 25px;
+    width: 150px;
+    background-color: #39d7ff4d;
+ }
+ .add_tracking_btn{
+    width: 100px;
+    height: 25px;
+ }
