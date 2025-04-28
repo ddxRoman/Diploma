@@ -61,7 +61,9 @@ $today = date('Y-m-d');
                     <tfoot class="tfoot_track">
                         <tr>
                             <td>Итого:</td>
-                            <td><strong><?=$total?></strong></td>
+                            <td><strong><?=$total?>/<?=$hours=number_format((float)$total/60, 2, '.', '');?>
+                        </strong></td>
+
                         </tr>
                     </tfoot>
             </table>
