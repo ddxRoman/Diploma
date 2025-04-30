@@ -100,7 +100,7 @@ $btn_color=$setting['btn_color'];
             <? 
              foreach($sites_categorie as $sites_categories){
             if($sites_categories[4]==1){?>
-                          <a href="<?=$sites_categories[3]?>" target="_blank"><button class="document"><?=$sites_categories[1]?></button></a><br>
+                          <a href="<?=$sites_categories[3]?>" target="_blank"><button class="document"><?=$sites_categories[1]?></button></a> <a href="edit_button.php"><img src="../../file/icons/edit.png"></img></a><br>
             <?} else if($sites_categories[4]==0){?>
           <a href="<?=$sites_categories[3]?>" target="1"><button><?=$sites_categories[1]?></button></a><br>
            <? } else if($sites_categories[4]==2){?>
@@ -110,7 +110,7 @@ $btn_color=$setting['btn_color'];
             else if($sites_categories[4]==3){?>
               <a href="<?=$sites_categories[3]?>" target="1"><button><?=$sites_categories[1]?></button></a><br>
             <?}
-           } ?>
+           } ?> 
              </div>
 </div>
 

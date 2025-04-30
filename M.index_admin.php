@@ -59,13 +59,15 @@ if ($role!= 1) {
             <!-- Тут начинает МИС панель.-->
             <a href="folders/addcreeds.php" target="1"><button>Доступы</button></a>
             <!--<a href="folders/user_list.php" target="_self"><button>Список сотрудников</button></a>-->
-            <a href="Taskmanager/task_user.php" target="1"><button>Задачи сотрудникам</button></a>
+            <!-- <a href="Taskmanager/task_user.php" target="1"><button>Задачи сотрудникам</button></a> -->
             <!--<a href="folders/addNews.php" target="1"><button>Добавить Новость</button></a>-->
-                        <a href="folders/addsiteForm.php" target="1"><button>Добавить сайт</button></a>
-            <a href="https://s2.hostiman.ru/phpmyadmin/index.php"><button>База Данных</button></a>
-            <a href="https://my.hostiman.ru/cabinet/services/shared/files/245637"><button>Менеджер файлов</button></a>
+            <a href="folders/addsiteForm.php" target="1"><button>Сайты</button></a>
+            <a href="https://s2.hostiman.ru/phpmyadmin/index.php"><button>БД</button></a>
+            <a href="https://my.hostiman.ru/cabinet/services/shared/files/245637"><button>Файлов</button></a>
             <a href="folders/TgBotForm.php" target="1"><button class="btn_tg_index">Бот</button></a>
-            <a href="finance/finance.php"><button class="btn_tg_index">Финансы</button></a>
+            <a href="finance/finance.php" target="_blank"><button class="btn_tg_index">Финансы</button></a>
+            <a href="folders\ventor_map.php" target="_blank"><button class="btn_tg_index">Карта</button></a>
+            <a href="folders\tracking.php" target=""><button class="btn_tg_index">Трек</button></a>
             
            
            </div><!-- Тут заканчивается МИС панель-->
@@ -82,18 +84,7 @@ if ($role!= 1) {
                 </iframe>
             
             </div>
-            <!-- ТАм вообще есть отдельный файл с проверкой, надо с ним поработать -->
-            <?php if ($_SESSION['user']['status'] == 9) { ?><!-- Берем Роль пользователя и проверяем если она равно 9 (у нас это админ) то показываем Правое меню-->
-                <div class="rmenu">
-                    <iframe name="task" src="Taskmanager/Task.php">
-                    </iframe>
-                </div>
-            <?  } else { 
-            ?><div class="not-visible-rmenu"><iframe name="" src=""></iframe></div>
-            <?
-            }
-            ?>
-            <!-- </div> -->
+            
         </div>
         <hr class="footer-hr">
         <div class="footer">

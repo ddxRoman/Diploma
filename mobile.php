@@ -104,11 +104,7 @@ if($interval->y>0){
 
        <div class="body">   <!-- Начало Тела сайта -->
             <div class="lmenu"> 
-            <div class="container frame">
-                <iframe name="1" src="">
-                    
-                </iframe>
-            </div>
+
 
 <? foreach($sites_categorie as $sites_categories){
                 if($sites_categories[4]==1){?>
@@ -174,7 +170,7 @@ if($interval->y>0){
 
 
 
-                        <div class="rmenu">
+                         <div class="rmenu">
             <?php if ($_SESSION['user']['status'] == 9) { ?><!-- Берем Роль пользователя и проверяем если она равно 9 (у нас это админ) то показываем Правое меню-->
                     <iframe class="taskBootstrap-frame" name="task" src="Taskmanager/task_bootstrap.php">
                     </iframe>
@@ -182,8 +178,8 @@ if($interval->y>0){
             <?  } else { 
             ?>
 
-                    <iframe class="taskBootstrap-frame" name="task" src="Taskmanager/task_bootstrap.php">
-                    </iframe>
+                    <!-- <iframe class="taskBootstrap-frame" name="task" src="Taskmanager/task_bootstrap.php">
+                    </iframe> -->
                     <?
             }
             ?>

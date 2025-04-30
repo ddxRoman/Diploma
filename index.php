@@ -111,6 +111,7 @@ if($interval->y>0){
             <div class="lmenu"> 
             <? 
              foreach($sites_categorie as $sites_categories){
+                if ($sites_categories[5]!=0) {
             if($sites_categories[4]==1){?>
                           <a href="<?=$sites_categories[3]?>" target="_blank"><button class="document"><?=$sites_categories[1]?></button></a><br>
             <?} else if($sites_categories[4]==0){?>
@@ -122,7 +123,7 @@ if($interval->y>0){
             else if($sites_categories[4]==3){?>
               <a href="<?=$sites_categories[3]?>" target="1"><button><?=$sites_categories[1]?></button></a><br>
             <?}
-           } ?>
+           } }?>
              </div>
             <div class="container frame">
                 <iframe name="1" src="folders/sites.php">
