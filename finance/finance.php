@@ -1,9 +1,14 @@
-<?require_once "../function/check-device-finance.php";?>
+<?require_once "../function/check-device-finance.php";
+require_once '../action/connect.php';
+require_once 'operation/check_card.php';
+$summa=0;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <?
+$Lera_bugdet = 0;
+$Roma_bugdet = 0;
 session_start();
-require_once '../action/connect.php';
 
 if($_SESSION['last_date']==""){
     $last_date=date("Y-m-d");
@@ -63,8 +68,7 @@ $month_list = array(
 <header>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-5">
-            <div class="row">
+            <div class="col-2">
                 <div class="col-2">
                 <ul class="month_ul_reports">
                     <form  action="finance.php?month=<?=$select_month?>&year=<?=$finance_total[0]?>">
@@ -83,9 +87,69 @@ $month_list = array(
         </form>
         </ul>
                 </div>
+<!-------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------
+-------------------------------------Модалка-------------------------------------------
+---------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------->
                 <div class="col-3">
+                <a data-fancybox href="#hidden">
+                    <button>
+                    Пополнить
+                </button>
+                </a>
             </div>
+
             </div>
+            <div class="col-3">
+                <? foreach ($budget as $budgets){
+                  list($year, $month, $day) = explode('-', $budgets[1]); // Если формат "день-месяц-год" 
+                    if ($month==$select_month && $year=$select_year){
+                    if($budgets[3]=='Лера') $Lera_bugdet = $Lera_bugdet+$budgets[2];
+                    else if($budgets[3]=='Рома') $Roma_bugdet = $Roma_bugdet+$budgets[2];
+
+                    }}
+                    foreach($finance as $finances){
+                        list($year, $month, $day) = explode('-', $finances[1]); // Если формат "день-месяц-год" 
+                        if ($month==$select_month && $year=$select_year){
+                            
+                            if($finances[5]=='Рома' && $finances[7]=='Shared') {
+                        $Roma_bugdet=$Roma_bugdet-$finances[4];
+                }
+                else if($finances[5]=='Лера' && $finances[7]=='Shared') {
+                    $Lera_bugdet=$Lera_bugdet-$finances[4];
+            }
+
+
+                    }}?>
+
+                <h5 class="shared_balance_person_header">Доля за <?=$select_month?>-й месяц:</h5>
+                <? if ($Lera_bugdet<0){
+                 ?>   <h6 class="negative_balance">Лера: <?=$Lera_bugdet?></h6><?
+                } else {
+?>
+                <h6 class="shared_balance_person">Лера: <?=$Lera_bugdet?></h6>
+                <?}
+                if ($Roma_bugdet<0){
+                 ?>   <h6 class="negative_balance">Рома: <?=$Roma_bugdet?></h6><?
+                } else {
+?>
+                <h6 class="shared_balance_person">Рома: <?=$Roma_bugdet?></h6>
+                <?}
+                
+                
+                
+                ?>
+
+
+                
             </div>
             <div class="col-3">
                 <h1 class="text-center">Расходы финансов</h1>
@@ -144,6 +208,7 @@ if (($select_month==$key) || (date('m')==$key && $i==0 && $select_month<date('m'
                             <option value="Лера">Лера</option>
                             <option value="Общее">Общее</option>
                         </select>
+                        <input title="С совместного счёта" name="card" type="checkbox" checked>
                         <input name="hashtag" type="text" placeholder="Хештэг">
                         <br>
                         <button>Добавить</button>
@@ -226,16 +291,24 @@ if (($select_month==$key) || (date('m')==$key && $i==0 && $select_month<date('m'
     </main>
 </body>
 
+
+
+
+
+ 
 <div style="display: none; width: 500px;" id="hidden">
-    <!-- <form action="operation/budget.php" method="post">
-        <input name="date_pay" type="date">
-        <input name="summa" type="number">
-        <select name="contributor" id="">
-            <option value="Рома">Рома</option>
-            <option value="Лера">Лера</option>
-        </select>
-        <Button>Вкинуть лавеху</Button>
-    </form> -->
+	<h2>Внести бюджет</h2>
+<form action="operation/budget.php" method="post">
+    <select name="contributor" id="">
+        <option value="" selected disabled>Плательщик:</option>
+        <option value="Лера">Лера</option>
+        <option value="Рома">Рома</option>
+    </select>
+    <input type="date" name="date_pay" value="<?=date("Y-m-d")?>">
+    <input type="text" name="summa" placeholder="Сумма"><br><br>
+<button>Пополнить</button>
+</form>
 </div>
+
 
 </html>

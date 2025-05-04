@@ -201,3 +201,45 @@ font-weight: 600;
     font-weight: 600;
     font-size: 16pt;
 }
+.shared_balance_person{
+width: 150px;
+}
+.shared_balance_person_header{
+width: 180px;
+}
+.negative_balance{
+    animation-duration: 2s;
+    animation-name: negativeBalance;
+    animation-iteration-count: infinite;
+    width: 150px;
+}
+
+p {
+
+  }
+  
+  @keyframes negativeBalance {
+    0% {
+        color: rgb(255, 0, 0);
+        border: 2px solid rgb(255, 0, 0);;
+    }
+    25% {
+        color: rgb(136, 72, 72);
+        border: 2px solid rgb(136, 72, 72);;
+    }
+    50% {
+        color: rgb(231, 20, 20);
+        border: 2px solid rgb(231, 20, 20);;
+    }
+    75% {
+        color: rgb(148, 68, 68);
+        border: 2px solid rgb(148, 68, 68);;
+    }
+    100% {
+        color: rgb(255, 0, 0);
+        border: 2px solid rgb(255, 0, 0);;
+    }
+  
+
+  }
+  
