@@ -123,16 +123,80 @@ foreach($month_list as $month_lists) {     // Список месяцов в л�
 
 <body>
     <div class="month_line">
-        <!-- <ul class="month_ul_reports"> -->
+
+    <details class="faq-block__item" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <summary class="name-part faq-block__question" itemprop="name">
+                        <span>
+                        Бюджет
+                    </span>
+
+
+            </summary>
+                <div itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div class="faq-block__answer text-section" itemprop="text">
+                    <div class="container frame">
+                    <? foreach ($budget as $budgets){
+                  list($year, $month, $day) = explode('-', $budgets[1]); // Если формат "день-месяц-год" 
+                    if ($month==$select_month && $year=$select_year){
+                    if($budgets[3]=='Лера') $Lera_bugdet = $Lera_bugdet+$budgets[2];
+                    else if($budgets[3]=='Рома') $Roma_bugdet = $Roma_bugdet+$budgets[2];
+
+                    }}
+                    foreach($finance as $finances){
+                        list($year, $month, $day) = explode('-', $finances[1]); // Если формат "день-месяц-год" 
+                        if ($month==$select_month && $year=$select_year){
+                            
+                            if($finances[5]=='Рома' && $finances[7]=='Shared') {
+                        $Roma_bugdet=$Roma_bugdet-$finances[4];
+                }
+                else if($finances[5]=='Лера' && $finances[7]=='Shared') {
+                    $Lera_bugdet=$Lera_bugdet-$finances[4];
+            }
+
+
+                    }}?>
+                    <a class="add_budget_mobile" data-fancybox href="#hidden">
+                    <button class="add_budget_mobile">
+                    Пополнить
+                </button>
+                </a>
+
+                <h5 class="shared_balance_person_header">Доля за <?=$select_month?>-й месяц:</h5>
+                <? if ($Lera_bugdet<0){ $bgt="false";
+                 ?>   <h6 class="negative_balance">Лера: <?=$Lera_bugdet?></h6><?
+                } else {
+?>
+                <h6 class="shared_balance_person">Лера: <?=$Lera_bugdet?></h6>
+                <?}
+                if ($Roma_bugdet<0){ $bgt="false";
+                 ?>   <h6 class="negative_balance">Рома: <?=$Roma_bugdet?></h6><?
+                } else {
+?>
+                <h6 class="shared_balance_person">Рома: <?=$Roma_bugdet?></h6>
+                <?}
+                ?>
+
+
+                
+            </div>
+                    </div>
+                </div>
+            </details>
+            <? if($bgt=='false'){?>
+            <p class="negative_balance">
+                Бюджет исчерпан
+            </p>
+            <?}?>
+
 
     </div>
     <main>
-        <div class="container-fluid body_finance">
+        <div class="container-fluid mobile_body_finance">
             <div class="row">
                 <div class="col-12">
                     <form action="operation/add-pay.php" method="post">
-                        <input required name="date" type="date" value="<?= $last_date ?>" autofocus/>
-                        <select required name="category" id="" >
+                        <input class="mobile_add_pay_form" required name="date" type="date" value="<?= $last_date ?>" autofocus/> <br>
+                        <select class="mobile_add_pay_form" required name="category" id="" >
                             <option value="Продукты">Продукты</option>
                             <option value="Общие расходы" title="Общие расходы - расходы которые касаются Праздников, прогулок, платежей, являются не регулярными и не стабильными">Общие расходы</option>
                             <option value="Бытовые расходы" title="Бытовые расходы - расходы которые касаются общих мероприятий и явялются ежемесячными или регулярными" >Бытовые расходы</option>
@@ -144,9 +208,9 @@ foreach($month_list as $month_lists) {     // Список месяцов в л�
                             <option value="Здоровье">Здоровье</option>
                             <option value="Кредитки">Кредитки</option>
                         </select><br>
-                        <input name="coast" placeholder="Сумма" type="number">
-                        <input name="purchase" placeholder="Покупка" type="text"><br>
-                        <select name="payer" id="">
+                        <input class="mobile_add_pay_form" name="coast" placeholder="Сумма" type="number"><br>
+                        <input class="mobile_add_pay_form" name="purchase" placeholder="Покупка" type="text"><br>
+                        <select class="mobile_add_pay_form" name="payer" id="">
                             <?
                             
                             if($_SESSION['last_payer']!="") {?><option value="<?=$_SESSION['last_payer']?>"><?=$_SESSION['last_payer']?></option><?}
@@ -154,9 +218,9 @@ foreach($month_list as $month_lists) {     // Список месяцов в л�
                             <option value="Рома">Рома</option>
                             <option value="Лера">Лера</option>
                             <option value="Общее">Общее</option>
-                        </select>
-                        <input name="hashtag" type="text" placeholder="Хештэг">
-                        <br>
+                        </select><br>
+                        <input class="mobile_add_pay_form" name="hashtag" type="text" placeholder="Хештэг">
+                        <br>                        <input title="С совместного счёта" name="card" type="checkbox" checked>
                         <button>Добавить</button>
                     </form>
                 </div>
@@ -168,7 +232,7 @@ foreach($month_list as $month_lists) {     // Список месяцов в л�
                             <th></th>
                             <th>Дата</th>
                             <th>Категория</th>
-                            <th>Транзакция</th>
+                            <th>Покупка</th>
                             <th>Сумма</th>
                             <th>Плательщик</th>
                             <!-- <th>Хештег</th> -->

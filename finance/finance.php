@@ -1,6 +1,6 @@
 <?require_once "../function/check-device-finance.php";
 require_once '../action/connect.php';
-require_once 'operation/check_card.php';
+
 $summa=0;
 ?>
 <!DOCTYPE html>

@@ -194,10 +194,10 @@ font-weight: 600;
     width: 130px;
 }
 .m_total_coast {
-    width: 200px;
+
     position: absolute;
     top: 25px;
-    left: 400px;
+right: 10px;
     font-weight: 600;
     font-size: 16pt;
 }
@@ -239,7 +239,19 @@ p {
         color: rgb(255, 0, 0);
         border: 2px solid rgb(255, 0, 0);;
     }
-  
-
   }
-  
+.mobile_add_pay_form{
+    width: 75%;
+    height: 30px;
+    margin-bottom: 0.5%;
+}
+  .mobile_body_finance{
+    margin: 0;
+  }
+  .add_budget_mobile {
+position: absolute;
+right: 2px;
+border-radius: 15px;
+background-color: rgb(90, 255, 39);
+font-weight: 600;
+  }
