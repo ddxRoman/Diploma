@@ -10,6 +10,7 @@ require_once '../../action/connect.php';
 $operation_id=$_GET['id'];
 $operation=mysqli_query($connect, "SELECT*FROM `expenses` WHERE `id`='$operation_id'");
 $operation=mysqli_fetch_assoc($operation);
+
 ?>
 <body>
     <form action="edit_operation.php" method="post">
@@ -29,13 +30,18 @@ $operation=mysqli_fetch_assoc($operation);
                             <option value="Кредитки">Кредитки</option>
                         </select>
                         <input name="coast" placeholder="Сумма"  type="number" value="<?=$operation['coast']?>">
-                        <input name="purchase" placeholder="Покупка" required type="text" value="<?=$operation['purchase']?>">
+                        <input name="purchase" placeholder="Покупка" type="text" value="<?=$operation['purchase']?>">
                         <select name="payer" id="" value="<?=$operation['payer']?>">
                         <option value="<?=$operation['payer']?>"><?=$operation['payer']?></option>
                             <option value="Рома">Рома</option>
                             <option value="Лера">Лера</option>
                             <option value="Общее">Общее</option>
                         </select>
+                        <? if ($operation['card']=='Shared'){?><input title="С совместного счёта" name="card" type="checkbox" checked> <?}
+                        else {
+                        ?>
+                        <input title="С совместного счёта" name="card" type="checkbox" >
+                        <?}?>
                         <input name="hashtag" type="text" value="<?=$operation['hashtag']?>">
                         <button>Изменить</button>
                     </form>
