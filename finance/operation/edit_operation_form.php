@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" type="image" href="../../file/icons/Logo.png">
+    <link rel="stylesheet" type="text/css" href="../../css/finance/finance-style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
@@ -14,9 +16,9 @@ $operation=mysqli_fetch_assoc($operation);
 ?>
 <body>
     <form action="edit_operation.php" method="post">
-    <input type="hidden" name="id" value="<?=$operation['id']?>">
-    <input type="date" name="date" value="<?=$operation['date']?>">
-                        <select required name="category" id="" value="<?=$operation['category']?>">
+    <input  class="edit_page_form" type="hidden" name="id" value="<?=$operation['id']?>"><br>
+    <input  class="edit_page_form" type="date" name="date" value="<?=$operation['date']?>"><br>
+                        <select class="edit_page_form" required name="category" id="" value="<?=$operation['category']?>"><br>
                             <option value="<?=$operation['category']?>"><?=$operation['category']?></option>
                             <option value="Продукты">Продукты</option>
                             <option value="Общие расходы">Общие расходы</option>
@@ -28,25 +30,28 @@ $operation=mysqli_fetch_assoc($operation);
                             <option value="Личное">Личное</option>
                             <option value="Здоровье">Здоровье</option>
                             <option value="Кредитки">Кредитки</option>
-                        </select>
-                        <input name="coast" placeholder="Сумма"  type="number" value="<?=$operation['coast']?>">
-                        <input name="purchase" placeholder="Покупка" type="text" value="<?=$operation['purchase']?>">
-                        <select name="payer" id="" value="<?=$operation['payer']?>">
+                        </select><br>
+                        <input class="edit_page_form" name="coast" placeholder="Сумма"  type="number" value="<?=$operation['coast']?>"><br>
+                        <input class="edit_page_form" name="purchase" placeholder="Покупка" type="text" value="<?=$operation['purchase']?>"><br>
+                        <select  class="edit_page_form" name="payer" id="" value="<?=$operation['payer']?>"><br>
                         <option value="<?=$operation['payer']?>"><?=$operation['payer']?></option>
                             <option value="Рома">Рома</option>
                             <option value="Лера">Лера</option>
                             <option value="Общее">Общее</option>
-                        </select>
+                        </select><br>
                         <? if ($operation['card']=='Shared'){?><input title="С совместного счёта" name="card" type="checkbox" checked> <?}
                         else {
                         ?>
-                        <input title="С совместного счёта" name="card" type="checkbox" >
+                        <input class="edit_page_form" title="С совместного счёта" name="card" type="checkbox" >
                         <?}?>
-                        <input name="hashtag" type="text" value="<?=$operation['hashtag']?>">
-                        <button>Изменить</button>
+                        <!-- <label for="card">Платёж был осуществлён с совместного счёта</label> -->
+                        <br>
+                        <input class="edit_page_form" name="hashtag" type="text" value="<?=$operation['hashtag']?>"> <label for="card"></label>
+                        <br>
+                        <button class="save_operation_button">Изменить</button>
                     </form>
                     <a href="delete_operation.php?id=<?=$operation_id?>">
-                        <button>Удалить</button>
+                        <button class="delet_operation_button"> <img src="../../file/icons/delete_pay.svg" alt=""> Удалить</button>
                     </a>
                     
 </body>

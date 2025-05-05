@@ -440,3 +440,9 @@ footer h3{
 .nametasks{
     margin: 0;
 }
+.btn_mob_menu{
+    margin-top: 10%;
+    margin-right: 10%;
+    width: 80%;
+    height: 40px;
+  }

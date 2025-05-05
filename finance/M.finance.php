@@ -127,8 +127,9 @@ foreach($month_list as $month_lists) {     // Список месяцов в л�
     <details class="faq-block__item" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
                 <summary class="name-part faq-block__question" itemprop="name">
                         <span>
-                        Бюджет
+                        Бюджет 
                     </span>
+                    <a href="details/techical/all_budget.php"><img class="all_list_transaction" src="../file/icons/all_list_search.svg" alt=""></a>
 
 
             </summary>
@@ -160,6 +161,8 @@ foreach($month_list as $month_lists) {     // Список месяцов в л�
                     Пополнить
                 </button>
                 </a>
+
+                
 
                 <h5 class="shared_balance_person_header">Доля за <?=$select_month?>-й месяц:</h5>
                 <? if ($Lera_bugdet<0){ $bgt="false";
@@ -300,6 +303,21 @@ foreach($month_list as $month_lists) {     // Список месяцов в л�
         </div>
     </main>
 </body>
+
+<div style="display: none; width: 500px;" id="hidden">
+	<h2>Внести бюджет</h2>
+<form action="operation/budget.php" method="post">
+    <select name="contributor" id="">
+        <option value="" selected disabled>Плательщик:</option>
+        <option value="Лера">Лера</option>
+        <option value="Рома">Рома</option>
+    </select>
+    <input type="date" name="date_pay" value="<?=date("Y-m-d")?>">
+    <input type="text" name="summa" placeholder="Сумма"><br><br>
+<button>Пополнить</button>
+</form>
+</div>
+
 
 <div style="display: none; width: 500px;" id="hidden">
 </div>

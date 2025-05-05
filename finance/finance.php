@@ -105,6 +105,7 @@ $month_list = array(
                     Пополнить
                 </button>
                 </a>
+                <a href=""><img class="all_list_transaction" src="../file/icons/all_list_search.svg" alt=""></a>
             </div>
 
             </div>
@@ -294,8 +295,6 @@ if (($select_month==$key) || (date('m')==$key && $i==0 && $select_month<date('m'
 
 
 
-
- 
 <div style="display: none; width: 500px;" id="hidden">
 	<h2>Внести бюджет</h2>
 <form action="operation/budget.php" method="post">
@@ -308,6 +307,7 @@ if (($select_month==$key) || (date('m')==$key && $i==0 && $select_month<date('m'
     <input type="text" name="summa" placeholder="Сумма"><br><br>
 <button>Пополнить</button>
 </form>
+
 </div>
 
 

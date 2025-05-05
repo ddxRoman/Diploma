@@ -56,33 +56,22 @@ if ($role!= 1) {
             </div><!-- Правый верхний блок с профилем-->
         </div> <!-- Конец хедера-->
         <div class="MisPanel">
-            <!-- Тут начинает МИС панель.-->
-            <a href="folders/addcreeds.php" target="1"><button>Доступы</button></a>
-            <!--<a href="folders/user_list.php" target="_self"><button>Список сотрудников</button></a>-->
-            <!-- <a href="Taskmanager/task_user.php" target="1"><button>Задачи сотрудникам</button></a> -->
-            <!--<a href="folders/addNews.php" target="1"><button>Добавить Новость</button></a>-->
-            <a href="folders/addsiteForm.php" target="1"><button>Сайты</button></a>
-            <a href="https://s2.hostiman.ru/phpmyadmin/index.php"><button>БД</button></a>
-            <a href="https://my.hostiman.ru/cabinet/services/shared/files/245637"><button>Файлов</button></a>
-            <a href="folders/TgBotForm.php" target="1"><button class="btn_tg_index">Бот</button></a>
-            <a href="finance/finance.php" target="_blank"><button class="btn_tg_index">Финансы</button></a>
-            <a href="folders\ventor_map.php" target="_blank"><button class="btn_tg_index">Карта</button></a>
-            <a href="folders\tracking.php" target=""><button class="btn_tg_index">Трек</button></a>
-            
-           
+
+
+
            </div><!-- Тут заканчивается МИС панель-->
         <hr class="misPanel-hr" width="85%"><!-- ХРка полоска -->
        <div class="body">   <!-- Начало Тела сайта -->
-            <div class="lmenu"> 
-                <div class="links">
-                    
-                    
-                </div>
-             </div>
             <div class="container_admin">
-                <iframe name="1" src="">
-                </iframe>
-            
+            <a href="folders/addcreeds.php" target="1"><button class=" btn_mob_menu">Доступы</button></a> <br>
+
+            <a href="folders/addsiteForm.php" target="1"><button class=" btn_mob_menu">Сайты</button></a> <br>
+            <a href="https://s2.hostiman.ru/phpmyadmin/index.php"><button class=" btn_mob_menu">БД</button></a> <br>
+            <a href="https://my.hostiman.ru/cabinet/services/shared/files/245637"><button class=" btn_mob_menu">Файлы</button></a> <br>
+            <a href="folders/TgBotForm.php" target="1"><button class=" btn_mob_menu" class="btn_tg_index btn_mob_menu">Бот</button></a> <br>
+            <a href="finance/finance.php" target="_blank"><button class="btn_tg_index btn_mob_menu">Финансы</button></a> <br>
+            <a href="folders\ventor_map.php" target="_blank"><button class="btn_tg_index btn_mob_menu">Карта</button></a> <br>
+            <a href="folders\tracking.php" target=""><button class="btn_tg_index btn_mob_menu">Трек</button></a> <br>
             </div>
             
         </div>
