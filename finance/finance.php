@@ -258,7 +258,9 @@ if (($select_month==$key) || (date('m')==$key && $i==0 && $select_month<date('m'
                                         </a>
                                     </td>
                                     <td><a href="details/payer.php?id=<?= $finances[5] ?>" target="details">
-                                            <?= $finances[5]; ?>
+                                            <?= $finances[5];  if($finances[7]=="Shared") {
+                                                    ?><img class="img_shared_card" src="../file/icons/Shared_pay.png" alt="Общий счёт"><?
+                                            }?>  
                                         </a>
                                     </td>
                                     <td><a href="details/hashtag.php?id=<?= $finances[6] ?>" target="details">
