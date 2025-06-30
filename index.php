@@ -56,8 +56,10 @@ $interval = $now->diff($date); // получаем разницу в виде о
 if($interval->y>0){
      $days=$interval->days;
 }else{ echo "тут вапще щотчык не сработал";}
+if ($days=='977'){
+    ?> <p class="count_married_anniversary"><?=$days?> Дней </p>
 
- ?> <p class="count_married"><?=$days?> Дней </p>
+<? } else{?><p class="count_married"><?=$days?> Дней </p><?}?>
 
             <?php 
 $now = new DateTime(); // текущее время на сервере
@@ -67,7 +69,7 @@ if($interval->y>0){
      $days=$interval->days;
 }else{ echo "тут вапще щотчык не сработал";}
 
- ?> <p class="count_married"><?=$days?> Дней </p>
+ ?> <p class="count_married"><?=$days?></p>
 
             </div>
                 <!-- Подключение файла в котором поля с нашими заказами-->

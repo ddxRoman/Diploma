@@ -1,5 +1,7 @@
 <?
 require_once '../../../action/connect.php';
+$total_V=0;
+$total_R=0;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,6 +14,7 @@ require_once '../../../action/connect.php';
     <title>Пополнения бюджета</title>
 </head>
 <body>
+
     <table class="budget_table table">
         <tr>
 
@@ -26,13 +29,16 @@ require_once '../../../action/connect.php';
             <td> <?=$budgets[3]?></td>
             <td> <?=$budgets[2]?></td>
             <td> <a href="../../operation/edit_budget_form.php?id=<?=$budgets[0]?>"> <img class="icon_edit_finance" src="../../../file/icons/edit_for_finance.svg" alt=""> </a></td>
-
+<? if($budgets[3]=='Лера') $total_V=$total_V+$budgets[2]; 
+else if($budgets[3]=='Рома') $total_R=$total_R+$budgets[2];
+?>
         </tr>
         <?}?>
 
     </table>
-    <?
 
-    ?>
+<h5>Лера: <?=$total_V?></h5>
+<h5>Рома: <?=$total_R?></h5>
+
 </body>
 </html>

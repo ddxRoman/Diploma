@@ -15,11 +15,15 @@ session_start();
 require_once '../../action/connect.php';
 $filter_category = $_GET['id'];
 list($year, $month, $day) = explode('-', $finances[1]); // Если формат "день-месяц-год" 
-$PlusDay=$year+"-"+$month+"-"+$day;
 $filter=mysqli_query($connect, "SELECT*FROM `expenses` WHERE `id`='$filter_category'");
 $filter=mysqli_fetch_assoc($filter);
+
+
+
+echo $filter_category;
+
 ?>
-<h1><a href=""><</a><?=$filter_category?> <a href="date.php?id=<?=$PlusDay?>">></a> </h1>
+<h1><a href="date.php?<?$filter_category-1?>"><</a><?=$filter_category?> <a href="date.php?<?=$next_day?>">></a></h1>
 <table class="table table-hover">
                         <tr>
                             <th>Дата</th>
@@ -36,7 +40,7 @@ $filter=mysqli_fetch_assoc($filter);
                         <tr>
                         <td>
                                         <a href="../operation/edit_operation_form.php?id=<?= $finances[0] ?>">
-                                            <img src="../../file/icons/edit_for_finance.svg" class="icon_edit_finance" alt="">
+                                            <img src="../../../file/icons/edit_for_finance.svg" class="icon_edit_finance" alt="">
                                         </a>
                                     </td>
                             <td>
@@ -57,7 +61,9 @@ $filter=mysqli_fetch_assoc($filter);
                             </a>
                             </td>
                             <td><a href="payer.php?id=<?=$finances[5]?>" target="details">
-                                                <?=$finances[5]; ?>
+                                                                                            <?= $finances[5];  if($finances[7]=="Shared") {
+                                                    ?><img class="img_shared_card" src="../file/icons/Shared_pay.png" alt="Общий счёт"><?
+                                            }?>  
                             </a>
                             </td>
                         </tr>

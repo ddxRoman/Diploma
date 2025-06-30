@@ -59,6 +59,7 @@ $month_list = array(
     <meta name="theme-color" content="#ff0000" />
     <link rel="manifest" href="JavaScript/manifest.json">
     <link rel="stylesheet" href="../css/finance/finance-style.css">
+    <link rel="stylesheet" href="../css/button.css">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
@@ -295,8 +296,6 @@ if (($select_month==$key) || (date('m')==$key && $i==0 && $select_month<date('m'
 </body>
 
 
-
-
 <div style="display: none; width: 500px;" id="hidden">
 	<h2>Внести бюджет</h2>
 <form action="operation/budget.php" method="post">
@@ -305,10 +304,12 @@ if (($select_month==$key) || (date('m')==$key && $i==0 && $select_month<date('m'
         <option value="Лера">Лера</option>
         <option value="Рома">Рома</option>
     </select>
-    <input type="date" name="date_pay" value="<?=date("Y-m-d")?>">
+    <input type="date" name="date_pay" value="<?=$current_date?>">
     <input type="text" name="summa" placeholder="Сумма"><br><br>
 <button>Пополнить</button>
 </form>
+
+<a  href="details/techical/all_budget.php"><button class="history_button_modal">История</button></a>
 
 </div>
 

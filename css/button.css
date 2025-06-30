@@ -249,3 +249,9 @@ position: relative;
 .services img{
   width: 55px;
 }
+.history_button_modal{
+  position: absolute;
+  right: 10px;
+  border-radius: 10px;
+  background-color: #519e87;
+}

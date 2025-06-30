@@ -38,7 +38,7 @@ $finance_total = mysqli_fetch_all($finance_total); // Выбирает все с
 $desc_finance = mysqli_query($connect, "SELECT * FROM `expenses` ORDER BY `coast` DESC"); // Подключение к определенной таблице, и получение Статуса записи
 $desc_finance = mysqli_fetch_all($desc_finance); // Выбирает все строки из набора $Comment и помещает их в массив  $Comments
 
-$budget = mysqli_query($connect, "SELECT * FROM `budget`"); // Подключение к определенной таблице, и получение Статуса записи
+$budget = mysqli_query($connect, "SELECT * FROM `budget` ORDER BY `date` DESC"); // Подключение к определенной таблице, и получение Статуса записи
 $budget = mysqli_fetch_all($budget); // Выбирает все строки из набора $Comment и помещает их в массив  $Comments
 
 $filter = mysqli_query($connect, "SELECT * FROM `expenses` ORDER BY `payer` DESC"); // Подключение к определенной таблице, и получение Статуса записи

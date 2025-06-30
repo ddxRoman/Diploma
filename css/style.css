@@ -419,10 +419,64 @@ input.jiratask{
     font-size: large;
 }
 
-.count_married{
-    font-weight: 900;
-    font-size: large;
+.count_married_anniversary{
+    color: red;
+    animation: married 0.8s linear infinite;
+    font-size: 18pt;
+    /* border-radius: 15px; */
+    width: 120px;
 }
+
+@keyframes married{
+0%{
+        font-weight: 900;
+background: linear-gradient(256deg, #ffffff 10%, #000000 100%);
+}
+10%{
+        font-weight: 900;
+background: linear-gradient(256deg, #ffffff 20%, #000000 100%);
+
+}
+20%{
+        font-weight: 900;
+background: linear-gradient(256deg, #ffffff 30%, #000000 100%);
+
+}
+30%{
+        font-weight: 900;
+
+background: linear-gradient(256deg, #ffffff 40%, #000000 100%);
+}
+40%{
+        font-weight: 900;
+background: linear-gradient(256deg, #ffffff 50%, #000000 100%);
+}
+50%{
+        font-weight: 900;
+background: linear-gradient(256deg, #ffffff 60%, #000000 100%);
+}
+60%{
+        font-weight: 900;
+background: linear-gradient(256deg, #ffffff 50%, #000000 100%);
+}
+70%{
+        font-weight: 900;
+background: linear-gradient(256deg, #ffffff 40%, #000000 100%);
+}
+80%{
+        font-weight: 900;
+background: linear-gradient(256deg, #ffffff 30%, #000000 100%);
+}
+90%{
+        font-weight: 900;
+background: linear-gradient(256deg, #ffffff 20%, #000000 100%);
+}
+100%{
+        font-weight: 900;
+background: linear-gradient(256deg, #ffffff 10%, #000000 100%);
+}
+}
+
 .jiratask{
     width: 150px;
     height: 25px;
