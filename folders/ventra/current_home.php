@@ -41,7 +41,7 @@ $ventra_builds_comment = mysqli_fetch_all($ventra_builds_comment); // Выбир
         <form class="ventra" method="post" action="../../action/ventra/add_comments.php?street=<?=$street?>&build=<?=$build?>">
             <input type="text" name="street" disabled value="<?=$street?>" id="">
             <input type="text" name="build" disabled value="<?=$build?>" id=""><br>
-            <textarea name="comment"></textarea><br>
+            <textarea required name="comment"></textarea><br>
             <button class="btn_add_comments" type="submit">Добавить</button>
 </form>
 <div>
