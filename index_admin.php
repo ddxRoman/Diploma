@@ -1,4 +1,5 @@
 <?
+$current_year=date("Y");
 require_once "function/checkaut.php";
 require_once "function/checkrole.php";
 require_once "function/check-device-for-admin.php";
@@ -99,7 +100,7 @@ if ($role!= 1) {
             
             <div class="refresh">
             <p class="ink"><br><img src="file/icons/Logo.png" alt="test"><br>
-                 ORStudio <br> Оксентий Роман Сергеевич Студио <br> Copyright 2022-2023 </p>
+                 ORStudio <br> Оксентий Роман Сергеевич Студио <br> Copyright 2022-<?=$current_year?> </p>
             </div>
             <div id="clock" class="clock">         
             <script src="JavaScript/clock.js">

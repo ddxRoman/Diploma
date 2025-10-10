@@ -107,6 +107,7 @@ if($interval->y>0){
 
 
 <? foreach($sites_categorie as $sites_categories){
+    if($sites_categories[5]!=0){
                 if($sites_categories[4]==1){?>
     <a href="<?=$sites_categories[3]?>" target="_blank"><button class="document"><?=$sites_categories[1]?></button></a><br>
     <?} else if($sites_categories[4]==0){?>
@@ -157,7 +158,7 @@ if($interval->y>0){
             </details>
 
 
-              <?}
+              <?}}
 
 
 

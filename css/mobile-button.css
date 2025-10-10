@@ -143,8 +143,9 @@ width: 55%;
 
 .lmenu button {
   border-color: rgb(230, 153, 123);
-  border-radius: 4px;
-  min-width: 25%;
+  border-radius: 8px;
+  min-width: 100%;
+  min-height: 25px;
   /* margin: 1px; */
   /* padding: 3px; */
 
