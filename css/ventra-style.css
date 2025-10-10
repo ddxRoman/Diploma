@@ -1,0 +1,54 @@
+textarea{
+        padding: 0.8%;
+            height: 100px;
+}
+
+.ventra select{
+        height: 40px;
+}
+
+form{
+    margin-top: 5%;
+}
+.ventra textarea, select{
+    width: 90%;
+    border: 0;
+    background-color: rgba(155, 128, 173, 0.589);
+    border-radius: 3px;
+    margin: 1px 0;
+}
+
+
+
+.ventra {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Центрирует элементы по горизонтали */
+
+}
+
+.ventra button {
+    padding: 8px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    background-color: #a200ff3a;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.ventra button:hover {
+    background-color: #a200ffcb;
+}
+
+.ventra_add_home{
+text-align: center;
+
+}
+.ventra_add_home input{
+    margin-left: 1%;
+}
+.ventra_add_home button{
+margin-left: 1%;
+}
