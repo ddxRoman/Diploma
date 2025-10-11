@@ -54,7 +54,7 @@
         <body>
             
             <a href="ventor_map.php" target="_blank"><button class="btn_tg_index btn_mob_menu">Карта</button></a> <br>
-            <a href="ventra/home.php." target="_blank"><button class="btn_tg_index btn_mob_menu">Дома</button></a> <br>
+            <a href="ventra/home.php" target="_blank"><button class="btn_tg_index btn_mob_menu">Дома</button></a> <br>
         </body>
             </div>
     </body>

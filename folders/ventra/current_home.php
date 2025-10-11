@@ -26,40 +26,39 @@ $ventra_builds_comment = mysqli_fetch_all($ventra_builds_comment); // Выбир
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+      <link rel="stylesheet" type="text/css" href="../../css/ventra-style.css">
+    <title><?=$street?> # <?=$build?></title>
 </head>
-<body>
+<body class="">
+<div class="all_page_ventra">
 
 <header>
     <a href="home.php">
-        <button>На главную</button>
+        <button class="btn_add_comments">На главную</button>
     </a>
+    <h2><?=$street?> # <?=$build?></h2>
 </header>
 
-    <label for="">Добавить комментарий</label>
+    <label for="btn_add_comments">Добавить комментарий</label>
 
         <form class="ventra" method="post" action="../../action/ventra/add_comments.php?street=<?=$street?>&build=<?=$build?>">
-            <input type="text" name="street" disabled value="<?=$street?>" id="">
-            <input type="text" name="build" disabled value="<?=$build?>" id=""><br>
             <textarea required name="comment"></textarea><br>
             <button class="btn_add_comments" type="submit">Добавить</button>
 </form>
 <div>
-
-    <div>
+<hr>
+    <div >
         <?foreach($ventra_builds_comment as $ventra_builds_comments){
-
-            ?><p><?=$ventra_builds_comments[3]?></p><?
-            ?><p><?=$ventra_builds_comments[1]?></p><?
+            ?>
+            <div class="comments_block">
+            <p><?=$ventra_builds_comments[3]?></p><?
+            ?><p><?=$ventra_builds_comments[1]?></p>
+            </div><?
         }
         ?>
         <p></p>
     </div>
 </div>
-
-
-<hr>
-
-
+</div>
 </body>
 </html>
