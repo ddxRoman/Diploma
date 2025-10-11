@@ -1,8 +1,7 @@
 <?php
 ob_clean(); // Убираем лишний вывод, если что-то было до этого
 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+
 
 $connect = mysqli_connect('localhost', 'user', 'qazwsx', 'diploma');
 if (!$connect) {

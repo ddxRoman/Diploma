@@ -36,13 +36,17 @@ $ventra_builds_comment = mysqli_fetch_all($ventra_builds_comment); // Выбир
     <a href="home.php">
         <button class="btn_add_comments">На главную</button>
     </a>
-    <h2><?=$street?> # <?=$build?></h2>
+    <h2><?=$street?> # <?=$build?> <a href="note_home.php?street=<?=$street?>&build=<?=$build?>">
+
+    <img src="../../file/icons/ventra/note.png" alt=""> </a></h2> 
+
 </header>
 
     <label for="btn_add_comments">Добавить комментарий</label>
 
         <form class="ventra" method="post" action="../../action/ventra/add_comments.php?street=<?=$street?>&build=<?=$build?>">
             <textarea required name="comment"></textarea><br>
+
             <button class="btn_add_comments" type="submit">Добавить</button>
 </form>
 <div>
