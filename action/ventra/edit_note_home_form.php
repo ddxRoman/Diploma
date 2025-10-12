@@ -1,9 +1,38 @@
 <?php
+require_once "../../action/connect.php";
 
-$street = $_GET['street'];
-$build = $_GET['build'];
+$street = $_GET['street'] ?? '';
+$build = $_GET['build'] ?? '';
 
+$competitors = [];
+$keys = [];
+$note = '';
 
+if ($street && $build) {
+    // 1️⃣ Находим ID адреса
+    $stmt = $connect->prepare("SELECT id FROM ventra_home WHERE street = ? AND build = ?");
+    $stmt->bind_param("ss", $street, $build);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $home = $result->fetch_assoc();
+
+    if ($home) {
+        $adress_id = $home['id'];
+
+        // 2️⃣ Загружаем данные по этому адресу из ventra_home_notefication
+        $stmt2 = $connect->prepare("SELECT * FROM ventra_home_notefication WHERE adress_id = ?");
+        $stmt2->bind_param("i", $adress_id);
+        $stmt2->execute();
+        $result2 = $stmt2->get_result();
+        $data = $result2->fetch_assoc();
+
+        if ($data) {
+            $competitors = array_map('trim', explode(',', $data['competitors'] ?? ''));
+            $keys = array_map('trim', explode(',', $data['door_key'] ?? ''));
+            $note = $data['note'] ?? '';
+        }
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -12,140 +41,49 @@ $build = $_GET['build'];
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="../../css/ventra-style.css">
-  <title>Форма конкурентов</title>
-<?php
-require_once "../../action/connect.php";
-
-?>
-<!doctype html>
-<html lang="ru">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="../../css/ventra-style.css">
-  <title>Дома</title>
-  <style>
-   
-  </style>
+  <title>Редактирование заметки</title>
 </head>
 
 <body>
-
-  <script>
-    document.getElementById('street').addEventListener('change', function () {
-      const street = this.value;
-      const buildselect = document.getElementById('build');
-
-      if (!street) {
-        buildselect.innerHTML = '<option value="">Сначала выберите улицу</option>';
-        return;
-      }
-
-      buildselect.innerHTML = '<option>Загрузка...</option>';
-
-      fetch('get_build.php', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
-        body: 'street=' + encodeURIComponent(street)
-      })
-      .then(response => {
-        if (!response.ok) throw new Error('HTTP error ' + response.status);
-        return response.json();
-      })
-      .then(data => {
-        buildselect.innerHTML = '';
-        if (!Array.isArray(data) || data.length === 0) {
-          buildselect.innerHTML = '<option value="">Дома не найдены</option>';
-          return;
-        }
-        data.forEach(build => {
-          const opt = document.createElement('option');
-          opt.value = build;
-          opt.textContent = build;
-          buildselect.appendChild(opt);
-        });
-      })
-      .catch(err => {
-        console.error('Fetch error:', err);
-        buildselect.innerHTML = '<option value="">Ошибка загрузки</option>';
-      });
-    });
-  </script>
-
-
-
-<body>
-
-    <div>
-        <?
-        foreach($ventra_note_current as $ventra_note_currents){
-?>
-<table>
-    <tr>
-        <td><b>Ключи:</b></td>
-        <td><?=$ventra_note_currents[3]?></td>
-    </tr>
-    <tr>
-        <td><b>Конкуренты:</b></td>
-        <td><?=$ventra_note_currents[4]?></td>
-    </tr>
-    <tr>
-        <td><b>Заметка: </b></td>
-        <td><?=$ventra_note_currents[2]?></td>
-    </tr>
-</table>
-
-
-<?
-
-        }
-        ?>
-    </div>
-
-  <form action="../../action/ventra/add_note_home.php?street=<?=$street?>&build=<?=$build?>" method="post">
+  <form action="../../action/ventra/add_note_home.php?street=<?=htmlspecialchars($street)?>&build=<?=htmlspecialchars($build)?>" method="post">
     <label>Выбери конкурентов</label>
     <div class="checkbox-group">
       <label class="checkbox-item"> МТС
-        <input type="checkbox" name="competitors[]" hidden value="MTC">
+        <input type="checkbox" name="competitors[]" hidden value="MTC" <?=in_array('MTC', $competitors) ? 'checked' : ''?>>
         <img src="../../file/icons/ventra/mts.png" alt="МТС">
       </label>
 
       <label class="checkbox-item"> Ростелеком
-        <input type="checkbox" name="competitors[]" hidden value="Ростелеком">
+        <input type="checkbox" name="competitors[]" hidden value="Ростелеком" <?=in_array('Ростелеком', $competitors) ? 'checked' : ''?>>
         <img src="../../file/icons/ventra/rostelecom.png" alt="Ростелеком">
       </label>
 
       <label class="checkbox-item"> прочее
-        <input type="checkbox" name="competitors[]" hidden value="Другие">
-        <img src="../../file/icons/ventra/other.png" alt="Другой">
+        <input type="checkbox" name="competitors[]" hidden value="Другие" <?=in_array('Другие', $competitors) ? 'checked' : ''?>>
+        <img src="../../file/icons/ventra/other.png" alt="Другие">
       </label>
+
       <label class="checkbox-item"> Только Билайн
-        <input type="checkbox" name="competitors[]" hidden value="Только Билайн">
-        <img src="../../file/icons/ventra/beeline.png" alt="Другой">
+        <input type="checkbox" name="competitors[]" hidden value="Только Билайн" <?=in_array('Только Билайн', $competitors) ? 'checked' : ''?>>
+        <img src="../../file/icons/ventra/beeline.png" alt="Билайн">
       </label>
     </div>
 
     <div>
       <label for="keys">Подходят ли ключи (нужно выбрать подъезды)</label>
-      <select name="keys[]" id="keys"  multiple>
-        <option  value="1">Подъезд №1</option>
-        <option  value="2">Подъезд №2</option>
-        <option  value="3">Подъезд №3</option>
-        <option  value="4">Подъезд №4</option>
-        <option  value="5">Подъезд №5</option>
-        <option  value="6">Подъезд №6</option>
-        <option  value="7">Подъезд №7</option>
-        <option  value="8">Подъезд №8</option>
+      <select name="keys[]" id="keys" multiple>
+        <?php for ($i = 1; $i <= 8; $i++): ?>
+          <option value="<?=$i?>" <?=in_array((string)$i, $keys) ? 'selected' : ''?>>Подъезд №<?=$i?></option>
+        <?php endfor; ?>
       </select>
     </div>
 
     <div>
       <label for="note">Примечание</label>
-      <textarea id="note" name="note" rows="4" placeholder="Введите заметку..."></textarea>
+      <textarea id="note" name="note" rows="4" placeholder="Введите заметку..."><?=htmlspecialchars($note)?></textarea>
     </div>
 
     <button type="submit">Сохранить</button>
   </form>
-
 </body>
 </html>
