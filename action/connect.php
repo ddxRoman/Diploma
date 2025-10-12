@@ -56,7 +56,8 @@ $ventra_note = mysqli_fetch_all($ventra_note); // Выбирает все стр
 $ventra_street = mysqli_query($connect, "SELECT DISTINCT street, street FROM `ventra_home` ORDER BY `street` ASC"); // Подключение к определенной таблице, и получение Статуса записи
 $ventra_street = mysqli_fetch_all($ventra_street); // Выбирает все строки из набора $Comment и помещает их в массив  $Comments
 
-$ventra_builds_comment = mysqli_query($connect, "SELECT * FROM `ventra_builds_comment` ORDER BY `date` DESC"); // Подключение к определенной таблице, и получение Статуса записи
-$ventra_builds_comment = mysqli_fetch_all($ventra_builds_comment); // Выбирает все строки из набора $Comment и помещает их в массив  $Comments
+
+
+
 
 ?>

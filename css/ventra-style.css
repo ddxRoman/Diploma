@@ -339,3 +339,8 @@ margin-left: 1%;
         padding: 1rem;
       }
     }
+    .li_current_build_notification{
+      list-style-type: none;
+
+    }
+    

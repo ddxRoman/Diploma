@@ -17,9 +17,12 @@ $row = $result->fetch_assoc();
 
 $adress_id=$row['id'];
 
+$ventra_note_current = mysqli_query($connect, "SELECT * FROM `ventra_home_notefication` WHERE `adress_id`=$adress_id "); // Подключение к определенной таблице, и получение Статуса записи
+$ventra_note_current = mysqli_fetch_all($ventra_note_current); // Выбирает все строки из набора $Comment и помещает их в массив  $Comments
 
-$ventra_builds_comment = mysqli_query($connect, "SELECT * FROM `ventra_builds_comment` WHERE `adress_id`= '$adress_id' ORDER BY `date` DESC"); // Подключение к определенной таблице, и получение Статуса записи
+$ventra_builds_comment = mysqli_query($connect, "SELECT * FROM `ventra_builds_comment` WHERE `adress_id`=$adress_id ORDER BY `date` DESC"); // Подключение к определенной таблице, и получение Статуса записи
 $ventra_builds_comment = mysqli_fetch_all($ventra_builds_comment); // Выбирает все строки из набора $Comment и помещает их в массив  $Comments
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,7 +30,7 @@ $ventra_builds_comment = mysqli_fetch_all($ventra_builds_comment); // Выбир
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="stylesheet" type="text/css" href="../../css/ventra-style.css">
-    <title><?=$street?> # <?=$build?></title>
+    <title><?=$street?> №<?=$build?></title>
 </head>
 <body class="">
 <div class="all_page_ventra">
@@ -36,10 +39,54 @@ $ventra_builds_comment = mysqli_fetch_all($ventra_builds_comment); // Выбир
     <a href="home.php">
         <button class="btn_add_comments">На главную</button>
     </a>
-    <h2><?=$street?> # <?=$build?> <a href="note_home.php?street=<?=$street?>&build=<?=$build?>">
+
+    <?
+
+$check = 0;
+foreach ($ventra_note as $ventra_notes){
+        if($ventra_notes[1] == $adress_id){
+                $check = 1;
+                // echo $ventra_notes[1]." <br>".$check." <br>";
+            }
+                // echo $ventra_notes[1]." <br>".$check." <br>";
+              }
+              if($check==0){?>
+                  <h2><?=$street?> №<?=$build?> <a href="note_home.php?street=<?=$street?>&build=<?=$build?>"><?
+                  
+                }else {?>
+                  <h2><?=$street?> №<?=$build?> <a href="../../action/ventra/edit_note_home_form.php?street=<?=$street?>&build=<?=$build?>"><?
+              }
+      ?>
+
+
 
     <img src="../../file/icons/ventra/note.png" alt=""> </a></h2> 
 
+    <div>
+
+    <? foreach($ventra_note_current as $ventra_note_currents){?>
+        
+        
+        <table>
+            <tr>
+                <td><b>Ключи:</b></td>
+                <td><?=$ventra_note_currents[3]?></td>
+                </tr>
+                <tr>
+                <td><b>Конкуренты:</b></td>
+                <td><?=$ventra_note_currents[4]?></td>
+                </tr>
+                <tr>
+                <td><b>Заметка: </b></td>
+                <td><?=$ventra_note_currents[2]?></td>
+                </tr>
+                </table>
+                
+         <?   }
+            ?>
+
+
+    </div>
 </header>
 
     <label for="btn_add_comments">Добавить комментарий</label>
