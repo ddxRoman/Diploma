@@ -3,6 +3,7 @@ require_once "../../action/connect.php";
 if(!$GET){
 $street = $_POST['street'];
 $build = $_POST['build'];
+$adress_id = $_GET['id'];
 }
 $street = $_GET['street'];
 $build = $_GET['build'];
@@ -84,6 +85,14 @@ foreach ($ventra_note as $ventra_notes){
                 
          <?   }
             ?>
+
+<form method="post" action="../../action/ventra/add_visit.php?id=<?=$adress_id?>">
+
+    <label for="visit_date">Дата визита:</label><br>
+    <input type="date" id="visit_date" name="visit_date" required value="<?= isset($ventra_note_currents[5]) ? htmlspecialchars($ventra_note_currents[5]) : date('Y-m-d') ?>">
+
+    <button type="submit" class="btn_add_comments">Добавить визит</button>
+</form>
 
 
     </div>
