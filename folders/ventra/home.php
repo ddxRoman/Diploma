@@ -1,18 +1,18 @@
 <?php
 require_once "../../action/connect.php";
 
-$streets = array_unique(array_column($ventra_street, 'street'));
+// Получаем уникальные улицы из базы
+$streets_query = mysqli_query($connect, "SELECT DISTINCT `street` FROM `ventra_home` ORDER BY `street` ASC");
+$streets = mysqli_fetch_all($streets_query, MYSQLI_ASSOC);
 ?>
 <!doctype html>
 <html lang="ru">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- <link rel="stylesheet" type="text/css" href="../../css/ventra-style.css"> -->
   <title>Дома</title>
-</head>
-<style>
-        * {
+  <style>
+    * {
       box-sizing: border-box;
     }
 
@@ -22,6 +22,17 @@ $streets = array_unique(array_column($ventra_street, 'street'));
       margin: 0;
       padding: 15px;
       color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #222;
+      margin-top: 10px;
+      font-size: 24px;
     }
 
     form {
@@ -30,11 +41,22 @@ $streets = array_unique(array_column($ventra_street, 'street'));
       gap: 12px;
       width: 100%;
       max-width: 500px;
-      margin: 0 auto;
       background: #fff;
-      padding: 20px;
+      padding: 25px;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      transition: all 0.2s ease;
+    }
+
+    form:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+    }
+
+    label {
+      font-weight: 600;
+      margin-bottom: 3px;
+      color: #444;
     }
 
     input[type="text"],
@@ -49,8 +71,7 @@ $streets = array_unique(array_column($ventra_street, 'street'));
     }
 
     input[type="text"]:focus,
-    select:focus,
-    textarea:focus {
+    select:focus {
       border-color: #007bff;
       outline: none;
       box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
@@ -62,24 +83,26 @@ $streets = array_unique(array_column($ventra_street, 'street'));
       font-weight: 600;
       border: none;
       cursor: pointer;
+      transition: background 0.2s ease, transform 0.1s ease;
     }
 
     button:hover {
       background: #0056d8;
+      transform: translateY(-1px);
     }
 
     hr {
       border: none;
       height: 1px;
       background: #ddd;
-      margin: 25px auto;
+      width: 100%;
       max-width: 500px;
+      margin: 10px auto;
     }
 
     @media (max-width: 600px) {
       form {
-        padding: 15px;
-        gap: 10px;
+        padding: 18px;
       }
 
       input,
@@ -89,40 +112,60 @@ $streets = array_unique(array_column($ventra_street, 'street'));
         padding: 10px;
       }
     }
-</style>
+  </style>
+</head>
 <body>
 
+  <h1>Добавление и выбор дома</h1>
+
   <!-- Форма добавления -->
-  <form class="ventra_add_home" action="../../action/ventra/add_home.php" method="post">
-    <input type="text" name="street" placeholder="Улица" required>
-    <input type="text" name="build" placeholder="Дом" required>
+  <form action="../../action/ventra/add_home.php" method="post">
+    <label for="street">Улица:</label>
+     <!-- Select по умолчанию -->
+    <select id="street_select" name="street" required>
+      <option value="">Выберите улицу</option>
+      <?php foreach ($streets as $row): ?>
+        <option value="<?= htmlspecialchars($row['street'], ENT_QUOTES, 'UTF-8') ?>">
+          <?= htmlspecialchars($row['street']) ?>
+        </option>
+      <?php endforeach; ?>
+      <option value="__new__">➕ Добавить новую улицу</option>
+    </select>
+
+
+    <label for="build">Дом:</label>
+    <input type="text" id="build" name="build" placeholder="Введите номер дома" required>
+
     <button type="submit">Добавить</button>
   </form>
 
   <hr>
 
   <!-- Форма выбора -->
-  <form class="ventra" method="get" action="current_home.php">
-    <select name="street" id="street" required>
+  <form method="get" action="current_home.php">
+    <label for="street_select">Выберите улицу:</label>
+    <select name="street" id="street_select" required>
       <option value="">Выберите улицу</option>
-      <?php foreach ($ventra_street as $ventra_streets): ?>
-        <option value="<?= htmlspecialchars($ventra_streets[1], ENT_QUOTES, 'UTF-8') ?>">
-          <?= htmlspecialchars($ventra_streets[1]) ?>
+      <?php foreach ($streets as $row): ?>
+        <option value="<?= htmlspecialchars($row['street'], ENT_QUOTES, 'UTF-8') ?>">
+          <?= htmlspecialchars($row['street']) ?>
         </option>
       <?php endforeach; ?>
     </select>
 
-    <select name="build" id="build" required>
+    <label for="build_select">Выберите дом:</label>
+    <select name="build" id="build_select" required>
       <option value="">Сначала выберите улицу</option>
     </select>
 
-    <button class="btn_add_comments" type="submit">Найти</button>
+    <button type="submit">Найти</button>
   </form>
 
   <script>
-    document.getElementById('street').addEventListener('change', function () {
+    // Загрузка домов по выбранной улице
+    document.getElementById('street_select').addEventListener('change', function () {
       const street = this.value;
-      const buildselect = document.getElementById('build');
+      const buildselect = document.getElementById('build_select');
 
       if (!street) {
         buildselect.innerHTML = '<option value="">Сначала выберите улицу</option>';
