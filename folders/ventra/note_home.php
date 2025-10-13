@@ -3,7 +3,6 @@
 $street = $_GET['street'];
 $build = $_GET['build'];
 
-
 ?>
 
 <!DOCTYPE html>

@@ -6,7 +6,6 @@ $competitors = isset($_POST['competitors']) ? implode(', ', $_POST['competitors'
 $street = $_GET['street'];
 $build = $_GET['build'];
 
-
 $door_key = isset($_POST['keys']) ? implode(', ', $_POST['keys']) : '';
 $note = $_POST['note'];
 

@@ -1,13 +1,12 @@
 <?php
 require_once "../../action/connect.php";
 
-if(!$GET){
-  $street = $_POST['street'];
-  $build = $_POST['build'];
-}
+$street = $_GET['street'] ?? $_POST['street'] ?? null;
+$build  = $_GET['build'] ?? $_POST['build'] ?? null;
 
-$street = $_GET['street'];
-$build = $_GET['build'];
+if (!$street || !$build) {
+    die("Ошибка: не переданы параметры street или build");
+}
 
 $sql = "SELECT id FROM ventra_home WHERE street = ? AND build = ?";
 $stmt = $connect->prepare($sql);
@@ -16,6 +15,11 @@ $stmt->execute();
 
 $result = $stmt->get_result();
 $row = $result->fetch_assoc();
+
+if (!$row) {
+    die("Ошибка: адрес не найден в базе данных");
+}
+
 $adress_id = $row['id'];
 
 // Заметки по дому
@@ -36,177 +40,10 @@ $ventra_builds_comment = mysqli_fetch_all($ventra_builds_comment);
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><?= htmlspecialchars($street) ?> №<?= htmlspecialchars($build) ?></title>
-  <link rel="stylesheet" type="text/css" href="../../css/ventra-style.css">
+
+          <link rel="stylesheet" type="text/css" href="../../css/ventra/ventra_current_home.css">
   <style>
-    body {
-      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background-color: #f5f6fa;
-      color: #333;
-      margin: 0;
-      padding: 0;
-    }
 
-    .all_page_ventra {
-      max-width: 900px;
-      margin: 0 auto;
-      background: white;
-      border-radius: 16px;
-      box-shadow: 0 5px 18px rgba(0,0,0,0.08);
-      padding: 25px 20px 40px;
-      min-height: 100vh;
-    }
-
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-
-    h2 {
-      font-size: 22px;
-      margin: 0;
-      color: #222;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    h2 img {
-      width: 22px;
-      vertical-align: middle;
-    }
-
-    .btn_add_comments {
-      background: #007bff;
-      color: white;
-      border: none;
-      padding: 10px 16px;
-      font-size: 15px;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      box-shadow: 0 2px 6px rgba(0, 123, 255, 0.25);
-    }
-
-    .btn_add_comments:hover {
-      background: #0056d8;
-      transform: translateY(-1px);
-    }
-
-    table {
-      border-collapse: collapse;
-      width: 100%;
-      margin-bottom: 15px;
-      font-size: 15px;
-    }
-
-    td {
-      padding: 6px 8px;
-      vertical-align: top;
-      word-break: break-word;
-    }
-
-    td:first-child {
-      font-weight: 600;
-      color: #555;
-      width: 120px;
-    }
-
-    textarea, input[type="date"] {
-      width: 100%;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      padding: 10px;
-      font-family: inherit;
-      font-size: 15px;
-      transition: all 0.2s ease;
-      box-sizing: border-box;
-    }
-
-    textarea:focus, input[type="date"]:focus {
-      border-color: #007bff;
-      box-shadow: 0 0 0 2px rgba(0,123,255,0.2);
-      outline: none;
-    }
-
-    form {
-      margin-bottom: 20px;
-    }
-
-    .comments_block {
-      background: #f8f9fa;
-      border-radius: 10px;
-      padding: 12px 15px;
-      margin-bottom: 12px;
-      border-left: 5px solid #007bff;
-    }
-
-    hr {
-      border: none;
-      height: 1px;
-      background: #ddd;
-      margin: 25px 0;
-    }
-
-    h3 {
-      margin-bottom: 10px;
-      font-size: 18px;
-      color: #333;
-    }
-
-    /* --- Новый блок истории визитов --- */
-    .visit-section {
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      padding: 15px 18px;
-      margin-bottom: 25px;
-    }
-
-    .visit-section ul {
-      list-style: none;
-      padding: 0;
-      margin: 10px 0 15px;
-    }
-
-    .visit-section li {
-      background: #eef6ff;
-      border-left: 4px solid #007bff;
-      margin-bottom: 8px;
-      padding: 8px 12px;
-      border-radius: 6px;
-      font-weight: 500;
-      color: #333;
-    }
-
-    .no-visits {
-      color: #777;
-      font-style: italic;
-    }
-
-    @media (max-width: 768px) {
-      .all_page_ventra {
-        margin: 0 10px;
-        padding: 20px 15px 50px;
-        border-radius: 0;
-        box-shadow: none;
-      }
-
-      header {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .btn_add_comments {
-        width: 100%;
-        font-size: 16px;
-        padding: 12px;
-      }
-    }
   </style>
 </head>
 
@@ -242,24 +79,41 @@ $ventra_builds_comment = mysqli_fetch_all($ventra_builds_comment);
   </section>
 
   <!-- 🔹 История визитов -->
-  <section class="visit-section">
-    <h3>История визитов</h3>
-    <?php if (empty($ventra_visits)): ?>
-      <p class="no-visits">Пока нет визитов.</p>
-    <?php else: ?>
-      <ul>
-        <?php foreach($ventra_visits as $visit): ?>
-          <li><?= date('d.m.Y', strtotime($visit[2])) ?></li>
-        <?php endforeach; ?>
-      </ul>
-    <?php endif; ?>
+<!-- 🔹 История визитов -->
+<section class="visit-section">
+  <h3>История визитов</h3>
+  <?php if (empty($ventra_visits)): ?>
+    <p class="no-visits">Пока нет визитов.</p>
+  <?php else: ?>
+    <ul class="visit-list">
+      <?php foreach($ventra_visits as $visit): ?>
+        <li>
+          <?= date('d.m.Y', strtotime($visit[2])) ?>
+          <button 
+            class="delete-visit-btn" 
+            onclick="confirmDeleteVisit(<?= $visit[0] ?>, <?= $adress_id ?>)"
+            title="Удалить визит"
+          >🗑️</button>
+        </li>
+      <?php endforeach; ?>
+    </ul>
+  <?php endif; ?>
 
-    <form method="post" action="../../action/ventra/add_visit.php?id=<?= $adress_id ?>">
-      <label for="visit_date">Дата визита:</label><br>
-      <input type="date" id="visit_date" name="visit_date" required value="<?= date('Y-m-d') ?>">
-      <button type="submit" class="btn_add_comments" style="margin-top:10px;">Добавить визит</button>
-    </form>
-  </section>
+  <form method="post" action="../../action/ventra/add_visit.php?id=<?= $adress_id ?>">
+    <label for="visit_date">Дата визита:</label><br>
+    <input type="date" id="visit_date" name="visit_date" required value="<?= date('Y-m-d') ?>">
+    <button type="submit" class="btn_add_comments" style="margin-top:10px;">Добавить визит</button>
+  </form>
+</section>
+
+<script>
+function confirmDeleteVisit(visitId, adressId) {
+  if (confirm("Вы уверены, что хотите удалить этот визит?")) {
+    window.location.href = "../../action/ventra/delete_visit.php?id=" + visitId + "&adress_id=" + adressId ;
+  }
+}
+</script>
+
 
   <!-- 🔹 Комментарии -->
   <section>
