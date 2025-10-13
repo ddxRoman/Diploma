@@ -3,23 +3,7 @@ error_reporting(E_ERROR | E_PARSE);
 $month = date('m')-1;
 $connect = mysqli_connect('localhost', 'user','qazwsx','diploma');
 // $connect = mysqli_connect('localhost', 'ddx','Beetle19','diploma');
-if(!$connect){
-    ?>  
-   <style>
-        .header{
-            border: 2px solid  rgb(247, 0, 0);
-        }
-    </style><? 
-}
-else{ ?>
 
-<style>
-.header{
-    border: 2px solid  rgb(57, 182, 67);
-        }
-        </style>
-        
-<?  }
 $sites_categorie = mysqli_query($connect, "SELECT * FROM `sites_categories` ORDER BY `sequence_number` ASC"); // Подключение к определенной таблице, и получение Статуса записи
 $sites_categorie = mysqli_fetch_all($sites_categorie); // Выбирает все строки из набора $Comment и помещает их в массив  $Comments
 

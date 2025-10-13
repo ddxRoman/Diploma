@@ -69,7 +69,7 @@ if ($count > 0) {
         <h2 style="color:#d9534f;">⚠️ Запись уже существует</h2>
         <p>Для дома <b>' . $street . ' ' . $build . '</b> уже добавлена дата визита <b>' . htmlspecialchars($visit_date) . '</b>.</p>
 
-        <a href="../../action/ventra/add_note_home.php?street=' . urlencode($street) . '&build='.urlencode($build). '" 
+        <a href="../../folders/ventra/current_home.php?street=' . urlencode($street) . '&build='.urlencode($build). '" 
            style="margin-top:20px; text-decoration:none; background:#007bff; color:white; padding:10px 20px; border-radius:8px;">
            ⬅ Вернуться назад
         </a>
@@ -98,8 +98,8 @@ echo '
 ">
     <h2 style="color:#28a745;">✅ Дата добавлена успешно</h2>
     <p>Для дома <b>' . $street . ' ' . $build . '</b> добавлена дата визита: <b>' . htmlspecialchars($visit_date) . '</b>.</p>
-    <meta http-equiv="refresh" content="3;url=../../action/ventra/add_note_home.php?street=' . urlencode($street) . '&build='.urlencode($build). '">
-    <a href="../../action/ventra/add_note_home.php?street=' . urlencode($street) . '&build='.urlencode($build). '" 
+    <meta http-equiv="refresh" content="3;url=../../folders/ventra/current_home.php?street=' . urlencode($street) . '&build='.urlencode($build). '">
+    <a href="../../folders/ventra/current_home.php?street=' . urlencode($street) . '&build='.urlencode($build). '" 
        style="margin-top:20px; text-decoration:none; background:#28a745; color:white; padding:10px 20px; border-radius:8px;">
        ⬅ Вернуться
     </a>
