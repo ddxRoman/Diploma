@@ -79,6 +79,8 @@ $ventra_builds_comment = mysqli_fetch_all($ventra_builds_comment);
   </section>
 
   <!-- 🔹 История визитов -->
+
+<section class="visit-section">
 <!-- 🔹 История визитов -->
 <section class="visit-section">
   <h3>История визитов</h3>
@@ -86,14 +88,31 @@ $ventra_builds_comment = mysqli_fetch_all($ventra_builds_comment);
     <p class="no-visits">Пока нет визитов.</p>
   <?php else: ?>
     <ul class="visit-list">
-      <?php foreach($ventra_visits as $visit): ?>
-        <li>
-          <?= date('d.m.Y', strtotime($visit[2])) ?>
-          <button 
-            class="delete-visit-btn" 
-            onclick="confirmDeleteVisit(<?= $visit[0] ?>, <?= $adress_id ?>)"
-            title="Удалить визит"
-          >🗑️</button>
+      <?php foreach($ventra_visits as $visit): 
+        $visit_id = $visit[0];
+        $visit_date = date('d.m.Y', strtotime($visit[2]));
+        $dorhenders = $visit[3];
+        $listovki = $visit[4];
+        $pochtovye_yashiki = $visit[5];
+        $comment = htmlspecialchars($visit[6] ?? '');
+      ?>
+        <li class="visit-item" onclick="toggleVisitDetails(<?= $visit_id ?>)">
+          <div class="visit-header">
+            <span><?= $visit_date ?></span>
+            <button 
+              class="delete-visit-btn" 
+              onclick="event.stopPropagation(); confirmDeleteVisit(<?= $visit_id ?>, <?= $adress_id ?>)"
+              title="Удалить визит"
+            >🗑️</button>
+          </div>
+          <div class="visit-details" id="visit-details-<?= $visit_id ?>">
+            <div><b>Дорхендеры:</b> <?= $dorhenders == 1 ? '✅' : '—' ?></div>
+            <div><b>Листовки:</b> <?= $listovki == 1 ? '✅' : '—' ?></div>
+            <div><b>Почтовые ящики:</b> <?= $pochtovye_yashiki == 1 ? '✅' : '—' ?></div>
+            <?php if (!empty($comment)): ?>
+              <div><b>Комментарий:</b> <?= nl2br($comment) ?></div>
+            <?php endif; ?>
+          </div>
         </li>
       <?php endforeach; ?>
     </ul>
@@ -107,12 +126,82 @@ $ventra_builds_comment = mysqli_fetch_all($ventra_builds_comment);
 </section>
 
 <script>
+function toggleVisitDetails(id) {
+  const el = document.getElementById("visit-details-" + id);
+  el.classList.toggle("open");
+}
+
 function confirmDeleteVisit(visitId, adressId) {
   if (confirm("Вы уверены, что хотите удалить этот визит?")) {
     window.location.href = "../../action/ventra/delete_visit.php?id=" + visitId + "&adress_id=" + adressId ;
   }
 }
 </script>
+
+<style>
+.visit-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.visit-item {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  padding: 10px 14px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.visit-item:hover {
+  background: #f7f9ff;
+}
+.visit-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+}
+.visit-details {
+  display: none;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid #eee;
+  color: #555;
+  font-size: 14px;
+  line-height: 1.4;
+}
+.visit-details.open {
+  display: block;
+  animation: fadeIn .2s ease;
+}
+.delete-visit-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+}
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(-3px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+/* 🔹 Мобильная адаптация */
+@media (max-width: 700px) {
+  .visit-item {
+    padding: 12px;
+    font-size: 15px;
+  }
+  .visit-header span {
+    font-size: 16px;
+  }
+  .visit-details div {
+    font-size: 14px;
+  }
+}
+</style>
 
 
   <!-- 🔹 Комментарии -->

@@ -21,9 +21,9 @@ if($role==5){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="icon" type="image" href="file/icons/Logo/Logo.png">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/button.css">
-    <link rel="stylesheet" type="text/css" href="../css/profile.css">
+    <!-- <link rel="stylesheet" type="text/css" href="css/style.css"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="css/button.css">
+    <link rel="stylesheet" type="text/css" href="../css/profile.css"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ORS</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
@@ -37,6 +37,216 @@ if($role==5){
         };
       </script>
 </head>
+
+<style>
+    /* === Глобальные стили === */
+:root {
+  --bg: #f5f6fa;
+  --card: #ffffff;
+  --text: #222;
+  --accent: #3b82f6;
+  --accent-hover: #2563eb;
+  --border: #e5e7eb;
+  --radius: 12px;
+  --shadow: 0 4px 10px rgba(0,0,0,0.08);
+  --transition: 0.2s ease;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  /* background: var(--bg); */
+
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* === Основная сетка === */
+.all {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* === Шапка === */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* background: var(--card); */
+    background-color: #0000000e;
+  padding: 10px 20px;
+  box-shadow: var(--shadow);
+  border-radius: 0 0 var(--radius) var(--radius);
+  /* position: sticky; */
+  top: 0;
+  z-index: 1000;
+}
+
+.header button,
+.MisPanel button,
+.lmenu button {
+  /* background: var(--accent); */
+
+  /* color: white; */
+  border: none;
+  border-radius: var(--radius);
+  padding: 8px 14px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.header button:hover,
+.MisPanel button:hover,
+.lmenu button:hover {
+  /* background: var(--accent-hover); */
+    background-color: #0000000e;
+  transform: translateY(-2px);
+}
+
+/* === Панель инструментов (МИС) === */
+.MisPanel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  /* background: var(--card); */
+  margin: 20px auto;
+  padding: 15px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  width: 90%;
+}
+
+.misPanel-hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 0 auto 10px auto;
+  width: 85%;
+}
+
+/* === Основное тело === */
+.body {
+  display: grid;
+  grid-template-columns: 220px 1fr 450px; /* ← было 300px, стало 450px */
+  gap: 20px;
+  padding: 20px;
+  flex-grow: 1;
+}
+
+.lmenu, .rmenu {
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 10px;
+  overflow-y: auto;
+  max-height: calc(100vh - 220px);
+}
+
+/* === Кнопки меню === */
+.lmenu button {
+  width: 100%;
+  margin-bottom: 8px;
+  text-align: left;
+  font-weight: 500;
+}
+
+.lmenu button.document {
+  background: #10b981;
+}
+
+.lmenu button.document:hover {
+  background: #059669;
+}
+
+/* === iframe === */
+.container iframe,
+.rmenu iframe {
+  width: 100%;
+  height: calc(100vh - 220px);
+  border: none;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+/* === Нижняя часть === */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* background: var(--card); */
+  padding: 15px 20px;
+  box-shadow: var(--shadow);
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+
+.footer-hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  width: 85%;
+  margin: 20px auto 0;
+}
+
+/* === Текст и логотип === */
+.refresh {
+  text-align: center;
+  font-size: 13px;
+  color: #555;
+}
+
+.refresh img {
+  height: 40px;
+  margin-bottom: 4px;
+}
+
+.clock {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+/* === Счётчики дней === */
+.count_married,
+.count_married_anniversary {
+  color: var(--accent);
+  font-weight: 600;
+  text-align: center;
+  margin: 6px 0;
+}
+
+/* === Адаптивность === */
+@media (max-width: 1100px) {
+  .body {
+    grid-template-columns: 1fr;
+  }
+
+  .lmenu,
+  .rmenu {
+    display: none;
+  }
+
+  .MisPanel {
+    width: 95%;
+  }
+}
+
+@media (max-width: 600px) {
+  .header {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .MisPanel button {
+    font-size: 13px;
+    padding: 6px 10px;
+  }
+}
+
+</style>
 
 <body>
     <div class="all">
@@ -89,7 +299,10 @@ if($interval->y>0){
             </div><!--  Просто кнопка на Хелпер -->
             <div class="Right_head">
                 <!-- Правый верхний блок с профилем-->
-                <? require_once "action/profileindex.php"; ?>
+
+                <? 
+                // require_once "action/profileindex.php"; 
+                ?>
                 <!-- Просто подключение другого файла в этот блок-->
             </div><!-- Правый верхний блок с профилем-->
         </div> <!-- Конец хедера-->

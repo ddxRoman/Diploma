@@ -8,88 +8,23 @@ $streets = mysqli_fetch_all($streets_query, MYSQLI_ASSOC);
 <!doctype html>
 <html lang="ru">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Дома</title>
-  <style>
-    body {
-      font-family: "Inter", sans-serif;
-      background-color: #f5f6fa;
-      margin: 0;
-      padding: 15px;
-      color: #333;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 30px;
-    }
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      width: 100%;
-      max-width: 500px;
-      background: #fff;
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    }
-    input, select, button {
-      padding: 12px 14px;
-      font-size: 16px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-    }
-    button {
-      background: #007bff;
-      color: white;
-      font-weight: 600;
-      border: none;
-      cursor: pointer;
-      transition: background 0.2s ease;
-    }
-    button:hover { background: #0056d8; }
+<meta charset="utf-8">
+  <link rel="stylesheet" href="../../css/ventra-style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Дома</title>
+<style>
 
-    /* Toast уведомление */
-    .toast {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background: white;
-      color: #333;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-      padding: 12px 18px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 600;
-      z-index: 9999;
-      opacity: 0;
-      transform: translateY(-10px);
-      transition: opacity .3s, transform .3s;
-    }
-    .toast.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .toast.success { border-left: 5px solid #4CAF50; }
-    .toast.error { border-left: 5px solid #f44336; }
-    .toast.exists { border-left: 5px solid #ff9800; }
-
-    hr {
-      width: 100%;
-      max-width: 500px;
-      border: none;
-      height: 1px;
-      background: #ddd;
-      margin: 20px 0;
-    }
-  </style>
+</style>
 </head>
 <body>
 
-<h1>Добавление и поиск дома</h1>
+<!-- 🔝 НАВИГАЦИЯ -->
+<nav class="nav-bar">
+  <a href="index.php" class="nav-bar__link nav-bar__link--active">Главная</a>
+  <a href="visit_list.php" class="nav-bar__link">Визиты</a>
+</nav>
+
+<h2>Добавление дома</h2>
 
 <!-- ✅ Форма добавления -->
 <form id="addHomeForm">
@@ -105,7 +40,7 @@ $streets = mysqli_fetch_all($streets_query, MYSQLI_ASSOC);
   </select>
 
   <input type="text" id="street_input" name="street" placeholder="Введите новую улицу" style="display:none;">
-  
+
   <label for="build">Дом:</label>
   <input type="text" id="build" name="build" placeholder="Введите номер дома" required>
 
@@ -113,6 +48,8 @@ $streets = mysqli_fetch_all($streets_query, MYSQLI_ASSOC);
 </form>
 
 <hr>
+
+<h2>Поиск дома</h2>
 
 <!-- 🔍 Форма поиска -->
 <form id="searchForm" method="get" action="current_home.php">
@@ -183,22 +120,15 @@ document.getElementById("addHomeForm").addEventListener("submit", async (e) => {
       e.target.reset();
       input.style.display = "none";
 
-      // если добавили новую улицу — добавить в список поиска
       const newStreet = formData.get("street");
       const exists = [...document.querySelectorAll("#street_search option")]
         .some(opt => opt.value === newStreet);
       if (!exists) {
-        const opt1 = document.createElement("option");
-        opt1.value = newStreet;
-        opt1.textContent = newStreet;
+        const opt1 = new Option(newStreet, newStreet);
+        const opt2 = new Option(newStreet, newStreet);
         document.getElementById("street_search").appendChild(opt1);
-
-        const opt2 = document.createElement("option");
-        opt2.value = newStreet;
-        opt2.textContent = newStreet;
         document.getElementById("street_select").appendChild(opt2);
       }
-
     } else if (result.status === "exists") {
       showToast("⚠️ Такой дом уже существует", "exists");
     } else {

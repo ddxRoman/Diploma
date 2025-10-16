@@ -212,3 +212,22 @@ a{
 .block-add-comments{
   background-color: rgba(165, 204, 204, 0.699);
 }
+
+button.btn.btn-primary {
+  background: linear-gradient(135deg, #007bff, #3399ff);
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  margin: 10px auto;
+  display: block;
+  box-shadow: 0 2px 5px rgba(0, 123, 255, 0.4);
+  transition: all 0.25s ease;
+}
+
+button.btn.btn-primary:hover {
+  background: linear-gradient(135deg, #3399ff, #007bff);
+  transform: translateY(-1px);
+}
