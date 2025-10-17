@@ -5,6 +5,7 @@ $competitors = isset($_POST['competitors']) ? implode(', ', $_POST['competitors'
 
 $street = $_GET['street'];
 $build = $_GET['build'];
+$global_problem = $_POST['global_problem'];
 
 $door_key = isset($_POST['keys']) ? implode(', ', $_POST['keys']) : '';
 $note = $_POST['note'];
@@ -28,12 +29,12 @@ foreach ($ventra_note as $ventra_notes){
 }
 if ($check==0){
         echo "If ".$check. " - ".$adress_id ;
-mysqli_query($connect, "INSERT INTO `ventra_home_notefication` (`id`, `adress_id`, `note`, `door_key`, `competitors`)
-        VALUES (NULL, '$adress_id', '$note','$door_key','$competitors'  )");
+mysqli_query($connect, "INSERT INTO `ventra_home_notefication` (`id`, `adress_id`, `note`, `door_key`, `competitors`, `global_problem`)
+        VALUES (NULL, '$adress_id', '$note','$door_key','$competitors','$global_problem'  )");
 header("Location: ../../folders/ventra/current_home.php?street=" . urlencode($street) . "&build=" . urlencode($build));
 } else {
         echo "else";
-mysqli_query($connect, "UPDATE `ventra_home_notefication` SET  `note` = '$note', `door_key` = '$door_key', `competitors`= '$competitors' WHERE `adress_id` = '$adress_id'");
+mysqli_query($connect, "UPDATE `ventra_home_notefication` SET  `note` = '$note', `door_key` = '$door_key', `competitors`= '$competitors', `global_problem`= '$global_problem' WHERE `adress_id` = '$adress_id'");
 header("Location: ../../folders/ventra/current_home.php?street=" . urlencode($street) . "&build=" . urlencode($build));
 
 

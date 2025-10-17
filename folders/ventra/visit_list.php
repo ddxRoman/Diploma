@@ -35,6 +35,7 @@ $visits = mysqli_fetch_all($result, MYSQLI_ASSOC);
 <nav class="nav">
   <a href="home.php" class="nav__link">Главная</a>
   <a href="visit_list.php" class="nav__link nav__link--active">Визиты</a>
+    <a href="warning_visits.php" class="nav__link">Важные визиты</a>
 </nav>
 
 <div class="page">

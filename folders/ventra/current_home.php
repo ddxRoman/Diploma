@@ -26,6 +26,21 @@ $adress_id = $row['id'];
 $ventra_note_current = mysqli_query($connect, "SELECT * FROM `ventra_home_notefication` WHERE `adress_id`=$adress_id");
 $ventra_note_current = mysqli_fetch_all($ventra_note_current);
 
+// Проверка на глобальную проблему
+$global_problem = false;
+$problem_message = '';
+
+$check_problem = mysqli_query(
+    $connect,
+    "SELECT global_problem FROM `ventra_home_notefication` WHERE `adress_id` = $adress_id AND `global_problem` = 1 LIMIT 1"
+);
+if (mysqli_num_rows($check_problem) > 0) {
+    $global_problem = true;
+    $problem_message = "⚠️ На этом доме зафиксирована ГЛОБАЛЬНАЯ ПРОБЛЕМА!";
+}
+
+
+
 // История визитов
 $ventra_visits = mysqli_query($connect, "SELECT * FROM `visit_home_date` WHERE `adress_id`=$adress_id ORDER BY `visit_date` DESC");
 $ventra_visits = mysqli_fetch_all($ventra_visits);
@@ -47,8 +62,16 @@ $ventra_builds_comment = mysqli_fetch_all($ventra_builds_comment);
   </style>
 </head>
 
-<body>
+<body <?= $global_problem ? 'class="global-problem"' : '' ?>>
+
 <div class="all_page_ventra">
+
+<?php if ($global_problem): ?>
+  <div class="global-warning">
+    <?= htmlspecialchars($problem_message) ?>
+  </div>
+<?php endif; ?>
+
 
   <header>
     <a href="home.php">
@@ -142,6 +165,31 @@ function confirmDeleteVisit(visitId, adressId) {
 </script>
 
 <style>
+
+/* 🔹 Если глобальная проблема */
+body.global-problem {
+  background-color: rgba(255, 0, 0, 0.08); /* лёгкий красный фон */
+}
+
+.global-warning {
+  background: #ff4d4d;
+  color: white;
+  text-align: center;
+  padding: 12px 8px;
+  font-weight: bold;
+  font-size: 18px;
+  border-radius: 10px;
+  margin: 10px 5px 15px 5px;
+  box-shadow: 0 2px 8px rgba(255, 0, 0, 0.3);
+  animation: pulse 1.5s infinite alternate;
+}
+
+@keyframes pulse {
+  from { transform: scale(1); opacity: 0.9; }
+  to { transform: scale(1.03); opacity: 1; }
+}
+
+
 .visit-list {
   list-style: none;
   padding: 0;

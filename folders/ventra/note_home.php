@@ -7,6 +7,7 @@ $build = $_GET['build'] ?? '';
 $competitors = [];
 $keys = [];
 $note = '';
+$global_problem = false; // по умолчанию — нет проблемы
 
 if ($street && $build) {
     $stmt = $connect->prepare("SELECT id FROM ventra_home WHERE street = ? AND build = ?");
@@ -28,6 +29,7 @@ if ($street && $build) {
             $competitors = array_map('trim', explode(',', $data['competitors'] ?? ''));
             $keys = array_map('trim', explode(',', $data['door_key'] ?? ''));
             $note = $data['note'] ?? '';
+            $global_problem = !empty($data['global_problem']); // ✅ Проверяем флаг из БД
         }
     }
 }
@@ -259,6 +261,14 @@ if ($street && $build) {
           </label>
 
         </div>
+      </div>
+
+      <div>
+<label class="visit-form__checkbox">
+    <input type="checkbox" name="global_problem" value="1" <?= $global_problem ? 'checked' : '' ?>> 
+    Глобальная проблема
+</label>
+
       </div>
 
       <div>

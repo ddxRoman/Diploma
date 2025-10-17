@@ -4,6 +4,8 @@ require_once "../../action/connect.php";
 // Получаем список улиц
 $streets_query = mysqli_query($connect, "SELECT DISTINCT `street` FROM `ventra_home` ORDER BY `street` ASC");
 $streets = mysqli_fetch_all($streets_query, MYSQLI_ASSOC);
+
+
 ?>
 <!doctype html>
 <html lang="ru">
@@ -22,6 +24,7 @@ $streets = mysqli_fetch_all($streets_query, MYSQLI_ASSOC);
 <nav class="nav-bar">
   <a href="index.php" class="nav-bar__link nav-bar__link--active">Главная</a>
   <a href="visit_list.php" class="nav-bar__link">Визиты</a>
+  <a href="warning_visits.php" class="nav-bar__link">Важные визиты</a>
 </nav>
 
 <h2>Добавление дома</h2>
