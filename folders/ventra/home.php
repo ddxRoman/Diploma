@@ -4,24 +4,83 @@ require_once "../../action/connect.php";
 // Получаем список улиц
 $streets_query = mysqli_query($connect, "SELECT DISTINCT `street` FROM `ventra_home` ORDER BY `street` ASC");
 $streets = mysqli_fetch_all($streets_query, MYSQLI_ASSOC);
-
-
 ?>
 <!doctype html>
 <html lang="ru">
 <head>
 <meta charset="utf-8">
-  <link rel="stylesheet" href="../../css/ventra-style.css">
+<link rel="stylesheet" href="../../css/ventra-style.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Дома</title>
 <style>
+/* 🔧 Стили навбара и иконки */
+.nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  background: #333;
+  padding: 10px;
+  position: relative;
+}
 
+.nav-bar__link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+.nav-bar__link:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-bar__link--active {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Иконка шестерёнки слева */
+.settings-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  font-size: 22px;
+  text-decoration: none;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.settings-icon:hover {
+  transform: translateY(-50%) rotate(45deg);
+  opacity: 0.8;
+}
+
+/* Мобильная адаптация */
+@media (max-width: 600px) {
+  .nav-bar {
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 8px;
+  }
+  .settings-icon {
+    font-size: 20px;
+    left: 8px;
+  }
+  .nav-bar__link {
+    font-size: 14px;
+    padding: 5px 8px;
+  }
+}
 </style>
 </head>
 <body>
 
 <!-- 🔝 НАВИГАЦИЯ -->
 <nav class="nav-bar">
+  <a href="../../action/ventra/ventra_settings.php" class="settings-icon" title="Настройки">⚙️</a>
   <a href="index.php" class="nav-bar__link nav-bar__link--active">Главная</a>
   <a href="visit_list.php" class="nav-bar__link">Визиты</a>
   <a href="warning_visits.php" class="nav-bar__link">Важные визиты</a>

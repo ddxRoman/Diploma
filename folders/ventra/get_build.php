@@ -1,8 +1,8 @@
 <?php
 ob_clean(); // Убираем лишний вывод, если что-то было до этого
 
-// $connect = mysqli_connect('localhost', 'user','qazwsx','diploma');
-$connect = mysqli_connect('localhost', 'ddx','Beetle19','diploma');
+$connect = mysqli_connect('localhost', 'user','qazwsx','diploma');
+// $connect = mysqli_connect('localhost', 'ddx','Beetle19','diploma');
 if (!isset($_POST['street']) || trim($_POST['street']) === '') {
     echo json_encode([]);
     exit;

@@ -376,7 +376,6 @@ body {
   font-family: "Inter", sans-serif;
   background-color: #f5f6fa;
   margin: 0;
-  padding-top: 70px; /* отступ под фиксированное меню */
   color: #333;
   display: flex;
   flex-direction: column;

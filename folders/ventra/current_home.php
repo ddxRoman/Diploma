@@ -36,7 +36,7 @@ $check_problem = mysqli_query(
 );
 if (mysqli_num_rows($check_problem) > 0) {
     $global_problem = true;
-    $problem_message = "⚠️ На этом доме зафиксирована ГЛОБАЛЬНАЯ ПРОБЛЕМА!";
+    $problem_message = "⚠️ На этом доме ГЛОБАЛЬНАЯ ПРОБЛЕМА!";
 }
 
 
