@@ -10,7 +10,7 @@ $sites_categorie = mysqli_fetch_all($sites_categorie); // Выбирает вс�
 $site = mysqli_query($connect, "SELECT * FROM `sites` ORDER BY `id` DESC"); // Подключение к определенной таблице, и получение Статуса записи
 $site = mysqli_fetch_all($site); // Выбирает все строки из набора $Comment и помещает их в массив  $Comments
 
-$helper_log = mysqli_query($connect, "SELECT * FROM `helper_log` ORDER BY `date` DESC"); // Подключение к определенной таблице, и получение Статуса записи
+$helper_log = mysqli_query($connect, "SELECT * FROM helper_log ORDER BY date DESC LIMIT 20");
 $helper_log = mysqli_fetch_all($helper_log); // Выбирает все строки из набора $Comment и помещает их в массив  $Comments
 
 $finance = mysqli_query($connect, "SELECT * FROM `expenses` ORDER BY `date` DESC"); // Подключение к определенной таблице, и получение Статуса записи
