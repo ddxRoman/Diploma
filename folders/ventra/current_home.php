@@ -59,6 +59,9 @@ $ventra_builds_comment = mysqli_fetch_all($ventra_builds_comment);
       <a href="note_home.php?street=<?=urlencode($street)?>&build=<?=urlencode($build)?>">
         <img src="../../file/icons/ventra/note.png" alt="note">
       </a>
+        <a href="https://yandex.ru/maps/?text=Краснодар,<?=urlencode($street)?>+<?=urlencode($build)?>" target="_self"> 
+        <img src="../../file/icons/ventra/maps.png" alt="note">
+      </a>
     </h2>
   </header>
 

@@ -92,6 +92,7 @@ html, body {
 .MisPanel button {
   /* background: linear-gradient(135deg, #007bff, #3399ff); */
   border: none;
+  text-decoration: none;
   border-radius: 8px;
   padding: 8px 14px;
   font-size: 14px;

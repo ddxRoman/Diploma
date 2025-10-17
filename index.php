@@ -212,7 +212,7 @@ body {
 .count_married,
 .count_married_anniversary {
   color: var(--accent);
-  font-weight: 600;
+  font-weight: 800;
   text-align: center;
   margin: 6px 0;
 }
@@ -263,15 +263,14 @@ body {
 $now = new DateTime(); // текущее время на сервере
 $date = DateTime::createFromFormat("Y-m-d", '2022-10-28'); // задаем дату в любом формате
 $interval = $now->diff($date); // получаем разницу в виде объекта DateInterval
-if($interval->y>0){
+
      $days=$interval->days;
-}else{ echo "тут вапще щотчык не сработал";}
-if ($days=='977'){
-    ?> <p class="count_married_anniversary"><?=$days?> Дней </p>
 
-<? } else{?><p class="count_married"><?=$days?> Дней </p><?}?>
 
-            <?php 
+?>
+<p alt="Дней в Браке" class="count_married"><?=$days?> Дней </p><?
+
+
 $now = new DateTime(); // текущее время на сервере
 $date = DateTime::createFromFormat("Y-m-d", '2022-07-02'); // задаем дату в любом формате
 $interval = $now->diff($date); // получаем разницу в виде объекта DateInterval
@@ -279,7 +278,7 @@ if($interval->y>0){
      $days=$interval->days;
 }else{ echo "тут вапще щотчык не сработал";}
 
- ?> <p class="count_married"><?=$days?></p>
+ ?> <p class="count_married"><?=$days?> Дней </p>
 
             </div>
                 <!-- Подключение файла в котором поля с нашими заказами-->

@@ -3,7 +3,8 @@ ob_clean(); // Убираем лишний вывод, если что-то бы
 
 
 
-$connect = mysqli_connect('localhost', 'user', 'qazwsx', 'diploma');
+// $connect = mysqli_connect('localhost', 'user','qazwsx','diploma');
+$connect = mysqli_connect('localhost', 'ddx','Beetle19','diploma');
 if (!$connect) {
     header('Content-Type: application/json');
     echo json_encode(['error' => 'DB connection failed']);
