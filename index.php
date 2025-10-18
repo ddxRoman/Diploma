@@ -318,7 +318,8 @@ if($interval->y>0){
             <!-- <a href="folders/CsdTasks.php" target="_blank"><button>Задачи</button></a> -->
             <a href="folders/countsymbolForm.php" target="1"><button>Подсчёт</button></a>
             <a href="folders/creeds.php" target="1"><button>Доступы</button></a>
-            <a href="treker/treeker.php" target="1"><button>Трекер</button></a>
+            <!-- <a href="treker/treeker.php" target="1"><button>Трекер</button></a> -->
+            <a href="action\parcer\parcer_csd_excel.php" target="1"><button>Парсер</button></a>
            </div><!-- Тут заканчивается МИС панель-->
         <hr class="misPanel-hr" width="85%"><!-- ХРка полоска -->
        <div class="body">   <!-- Начало Тела сайта -->
