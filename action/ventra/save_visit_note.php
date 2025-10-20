@@ -190,11 +190,14 @@ if (empty($build)) $build = '';
                 Для дома <b><?= htmlspecialchars($street) ?> <?= htmlspecialchars($build) ?></b><br>
                 Дата визита: <b><?= htmlspecialchars($visit_date) ?></b>
             </p>
-            <a href="../../folders/ventra/current_home.php?street=<?= urlencode($street) ?>&build=<?= urlencode($build) ?>" 
+            <!-- <a href="../../folders/ventra/current_home.php?street=<?= urlencode($street) ?>&build=<?= urlencode($build) ?>"  -->
+            <a href="../../folders/ventra/home.php" 
                class="result__button">
                ⬅ Вернуться
             </a>
-            <meta http-equiv="refresh" content="3;url=../../folders/ventra/current_home.php?street=<?= urlencode($street) ?>&build=<?= urlencode($build) ?>">
+            <!-- <meta http-equiv="refresh" content="3;url=../../folders/ventra/current_home.php?street=<?= urlencode($street) ?>&build=<?= urlencode($build) ?>"> -->
+            <meta http-equiv="refresh" content="3;url=../../folders/ventra/home.php">
+             
             <p class="result__note">Автоматический возврат через 3 секунды...</p>
         </div>
     </div>
