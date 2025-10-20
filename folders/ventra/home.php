@@ -13,13 +13,19 @@ $streets = mysqli_fetch_all($streets_query, MYSQLI_ASSOC);
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Дома</title>
 <style>
+
+  body{
+margin: 0%;
+  padding: 0;
+  }
+
 /* 🔧 Стили навбара и иконки */
 .nav-bar {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 15px;
-  background: #333;
+  background: #007bff;
   padding: 10px;
   position: relative;
 }
@@ -46,6 +52,7 @@ $streets = mysqli_fetch_all($streets_query, MYSQLI_ASSOC);
   position: absolute;
   right: 10px;
   top: 50%;
+  width: 8%;
   transform: translateY(-50%);
   color: white;
   font-size: 22px;
@@ -74,6 +81,23 @@ $streets = mysqli_fetch_all($streets_query, MYSQLI_ASSOC);
     padding: 5px 8px;
   }
 }
+
+/* ---------- Центрирование форм на странице ---------- */
+.page, .content, main {
+  display: flex;
+  justify-content: center;  /* по горизонтали */
+  align-items: center;      /* по вертикали */
+  flex-direction: column;
+  width: 100%;
+  min-height: calc(100vh - 80px); /* чтобы форма была по центру видимой области */
+  padding-top: 60px; /* чтобы не перекрывалось навигацией */
+  box-sizing: border-box;
+}
+
+form {
+  margin: 0 auto;
+}
+
 </style>
 </head>
 <body>
@@ -87,6 +111,8 @@ $streets = mysqli_fetch_all($streets_query, MYSQLI_ASSOC);
 </nav>
 
 <h2>Добавление дома</h2>
+<div class="form_div_homepage">
+
 
 <!-- ✅ Форма добавления -->
 <form id="addHomeForm">
@@ -132,7 +158,7 @@ $streets = mysqli_fetch_all($streets_query, MYSQLI_ASSOC);
 
   <button type="submit">Найти</button>
 </form>
-
+</div>
 <script>
 // переключение поля "новая улица"
 const select = document.getElementById("street_select");

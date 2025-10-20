@@ -191,7 +191,7 @@ body {
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;
-  padding: 80px 15px 60px;
+  padding: 40px 15px 60px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -213,7 +213,7 @@ body {
 }
 
 .table__head-row {
-  position: sticky;
+
   top: 56px; /* высота навигации */
   background: #007bff;
   color: #fff;
@@ -259,7 +259,7 @@ body {
 /* ---------- Мобильная версия ---------- */
 @media (max-width: 700px) {
   .page {
-    padding: 60px 10px;
+    padding: 20px 10px;
   }
 
   .table-wrapper {
