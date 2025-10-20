@@ -1,5 +1,13 @@
 <?php
 require '../../vendor/autoload.php';
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+
+
+
 use PhpOffice\PhpSpreadsheet\IOFactory;
 
 // очищаем переменные
@@ -98,7 +106,7 @@ $resultText = '';
 
 <form method="post" enctype="multipart/form-data">
     <input type="file" name="excelFile" accept=".xls,.xlsx" required>
-    <button type="submit">Загрузить и распарсить</button>
+    <button type="submit">Распарсить</button>
 </form>
 
 <?php
