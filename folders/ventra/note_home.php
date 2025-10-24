@@ -274,9 +274,11 @@ if ($street && $build) {
       <div>
         <label for="keys">Подходят ли ключи (нужно выбрать подъезды)</label>
         <select name="keys[]" id="keys" multiple>
+          <option value="Нигде не подходят" >Нигде не подходит</option>
           <?php for ($i = 1; $i <= 8; $i++): ?>
             <option value="<?=$i?>" <?=in_array((string)$i, $keys) ? 'selected' : ''?>>Подъезд №<?=$i?></option>
-          <?php endfor; ?>
+            <?php endfor; ?>
+            <option value="Везде подходят" >Везде подходит</option>
         </select>
       </div>
 

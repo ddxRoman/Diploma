@@ -48,9 +48,9 @@ html, body {
 /* ===================== */
 /*       Шапка           */
 /* ===================== */
-.header .knowledge button.MD {
-  /* background: var(--accent); */
-  color: #fff;
+button.MD {
+  background: #b3ddd6;
+  color: #000000;
   border: none;
   border-radius: 8px;
   padding: 8px 16px;
@@ -81,39 +81,7 @@ html, body {
 /* ===================== */
 /*       МИС Панель      */
 /* ===================== */
-.MisPanel {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: center;
-  padding: 15px;
-}
 
-.MisPanel button {
-  /* background: linear-gradient(135deg, #007bff, #3399ff); */
-  border: none;
-  text-decoration: none;
-  border-radius: 8px;
-  padding: 8px 14px;
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.25s ease;
-  box-shadow: 0 2px 6px rgba(0, 123, 255, 0.2);
-}
-
-.MisPanel button:hover {
-  /* background: linear-gradient(135deg, #3399ff, #007bff); */
-  transform: translateY(-1px);
-}
-
-.btn_tg_index {
-  /* background: linear-gradient(135deg, #00b894, #26de81); */
-}
-
-.btn_tg_index:hover {
-  /* background: linear-gradient(135deg, #26de81, #00b894); */
-}
 
 /* Разделитель */
 .misPanel-hr {
@@ -212,3 +180,214 @@ html, body {
   }
 }
 
+
+body {
+  margin: 0;
+  font-family: "Inter", "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* --- Шапка --- */
+.header_admin {
+  width: 100%;
+  background: linear-gradient(90deg, var(--accent1), var(--accent2));
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  padding: 14px 30px;
+  box-shadow: var(--shadow);
+  border-bottom: 3px solid rgba(255, 255, 255, 0.2);
+}
+
+.header .MD {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: var(--radius);
+  color: #fff;
+  padding: 10px 22px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.header .MD:hover {
+  background: rgba(255, 255, 255, 0.35);
+  transform: scale(1.05);
+}
+
+/* --- Основной контейнер --- */
+.all {
+  width: 100%;
+  max-width: 1300px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* --- Панель с кнопками --- */
+.MisPanel {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 10px 20px;
+  margin: 5px auto;
+}
+
+.MisPanel a {
+  text-decoration: none;
+}
+
+.MisPanel button {
+  width: 100px;
+  height: 40px;
+  background: linear-gradient(45deg, var(--accent1), var(--accent2));
+  color: rgb(0, 0, 0);
+  font-weight: 700;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 16px;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(168, 84, 255, 0.3);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.MisPanel button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(255, 63, 164, 0.45);
+}
+
+.MisPanel button:active {
+  transform: scale(0.97);
+  opacity: 0.9;
+}
+.exit button{
+  background-color: rgba(255, 0, 21, 0.692);
+  border-radius: 10px;
+}
+
+/* --- Разделитель --- */
+.misPanel-hr {
+  width: 85%;
+  margin: 0 auto 20px auto;
+  border: none;
+  border-top: 2px solid rgba(168, 84, 255, 0.2);
+}
+
+/* --- Контент и iframe --- */
+.body {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+}
+
+.container {
+  flex: 1;
+  min-width: 300px;
+  max-width: 900px;
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 15px;
+}
+
+.container iframe {
+  width: 100%;
+  height: 600px;
+  border: none;
+  border-radius: var(--radius);
+}
+
+/* --- Правая панель (если есть) --- */
+.rmenu {
+  width: 350px;
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 10px;
+}
+
+.rmenu iframe {
+  width: 100%;
+  height: 600px;
+  border: none;
+  border-radius: var(--radius);
+}
+
+/* --- Нижняя часть --- */
+.footer {
+  width: 100%;
+  background: var(--card);
+  border-top: 2px solid rgba(168, 84, 255, 0.15);
+  border-radius: var(--radius) var(--radius) 0 0;
+  box-shadow: var(--shadow);
+  padding: 20px;
+  text-align: center;
+  color: var(--text);
+  margin-top: 40px;
+}
+
+.footer img {
+  width: 60px;
+  margin-bottom: 10px;
+  opacity: 0.8;
+}
+
+.footer .ink {
+  font-size: 14px;
+  line-height: 1.4em;
+  color: var(--text);
+}
+
+.clock {
+  margin-top: 10px;
+  font-weight: 600;
+  color: var(--accent1);
+  font-size: 18px;
+}
+
+/* --- Адаптивность --- */
+@media (max-width: 900px) {
+  .header {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+  .MisPanel {
+    flex-direction: column;
+    align-items: center;
+  }
+  .MisPanel button {
+    width: 100%;
+    max-width: 320px;
+  }
+  .body {
+    flex-direction: column;
+    align-items: center;
+  }
+  .rmenu {
+    width: 100%;
+    max-width: 600px;
+  }
+}
+:root {
+  --accent1: #ff54ff2a;     /* фирменный фиолетовый */
+  --accent2: #3f42ff3b;     /* фирменный розовый */
+  --bg: #f7f4ff;          /* светлый фон */
+  --card: #ffffff;         /* белые блоки */
+  --text: #2b0040;         /* тёмно-фиолетовый */
+  --radius: 14px;
+  --shadow: 0 4px 15px rgba(168, 84, 255, 0.25);
+}

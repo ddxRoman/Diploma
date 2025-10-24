@@ -204,19 +204,20 @@ document.getElementById("addHomeForm").addEventListener("submit", async (e) => {
     const result = await res.json();
 
     if (result.status === "ok") {
-      showToast("✅ Дом успешно добавлен", "success");
-      e.target.reset();
-      input.style.display = "none";
+      // получаем значения, которые были отправлены
+      const newStreet = formData.get("street") || '';
+      const newBuild = formData.get("build") || '';
 
-      const newStreet = formData.get("street");
-      const exists = [...document.querySelectorAll("#street_search option")]
-        .some(opt => opt.value === newStreet);
-      if (!exists) {
-        const opt1 = new Option(newStreet, newStreet);
-        const opt2 = new Option(newStreet, newStreet);
-        document.getElementById("street_search").appendChild(opt1);
-        document.getElementById("street_select").appendChild(opt2);
+      // если нет номера дома — показываем ошибку
+      if (!newBuild) {
+        showToast('❌ Укажите номер дома', 'error');
+        return;
       }
+
+      // редирект на страницу добавленного дома
+      window.location.href = `current_home.php?street=${encodeURIComponent(newStreet)}&build=${encodeURIComponent(newBuild)}`;
+      return;
+
     } else if (result.status === "exists") {
       showToast("⚠️ Такой дом уже существует", "exists");
     } else {
