@@ -205,6 +205,10 @@
           <div class="vt-card__icon">🏠</div>
           <div class="vt-card__label">Дома</div>
         </a>
+        <a class="vt-card" href="/file/documents/ventra_motivation/price.jpg" target="_blank">
+          <div class="vt-card__icon">💪</div>
+          <div class="vt-card__label">Мотивация</div>
+        </a>
       </div>
     </main>
 
