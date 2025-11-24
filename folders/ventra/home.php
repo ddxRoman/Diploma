@@ -61,7 +61,7 @@ margin: 0%;
 }
 
 .settings-icon:hover {
-  transform: translateY(-50%) rotate(45deg);
+  /* transform: translateY(-50%) rotate(45deg); */
   opacity: 0.8;
 }
 

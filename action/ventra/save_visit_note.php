@@ -191,10 +191,12 @@ if (empty($build)) $build = '';
                 Дата визита: <b><?= htmlspecialchars($visit_date) ?></b>
             </p>
             <!-- <a href="../../folders/ventra/current_home.php?street=<?= urlencode($street) ?>&build=<?= urlencode($build) ?>"  -->
-            <a href="../../folders/ventra/home.php" 
-               class="result__button">
-               ⬅ Вернуться
-            </a>
+
+<a href="../../folders/ventra/current_home.php?street=<?= urlencode($street) ?>&build=<?= urlencode($build) ?>"
+   class="result__button">
+   ⬅ Вернуться
+</a>
+
             <!-- <meta http-equiv="refresh" content="3;url=../../folders/ventra/current_home.php?street=<?= urlencode($street) ?>&build=<?= urlencode($build) ?>"> -->
             <meta http-equiv="refresh" content="3;url=../../folders/ventra/home.php">
              

@@ -95,7 +95,7 @@ body {
 /* 🔹 Адаптивность */
 @media (max-width: 600px) {
   .filters { flex-direction: column; width: 90%; }
-  .filters input { width: 100%; font-size: 14px; }
+  .filters input { width: 90%; font-size: 14px; }
   .table-wrapper { max-height: 60vh; }
   .table th, .table td { font-size: 13px; }
 }
