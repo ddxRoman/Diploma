@@ -507,6 +507,8 @@ document.getElementById("saveEdit").addEventListener("click", async () => {
   <div class="modal-content">
     <h3 id="modalTitle">Редактирование</h3>
     <input type="text" id="editInput" placeholder="Введите новое значение">
+    <label for="#away">Дом передан другому сотруднику</label>
+    <input type="checkbox" id="away"> 
     <div class="modal-buttons">
       <button id="saveEdit" class="btn btn-save">💾 Сохранить</button>
       <button id="cancelEdit" class="btn btn-cancel">✖ Отмена</button>

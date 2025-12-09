@@ -1,7 +1,7 @@
 <?php
 error_reporting(E_ERROR | E_PARSE);
 $month = date('m')-1;
-$connect = mysqli_connect('localhost', 'user','qazwsx','diploma');
+$connect = mysqli_connect('localhost', 'root','','diploma');
 // $connect = mysqli_connect('localhost', 'ddx','Beetle19','diploma');
 
 $sites_categorie = mysqli_query($connect, "SELECT * FROM `sites_categories` ORDER BY `sequence_number` ASC"); // Подключение к определенной таблице, и получение Статуса записи

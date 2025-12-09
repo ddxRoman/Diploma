@@ -18,7 +18,7 @@ $query = "
     FROM ventra_home h
     LEFT JOIN visit_home_date v ON v.adress_id = h.id
     GROUP BY h.id, h.street, h.build
-    HAVING last_visit IS NULL OR last_visit < DATE_SUB(CURDATE(), INTERVAL 30 DAY)
+    HAVING last_visit IS NULL OR last_visit < DATE_SUB(CURDATE(), INTERVAL 45 DAY)
     ORDER BY last_visit DESC;
 ";
 $stmt = $pdo->prepare($query);
@@ -201,7 +201,7 @@ a {
   </table>
 
   <?php if (empty($houses)): ?>
-    <div class="no-data">✅ Все дома были посещены в последние 30 дней</div>
+    <div class="no-data">✅ Все дома были посещены в последние 45 дней</div>
   <?php endif; ?>
 </div>
 
