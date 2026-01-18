@@ -1,7 +1,6 @@
 <?php
 
-$botToken = '';
-$chatId   = '';
+';
 
 $products = [
     'iPhone 17 Pro 256GB Синий' => 'https://indexiq.ru/product/apple-iphone-17-pro-256gb-deep-blue/',

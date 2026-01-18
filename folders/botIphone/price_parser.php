@@ -1,13 +1,14 @@
 <?php
 
 // ================== НАСТРОЙКИ ==================
-$botToken = '';
-$chatId   = '';
 
 $products = [
-    'iPhone 17 Pro 256GB Синий' => 'https://indexiq.ru/product/apple-iphone-17-pro-256gb-deep-blue/',
-    'iPhone 17 Pro 256GB Белый'    => 'https://indexiq.ru/product/apple-iphone-17-pro-256gb-silver/',
-    'iPhone 17 Pro 256GB Оранжевый'    => 'https://indexiq.ru/product/apple-iphone-17-pro-256gb-cosmic-orange/',
+    'iPhone 17 Pro 256GB Синий index' => 'https://indexiq.ru/product/apple-iphone-17-pro-256gb-deep-blue/',
+    'iPhone 17 Pro 256GB Синий CM' => 'https://cmstore.ru/product/smartfon_apple_iphone_17_pro_256_gb_tyemno_siniy_1sim_esim_/',
+    'iPhone 17 Pro 256GB Белый index'    => 'https://indexiq.ru/product/apple-iphone-17-pro-256gb-silver/',
+    'iPhone 17 Pro 256GB Белый CM'    => 'https://cmstore.ru/product/smartfon_apple_iphone_17_pro_256_gb_belyy_1sim_esim_/',
+    'iPhone 17 Pro 256GB Оранжевый index'    => 'https://indexiq.ru/product/apple-iphone-17-pro-256gb-cosmic-orange/',
+    'iPhone 17 Pro 256GB Оранжевый CM'    => 'https://indexiq.ru/product/apple-iphone-17-pro-256gb-cosmic-orange/',
     
 ];
 
@@ -33,20 +34,20 @@ function getPage($url)
 function parsePrice($html)
 {
     if (!$html) {
-        return 'не найдена';
+        return null;
     }
 
-    // Ищем <div class="card__price-visible"><span>109 990 ₽</span>
     if (preg_match(
         '/card__price-visible.*?<span>\s*([\d\s]+)\s*₽/su',
         $html,
         $m
     )) {
-        return trim($m[1]) . ' ₽';
+        return (int) str_replace(' ', '', $m[1]);
     }
 
-    return 'не найдена';
+    return null;
 }
+
 
 
 function sendTelegram($token, $chatId, $text)
@@ -113,8 +114,8 @@ if ($priceChangedMessages) {
 
 $currentTime = date('H:i');
 
-if ($currentTime === '08:00') {
-    $dailyMessage = "📅 <b>Ежедневные цены (08:00)</b>\n\n";
+if ($currentTime === '10:00' || $currentTime === '20:00') {
+    $dailyMessage = "📅 <b>Ежедневные цены (10:00)</b>\n\n";
 
     foreach ($newPrices as $name => $price) {
         $dailyMessage .= "{$name}\n";
