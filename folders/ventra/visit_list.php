@@ -9,12 +9,20 @@ SELECT
   v.pochtovye_yashiki,
   v.comment,
   h.street,
-  h.build
+  h.build,
+  h.disable -- Добавили статус дома
 FROM visit_home_date AS v
+INNER JOIN (
+    SELECT MAX(id) as max_id 
+    FROM visit_home_date 
+    GROUP BY adress_id
+) AS latest ON v.id = latest.max_id
 LEFT JOIN ventra_home AS h ON v.adress_id = h.id
-ORDER BY v.visit_date DESC
-LIMIT 100
+ORDER BY 
+  h.disable ASC,        -- Сначала активные (0), потом архивные (1)
+  v.visit_date DESC     -- Внутри групп сортируем по дате
 ";
+
 $result = mysqli_query($connect, $query);
 $visits = mysqli_fetch_all($result, MYSQLI_ASSOC);
 ?>
@@ -99,6 +107,28 @@ body {
   .table-wrapper { max-height: 60vh; }
   .table th, .table td { font-size: 13px; }
 }
+/* Стиль для неактивных строк */
+.row-disabled {
+  background-color: #ff000026 !important;
+  opacity: 0.6;
+  filter: grayscale(0.5);
+  transition: opacity 0.2s;
+}
+
+.row-disabled:hover {
+  opacity: 1; /* При наведении можно сделать чуть ярче, чтобы было удобно кликать */
+  filter: grayscale(0.1);
+}
+
+.row-disabled td {
+  color: #888;
+}
+
+/* Ссылка в неактивной строке остается кликабельной, но меняем цвет */
+.row-disabled .table__link {
+  color: #666;
+  text-decoration: underline;
+}
 </style>
 </head>
 <body>
@@ -133,28 +163,29 @@ body {
           <th>Комментарий</th>
         </tr>
       </thead>
-      <tbody class="table__body">
-        <?php if (empty($visits)): ?>
-          <tr><td colspan="7" style="text-align:center;">Нет данных</td></tr>
-        <?php else: ?>
-          <?php foreach ($visits as $row): 
-            $street = htmlspecialchars($row['street'] ?? '—');
-            $build = htmlspecialchars($row['build'] ?? '—');
-            $visit_date = htmlspecialchars($row['visit_date']);
-            $url = "../ventra/current_home.php?street=" . urlencode($street) . "&build=" . urlencode($build);
-          ?>
-            <tr>
-              <td data-label="Улица"><a href="<?= $url ?>" class="table__link"><?= $street ?></a></td>
-              <td data-label="Дом"><a href="<?= $url ?>" class="table__link"><?= $build ?></a></td>
-              <td data-label="Дата"><?= $visit_date ?></td>
-              <td data-label="Дорхендеры"><?= $row['dorhenders'] ? '✅' : '—' ?></td>
-              <td data-label="Листовки"><?= $row['listovki'] ? '✅' : '—' ?></td>
-              <td data-label="Почтовые ящики"><?= $row['pochtovye_yashiki'] ? '✅' : '—' ?></td>
-              <td data-label="Комментарий"><?= nl2br(htmlspecialchars($row['comment'] ?? '')) ?></td>
-            </tr>
-          <?php endforeach; ?>
-        <?php endif; ?>
-      </tbody>
+<tbody class="table__body">
+  <?php if (empty($visits)): ?>
+    <tr><td colspan="7" style="text-align:center;">Нет данных</td></tr>
+  <?php else: ?>
+    <?php foreach ($visits as $row): 
+      $street = htmlspecialchars($row['street'] ?? '—');
+      $build = htmlspecialchars($row['build'] ?? '—');
+      $visit_date = htmlspecialchars($row['visit_date']);
+      $isDisabled = ($row['disable'] == 1); // Проверка статуса
+      $url = "../ventra/current_home.php?street=" . urlencode($street) . "&build=" . urlencode($build);
+    ?>
+      <tr class="<?= $isDisabled ? 'row-disabled' : '' ?>">
+        <td data-label="Улица"><a href="<?= $url ?>" class="table__link"><?= $street ?></a></td>
+        <td data-label="Дом"><a href="<?= $url ?>" class="table__link"><?= $build ?></a></td>
+        <td data-label="Дата"><?= $visit_date ?></td>
+        <td data-label="Дорхендеры"><?= $row['dorhenders'] ? '✅' : '—' ?></td>
+        <td data-label="Листовки"><?= $row['listovki'] ? '✅' : '—' ?></td>
+        <td data-label="Почтовые ящики"><?= $row['pochtovye_yashiki'] ? '✅' : '—' ?></td>
+        <td data-label="Комментарий"><?= nl2br(htmlspecialchars($row['comment'] ?? '')) ?></td>
+      </tr>
+    <?php endforeach; ?>
+  <?php endif; ?>
+</tbody>
     </table>
   </div>
 </div>
