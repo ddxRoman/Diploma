@@ -1,15 +1,14 @@
 <?php
 session_start();
 
-if($_SESSION['user']){
-
-?>
-
-<?php
-}
-
+// 1. Проверяем существование ключа через isset
+if (isset($_SESSION['user']) && !empty($_SESSION['user'])) {
+    // Пользователь авторизован, ничего не выводим, просто позволяем коду идти дальше
+} 
 else {
-    header ('Location: action/autorization.php');
+    // 2. Если не авторизован — редирект. 
+    // Важно: до этой строки не должно быть НИ ОДНОГО пробела или эха вне 
+    header('Location: action/autorization.php');
+    exit(); // Всегда пиши exit после header, чтобы код ниже не выполнялся
 }
-
 ?>

@@ -1,7 +1,16 @@
 <?php
 error_reporting(E_ERROR | E_PARSE);
 $month = date('m')-1;
-$connect = mysqli_connect('localhost', 'root','','diploma');
+// 1. Устанавливаем соединение (используем 127.0.0.1 для OS6)
+$connect = mysqli_connect('MySQL-8.4', 'root', '', 'diploma');
+
+// 2. Проверяем на ошибки
+if (!$connect) {
+    die("Ошибка подключения: " . mysqli_connect_error());
+}
+
+// 3. Устанавливаем кодировку (важно для кириллицы в дипломе)
+mysqli_set_charset($connect, "utf8mb4");
 // $connect = mysqli_connect('localhost', 'ddx','Beetle19','diploma');
 
 $sites_categorie = mysqli_query($connect, "SELECT * FROM `sites_categories` ORDER BY `sequence_number` ASC"); // Подключение к определенной таблице, и получение Статуса записи

@@ -1,6 +1,8 @@
 <?php
 
 // ================== НАСТРОЙКИ ==================
+$botToken = '8511376811:AAFCYPduf_S6IHoI1UKZJxnfB9exUFo6B3g';
+$chatId   = '523911850';
 
 $products = [
     'iPhone 17 Pro 256GB Синий index' => 'https://indexiq.ru/product/apple-iphone-17-pro-256gb-deep-blue/',

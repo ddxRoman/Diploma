@@ -1,15 +1,29 @@
 <?    
 session_start();
 $current_year=date("Y");
+$id_user=1;
 require_once "function/checkaut.php";
-require_once "function/checkrole.php";
+// require_once "function/checkrole.php";
 require_once "action/connect.php";
 require_once "function/check-device.php";
 // require_once "action/connect_table.php";
 require_once "action/users/StyleAndSettings.php";
-$button = mysqli_query($connect, "SELECT * FROM `button_user` WHERE `user_id`=$id_user "); // Подключение к определенной таблице, и получение Статуса записи
-$button = mysqli_fetch_all($button); // Выбирает все строки из набора $product и помещает их в массив  $product
+// Проверяем, существует ли ID пользователя, прежде чем делать запрос
+if (isset($id_user) && !empty($id_user)) {
+    // Рекомендуется оборачивать переменные в фигурные скобки внутри двойных кавычек
+    $query = "SELECT * FROM `button_user` WHERE `user_id` = '{$id_user}'";
+    $button_result = mysqli_query($connect, $query);
 
+    if (!$button_result) {
+        die("Ошибка запроса: " . mysqli_error($connect));
+    }
+
+    $button = mysqli_fetch_all($button_result); 
+} else {
+    // Если ID пустой, массив будет пустым, и ошибки не будет
+    $button = [];
+    // echo "Предупреждение: ID пользователя не определен"; 
+}
 if($role==5){
     header('Location: treker/treeker.php');
 }

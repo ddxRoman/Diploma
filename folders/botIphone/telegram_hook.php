@@ -1,11 +1,11 @@
 <?php
 
-';
+$botToken = '8511376811:AAFCYPduf_S6IHoI1UKZJxnfB9exUFo6B3g';
+$chatId   = '523911850';
 
 $products = [
-    'iPhone 17 Pro 256GB Синий' => 'https://indexiq.ru/product/apple-iphone-17-pro-256gb-deep-blue/',
-    'iPhone 17 Pro 256GB Белый'    => 'https://indexiq.ru/product/apple-iphone-17-pro-256gb-silver/',
-    'iPhone 17 Pro 256GB Оранжевый'    => 'https://indexiq.ru/product/apple-iphone-17-pro-256gb-cosmic-orange/',
+    'Watch 11 42mm Rose Gold' => 'https://indexiq.ru/product/apple-watch-series-11-42mm-rose-gold-aluminum-case-with-light-blush-sport-band-m-l-meu44/',
+    'Apple Watch Series 10 LTE 42mm Rose Gold'    => 'https://indexiq.ru/product/apple-watch-series-10-lte-42-mm-mwxc3/',
 ];
 
 // ---------- функции (те же, что и раньше) ----------

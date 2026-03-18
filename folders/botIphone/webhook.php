@@ -1,14 +1,14 @@
 <?php
 
 // ================= НАСТРОЙКИ =================
-
+$botToken = '8511376811:AAFCYPduf_S6IHoI1UKZJxnfB9exUFo6B3g';
 
 // ================= ТОВАРЫ =================
 $products = [
-    'iPhone 17 Pro 256GB Синий'    => 'https://indexiq.ru/product/apple-iphone-17-pro-256gb-deep-blue/',
-    'iPhone 17 Pro 256GB Белый'    => 'https://indexiq.ru/product/apple-iphone-17-pro-256gb-silver/',
-    'iPhone 17 Pro 256GB Оранжевый'=> 'https://indexiq.ru/product/apple-iphone-17-pro-256gb-cosmic-orange/',
+    'Watch 11 42mm Rose Gold' => 'https://indexiq.ru/product/apple-watch-series-11-42mm-rose-gold-aluminum-case-with-light-blush-sport-band-m-l-meu44/',
+    'Apple Watch Series 10 LTE 42mm Rose Gold'    => 'https://indexiq.ru/product/apple-watch-series-10-lte-42-mm-mwxc3/',
 ];
+
 
 $recommendProducts = [
     'https://indexiq.ru/product/poco-f7-pro-12-512gb-5g-silver-eu/',
@@ -149,24 +149,24 @@ if ($text === '📱 Получить цену сейчас') {
     $iphonePrice = priceToInt(parsePrice($iphoneHtml));
 
     // ===== СЛУЧАЙНЫЙ ТОВАР =====
-    $randomUrl  = $recommendProducts[array_rand($recommendProducts)];
-    $randomHtml = getPage($randomUrl);
+    // $randomUrl  = $recommendProducts[array_rand($recommendProducts)];
+    // $randomHtml = getPage($randomUrl);
 
-    $recTitle  = parseTitle($randomHtml);
-    $recPrice  = priceToInt(parsePrice($randomHtml));
-    $recCharge = parseChargePower($randomHtml);
-    $recImage  = parseImage($randomHtml);
+    // $recTitle  = parseTitle($randomHtml);
+    // $recPrice  = priceToInt(parsePrice($randomHtml));
+    // $recCharge = parseChargePower($randomHtml);
+    // $recImage  = parseImage($randomHtml);
 
-    $diff = $iphonePrice - $recPrice;
+    // $diff = $iphonePrice - $recPrice;
 
     // ===== ОДИН ТЕКСТ =====
-    $message  = "🔥🔥🔥 <b>А может все таки лучше купить</b> 🔥🔥🔥";
-    $message .= "<b><a href=\"{$randomUrl}\">{$recTitle}</a></b>\n";
-    $message .= "Цена: <b>" . number_format($recPrice, 0, '', ' ') . " ₽</b>\n";
-    $message .= "Это на <b>" . number_format($diff, 0, '', ' ') . " ₽</b> дешевле iPhone 17 Pro\n";
-    $message .= "· NFC 💳\n· Банковские приложения 🏦\n· Быстра зарядка ⚡ <b>{$recCharge}</b>\n\n";
+    // $message  = "🔥🔥🔥 <b>А может все таки лучше купить</b> 🔥🔥🔥";
+    // $message .= "<b><a href=\"{$randomUrl}\">{$recTitle}</a></b>\n";
+    // $message .= "Цена: <b>" . number_format($recPrice, 0, '', ' ') . " ₽</b>\n";
+    // $message .= "Это на <b>" . number_format($diff, 0, '', ' ') . " ₽</b> дешевле iPhone 17 Pro\n";
+    // $message .= "· NFC 💳\n· Банковские приложения 🏦\n· Быстра зарядка ⚡ <b>{$recCharge}</b>\n\n";
 
-    $message .= "📱 <b>Актуальные цены iPhone</b>\n\n";
+    // $message .= "📱 <b>Актуальные цены iPhone</b>\n\n";
 
     foreach ($products as $name => $url) {
         $price = parsePrice(getPage($url));
