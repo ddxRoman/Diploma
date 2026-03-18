@@ -3,7 +3,8 @@ session_start();
 // Проверь путь! Если bot.php в папке bot, а connect в action:
 require_once '../action/connect.php'; 
 
-
+$token = "6048362058:AAFv50Fltmm_0Ufa-GYzAga-poK1-niyxVo";
+$chatId = "2116281958";
 
 $data = $_POST['data'];
 $holiday = $_POST['holiday'];

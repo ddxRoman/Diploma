@@ -1,6 +1,6 @@
 <?php
-// $host = 'localhost'; $dbname = 'diploma'; $user = 'user'; $pass = 'qazwsx';
-$host = 'localhost'; $dbname = 'diploma'; $user = 'ddx'; $pass = 'Beetle19';
+$host = 'MySQL-8.4'; $dbname = 'diploma'; $user = 'root'; $pass = '';
+// $host = 'localhost'; $dbname = 'diploma'; $user = 'ddx'; $pass = 'Beetle19';
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $pass);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -8,7 +8,7 @@ try {
     die("Ошибка подключения к БД: " . $e->getMessage());
 }
 
-// Запрос домов с просроченными визитами
+// Запрос домов с просроченными визитами (только активные: disable = 0)
 $query = "
     SELECT 
         h.id,
@@ -17,6 +17,7 @@ $query = "
         MAX(v.visit_date) AS last_visit
     FROM ventra_home h
     LEFT JOIN visit_home_date v ON v.adress_id = h.id
+    WHERE h.disable = 0 
     GROUP BY h.id, h.street, h.build
     HAVING last_visit IS NULL OR last_visit < DATE_SUB(CURDATE(), INTERVAL 45 DAY)
     ORDER BY last_visit DESC;
