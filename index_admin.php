@@ -40,7 +40,8 @@ if ($role!= 1) {
       <a href="folders/addsiteForm.php" target="1"><button>Добавить сайт</button></a>
       <a href="https://s2.hostiman.ru/phpmyadmin/index.php"><button>База данных</button></a>
       <a href="https://my.hostiman.ru/cabinet/services/shared/files/245637"><button>Менеджер файлов</button></a>
-      <a href="folders/TgBotForm.php" target="1"><button>Бот</button></a>
+      <!-- <a href="folders/TgBotForm.php" target="1"><button>Бот</button></a> -->
+      <a href="folders/kolbiko_pars/holidays_pars.php" target="1"><button>Бот</button></a>
       <a href="finance/finance.php" target="_blank"><button>Финансы</button></a>
       <!-- <a href="folders/tracking.php" target=""><button>Трек</button></a> -->
       <a href="folders/ventra.php" target="_blank"><button>Вентра</button></a>

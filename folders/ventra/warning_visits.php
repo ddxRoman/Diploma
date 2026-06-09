@@ -1,4 +1,5 @@
 <?php
+
 $host = 'MySQL-8.4'; $dbname = 'diploma'; $user = 'root'; $pass = '';
 // $host = 'localhost'; $dbname = 'diploma'; $user = 'ddx'; $pass = 'Beetle19';
 try {
@@ -20,7 +21,7 @@ $query = "
     WHERE h.disable = 0 
     GROUP BY h.id, h.street, h.build
     HAVING last_visit IS NULL OR last_visit < DATE_SUB(CURDATE(), INTERVAL 45 DAY)
-    ORDER BY last_visit DESC;
+    ORDER BY last_visit ASC;
 ";
 $stmt = $pdo->prepare($query);
 $stmt->execute();
