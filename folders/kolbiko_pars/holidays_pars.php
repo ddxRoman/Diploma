@@ -36,6 +36,29 @@ function getProductData($url) {
     return ['title' => $title, 'img' => $img];
 }
 
+// --- 2.1 ФУНКЦИЯ ПЕРЕФОРМАТИРОВАНИЯ ДАТЫ (Месяц/День/Год -> День/Месяц/Год) ---
+function formatDateToDMY($date) {
+    $date = trim($date);
+    if ($date === '') return $date;
+
+    // Пробуем распознать дату в формате M/D/Y (в т.ч. M-D-Y)
+    $normalized = str_replace('-', '/', $date);
+    $parts = explode('/', $normalized);
+
+    if (count($parts) === 3) {
+        [$month, $day, $year] = $parts;
+        if (is_numeric($month) && is_numeric($day) && is_numeric($year)) {
+            $month = str_pad($month, 2, '0', STR_PAD_LEFT);
+            $day = str_pad($day, 2, '0', STR_PAD_LEFT);
+            if (strlen($year) === 2) $year = '20' . $year;
+            return "$day/$month/$year";
+        }
+    }
+
+    // Если формат не распознан — возвращаем как есть
+    return $date;
+}
+
 // --- 3. ПОЛУЧЕНИЕ ДАННЫХ (ИЗ КЭША ИЛИ ПАРСЕРОМ) ---
 $finalData = [];
 if (file_exists($cacheFile) && !isset($_GET['force_update'])) {
@@ -138,7 +161,7 @@ if (file_exists($cacheFile) && !isset($_GET['force_update'])) {
             <tbody>
                 <?php foreach ($finalData as $index => $item): $rowId = "row_$index"; ?>
                 <tr id="<?= $rowId ?>">
-                    <td class="js-date"><?= htmlspecialchars($item['date']) ?></td>
+                    <td class="js-date"><?= htmlspecialchars(formatDateToDMY($item['date'])) ?></td>
                     <td class="js-holiday">
                         <?php if (!empty($item['url'])): ?>
                             <a href="<?= htmlspecialchars($item['url']) ?>" target="_blank" class="holiday-link"><strong><?= htmlspecialchars($item['holiday']) ?></strong></a>
