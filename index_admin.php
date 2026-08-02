@@ -45,6 +45,7 @@ if ($role!= 1) {
       <a href="finance/finance.php" target="_blank"><button>Финансы</button></a>
       <!-- <a href="folders/tracking.php" target=""><button>Трек</button></a> -->
       <a href="folders/ventra.php" target="_blank"><button>Вентра</button></a>
+      <a href="folders/IP-pars/ip-get-domain.html" target="_blank"><button>IP</button></a>
     </div>
 
     <hr class="misPanel-hr">

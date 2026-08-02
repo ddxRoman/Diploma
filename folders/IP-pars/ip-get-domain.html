@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keenetic & Route Subdomain Mapper</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --border-color: #334155;
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent: #10b981;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 950px;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+            color: #38bdf8;
+        }
+
+        p.subtitle {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .field-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 320px;
+            background-color: #090d16;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: #e2e8f0;
+            padding: 12px;
+            font-family: monospace;
+            font-size: 0.85rem;
+            resize: vertical;
+            outline: none;
+            white-space: pre;
+        }
+
+        textarea:focus {
+            border-color: var(--primary);
+        }
+
+        .option-group {
+            margin-top: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            color: #e2e8f0;
+            cursor: pointer;
+        }
+
+        .option-group input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+            accent-color: var(--primary);
+            cursor: pointer;
+        }
+
+        .controls {
+            margin-top: 16px;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        select, button {
+            padding: 10px 16px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            outline: none;
+            cursor: pointer;
+        }
+
+        select {
+            background-color: #090d16;
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+        }
+
+        button.btn-primary {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        button.btn-primary:hover {
+            background-color: var(--primary-hover);
+        }
+
+        button.btn-secondary {
+            background-color: transparent;
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+        }
+
+        button.btn-secondary:hover {
+            background-color: var(--border-color);
+        }
+
+        button.btn-success {
+            background-color: #059669;
+            color: white;
+            border: none;
+            font-weight: 600;
+        }
+
+        button.btn-success:hover {
+            background-color: #047857;
+        }
+
+        .status {
+            margin-top: 12px;
+            font-size: 0.85rem;
+            color: var(--accent);
+            min-height: 20px;
+        }
+
+        .loader {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border: 2px solid #fff;
+            border-radius: 50%;
+            border-top-color: transparent;
+            animation: spin 0.8s linear infinite;
+            margin-right: 6px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Keenetic & Route Subdomain Mapper</h1>
+    <p class="subtitle">Авто-поиск всех поддоменов (через SSL CT Logs) и резолвинг подсетей в .txt</p>
+
+    <div class="grid">
+        <div class="field-group">
+            <label for="inputDomains">Домены (например: nexusmods.com)</label>
+            <textarea id="inputDomains" placeholder="nexusmods.com&#10;nexus-cdn.com"></textarea>
+            
+            <label class="option-group">
+                <input type="checkbox" id="findSubdomains" checked>
+                Искать все поддомены через crt.sh (SSL Logs)
+            </label>
+        </div>
+
+        <div class="field-group">
+            <label for="outputIps">Результат</label>
+            <textarea id="outputIps" readonly placeholder="Здесь появится готовый результат..."></textarea>
+        </div>
+    </div>
+
+    <div class="controls">
+        <button class="btn-primary" id="btnResolve" onclick="processDomains()">Преобразовать</button>
+        
+        <select id="formatSelect">
+            <option value="cmd-route">Windows Route (route ADD ... /24 # домены)</option>
+            <option value="raw">Простой список IP</option>
+            <option value="keenetic-cli">CLI команды Keenetic (ip route)</option>
+        </select>
+
+        <button class="btn-secondary" onclick="copyResult()">Скопировать</button>
+        <button class="btn-success" onclick="downloadTxt()">Сохранить в .txt</button>
+    </div>
+
+    <div class="status" id="statusText"></div>
+</div>
+
+<script>
+    const DOH_ENDPOINT = 'https://cloudflare-dns.com/dns-query';
+
+    function cleanDomain(rawLine) {
+        let domain = rawLine.trim();
+        if (!domain) return null;
+        domain = domain.replace(/^\*\./, '');
+        domain = domain.replace(/^https?:\/\//i, '');
+        domain = domain.split('/')[0];
+        return domain.toLowerCase() || null;
+    }
+
+    // Запрос к crt.sh для поиска всех известных поддоменов
+    async function fetchSubdomains(rootDomain) {
+        try {
+            const url = `https://crt.sh/?q=%.${encodeURIComponent(rootDomain)}&output=json`;
+            const response = await fetch(url);
+            if (!response.ok) return [rootDomain];
+
+            const data = await response.json();
+            const subdomains = new Set();
+            subdomains.add(rootDomain);
+
+            data.forEach(item => {
+                const name = item.name_value;
+                // Название может содержать переносы строк с несколькими именами
+                const names = name.split('\n');
+                names.forEach(n => {
+                    const cleaned = cleanDomain(n);
+                    // Исключаем wildcards типа *.nexusmods.com
+                    if (cleaned && !cleaned.includes('*')) {
+                        subdomains.add(cleaned);
+                    }
+                });
+            });
+
+            return Array.from(subdomains);
+        } catch (e) {
+            console.warn(`Не удалось подтянуть поддомены для ${rootDomain} через crt.sh:`, e);
+            return [rootDomain];
+        }
+    }
+
+    async function resolveDomain(domain) {
+        try {
+            const response = await fetch(`${DOH_ENDPOINT}?name=${encodeURIComponent(domain)}&type=A`, {
+                headers: { 'Accept': 'application/dns-json' }
+            });
+            if (!response.ok) return [];
+            const data = await response.json();
+            if (!data.Answer) return [];
+            return data.Answer.filter(item => item.type === 1).map(item => item.data);
+        } catch (e) {
+            return [];
+        }
+    }
+
+    function ipToSubnet24(ip) {
+        const parts = ip.split('.');
+        if (parts.length !== 4) return null;
+        return `${parts[0]}.${parts[1]}.${parts[2]}.0`;
+    }
+
+    async function processDomains() {
+        const inputArea = document.getElementById('inputDomains');
+        const outputArea = document.getElementById('outputIps');
+        const status = document.getElementById('statusText');
+        const btn = document.getElementById('btnResolve');
+        const format = document.getElementById('formatSelect').value;
+        const autoSubdomains = document.getElementById('findSubdomains').checked;
+
+        const lines = inputArea.value.split('\n');
+        const rootDomains = [];
+
+        lines.forEach(line => {
+            const cleaned = cleanDomain(line);
+            if (cleaned && !rootDomains.includes(cleaned)) {
+                rootDomains.push(cleaned);
+            }
+        });
+
+        if (rootDomains.length === 0) {
+            status.textContent = '⚠️ Введите хотя бы один основной домен.';
+            return;
+        }
+
+        btn.disabled = true;
+        outputArea.value = '';
+
+        let allDomainsToResolve = new Set();
+
+        if (autoSubdomains) {
+            status.innerHTML = `<span class="loader"></span>Ищем поддомены через SSL-сертификаты (crt.sh)...`;
+            for (const root of rootDomains) {
+                const subs = await fetchSubdomains(root);
+                subs.forEach(s => allDomainsToResolve.add(s));
+            }
+        } else {
+            rootDomains.forEach(r => allDomainsToResolve.add(r));
+        }
+
+        const domainList = Array.from(allDomainsToResolve);
+        status.innerHTML = `<span class="loader"></span>Резолвим IP для ${domainList.length} поддоменов...`;
+
+        const subnetToDomainsMap = new Map();
+        const rawIps = new Set();
+
+        // Разбиваем DNS-запросы на чанки (пачки по 15 шт), чтобы браузер не лагал
+        const chunkSize = 15;
+        for (let i = 0; i < domainList.length; i += chunkSize) {
+            const chunk = domainList.slice(i, i + chunkSize);
+            await Promise.all(chunk.map(async (domain) => {
+                const ips = await resolveDomain(domain);
+                ips.forEach(ip => {
+                    rawIps.add(ip);
+                    const subnet = ipToSubnet24(ip);
+                    if (subnet) {
+                        if (!subnetToDomainsMap.has(subnet)) {
+                            subnetToDomainsMap.set(subnet, new Set());
+                        }
+                        subnetToDomainsMap.get(subnet).add(domain);
+                    }
+                });
+            }));
+        }
+
+        if (subnetToDomainsMap.size === 0 && rawIps.size === 0) {
+            outputArea.value = 'Не удалось получить IP-адреса. Возможно домены не существуют.';
+        } else {
+            if (format === 'cmd-route') {
+                const sortedSubnets = Array.from(subnetToDomainsMap.keys()).sort();
+                const resultLines = sortedSubnets.map(subnet => {
+                    const domainsStr = Array.from(subnetToDomainsMap.get(subnet)).sort().join(', ');
+                    return `route ADD ${subnet} MASK 255.255.255.0 0.0.0.0  # ${domainsStr}`;
+                });
+                outputArea.value = resultLines.join('\n');
+            } else if (format === 'keenetic-cli') {
+                outputArea.value = Array.from(rawIps).map(ip => `ip route ${ip} 255.255.255.255 Wireguard0`).join('\n');
+            } else {
+                outputArea.value = Array.from(rawIps).join('\n');
+            }
+        }
+
+        btn.disabled = false;
+        status.textContent = `Готово! Проверено поддоменов: ${domainList.length}, Найдено подсетей: ${subnetToDomainsMap.size}`;
+    }
+
+    function downloadTxt() {
+        const outputArea = document.getElementById('outputIps');
+        const text = outputArea.value;
+
+        if (!text) {
+            alert('Сначала сгенерируйте результат!');
+            return;
+        }
+
+        const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = 'routes.txt';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(link.href);
+    }
+
+    function copyResult() {
+        const outputArea = document.getElementById('outputIps');
+        if (!outputArea.value) return;
+        outputArea.select();
+        navigator.clipboard.writeText(outputArea.value);
+        const status = document.getElementById('statusText');
+        status.textContent = '📋 Скопировано в буфер обмена!';
+    }
+</script>
+
+</body>
+</html>
