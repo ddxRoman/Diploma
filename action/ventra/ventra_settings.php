@@ -12,9 +12,12 @@ $streets = mysqli_fetch_all($streets_query, MYSQLI_ASSOC);
 <title>Настройки Ventra</title>
 <link rel="stylesheet" href="../../css/ventra-style.css">
 <style>
-body { font-family: sans-serif; background: #f7f7f7; margin: 0; padding: 0; }
+/* display:block переопределяет глобальный body{display:flex;...} из ventra-style.css,
+   который может схлопывать ширину дочерних блоков на странице */
+body { display: block; font-family: sans-serif; background: #f7f7f7; margin: 0; padding: 0; }
 .nav-bar { display: flex; align-items: center; justify-content: center; gap: 15px; background: #333; padding: 10px; position: relative; }
 .settings-icon { position: absolute; left: 10px; top: 50%; transform: translateY(-50%); color: white; font-size: 22px; text-decoration: none; }
+.advert-admin-link { position: absolute; right: 25px; top: 50%; transform: translateY(-50%); color: white; font-size: 22px; text-decoration: none; }
 .street-block { background: white; margin: 10px auto; width: 95%; border-radius: 8px; box-shadow: 0 0 5px rgba(0,0,0,0.1); overflow: hidden; }
 .street-header { display: flex; justify-content: space-between; align-items: center; padding: 12px; background: #f0f0f0; cursor: pointer; font-weight: bold; gap: 10px; }
 .btn-edit { background: #3498db; color: white; border: none; border-radius: 5px; padding: 4px 8px; cursor: pointer; }
@@ -87,6 +90,7 @@ input:checked + .slider:before { transform: translateX(24px); }
 <nav class="nav-bar">
   <a href="../../folders/ventra/home.php" class="settings-icon">🏠</a>
   <span style="color:white;font-weight:bold;">Настройки</span>
+  <a href="../../folders/ventra/advert.php" class="advert-admin-link" title="Админка рекламы">📢</a>
 </nav>
 
 <div id="streets-container">

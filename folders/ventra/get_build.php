@@ -3,7 +3,7 @@ ob_clean(); // Убираем лишний вывод, если что-то бы
 
 // Настройки подключения (не забудь поменять на MySQL-8.4 если работаешь в OS6)
 $connect = mysqli_connect('localhost', 'user','qazwsx','diploma');
-// $connect = mysqli_connect('MySQL-8.4', 'root','','diploma');
+// $connect = mysqli_connect('localhost', 'ddx','Beetle19','diploma');
 
 if (!$connect) {
     die(json_encode(['error' => 'Ошибка подключения']));

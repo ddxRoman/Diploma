@@ -48,6 +48,20 @@ $ventra_visits = mysqli_fetch_all($ventra_visits);
 // Комментарии
 $ventra_builds_comment = mysqli_query($connect, "SELECT * FROM `ventra_builds_comment` WHERE `adress_id`=$adress_id ORDER BY `date` DESC");
 $ventra_builds_comment = mysqli_fetch_all($ventra_builds_comment);
+
+// Актуальная реклама, выбранная для этого дома
+$current_promo = null;
+$cur_promo_stmt = mysqli_prepare(
+    $connect,
+    "SELECT a.id, a.image FROM `ventra_home_advert` h JOIN `ventra_advert` a ON a.id = h.advert_id WHERE h.adress_id = ?"
+);
+mysqli_stmt_bind_param($cur_promo_stmt, "i", $adress_id);
+mysqli_stmt_execute($cur_promo_stmt);
+$current_promo = mysqli_stmt_get_result($cur_promo_stmt)->fetch_assoc();
+
+// Вся загруженная реклама — для выбора в модалке
+$all_promos_q = mysqli_query($connect, "SELECT id, image FROM `ventra_advert` ORDER BY id DESC");
+$all_promos = mysqli_fetch_all($all_promos_q, MYSQLI_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -87,6 +101,8 @@ $ventra_builds_comment = mysqli_fetch_all($ventra_builds_comment);
       </a>
     </h2>
   </header>
+
+
 
   <!-- 🔹 Информация по дому -->
   <section>
@@ -150,6 +166,42 @@ $ventra_builds_comment = mysqli_fetch_all($ventra_builds_comment);
     <button type="submit" class="btn_add_comments" style="margin-top:10px;">Добавить визит</button>
   </form>
 </section>
+
+  <!-- 🔹 Актуальная реклама -->
+  <section class="promo-section">
+    <h3>Актуальная реклама</h3>
+    <div id="promoDisplay">
+      <?php if ($current_promo): ?>
+        <div class="promo-current">
+          <img src="<?= htmlspecialchars($current_promo['image']) ?>" alt="Актуальная реклама" class="promo-current-img">
+          <button class="promo-change-btn" id="openPromoPicker">🔄 Сменить</button>
+        </div>
+      <?php else: ?>
+        <button class="promo-toggle-btn" id="openPromoPicker">🖼️ Актуальная реклама</button>
+      <?php endif; ?>
+    </div>
+  </section>
+
+  <div class="modal" id="promoPickerModal">
+    <div class="modal-content promo-picker-content">
+      <h3>Выберите рекламу</h3>
+      <?php if (empty($all_promos)): ?>
+        <p style="color:#888;">Загруженной рекламы пока нет. Загрузите её в разделе «Админка рекламы».</p>
+      <?php else: ?>
+        <div class="promo-picker-grid">
+          <?php foreach ($all_promos as $promo): ?>
+            <img
+              src="<?= htmlspecialchars($promo['image']) ?>"
+              class="promo-picker-item<?= ($current_promo && (int)$current_promo['id'] === (int)$promo['id']) ? ' selected' : '' ?>"
+              data-id="<?= (int)$promo['id'] ?>"
+              alt="Реклама"
+            >
+          <?php endforeach; ?>
+        </div>
+      <?php endif; ?>
+      <button class="btn btn-cancel" id="closePromoPicker">Отмена</button>
+    </div>
+  </div>
 
 <script>
 function toggleVisitDetails(id) {
@@ -278,5 +330,118 @@ body.global-problem {
   </section>
 
 </div>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const promoModal = document.getElementById('promoPickerModal');
+  const openPromoBtn = document.getElementById('openPromoPicker');
+  const closePromoBtn = document.getElementById('closePromoPicker');
+
+  if (openPromoBtn) {
+    openPromoBtn.addEventListener('click', () => promoModal.classList.add('show'));
+  }
+  if (closePromoBtn) {
+    closePromoBtn.addEventListener('click', () => promoModal.classList.remove('show'));
+  }
+  promoModal.addEventListener('click', (e) => {
+    if (e.target === promoModal) promoModal.classList.remove('show');
+  });
+
+  document.querySelectorAll('.promo-picker-item').forEach((img) => {
+    img.addEventListener('click', async () => {
+      const advertId = img.dataset.id;
+      const fd = new FormData();
+      fd.append('adress_id', '<?= (int)$adress_id ?>');
+      fd.append('advert_id', advertId);
+
+      try {
+        const res = await fetch('../../action/ventra/set_home_advert.php', { method: 'POST', body: fd });
+        const data = await res.json();
+        if (data.status === 'ok') {
+          location.reload();
+        } else {
+          alert(data.message || 'Ошибка при выборе рекламы');
+        }
+      } catch (err) {
+        alert('Ошибка сервера');
+      }
+    });
+  });
+});
+</script>
+
+<style>
+.promo-section {
+  background: #fff;
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin: 10px 5px 15px 5px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.promo-section h3 { margin: 0 0 10px 0; }
+
+.promo-toggle-btn {
+  width: 100%;
+  padding: 14px;
+  background: #2b8a3e;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.promo-toggle-btn:active { transform: translateY(1px); }
+
+.promo-current {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+.promo-current-img {
+  width: 100%;
+  max-height: 460px;
+  object-fit: cover;
+  border-radius: 10px;
+  background: #eee;
+}
+.promo-change-btn {
+  width: 100%;
+  padding: 10px;
+  background: #eef1f7;
+  color: #333;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.promo-change-btn:active { transform: translateY(1px); }
+
+/* Модалка выбора рекламы */
+.modal { display: none; position: fixed; z-index: 1000; inset: 0; background: rgba(0,0,0,0.5); justify-content: center; align-items: center; }
+.modal.show { display: flex; }
+.modal-content { background: #fff; padding: 20px; border-radius: 15px; width: 90%; max-width: 420px; max-height: 85vh; overflow-y: auto; box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
+.promo-picker-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 10px;
+  margin: 12px 0;
+}
+.promo-picker-item {
+  width: 100%;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 3px solid transparent;
+  background: #eee;
+}
+.promo-picker-item:hover { border-color: #2b8a3e; }
+.promo-picker-item.selected { border-color: #2b8a3e; }
+.btn { padding: 12px; border-radius: 8px; cursor: pointer; border: none; font-weight: bold; font-size: 15px; width: 100%; margin-top: 5px; }
+.btn-cancel { background: #eee; color: #333; }
+</style>
+
 </body>
 </html>

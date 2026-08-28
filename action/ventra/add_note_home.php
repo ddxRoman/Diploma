@@ -23,17 +23,14 @@ $adress_id=$row['id'];
 foreach ($ventra_note as $ventra_notes){
         if($ventra_notes[1] == $adress_id){
                 $check = 1;
-                echo $ventra_notes[1];
         }
 
 }
 if ($check==0){
-        echo "If ".$check. " - ".$adress_id ;
 mysqli_query($connect, "INSERT INTO `ventra_home_notefication` (`id`, `adress_id`, `note`, `door_key`, `competitors`, `global_problem`)
         VALUES (NULL, '$adress_id', '$note','$door_key','$competitors','$global_problem'  )");
 header("Location: ../../folders/ventra/current_home.php?street=" . urlencode($street) . "&build=" . urlencode($build));
 } else {
-        echo "else";
 mysqli_query($connect, "UPDATE `ventra_home_notefication` SET  `note` = '$note', `door_key` = '$door_key', `competitors`= '$competitors', `global_problem`= '$global_problem' WHERE `adress_id` = '$adress_id'");
 header("Location: ../../folders/ventra/current_home.php?street=" . urlencode($street) . "&build=" . urlencode($build));
 
