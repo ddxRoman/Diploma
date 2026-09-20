@@ -64,16 +64,15 @@ if ($role!= 1) {
         <hr class="misPanel-hr" width="85%"><!-- ХРка полоска -->
        <div class="body">   <!-- Начало Тела сайта -->
             <div class="container_admin">
-            <a href="folders/addcreeds.php" target="1"><button class=" btn_mob_menu">Доступы</button></a> <br>
-
+            <!-- <a href="folders/addcreeds.php" target="1"><button class=" btn_mob_menu">Доступы</button></a> <br> -->
             <a href="folders/addsiteForm.php" target="1"><button class=" btn_mob_menu">Сайты</button></a> <br>
             <a href="https://s2.hostiman.ru/phpmyadmin/index.php"><button class=" btn_mob_menu">БД</button></a> <br>
             <a href="https://my.hostiman.ru/cabinet/services/shared/files/245637"><button class=" btn_mob_menu">Файлы</button></a> <br>
-            <a href="folders/TgBotForm.php" target="1"><button class=" btn_mob_menu" class="btn_tg_index btn_mob_menu">Бот</button></a> <br>
+            <!-- <a href="folders/TgBotForm.php" target="1"><button class=" btn_mob_menu" class="btn_tg_index btn_mob_menu">Бот</button></a> <br> -->
             <a href="finance/finance.php" target="_blank"><button class="btn_tg_index btn_mob_menu">Финансы</button></a> <br>
             <!-- <a href="folders\ventor_map.php" target="_blank"><button class="btn_tg_index btn_mob_menu">Карта</button></a> <br> -->
             <a href="folders\ventra.php" target="_blank"><button class="btn_tg_index btn_mob_menu">Вентра</button></a> <br>
-            <a href="folders\tracking.php" target=""><button class="btn_tg_index btn_mob_menu">Трек</button></a> <br>
+            <!-- <a href="folders\tracking.php" target=""><button class="btn_tg_index btn_mob_menu">Трек</button></a> <br> -->
             </div>
             
         </div>

@@ -108,6 +108,7 @@ form {
   <a href="index.php" class="nav-bar__link nav-bar__link--active">Главная</a>
   <a href="visit_list.php" class="nav-bar__link">Визиты</a>
   <a href="warning_visits.php" class="nav-bar__link">Важные визиты</a>
+   <a href="../../folders/ventra/advert.php" class="advert-admin-link" title="Админка рекламы">📢</a>
 </nav>
 
 <h2>Добавление дома</h2>

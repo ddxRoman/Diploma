@@ -4,6 +4,50 @@ require_once "../../action/connect.php";
 $advert_query = mysqli_query($connect, "SELECT `id`, `image`, `start_date`, `end_date`, `created_at` FROM `ventra_advert` ORDER BY `id` DESC");
 $adverts = mysqli_fetch_all($advert_query, MYSQLI_ASSOC);
 
+// Последняя (самая свежая) загруженная реклама — adverts уже отсортированы по id DESC
+$latestAdvertId = !empty($adverts) ? (int)$adverts[0]['id'] : null;
+$latestAdvertImage = !empty($adverts) ? $adverts[0]['image'] : null;
+
+$actualHomes = [];
+$outdatedHomes = [];
+
+if ($latestAdvertId) {
+    // Дома, у которых прикреплена именно последняя реклама
+    $actualStmt = mysqli_prepare(
+        $connect,
+        "SELECT h.`id`, h.`street`, h.`build`
+         FROM `ventra_home` h
+         JOIN `ventra_home_advert` ha ON ha.`adress_id` = h.`id`
+         WHERE ha.`advert_id` = ? AND h.`disable` = 0
+         ORDER BY h.`street` ASC, CAST(h.`build` AS UNSIGNED) ASC, h.`build` ASC"
+    );
+    mysqli_stmt_bind_param($actualStmt, "i", $latestAdvertId);
+    mysqli_stmt_execute($actualStmt);
+    $actualHomes = mysqli_fetch_all(mysqli_stmt_get_result($actualStmt), MYSQLI_ASSOC);
+
+    // Дома, у которых прикреплена другая реклама или нет записи вообще
+    $outdatedStmt = mysqli_prepare(
+        $connect,
+        "SELECT h.`id`, h.`street`, h.`build`, ha.`advert_id`, a.`image` AS advert_image
+         FROM `ventra_home` h
+         LEFT JOIN `ventra_home_advert` ha ON ha.`adress_id` = h.`id`
+         LEFT JOIN `ventra_advert` a ON a.`id` = ha.`advert_id`
+         WHERE h.`disable` = 0 AND (ha.`advert_id` IS NULL OR ha.`advert_id` != ?)
+         ORDER BY h.`street` ASC, CAST(h.`build` AS UNSIGNED) ASC, h.`build` ASC"
+    );
+    mysqli_stmt_bind_param($outdatedStmt, "i", $latestAdvertId);
+    mysqli_stmt_execute($outdatedStmt);
+    $outdatedHomes = mysqli_fetch_all(mysqli_stmt_get_result($outdatedStmt), MYSQLI_ASSOC);
+} else {
+    // Рекламы вообще нет — ни у одного дома не может быть "актуальной"
+    $noAdvertQuery = mysqli_query(
+        $connect,
+        "SELECT `id`, `street`, `build` FROM `ventra_home` WHERE `disable` = 0
+         ORDER BY `street` ASC, CAST(`build` AS UNSIGNED) ASC, `build` ASC"
+    );
+    $outdatedHomes = mysqli_fetch_all($noAdvertQuery, MYSQLI_ASSOC);
+}
+
 function format_ru_date($value)
 {
     if (!$value) {
@@ -154,6 +198,70 @@ body { display: block; font-family: sans-serif; background: #f7f7f7; margin: 0; 
 .toast.show { opacity: 1; transform: translateX(0); }
 .toast.success { background: #4CAF50; }
 .toast.error { background: #F44336; }
+
+/* Переключатель "Актуальная / Не актуальная реклама" */
+.status-section {
+  background: #fff;
+  border-radius: 10px;
+  padding: 16px;
+  margin-top: 20px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+.status-section h3 { margin: 0 0 14px 0; text-align: center; }
+
+.status-toggle-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+.status-toggle-text {
+  font-size: 14px;
+  color: #999;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+.status-toggle-text.active { color: #2b8a3e; }
+
+.status-switch { position: relative; display: inline-block; width: 50px; height: 28px; flex-shrink: 0; }
+.status-switch input { opacity: 0; width: 0; height: 0; }
+.status-slider {
+  position: absolute; cursor: pointer; inset: 0;
+  background-color: #2b8a3e; border-radius: 28px; transition: 0.2s;
+}
+.status-slider::before {
+  content: ""; position: absolute; height: 22px; width: 22px; left: 3px; bottom: 3px;
+  background-color: #fff; border-radius: 50%; transition: 0.2s;
+}
+.status-switch input:checked + .status-slider { background-color: #e67700; }
+.status-switch input:checked + .status-slider::before { transform: translateX(22px); }
+
+.homes-list ul { list-style: none; padding: 0; margin: 0; }
+.homes-row { display: flex; align-items: stretch; border-bottom: 1px solid #eee; }
+.homes-row:last-child { border-bottom: none; }
+.homes-link {
+  flex: 1;
+  display: block;
+  padding: 10px 12px;
+  font-size: 14px;
+  color: #222;
+  text-decoration: none;
+}
+.homes-link:hover { background: #f5f5f5; }
+.home-eye-btn {
+  flex-shrink: 0;
+  width: 42px;
+  border: none;
+  background: transparent;
+  font-size: 17px;
+  cursor: pointer;
+  border-left: 1px solid #eee;
+}
+.home-eye-btn:hover { background: #f5f5f5; }
+.homes-note { color: #999; font-size: 12px; }
+.homes-empty { text-align: center; color: #888; padding: 15px 0; margin: 0; }
 </style>
 </head>
 <body>
@@ -189,6 +297,59 @@ body { display: block; font-family: sans-serif; background: #f7f7f7; margin: 0; 
         </div>
       <?php endforeach; ?>
     <?php endif; ?>
+  </div>
+</div>
+
+<div class="page-wrap">
+  <div class="status-section">
+    <h3>Дома по актуальности рекламы</h3>
+    <div class="status-toggle-wrap">
+      <span class="status-toggle-text active" id="labelActual">Актуальная реклама</span>
+      <label class="status-switch">
+        <input type="checkbox" id="statusToggle">
+        <span class="status-slider"></span>
+      </label>
+      <span class="status-toggle-text" id="labelOutdated">Не актуальная реклама</span>
+    </div>
+
+    <div id="homesActualList" class="homes-list">
+      <?php if (empty($actualHomes)): ?>
+        <p class="homes-empty">Нет домов с последней загруженной рекламой</p>
+      <?php else: ?>
+        <ul>
+          <?php foreach ($actualHomes as $h): ?>
+            <li class="homes-row">
+              <a class="homes-link" href="current_home.php?street=<?= urlencode($h['street']) ?>&build=<?= urlencode($h['build']) ?>">
+                <?= htmlspecialchars($h['street']) ?>, д. <?= htmlspecialchars($h['build']) ?>
+              </a>
+              <?php if ($latestAdvertImage): ?>
+                <button type="button" class="home-eye-btn" data-image="<?= htmlspecialchars($latestAdvertImage) ?>" title="Показать рекламу">👁️</button>
+              <?php endif; ?>
+            </li>
+          <?php endforeach; ?>
+        </ul>
+      <?php endif; ?>
+    </div>
+
+    <div id="homesOutdatedList" class="homes-list" style="display:none;">
+      <?php if (empty($outdatedHomes)): ?>
+        <p class="homes-empty">Все дома с актуальной рекламой</p>
+      <?php else: ?>
+        <ul>
+          <?php foreach ($outdatedHomes as $h): ?>
+            <li class="homes-row">
+              <a class="homes-link" href="current_home.php?street=<?= urlencode($h['street']) ?>&build=<?= urlencode($h['build']) ?>">
+                <?= htmlspecialchars($h['street']) ?>, д. <?= htmlspecialchars($h['build']) ?>
+                <?php if (empty($h['advert_id'])): ?><span class="homes-note">(без рекламы)</span><?php endif; ?>
+              </a>
+              <?php if (!empty($h['advert_image'])): ?>
+                <button type="button" class="home-eye-btn" data-image="<?= htmlspecialchars($h['advert_image']) ?>" title="Показать рекламу">👁️</button>
+              <?php endif; ?>
+            </li>
+          <?php endforeach; ?>
+        </ul>
+      <?php endif; ?>
+    </div>
   </div>
 </div>
 
@@ -351,6 +512,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.getElementById('viewerClose').addEventListener('click', () => viewer.classList.remove('show'));
   viewer.addEventListener('click', (e) => { if (e.target === viewer) viewer.classList.remove('show'); });
+
+  // Переключатель "Актуальная / Не актуальная реклама"
+  const statusToggle = document.getElementById('statusToggle');
+  const homesActualList = document.getElementById('homesActualList');
+  const homesOutdatedList = document.getElementById('homesOutdatedList');
+  const labelActual = document.getElementById('labelActual');
+  const labelOutdated = document.getElementById('labelOutdated');
+
+  statusToggle.addEventListener('change', () => {
+    const showOutdated = statusToggle.checked;
+    homesActualList.style.display = showOutdated ? 'none' : 'block';
+    homesOutdatedList.style.display = showOutdated ? 'block' : 'none';
+    labelActual.classList.toggle('active', !showOutdated);
+    labelOutdated.classList.toggle('active', showOutdated);
+  });
+
+  // Кнопка-глаз у дома — показать прикреплённую к нему рекламу
+  document.querySelectorAll('.home-eye-btn').forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      viewerImg.src = btn.dataset.image;
+      viewer.classList.add('show');
+    });
+  });
 });
 </script>
 </body>

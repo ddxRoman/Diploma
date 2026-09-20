@@ -325,15 +325,15 @@ if($interval->y>0){
             $mailLink=$_SESSION['user']['mail'];
             ?>
             <a href="action/users/settings.php"><button>Настройки</button></a>
-            <a href="https://telemost.yandex.ru/" target="_blank"><button>Телемост</button></a>
+            <!-- <a href="https://telemost.yandex.ru/" target="_blank"><button>Телемост</button></a> -->
             <a href="https://mail.google.com" target="_blank"><button>Почта</button></a>
             <!-- <a href="https://topvisor.com/projects/" target="_blank"><button><b>TOP</b><i>visor</i></button></a> -->
-            <a href="https://jira.bizonoff-dev.net/secure/Dashboard.jspa" target="_blank"><button>Наша Жира</button></a>
+            <!-- <a href="https://jira.bizonoff-dev.net/secure/Dashboard.jspa" target="_blank"><button>Наша Жира</button></a> -->
             <!-- <a href="folders/CsdTasks.php" target="_blank"><button>Задачи</button></a> -->
             <a href="folders/countsymbolForm.php" target="1"><button>Подсчёт</button></a>
-            <a href="folders/creeds.php" target="1"><button>Доступы</button></a>
+            <!-- <a href="folders/creeds.php" target="1"><button>Доступы</button></a> -->
             <!-- <a href="treker/treeker.php" target="1"><button>Трекер</button></a> -->
-            <a href="action\parcer\parcer_csd_excel.php" target="1"><button>Задачи CSD</button></a>
+            <!-- <a href="action\parcer\parcer_csd_excel.php" target="1"><button>Задачи CSD</button></a> -->
            </div><!-- Тут заканчивается МИС панель-->
         <hr class="misPanel-hr" width="85%"><!-- ХРка полоска -->
        <div class="body">   <!-- Начало Тела сайта -->
