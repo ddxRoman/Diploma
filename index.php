@@ -337,27 +337,59 @@ if($interval->y>0){
            </div><!-- Тут заканчивается МИС панель-->
         <hr class="misPanel-hr" width="85%"><!-- ХРка полоска -->
        <div class="body">   <!-- Начало Тела сайта -->
-            <div class="lmenu"> 
-            <? 
-             foreach($sites_categorie as $sites_categories){
-                if ($sites_categories[5]!=0) {
-            if($sites_categories[4]==1){?>
-                          <a href="<?=$sites_categories[3]?>" target="_blank"><button class="document"><?=$sites_categories[1]?></button></a><br>
-            <?} else if($sites_categories[4]==0){?>
-          <a href="<?=$sites_categories[3]?>" target="1"><button><?=$sites_categories[1]?></button></a><br>
-           <? } else if($sites_categories[4]==2){?>
-                <a href="<?=$sites_categories[3]?>" target="_blank"><button><?=$sites_categories[1]?></button></a><br>
-            <?
-        }
-            else if($sites_categories[4]==3){?>
-              <a href="<?=$sites_categories[3]?>" target="1"><button><?=$sites_categories[1]?></button></a><br>
-            <?}
-           } }?>
-             </div>
-            <div class="container frame">
-                <iframe name="1" src="folders/sites.php">
-                    
-                </iframe>
+
+<div class="lmenu">
+<?php
+$defaultFrameUrl = 'folders/sites.php';
+
+foreach ($sites_categorie as $sites_categories) {
+    if ($sites_categories[5] == 0) {
+        continue;
+    }
+
+    $title = trim($sites_categories[1]);
+    $url = $sites_categories[3];
+    $isDocs = ($title === 'Доки');
+
+    if ($isDocs) {
+        $defaultFrameUrl = $url;
+        ?>
+        <a href="<?= htmlspecialchars($url, ENT_QUOTES, 'UTF-8') ?>"
+           target="1"
+           class="menu-link ">
+            <button type="button">
+                <?= htmlspecialchars($title, ENT_QUOTES, 'UTF-8') ?>
+            </button>
+        </a><br>
+        <?php
+    } elseif ($sites_categories[4] == 1) {
+        ?>
+        <a href="<?= htmlspecialchars($url, ENT_QUOTES, 'UTF-8') ?>"
+           target="_blank">
+            <button type="button" class="document">
+                <?= htmlspecialchars($title, ENT_QUOTES, 'UTF-8') ?>
+            </button>
+        </a><br>
+        <?php
+    } else {
+        ?>
+        <a href="<?= htmlspecialchars($url, ENT_QUOTES, 'UTF-8') ?>"
+           target="1">
+            <button type="button">
+                <?= htmlspecialchars($title, ENT_QUOTES, 'UTF-8') ?>
+            </button>
+        </a><br>
+        <?php
+    }
+}
+?>
+</div>
+
+<div class="container frame">
+<iframe name="1"
+        id="mainFrame"
+        src="<?= htmlspecialchars($defaultFrameUrl, ENT_QUOTES, 'UTF-8') ?>">
+</iframe>
             </div>
             <?php if ($_SESSION['user']['status'] == 9) { ?><!-- Берем Роль пользователя и проверяем если она равно 9 (у нас это админ) то показываем Правое меню-->
                 <div class="rmenu">

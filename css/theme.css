@@ -1,0 +1,379 @@
+/* =========================================================================
+   ORStudio — Unified Theme / Design System (redesign)
+   Подключается ПОСЛЕДНИМ стилем в <head>, чтобы аккуратно переопределить
+   старые разрозненные css-файлы без переписывания разметки/PHP-логики.
+   Раздел не затронут: Вентра, Финансы, IP.
+   ========================================================================= */
+
+:root {
+  /* --- Палитра --- */
+  --t-bg: #f4f6fb;
+  --t-bg-soft: #eef1f8;
+  --t-surface: #ffffff;
+  --t-surface-2: #fbfcfe;
+  --t-border: #e3e7f0;
+  --t-border-strong: #d3d9e6;
+
+  --t-text: #1c2333;
+  --t-text-muted: #6b7280;
+  --t-text-soft: #94a0b4;
+
+  --t-primary: #4f6df5;
+  --t-primary-hover: #3d59e0;
+  --t-primary-soft: #eaefff;
+  --t-primary-text: #ffffff;
+
+  --t-success: #16a34a;
+  --t-success-soft: #e8f8ee;
+  --t-warning: #d97706;
+  --t-warning-soft: #fff4e5;
+  --t-danger: #e0433f;
+  --t-danger-soft: #fdeceb;
+
+  --t-radius-sm: 8px;
+  --t-radius: 14px;
+  --t-radius-lg: 20px;
+
+  --t-shadow-sm: 0 1px 3px rgba(20, 30, 60, 0.06);
+  --t-shadow: 0 6px 20px rgba(20, 30, 60, 0.08);
+  --t-shadow-lg: 0 16px 40px rgba(20, 30, 60, 0.12);
+
+  --t-font: "Inter", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* ---------- Базовый сброс/типографика ---------- */
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  background: var(--t-bg) !important;
+  color: var(--t-text) !important;
+  font-family: var(--t-font) !important;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--t-font);
+  color: var(--t-text);
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0 0 12px;
+}
+h1 { font-size: 1.7rem; }
+h2 { font-size: 1.35rem; }
+h3 { font-size: 1.15rem; }
+
+p { color: var(--t-text); }
+
+a { color: var(--t-primary); text-decoration: none; }
+a:hover { color: var(--t-primary-hover); }
+
+hr {
+  border: none;
+  border-top: 1px solid var(--t-border);
+  margin: 16px 0;
+}
+
+/* Скроллбар */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: #c7cee0;
+  border-radius: 10px;
+  border: 2px solid var(--t-bg);
+}
+::-webkit-scrollbar-thumb:hover { background: #a9b3cc; }
+
+/* ---------- Кнопки (все обычные <button> и ссылки-кнопки) ---------- */
+button,
+input[type="submit"],
+input[type="button"] {
+  font-family: var(--t-font);
+  background: var(--t-surface);
+  color: var(--t-text);
+  border: 1px solid var(--t-border-strong);
+  border-radius: var(--t-radius-sm);
+  padding: 9px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: var(--t-shadow-sm);
+  transition: transform .12s ease, box-shadow .12s ease, background .12s ease, border-color .12s ease;
+}
+
+button:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--t-shadow);
+  border-color: var(--t-primary);
+}
+
+button:active,
+input[type="submit"]:active,
+input[type="button"]:active {
+  transform: translateY(0);
+}
+
+/* Кнопки "первичного" действия: в шапке/панелях/формах сохранения */
+.MisPanel button,
+.header button,
+.header .MD,
+button.MD,
+button[type="submit"],
+.taskadd button,
+.block-add-comments button,
+.btn,
+.btn-primary,
+.docs_btn,
+.btn_mob_menu,
+button.document {
+  background: var(--t-primary) !important;
+  color: var(--t-primary-text) !important;
+  border: 1px solid var(--t-primary) !important;
+}
+
+.MisPanel button:hover,
+.header button:hover,
+button.MD:hover,
+button[type="submit"]:hover,
+.btn:hover,
+.btn-primary:hover,
+.docs_btn:hover,
+.btn_mob_menu:hover {
+  background: var(--t-primary-hover) !important;
+  border-color: var(--t-primary-hover) !important;
+}
+
+/* Опасные/удаляющие действия */
+.exit button,
+button.danger,
+.btn-danger {
+  background: var(--t-danger) !important;
+  border-color: var(--t-danger) !important;
+  color: #fff !important;
+}
+
+/* ---------- Формы ---------- */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="date"],
+input[type="number"],
+input[type="file"],
+input[type="search"],
+input:not([type]),
+select,
+textarea {
+  font-family: var(--t-font);
+  background: var(--t-surface);
+  color: var(--t-text);
+  border: 1px solid var(--t-border-strong);
+  border-radius: var(--t-radius-sm);
+  padding: 9px 12px;
+  font-size: 14px;
+  margin: 4px 0;
+  transition: border-color .12s ease, box-shadow .12s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--t-primary);
+  box-shadow: 0 0 0 3px var(--t-primary-soft);
+}
+
+textarea { min-height: 90px; resize: vertical; }
+
+label { color: var(--t-text-muted); font-size: 13px; font-weight: 600; }
+
+/* ---------- Таблицы ---------- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--t-surface);
+  border-radius: var(--t-radius-sm);
+  overflow: hidden;
+  box-shadow: var(--t-shadow-sm);
+}
+
+th, td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--t-border);
+  text-align: left;
+  font-size: 14px;
+}
+
+th {
+  background: var(--t-bg-soft);
+  color: var(--t-text-muted);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: .03em;
+}
+
+tr:hover td { background: var(--t-surface-2); }
+
+/* =========================================================================
+   Каркас сайта: .all / .header / .MisPanel / .body / .lmenu / .rmenu / .footer
+   Используется на index.php, index_admin.php, M.index_admin.php,
+   folders/user_list.php и т.д.
+   ========================================================================= */
+
+.all { background: transparent; }
+
+.header,
+.header_admin {
+  background: var(--t-surface) !important;
+  border: 1px solid var(--t-border);
+  box-shadow: var(--t-shadow-sm) !important;
+  border-radius: 0 0 var(--t-radius) var(--t-radius) !important;
+}
+
+.MisPanel {
+  background: var(--t-surface) !important;
+  border: 1px solid var(--t-border);
+  box-shadow: var(--t-shadow-sm) !important;
+  border-radius: var(--t-radius) !important;
+}
+
+.misPanel-hr, .footer-hr { border-top: 1px solid var(--t-border) !important; }
+
+.lmenu, .rmenu, .container, .container_admin {
+  background: var(--t-surface) !important;
+  border: 1px solid var(--t-border);
+  box-shadow: var(--t-shadow-sm) !important;
+  border-radius: var(--t-radius) !important;
+}
+
+.container iframe, .rmenu iframe {
+  border-radius: var(--t-radius-sm) !important;
+  box-shadow: none !important;
+  border: 1px solid var(--t-border) !important;
+}
+
+.footer {
+  background: var(--t-surface) !important;
+  border: 1px solid var(--t-border);
+  box-shadow: var(--t-shadow-sm) !important;
+  border-radius: var(--t-radius) var(--t-radius) 0 0 !important;
+}
+
+.footer .ink { color: var(--t-text-soft) !important; }
+.clock { color: var(--t-primary) !important; }
+
+/* Счётчики на главной */
+.count_married, .count_married_anniversary {
+  color: var(--t-primary) !important;
+  background: var(--t-primary-soft);
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 13px !important;
+}
+
+/* =========================================================================
+   Task Manager (Bootstrap accordion) — task_bootstrap.php / task_user.php
+   ========================================================================= */
+
+.accordion-item {
+  border: 1px solid var(--t-border) !important;
+  border-radius: var(--t-radius-sm) !important;
+  overflow: hidden;
+  margin-bottom: 10px;
+  box-shadow: var(--t-shadow-sm);
+}
+
+.accordion-button {
+  background: var(--t-surface) !important;
+  color: var(--t-text) !important;
+  font-weight: 600;
+  box-shadow: none !important;
+}
+
+.accordion-button:not(.collapsed) {
+  background: var(--t-primary-soft) !important;
+  color: var(--t-text) !important;
+}
+
+.accordion-button::after { filter: none; }
+
+.accordion-body {
+  background: var(--t-surface-2) !important;
+}
+
+.nametasks { font-weight: 700; }
+.number { color: var(--t-text-soft); margin: 0; }
+
+font.prioritet-task0,
+font.prioritet-task1,
+font.prioritet-task2 {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+}
+font.prioritet-task0 { background: var(--t-danger-soft); color: var(--t-danger); }
+font.prioritet-task1 { background: var(--t-warning-soft); color: var(--t-warning); }
+font.prioritet-task2 { background: var(--t-bg-soft); color: var(--t-text-muted); }
+
+.owner, .owner-comment {
+  font-style: normal;
+  font-weight: 700;
+  color: var(--t-primary);
+}
+
+.creation_date { color: var(--t-text-soft); font-size: 12px; }
+
+.pictures-in-tasks {
+  border-radius: var(--t-radius-sm);
+  max-width: 100%;
+  box-shadow: var(--t-shadow-sm);
+}
+
+.block-add-comments {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--t-border);
+}
+
+/* =========================================================================
+   Общие "карточные" разделы (folders/*): база знаний, доски, списки,
+   формы добавления и т.п. Работает даже без явных классов.
+   ========================================================================= */
+
+body.iframe-body,
+.folders,
+.wrapper,
+.allbody,
+main {
+  background: transparent;
+}
+
+/* Карточки-обёртки контента внутри iframe-страниц */
+.folders > a,
+.folders > button {
+  margin: 4px;
+}
+
+.add_comments,
+.taskadd,
+.block-add-comments {
+  background: var(--t-surface);
+  border: 1px solid var(--t-border);
+  border-radius: var(--t-radius);
+  padding: 16px;
+  box-shadow: var(--t-shadow-sm);
+}
+
+/* =========================================================================
+   Адаптивность
+   ========================================================================= */
+@media (max-width: 700px) {
+  h1 { font-size: 1.4rem; }
+  button, input, select, textarea { font-size: 15px; }
+}
